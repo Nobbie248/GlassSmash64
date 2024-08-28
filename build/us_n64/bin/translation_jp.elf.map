@@ -1,0 +1,1567 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x1b000000
+LOAD build/us_n64/bin/translation_jp.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
+                0x0000000000400000                . = SEGMENT_START ("text-segment", 0x400000)
+
+.interp
+ *(.interp)
+
+.MIPS.abiflags  0x0000000000400000       0x18
+ *(.MIPS.abiflags)
+ .MIPS.abiflags
+                0x0000000000400000       0x18 build/us_n64/bin/translation_jp.o
+
+.reginfo        0x0000000000400018       0x18
+ *(.reginfo)
+ .reginfo       0x0000000000400018       0x18 build/us_n64/bin/translation_jp.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x0000000000400018        0x0
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.dyn)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rel_iplt_start = .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end = .)
+
+.rela.dyn       0x0000000000400018        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start = .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end = .)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x000000001b000000        0x0
+                0x000000001b000000                _ftext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x000000001b000000        0x0 build/us_n64/bin/translation_jp.o
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(SORT_NONE(.fini))
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata         0x000000001b000000     0xe06c
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.act_name_table_jp
+                0x000000001b000000      0x188 build/us_n64/bin/translation_jp.o
+                0x000000001b000000                act_name_table_jp
+ .rodata.extra_text_6
+                0x000000001b000188       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0001b1        0x3 
+ .rodata.extra_text_5
+                0x000000001b0001b4       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0001dd        0x3 
+ .rodata.extra_text_4
+                0x000000001b0001e0       0x2c build/us_n64/bin/translation_jp.o
+ .rodata.extra_text_3
+                0x000000001b00020c       0x2f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00023b        0x1 
+ .rodata.extra_text_2
+                0x000000001b00023c       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000265        0x3 
+ .rodata.extra_text_1
+                0x000000001b000268       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00028e        0x2 
+ .rodata.extra_text_0
+                0x000000001b000290       0x1f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0002af        0x1 
+ .rodata.act_name_COURSE_RR_6
+                0x000000001b0002b0       0x1e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0002ce        0x2 
+ .rodata.act_name_COURSE_RR_5
+                0x000000001b0002d0       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_RR_4
+                0x000000001b0002f0       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000316        0x2 
+ .rodata.act_name_COURSE_RR_3
+                0x000000001b000318       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00033b        0x1 
+ .rodata.act_name_COURSE_RR_2
+                0x000000001b00033c       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000359        0x3 
+ .rodata.act_name_COURSE_RR_1
+                0x000000001b00035c       0x1b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000377        0x1 
+ .rodata.act_name_COURSE_TTC_6
+                0x000000001b000378       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_TTC_5
+                0x000000001b000398       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_TTC_4
+                0x000000001b0003b8       0x27 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0003df        0x1 
+ .rodata.act_name_COURSE_TTC_3
+                0x000000001b0003e0       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000403        0x1 
+ .rodata.act_name_COURSE_TTC_2
+                0x000000001b000404       0x14 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_TTC_1
+                0x000000001b000418       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_THI_6
+                0x000000001b000438       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000455        0x3 
+ .rodata.act_name_COURSE_THI_5
+                0x000000001b000458       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00047b        0x1 
+ .rodata.act_name_COURSE_THI_4
+                0x000000001b00047c       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0004a2        0x2 
+ .rodata.act_name_COURSE_THI_3
+                0x000000001b0004a4       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0004c7        0x1 
+ .rodata.act_name_COURSE_THI_2
+                0x000000001b0004c8       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_THI_1
+                0x000000001b0004e8       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00050d        0x3 
+ .rodata.act_name_COURSE_TTM_6
+                0x000000001b000510       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000533        0x1 
+ .rodata.act_name_COURSE_TTM_5
+                0x000000001b000534       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00055a        0x2 
+ .rodata.act_name_COURSE_TTM_4
+                0x000000001b00055c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_TTM_3
+                0x000000001b00057c       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0005a2        0x2 
+ .rodata.act_name_COURSE_TTM_2
+                0x000000001b0005a4       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0005cd        0x3 
+ .rodata.act_name_COURSE_TTM_1
+                0x000000001b0005d0       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0005f3        0x1 
+ .rodata.act_name_COURSE_WDW_6
+                0x000000001b0005f4       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_WDW_5
+                0x000000001b000614       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00063a        0x2 
+ .rodata.act_name_COURSE_WDW_4
+                0x000000001b00063c       0x2b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000667        0x1 
+ .rodata.act_name_COURSE_WDW_3
+                0x000000001b000668       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000691        0x3 
+ .rodata.act_name_COURSE_WDW_2
+                0x000000001b000694       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0006b5        0x3 
+ .rodata.act_name_COURSE_WDW_1
+                0x000000001b0006b8       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_SL_6
+                0x000000001b0006d8       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_SL_5
+                0x000000001b0006f8       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00071e        0x2 
+ .rodata.act_name_COURSE_SL_4
+                0x000000001b000720       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000741        0x3 
+ .rodata.act_name_COURSE_SL_3
+                0x000000001b000744       0x1a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00075e        0x2 
+ .rodata.act_name_COURSE_SL_2
+                0x000000001b000760       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000783        0x1 
+ .rodata.act_name_COURSE_SL_1
+                0x000000001b000784       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0007a7        0x1 
+ .rodata.act_name_COURSE_DDD_6
+                0x000000001b0007a8       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0007c5        0x3 
+ .rodata.act_name_COURSE_DDD_5
+                0x000000001b0007c8       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0007e5        0x3 
+ .rodata.act_name_COURSE_DDD_4
+                0x000000001b0007e8       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000809        0x3 
+ .rodata.act_name_COURSE_DDD_3
+                0x000000001b00080c       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000832        0x2 
+ .rodata.act_name_COURSE_DDD_2
+                0x000000001b000834       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_DDD_1
+                0x000000001b000854       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_SSL_6
+                0x000000001b000874       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000899        0x3 
+ .rodata.act_name_COURSE_SSL_5
+                0x000000001b00089c       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0008bf        0x1 
+ .rodata.act_name_COURSE_SSL_4
+                0x000000001b0008c0       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0008e6        0x2 
+ .rodata.act_name_COURSE_SSL_3
+                0x000000001b0008e8       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000911        0x3 
+ .rodata.act_name_COURSE_SSL_2
+                0x000000001b000914       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000937        0x1 
+ .rodata.act_name_COURSE_SSL_1
+                0x000000001b000938       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00095e        0x2 
+ .rodata.act_name_COURSE_LLL_6
+                0x000000001b000960       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_LLL_5
+                0x000000001b000980       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_LLL_4
+                0x000000001b0009a0       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_LLL_3
+                0x000000001b0009c0       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0009e6        0x2 
+ .rodata.act_name_COURSE_LLL_2
+                0x000000001b0009e8       0x22 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000a0a        0x2 
+ .rodata.act_name_COURSE_LLL_1
+                0x000000001b000a0c       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000a29        0x3 
+ .rodata.act_name_COURSE_HMC_6
+                0x000000001b000a2c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_HMC_5
+                0x000000001b000a4c       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000a75        0x3 
+ .rodata.act_name_COURSE_HMC_4
+                0x000000001b000a78       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_HMC_3
+                0x000000001b000a98       0x1a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000ab2        0x2 
+ .rodata.act_name_COURSE_HMC_2
+                0x000000001b000ab4       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000ada        0x2 
+ .rodata.act_name_COURSE_HMC_1
+                0x000000001b000adc       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000aff        0x1 
+ .rodata.act_name_COURSE_BBH_6
+                0x000000001b000b00       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000b23        0x1 
+ .rodata.act_name_COURSE_BBH_5
+                0x000000001b000b24       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000b47        0x1 
+ .rodata.act_name_COURSE_BBH_4
+                0x000000001b000b48       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_BBH_3
+                0x000000001b000b68       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_BBH_2
+                0x000000001b000b88       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000bae        0x2 
+ .rodata.act_name_COURSE_BBH_1
+                0x000000001b000bb0       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000bd3        0x1 
+ .rodata.act_name_COURSE_CCM_6
+                0x000000001b000bd4       0x27 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000bfb        0x1 
+ .rodata.act_name_COURSE_CCM_5
+                0x000000001b000bfc       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000c19        0x3 
+ .rodata.act_name_COURSE_CCM_4
+                0x000000001b000c1c       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000c42        0x2 
+ .rodata.act_name_COURSE_CCM_3
+                0x000000001b000c44       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000c6d        0x3 
+ .rodata.act_name_COURSE_CCM_2
+                0x000000001b000c70       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000c8d        0x3 
+ .rodata.act_name_COURSE_CCM_1
+                0x000000001b000c90       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000cb5        0x3 
+ .rodata.act_name_COURSE_JRB_6
+                0x000000001b000cb8       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000cd9        0x3 
+ .rodata.act_name_COURSE_JRB_5
+                0x000000001b000cdc       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000d02        0x2 
+ .rodata.act_name_COURSE_JRB_4
+                0x000000001b000d04       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000d2a        0x2 
+ .rodata.act_name_COURSE_JRB_3
+                0x000000001b000d2c       0x29 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000d55        0x3 
+ .rodata.act_name_COURSE_JRB_2
+                0x000000001b000d58       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000d7b        0x1 
+ .rodata.act_name_COURSE_JRB_1
+                0x000000001b000d7c       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000d9f        0x1 
+ .rodata.act_name_COURSE_WF_6
+                0x000000001b000da0       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000dc3        0x1 
+ .rodata.act_name_COURSE_WF_5
+                0x000000001b000dc4       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000de1        0x3 
+ .rodata.act_name_COURSE_WF_4
+                0x000000001b000de4       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000e07        0x1 
+ .rodata.act_name_COURSE_WF_3
+                0x000000001b000e08       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_WF_2
+                0x000000001b000e28       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000e45        0x3 
+ .rodata.act_name_COURSE_WF_1
+                0x000000001b000e48       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000e6b        0x1 
+ .rodata.act_name_COURSE_BOB_6
+                0x000000001b000e6c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.act_name_COURSE_BOB_5
+                0x000000001b000e8c       0x26 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000eb2        0x2 
+ .rodata.act_name_COURSE_BOB_4
+                0x000000001b000eb4       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000ed1        0x3 
+ .rodata.act_name_COURSE_BOB_3
+                0x000000001b000ed4       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000ef7        0x1 
+ .rodata.act_name_COURSE_BOB_2
+                0x000000001b000ef8       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000f1b        0x1 
+ .rodata.act_name_COURSE_BOB_1
+                0x000000001b000f1c       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000f3f        0x1 
+ .rodata.course_name_table_jp
+                0x000000001b000f40       0x6c build/us_n64/bin/translation_jp.o
+                0x000000001b000f40                course_name_table_jp
+ .rodata.course_name_table_jp_castle_secret_stars
+                0x000000001b000fac       0x1f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000fcb        0x1 
+ .rodata.course_name_table_jp_COURSE_CAKE_END
+                0x000000001b000fcc       0x16 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b000fe2        0x2 
+ .rodata.course_name_table_jp_COURSE_SA
+                0x000000001b000fe4       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001001        0x3 
+ .rodata.course_name_table_jp_COURSE_WMOTR
+                0x000000001b001004       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001025        0x3 
+ .rodata.course_name_table_jp_COURSE_VCUTM
+                0x000000001b001028       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00104d        0x3 
+ .rodata.course_name_table_jp_COURSE_TOTWC
+                0x000000001b001050       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001075        0x3 
+ .rodata.course_name_table_jp_COURSE_COTMC
+                0x000000001b001078       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_PSS
+                0x000000001b001098       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0010bd        0x3 
+ .rodata.course_name_table_jp_COURSE_BITS
+                0x000000001b0010c0       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_BITFS
+                0x000000001b0010e0       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001101        0x3 
+ .rodata.course_name_table_jp_COURSE_BITDW
+                0x000000001b001104       0x21 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001125        0x3 
+ .rodata.course_name_table_jp_COURSE_RR
+                0x000000001b001128       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001145        0x3 
+ .rodata.course_name_table_jp_COURSE_TTC
+                0x000000001b001148       0x1c build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_THI
+                0x000000001b001164       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001181        0x3 
+ .rodata.course_name_table_jp_COURSE_TTM
+                0x000000001b001184       0x22 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0011a6        0x2 
+ .rodata.course_name_table_jp_COURSE_WDW
+                0x000000001b0011a8       0x19 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0011c1        0x3 
+ .rodata.course_name_table_jp_COURSE_SL
+                0x000000001b0011c4       0x1d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0011e1        0x3 
+ .rodata.course_name_table_jp_COURSE_DDD
+                0x000000001b0011e4       0x1a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0011fe        0x2 
+ .rodata.course_name_table_jp_COURSE_SSL
+                0x000000001b001200       0x1a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00121a        0x2 
+ .rodata.course_name_table_jp_COURSE_LLL
+                0x000000001b00121c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_HMC
+                0x000000001b00123c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_BBH
+                0x000000001b00125c       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.course_name_table_jp_COURSE_CCM
+                0x000000001b00127c       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00129f        0x1 
+ .rodata.course_name_table_jp_COURSE_JRB
+                0x000000001b0012a0       0x1a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0012ba        0x2 
+ .rodata.course_name_table_jp_COURSE_WF
+                0x000000001b0012bc       0x23 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0012df        0x1 
+ .rodata.course_name_table_jp_COURSE_BOB
+                0x000000001b0012e0       0x20 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_table_jp
+                0x000000001b001300      0x2ac build/us_n64/bin/translation_jp.o
+                0x000000001b001300                dialog_table_jp
+ .rodata.dialog_entry_DIALOG_169
+                0x000000001b0015ac        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_168
+                0x000000001b0015b8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_167
+                0x000000001b0015c4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_166
+                0x000000001b0015d0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_165
+                0x000000001b0015dc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_164
+                0x000000001b0015e8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_163
+                0x000000001b0015f4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_162
+                0x000000001b001600        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_161
+                0x000000001b00160c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_160
+                0x000000001b001618        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_159
+                0x000000001b001624        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_158
+                0x000000001b001630        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_157
+                0x000000001b00163c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_156
+                0x000000001b001648        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_155
+                0x000000001b001654        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_154
+                0x000000001b001660        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_153
+                0x000000001b00166c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_152
+                0x000000001b001678        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_151
+                0x000000001b001684        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_150
+                0x000000001b001690        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_149
+                0x000000001b00169c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_148
+                0x000000001b0016a8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_147
+                0x000000001b0016b4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_146
+                0x000000001b0016c0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_145
+                0x000000001b0016cc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_144
+                0x000000001b0016d8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_143
+                0x000000001b0016e4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_142
+                0x000000001b0016f0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_141
+                0x000000001b0016fc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_140
+                0x000000001b001708        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_139
+                0x000000001b001714        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_138
+                0x000000001b001720        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_137
+                0x000000001b00172c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_136
+                0x000000001b001738        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_135
+                0x000000001b001744        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_134
+                0x000000001b001750        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_133
+                0x000000001b00175c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_132
+                0x000000001b001768        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_131
+                0x000000001b001774        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_130
+                0x000000001b001780        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_129
+                0x000000001b00178c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_128
+                0x000000001b001798        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_127
+                0x000000001b0017a4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_126
+                0x000000001b0017b0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_125
+                0x000000001b0017bc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_124
+                0x000000001b0017c8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_123
+                0x000000001b0017d4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_122
+                0x000000001b0017e0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_121
+                0x000000001b0017ec        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_120
+                0x000000001b0017f8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_119
+                0x000000001b001804        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_118
+                0x000000001b001810        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_117
+                0x000000001b00181c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_116
+                0x000000001b001828        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_115
+                0x000000001b001834        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_114
+                0x000000001b001840        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_113
+                0x000000001b00184c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_112
+                0x000000001b001858        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_111
+                0x000000001b001864        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_110
+                0x000000001b001870        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_109
+                0x000000001b00187c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_108
+                0x000000001b001888        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_107
+                0x000000001b001894        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_106
+                0x000000001b0018a0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_105
+                0x000000001b0018ac        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_104
+                0x000000001b0018b8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_103
+                0x000000001b0018c4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_102
+                0x000000001b0018d0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_101
+                0x000000001b0018dc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_100
+                0x000000001b0018e8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_099
+                0x000000001b0018f4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_098
+                0x000000001b001900        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_097
+                0x000000001b00190c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_096
+                0x000000001b001918        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_095
+                0x000000001b001924        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_094
+                0x000000001b001930        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_093
+                0x000000001b00193c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_092
+                0x000000001b001948        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_091
+                0x000000001b001954        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_090
+                0x000000001b001960        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_089
+                0x000000001b00196c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_088
+                0x000000001b001978        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_087
+                0x000000001b001984        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_086
+                0x000000001b001990        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_085
+                0x000000001b00199c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_084
+                0x000000001b0019a8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_083
+                0x000000001b0019b4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_082
+                0x000000001b0019c0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_081
+                0x000000001b0019cc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_080
+                0x000000001b0019d8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_079
+                0x000000001b0019e4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_078
+                0x000000001b0019f0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_077
+                0x000000001b0019fc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_076
+                0x000000001b001a08        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_075
+                0x000000001b001a14        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_074
+                0x000000001b001a20        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_073
+                0x000000001b001a2c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_072
+                0x000000001b001a38        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_071
+                0x000000001b001a44        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_070
+                0x000000001b001a50        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_069
+                0x000000001b001a5c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_068
+                0x000000001b001a68        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_SOUND_OBJ_BOWSER_LAUGH
+                0x000000001b001a74        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_066
+                0x000000001b001a80        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_065
+                0x000000001b001a8c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_064
+                0x000000001b001a98        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_063
+                0x000000001b001aa4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_062
+                0x000000001b001ab0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_061
+                0x000000001b001abc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_060
+                0x000000001b001ac8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_059
+                0x000000001b001ad4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_058
+                0x000000001b001ae0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_057
+                0x000000001b001aec        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_056
+                0x000000001b001af8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_055
+                0x000000001b001b04        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_054
+                0x000000001b001b10        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_053
+                0x000000001b001b1c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_052
+                0x000000001b001b28        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_051
+                0x000000001b001b34        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_050
+                0x000000001b001b40        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_049
+                0x000000001b001b4c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_048
+                0x000000001b001b58        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_047
+                0x000000001b001b64        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_046
+                0x000000001b001b70        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_045
+                0x000000001b001b7c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_044
+                0x000000001b001b88        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_043
+                0x000000001b001b94        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_042
+                0x000000001b001ba0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_041
+                0x000000001b001bac        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_040
+                0x000000001b001bb8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_039
+                0x000000001b001bc4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_038
+                0x000000001b001bd0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_037
+                0x000000001b001bdc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_036
+                0x000000001b001be8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_035
+                0x000000001b001bf4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_034
+                0x000000001b001c00        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_033
+                0x000000001b001c0c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_032
+                0x000000001b001c18        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_031
+                0x000000001b001c24        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_030
+                0x000000001b001c30        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_029
+                0x000000001b001c3c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_028
+                0x000000001b001c48        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_027
+                0x000000001b001c54        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_026
+                0x000000001b001c60        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_025
+                0x000000001b001c6c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_024
+                0x000000001b001c78        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_023
+                0x000000001b001c84        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_022
+                0x000000001b001c90        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_021
+                0x000000001b001c9c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_020
+                0x000000001b001ca8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_019
+                0x000000001b001cb4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_018
+                0x000000001b001cc0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_017
+                0x000000001b001ccc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_016
+                0x000000001b001cd8        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_015
+                0x000000001b001ce4        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_014
+                0x000000001b001cf0        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_013
+                0x000000001b001cfc        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_012
+                0x000000001b001d08        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_011
+                0x000000001b001d14        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_010
+                0x000000001b001d20        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_SOUND_OBJ_KOOPA_TALK
+                0x000000001b001d2c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_008
+                0x000000001b001d38        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_007
+                0x000000001b001d44        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_006
+                0x000000001b001d50        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_005
+                0x000000001b001d5c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_004
+                0x000000001b001d68        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_003
+                0x000000001b001d74        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_002
+                0x000000001b001d80        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_001
+                0x000000001b001d8c        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_entry_DIALOG_000
+                0x000000001b001d98        0xc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_169
+                0x000000001b001da4       0xa6 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b001e4a        0x2 
+ .rodata.dialog_text_DIALOG_168
+                0x000000001b001e4c       0x7c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_167
+                0x000000001b001ec8      0x139 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002001        0x3 
+ .rodata.dialog_text_DIALOG_166
+                0x000000001b002004       0xc3 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0020c7        0x1 
+ .rodata.dialog_text_DIALOG_165
+                0x000000001b0020c8       0x61 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002129        0x3 
+ .rodata.dialog_text_DIALOG_164
+                0x000000001b00212c       0xe0 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_163
+                0x000000001b00220c      0x33a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002546        0x2 
+ .rodata.dialog_text_DIALOG_162
+                0x000000001b002548      0x133 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00267b        0x1 
+ .rodata.dialog_text_DIALOG_161
+                0x000000001b00267c      0x159 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0027d5        0x3 
+ .rodata.dialog_text_DIALOG_160
+                0x000000001b0027d8       0xe3 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0028bb        0x1 
+ .rodata.dialog_text_DIALOG_159
+                0x000000001b0028bc      0x12c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_158
+                0x000000001b0029e8      0x1e9 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002bd1        0x3 
+ .rodata.dialog_text_DIALOG_157
+                0x000000001b002bd4      0x124 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_156
+                0x000000001b002cf8       0x8e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002d86        0x2 
+ .rodata.dialog_text_DIALOG_155
+                0x000000001b002d88      0x1ca build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b002f52        0x2 
+ .rodata.dialog_text_DIALOG_154
+                0x000000001b002f54      0x1da build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00312e        0x2 
+ .rodata.dialog_text_DIALOG_153
+                0x000000001b003130       0x82 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0031b2        0x2 
+ .rodata.dialog_text_DIALOG_152
+                0x000000001b0031b4      0x13f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0032f3        0x1 
+ .rodata.dialog_text_DIALOG_151
+                0x000000001b0032f4       0x73 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003367        0x1 
+ .rodata.dialog_text_DIALOG_150
+                0x000000001b003368       0x9b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003403        0x1 
+ .rodata.dialog_text_DIALOG_149
+                0x000000001b003404      0x15d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003561        0x3 
+ .rodata.dialog_text_DIALOG_148
+                0x000000001b003564      0x13f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0036a3        0x1 
+ .rodata.dialog_text_DIALOG_147
+                0x000000001b0036a4      0x1da build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00387e        0x2 
+ .rodata.dialog_text_DIALOG_146
+                0x000000001b003880       0xc3 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003943        0x1 
+ .rodata.dialog_text_DIALOG_145
+                0x000000001b003944      0x17a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003abe        0x2 
+ .rodata.dialog_text_DIALOG_144
+                0x000000001b003ac0      0x1ce build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003c8e        0x2 
+ .rodata.dialog_text_DIALOG_143
+                0x000000001b003c90       0xc3 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b003d53        0x1 
+ .rodata.dialog_text_DIALOG_142
+                0x000000001b003d54      0x148 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_141
+                0x000000001b003e9c      0x1df build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00407b        0x1 
+ .rodata.dialog_text_DIALOG_140
+                0x000000001b00407c       0xc8 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_139
+                0x000000001b004144       0xd5 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b004219        0x3 
+ .rodata.dialog_text_DIALOG_138
+                0x000000001b00421c       0xa7 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0042c3        0x1 
+ .rodata.dialog_text_DIALOG_137
+                0x000000001b0042c4      0x14e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b004412        0x2 
+ .rodata.dialog_text_DIALOG_136
+                0x000000001b004414      0x238 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_135
+                0x000000001b00464c      0x213 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00485f        0x1 
+ .rodata.dialog_text_DIALOG_134
+                0x000000001b004860      0x21d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b004a7d        0x3 
+ .rodata.dialog_text_DIALOG_133
+                0x000000001b004a80      0x34f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b004dcf        0x1 
+ .rodata.dialog_text_DIALOG_132
+                0x000000001b004dd0       0x83 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b004e53        0x1 
+ .rodata.dialog_text_DIALOG_131
+                0x000000001b004e54      0x1fe build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b005052        0x2 
+ .rodata.dialog_text_DIALOG_130
+                0x000000001b005054      0x12a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00517e        0x2 
+ .rodata.dialog_text_DIALOG_129
+                0x000000001b005180      0x13f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0052bf        0x1 
+ .rodata.dialog_text_DIALOG_128
+                0x000000001b0052c0       0x94 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_127
+                0x000000001b005354      0x132 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b005486        0x2 
+ .rodata.dialog_text_DIALOG_126
+                0x000000001b005488       0x86 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00550e        0x2 
+ .rodata.dialog_text_DIALOG_125
+                0x000000001b005510       0x6f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00557f        0x1 
+ .rodata.dialog_text_DIALOG_124
+                0x000000001b005580       0xea build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00566a        0x2 
+ .rodata.dialog_text_DIALOG_123
+                0x000000001b00566c       0x63 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0056cf        0x1 
+ .rodata.dialog_text_DIALOG_122
+                0x000000001b0056d0       0x85 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b005755        0x3 
+ .rodata.dialog_text_DIALOG_121
+                0x000000001b005758      0x251 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0059a9        0x3 
+ .rodata.dialog_text_DIALOG_120
+                0x000000001b0059ac      0x180 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_119
+                0x000000001b005b2c      0x1a1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b005ccd        0x3 
+ .rodata.dialog_text_DIALOG_118
+                0x000000001b005cd0       0xa4 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_117
+                0x000000001b005d74       0xb4 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_116
+                0x000000001b005e28      0x166 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b005f8e        0x2 
+ .rodata.dialog_text_DIALOG_115
+                0x000000001b005f90       0xda build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00606a        0x2 
+ .rodata.dialog_text_DIALOG_114
+                0x000000001b00606c      0x220 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_113
+                0x000000001b00628c       0xdb build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006367        0x1 
+ .rodata.dialog_text_DIALOG_112
+                0x000000001b006368      0x125 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00648d        0x3 
+ .rodata.dialog_text_DIALOG_111
+                0x000000001b006490       0xc9 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006559        0x3 
+ .rodata.dialog_text_DIALOG_110
+                0x000000001b00655c      0x12c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_109
+                0x000000001b006688       0x9a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006722        0x2 
+ .rodata.dialog_text_DIALOG_108
+                0x000000001b006724       0x4b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00676f        0x1 
+ .rodata.dialog_text_DIALOG_107
+                0x000000001b006770       0x5d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0067cd        0x3 
+ .rodata.dialog_text_DIALOG_106
+                0x000000001b0067d0       0x57 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006827        0x1 
+ .rodata.dialog_text_DIALOG_105
+                0x000000001b006828      0x132 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00695a        0x2 
+ .rodata.dialog_text_DIALOG_104
+                0x000000001b00695c       0xdb build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006a37        0x1 
+ .rodata.dialog_text_DIALOG_103
+                0x000000001b006a38       0x8e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006ac6        0x2 
+ .rodata.dialog_text_DIALOG_102
+                0x000000001b006ac8      0x135 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006bfd        0x3 
+ .rodata.dialog_text_DIALOG_101
+                0x000000001b006c00       0x8f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006c8f        0x1 
+ .rodata.dialog_text_DIALOG_100
+                0x000000001b006c90       0x5b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006ceb        0x1 
+ .rodata.dialog_text_DIALOG_099
+                0x000000001b006cec       0xbd build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006da9        0x3 
+ .rodata.dialog_text_DIALOG_098
+                0x000000001b006dac       0x38 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_097
+                0x000000001b006de4       0x8b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006e6f        0x1 
+ .rodata.dialog_text_DIALOG_096
+                0x000000001b006e70      0x139 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b006fa9        0x3 
+ .rodata.dialog_text_DIALOG_095
+                0x000000001b006fac      0x13e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0070ea        0x2 
+ .rodata.dialog_text_DIALOG_094
+                0x000000001b0070ec       0xcc build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_093
+                0x000000001b0071b8      0x19b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007353        0x1 
+ .rodata.dialog_text_DIALOG_092
+                0x000000001b007354      0x12c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_091
+                0x000000001b007480       0x66 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0074e6        0x2 
+ .rodata.dialog_text_DIALOG_090
+                0x000000001b0074e8       0xba build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0075a2        0x2 
+ .rodata.dialog_text_DIALOG_089
+                0x000000001b0075a4      0x195 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007739        0x3 
+ .rodata.dialog_text_DIALOG_088
+                0x000000001b00773c       0x91 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0077cd        0x3 
+ .rodata.dialog_text_DIALOG_087
+                0x000000001b0077d0       0xb0 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_086
+                0x000000001b007880       0x4d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0078cd        0x3 
+ .rodata.dialog_text_DIALOG_085
+                0x000000001b0078d0       0x55 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007925        0x3 
+ .rodata.dialog_text_DIALOG_084
+                0x000000001b007928      0x145 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007a6d        0x3 
+ .rodata.dialog_text_DIALOG_083
+                0x000000001b007a70      0x10a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007b7a        0x2 
+ .rodata.dialog_text_DIALOG_082
+                0x000000001b007b7c      0x1fe build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007d7a        0x2 
+ .rodata.dialog_text_DIALOG_081
+                0x000000001b007d7c       0xbd build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007e39        0x3 
+ .rodata.dialog_text_DIALOG_080
+                0x000000001b007e3c       0x16 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007e52        0x2 
+ .rodata.dialog_text_DIALOG_079
+                0x000000001b007e54       0xfa build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b007f4e        0x2 
+ .rodata.dialog_text_DIALOG_078
+                0x000000001b007f50      0x14b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00809b        0x1 
+ .rodata.dialog_text_DIALOG_077
+                0x000000001b00809c       0x5d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0080f9        0x3 
+ .rodata.dialog_text_DIALOG_076
+                0x000000001b0080fc      0x1f2 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0082ee        0x2 
+ .rodata.dialog_text_DIALOG_075
+                0x000000001b0082f0      0x2ab build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00859b        0x1 
+ .rodata.dialog_text_DIALOG_074
+                0x000000001b00859c      0x15a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b0086f6        0x2 
+ .rodata.dialog_text_DIALOG_073
+                0x000000001b0086f8       0x96 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00878e        0x2 
+ .rodata.dialog_text_DIALOG_072
+                0x000000001b008790       0xbf build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00884f        0x1 
+ .rodata.dialog_text_DIALOG_071
+                0x000000001b008850       0xeb build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00893b        0x1 
+ .rodata.dialog_text_DIALOG_070
+                0x000000001b00893c      0x2ae build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b008bea        0x2 
+ .rodata.dialog_text_DIALOG_069
+                0x000000001b008bec      0x117 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b008d03        0x1 
+ .rodata.dialog_text_DIALOG_068
+                0x000000001b008d04      0x145 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b008e49        0x3 
+ .rodata.dialog_text_SOUND_OBJ_BOWSER_LAUGH
+                0x000000001b008e4c      0x174 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_066
+                0x000000001b008fc0      0x220 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_065
+                0x000000001b0091e0      0x275 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009455        0x3 
+ .rodata.dialog_text_DIALOG_064
+                0x000000001b009458      0x11c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_063
+                0x000000001b009574       0xc1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009635        0x3 
+ .rodata.dialog_text_DIALOG_062
+                0x000000001b009638      0x112 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00974a        0x2 
+ .rodata.dialog_text_DIALOG_061
+                0x000000001b00974c       0xbd build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009809        0x3 
+ .rodata.dialog_text_DIALOG_060
+                0x000000001b00980c      0x27d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009a89        0x3 
+ .rodata.dialog_text_DIALOG_059
+                0x000000001b009a8c       0x9b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009b27        0x1 
+ .rodata.dialog_text_DIALOG_058
+                0x000000001b009b28      0x145 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009c6d        0x3 
+ .rodata.dialog_text_DIALOG_057
+                0x000000001b009c70      0x17d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009ded        0x3 
+ .rodata.dialog_text_DIALOG_056
+                0x000000001b009df0       0xb7 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009ea7        0x1 
+ .rodata.dialog_text_DIALOG_055
+                0x000000001b009ea8      0x115 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b009fbd        0x3 
+ .rodata.dialog_text_DIALOG_054
+                0x000000001b009fc0       0x9a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a05a        0x2 
+ .rodata.dialog_text_DIALOG_053
+                0x000000001b00a05c       0xd2 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a12e        0x2 
+ .rodata.dialog_text_DIALOG_052
+                0x000000001b00a130      0x113 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a243        0x1 
+ .rodata.dialog_text_DIALOG_051
+                0x000000001b00a244      0x216 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a45a        0x2 
+ .rodata.dialog_text_DIALOG_050
+                0x000000001b00a45c      0x1aa build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a606        0x2 
+ .rodata.dialog_text_DIALOG_049
+                0x000000001b00a608      0x12d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a735        0x3 
+ .rodata.dialog_text_DIALOG_048
+                0x000000001b00a738       0x7c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_047
+                0x000000001b00a7b4       0x57 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00a80b        0x1 
+ .rodata.dialog_text_DIALOG_046
+                0x000000001b00a80c      0x322 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00ab2e        0x2 
+ .rodata.dialog_text_DIALOG_045
+                0x000000001b00ab30      0x117 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00ac47        0x1 
+ .rodata.dialog_text_DIALOG_044
+                0x000000001b00ac48      0x1c5 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00ae0d        0x3 
+ .rodata.dialog_text_DIALOG_043
+                0x000000001b00ae10       0xb1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00aec1        0x3 
+ .rodata.dialog_text_DIALOG_042
+                0x000000001b00aec4      0x193 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b057        0x1 
+ .rodata.dialog_text_DIALOG_041
+                0x000000001b00b058       0x7f build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b0d7        0x1 
+ .rodata.dialog_text_DIALOG_040
+                0x000000001b00b0d8       0x41 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b119        0x3 
+ .rodata.dialog_text_DIALOG_039
+                0x000000001b00b11c      0x1a6 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b2c2        0x2 
+ .rodata.dialog_text_DIALOG_038
+                0x000000001b00b2c4       0x66 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b32a        0x2 
+ .rodata.dialog_text_DIALOG_037
+                0x000000001b00b32c       0xbd build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b3e9        0x3 
+ .rodata.dialog_text_DIALOG_036
+                0x000000001b00b3ec      0x2b1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b69d        0x3 
+ .rodata.dialog_text_DIALOG_035
+                0x000000001b00b6a0      0x2af build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00b94f        0x1 
+ .rodata.dialog_text_DIALOG_034
+                0x000000001b00b950      0x327 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00bc77        0x1 
+ .rodata.dialog_text_DIALOG_033
+                0x000000001b00bc78      0x162 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00bdda        0x2 
+ .rodata.dialog_text_DIALOG_032
+                0x000000001b00bddc      0x113 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00beef        0x1 
+ .rodata.dialog_text_DIALOG_031
+                0x000000001b00bef0       0xc0 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_030
+                0x000000001b00bfb0      0x1a2 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c152        0x2 
+ .rodata.dialog_text_DIALOG_029
+                0x000000001b00c154       0xcf build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c223        0x1 
+ .rodata.dialog_text_DIALOG_028
+                0x000000001b00c224       0x94 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_027
+                0x000000001b00c2b8       0x8e build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c346        0x2 
+ .rodata.dialog_text_DIALOG_026
+                0x000000001b00c348       0x94 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_025
+                0x000000001b00c3dc       0x94 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_024
+                0x000000001b00c470       0xd2 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c542        0x2 
+ .rodata.dialog_text_DIALOG_023
+                0x000000001b00c544       0x5a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c59e        0x2 
+ .rodata.dialog_text_DIALOG_022
+                0x000000001b00c5a0       0x25 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c5c5        0x3 
+ .rodata.dialog_text_DIALOG_021
+                0x000000001b00c5c8       0x8c build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_020
+                0x000000001b00c654       0x82 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c6d6        0x2 
+ .rodata.dialog_text_DIALOG_019
+                0x000000001b00c6d8       0x35 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c70d        0x3 
+ .rodata.dialog_text_DIALOG_018
+                0x000000001b00c710       0x70 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_017
+                0x000000001b00c780      0x1b6 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00c936        0x2 
+ .rodata.dialog_text_DIALOG_016
+                0x000000001b00c938       0x88 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_015
+                0x000000001b00c9c0      0x12b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00caeb        0x1 
+ .rodata.dialog_text_DIALOG_014
+                0x000000001b00caec       0xea build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00cbd6        0x2 
+ .rodata.dialog_text_DIALOG_013
+                0x000000001b00cbd8       0xe1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00ccb9        0x3 
+ .rodata.dialog_text_DIALOG_012
+                0x000000001b00ccbc      0x11a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00cdd6        0x2 
+ .rodata.dialog_text_DIALOG_011
+                0x000000001b00cdd8      0x11a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00cef2        0x2 
+ .rodata.dialog_text_DIALOG_010
+                0x000000001b00cef4      0x10b build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00cfff        0x1 
+ .rodata.dialog_text_SOUND_OBJ_KOOPA_TALK
+                0x000000001b00d000      0x1e6 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d1e6        0x2 
+ .rodata.dialog_text_DIALOG_008
+                0x000000001b00d1e8      0x15a build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d342        0x2 
+ .rodata.dialog_text_DIALOG_007
+                0x000000001b00d344       0xa8 build/us_n64/bin/translation_jp.o
+ .rodata.dialog_text_DIALOG_006
+                0x000000001b00d3ec       0x6d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d459        0x3 
+ .rodata.dialog_text_DIALOG_005
+                0x000000001b00d45c      0x217 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d673        0x1 
+ .rodata.dialog_text_DIALOG_004
+                0x000000001b00d674      0x14d build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d7c1        0x3 
+ .rodata.dialog_text_DIALOG_003
+                0x000000001b00d7c4      0x1fe build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00d9c2        0x2 
+ .rodata.dialog_text_DIALOG_002
+                0x000000001b00d9c4      0x1f9 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00dbbd        0x3 
+ .rodata.dialog_text_DIALOG_001
+                0x000000001b00dbc0      0x2b1 build/us_n64/bin/translation_jp.o
+ *fill*         0x000000001b00de71        0x3 
+ .rodata.dialog_text_DIALOG_000
+                0x000000001b00de74      0x1f8 build/us_n64/bin/translation_jp.o
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x000000001b00f06c                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x000000001b00f06c        0x0
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x000000001b00f06c        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x000000001b00f06c        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+                0x000000001b00f06c                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x000000001b00f06c        0x0
+                0x000000001b00f06c                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x000000001b00f06c        0x0 build/us_n64/bin/translation_jp.o
+
+.data1
+ *(.data1)
+
+.got.plt
+ *(.got.plt)
+                0x000000001b00f06c                . = .
+                0x000000001b00f06c                . = .
+                0x000000001b017060                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got)
+
+.sdata
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x000000001b00f06c                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x000000001b00f06c                . = .
+                0x000000001b00f06c                __bss_start = .
+                0x000000001b00f06c                _fbss = .
+
+.sbss
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+
+.bss            0x000000001b00f06c        0x0
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000000001b00f06c        0x0 build/us_n64/bin/translation_jp.o
+ *(COMMON)
+                0x000000001b00f06c                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x000000001b00f06c                . = ALIGN (0x4)
+                0x000000001b00f06c                . = SEGMENT_START ("ldata-segment", .)
+                0x000000001b00f06c                . = ALIGN (0x4)
+                0x000000001b00f06c                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x000000001b00f06c                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x12
+ *(.comment)
+ .comment       0x0000000000000000       0x12 build/us_n64/bin/translation_jp.o
+                                         0x13 (size before relaxing)
+
+.pdr            0x0000000000000000        0x0
+ .pdr           0x0000000000000000        0x0 build/us_n64/bin/translation_jp.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+                0x0000000000000000       0x10
+ *(.gnu.attributes)
+ .gnu.attributes
+                0x0000000000000000       0x10 build/us_n64/bin/translation_jp.o
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32   0x0000000000000000        0x0
+ *(.mdebug.abi32)
+ .mdebug.abi32  0x0000000000000000        0x0 build/us_n64/bin/translation_jp.o
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(build/us_n64/bin/translation_jp.elf elf32-bigmips)

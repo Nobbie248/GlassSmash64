@@ -1,0 +1,11 @@
+extern const GeoLayout jabo_geo[];
+extern Lights1 jabo___f3d_layer5_lights;
+extern Lights1 jabo_f3dlite_material_004_layer5_lights;
+extern u8 jabo___ci4[];
+extern u8 jabo___pal_rgba16[];
+extern u8 jabo__52_ci4[];
+extern u8 jabo__52_pal_rgba16[];
+extern Vtx jabo_pl_mesh_layer_5_vtx_cull[8];
+extern Vtx jabo_pl_mesh_layer_5_vtx_0[4240];
+extern Vtx jabo_pl_mesh_layer_5_vtx_1[2131];
+extern Gfx jabo_pl_mesh_layer_5[];

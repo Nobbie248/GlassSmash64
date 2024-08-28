@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "header.h": "c",
+        "mario_actions_cutscene.h": "c",
+        "behavior_actions.h": "c",
+        "save_file.h": "c",
+        "external.h": "c",
+        "mario_actions_stationary.h": "c",
+        "camera.h": "c",
+        "spawn_object.h": "c"
+    }
+}

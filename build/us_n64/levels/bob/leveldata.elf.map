@@ -1,0 +1,817 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x7000000
+LOAD build/us_n64/bin/generic.elf
+LOAD build/us_n64/levels/bob/leveldata.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
+                0x0000000000400000                . = SEGMENT_START ("text-segment", 0x400000)
+
+.interp
+ *(.interp)
+
+.MIPS.abiflags  0x0000000000400000       0x18
+ *(.MIPS.abiflags)
+ .MIPS.abiflags
+                0x0000000000400000       0x18 build/us_n64/levels/bob/leveldata.o
+
+.reginfo        0x0000000000400018       0x18
+ *(.reginfo)
+ .reginfo       0x0000000000400018       0x18 build/us_n64/levels/bob/leveldata.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x0000000000400018        0x0 load address 0x0000000000400030
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.dyn)
+ .rel.dyn       0x0000000000400018        0x0 build/us_n64/levels/bob/leveldata.o
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rel_iplt_start = .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end = .)
+
+.rela.dyn       0x0000000000400018        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start = .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end = .)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000007000000        0x0 load address 0x0000000007000018
+                0x0000000007000000                _ftext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000007000000        0x0 build/us_n64/levels/bob/leveldata.o
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(SORT_NONE(.fini))
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000007000000                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+                0x0000000007000000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000007000000    0x6bf7a load address 0x0000000007000018
+                0x0000000007000000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000007000000    0x6bf7a build/us_n64/levels/bob/leveldata.o
+                0x0000000007000000                c1_leaf_tr_Plane_001_mesh_layer_5
+                0x0000000007000118                c1_leaf_tr_Plane_001_mesh_layer_5_vtx_0
+                0x0000000007000198                c1_leaf_tr_Plane_001_mesh_layer_5_vtx_cull
+                0x0000000007000218                c1_leaf_tr_tex1_64x64_6C4A9A62FBE286ED_13_pal_rgba16
+                0x0000000007000238                c1_leaf_tr_tex1_64x64_6C4A9A62FBE286ED_13_pal_rgba16_aligner
+                0x0000000007000240                c1_leaf_tr_tex1_64x64_6C4A9A62FBE286ED_13_ci4
+                0x0000000007000a40                c1_leaf_tr_tex1_64x64_6C4A9A62FBE286ED_13_ci4_aligner
+                0x0000000007000a48                c1_leaf_Plane_001_mesh_layer_4
+                0x0000000007000b50                c1_leaf_Plane_001_mesh_layer_4_vtx_0
+                0x0000000007000bd0                c1_leaf_Plane_001_mesh_layer_4_vtx_cull
+                0x0000000007000c50                c1_leaf_tex1_64x64_6C4A9A62FBE286ED_13_pal_rgba16
+                0x0000000007000c70                c1_leaf_tex1_64x64_6C4A9A62FBE286ED_13_pal_rgba16_aligner
+                0x0000000007000c78                c1_leaf_tex1_64x64_6C4A9A62FBE286ED_13_ci4
+                0x0000000007001478                c1_leaf_tex1_64x64_6C4A9A62FBE286ED_13_ci4_aligner
+                0x0000000007001480                c1_leaf_collision
+                0x00000000070014f0                bob_dl_InsideRock__World1Area3__001_mesh_layer_5
+                0x00000000070017e8                bob_dl_InsideRock__World1Area3__mesh_layer_1
+                0x0000000007001a98                bob_dl_Cave_World1_mesh_layer_1
+                0x0000000007003000                bob_dl_water_texture_mesh_layer_5
+                0x00000000070031d0                bob_dl_nzbg_001_mesh_layer_1
+                0x0000000007003478                bob_dl_nzbg_mesh_layer_1
+                0x0000000007003540                bob_dl_nzbg_mesh_layer_0
+                0x00000000070038b0                bob_dl_nweed_mesh_layer_4
+                0x0000000007003ef8                bob_dl_minside2_mesh_layer_1
+                0x0000000007004448                bob_dl_minside_mesh_layer_1
+                0x00000000070047c0                bob_dl_ltrees_mesh_layer_1
+                0x0000000007004f20                bob_dl_lsign2_mesh_layer_1
+                0x00000000070050c0                bob_dl_lsign_mesh_layer_5
+                0x00000000070051d0                bob_dl_lplat_mesh_layer_1
+                0x00000000070059a8                bob_dl_lflowers2_mesh_layer_4
+                0x0000000007005ab8                bob_dl_lflowers_mesh_layer_1
+                0x0000000007005d20                bob_dl_h_007_mesh_layer_1
+                0x0000000007005de0                bob_dl_h_007_mesh_layer_2
+                0x0000000007005fa0                bob_dl_h_006_because_texture_poking_through_mesh_layer_1
+                0x00000000070061a8                bob_dl_h_006_mesh_layer_1
+                0x0000000007006378                bob_dl_h_005_mesh_layer_1
+                0x0000000007006560                bob_dl_h_004_mesh_layer_4
+                0x00000000070066e8                bob_dl_h_003_mesh_layer_1
+                0x00000000070069c0                bob_dl_h_002_mesh_layer_1
+                0x0000000007006a68                bob_dl_h_001_mesh_layer_1
+                0x0000000007006bd8                bob_dl_h_001_mesh_layer_4
+                0x0000000007006d70                bob_dl_h_mesh_layer_4
+                0x0000000007007018                bob_dl_h_mesh_layer_1
+                0x0000000007008688                bob_dl_gwood_001_mesh_layer_1
+                0x00000000070087e8                bob_dl_gwood_mesh_layer_1
+                0x0000000007008b20                bob_dl_groof_mesh_layer_1
+                0x0000000007008cb0                bob_dl_gmush_001_mesh_layer_1
+                0x00000000070090b8                bob_dl_gmush_mesh_layer_1
+                0x0000000007009640                bob_dl_fgrass_mesh_layer_1
+                0x0000000007009a40                bob_dl_etrees_mesh_layer_1
+                0x0000000007009f50                bob_dl_etree_pink_mesh_layer_1
+                0x000000000700a2c8                bob_dl_bwater_mesh_layer_1
+                0x000000000700a400                bob_dl_btops_001_mesh_layer_1
+                0x000000000700a570                bob_dl_btops_mesh_layer_1
+                0x000000000700abe0                bob_dl_aflowers_mesh_layer_1
+                0x000000000700aef0                bob_dl_aatrees_mesh_layer_1
+                0x000000000700b300                bob_dl_InsideRock__World1Area3__001_mesh_layer_5_vtx_1
+                0x000000000700b500                bob_dl_InsideRock__World1Area3__001_mesh_layer_5_vtx_0
+                0x000000000700ba70                bob_dl_InsideRock__World1Area3__001_mesh_layer_5_vtx_cull
+                0x000000000700baf0                bob_dl_InsideRock__World1Area3__mesh_layer_1_vtx_1
+                0x000000000700bc70                bob_dl_InsideRock__World1Area3__mesh_layer_1_vtx_0
+                0x000000000700bfc0                bob_dl_InsideRock__World1Area3__mesh_layer_1_vtx_cull
+                0x000000000700c040                bob_dl_Cave_World1_mesh_layer_1_vtx_7
+                0x000000000700c510                bob_dl_Cave_World1_mesh_layer_1_vtx_6
+                0x000000000700c600                bob_dl_Cave_World1_mesh_layer_1_vtx_5
+                0x000000000700ca00                bob_dl_Cave_World1_mesh_layer_1_vtx_4
+                0x000000000700cd70                bob_dl_Cave_World1_mesh_layer_1_vtx_3
+                0x000000000700cf50                bob_dl_Cave_World1_mesh_layer_1_vtx_2
+                0x000000000700db30                bob_dl_Cave_World1_mesh_layer_1_vtx_1
+                0x000000000700f020                bob_dl_Cave_World1_mesh_layer_1_vtx_0
+                0x0000000007010220                bob_dl_water_texture_mesh_layer_5_vtx_0
+                0x0000000007010690                bob_dl_nzbg_001_mesh_layer_1_vtx_1
+                0x0000000007010930                bob_dl_nzbg_001_mesh_layer_1_vtx_0
+                0x0000000007010dc0                bob_dl_nzbg_001_mesh_layer_1_vtx_cull
+                0x0000000007010e40                bob_dl_nzbg_mesh_layer_1_vtx_0
+                0x0000000007010f40                bob_dl_nzbg_mesh_layer_0_vtx_0
+                0x00000000070118e0                bob_dl_nweed_mesh_layer_4_vtx_0
+                0x00000000070141a0                bob_dl_nweed_mesh_layer_4_vtx_cull
+                0x0000000007014220                bob_dl_minside2_mesh_layer_1_vtx_6
+                0x0000000007014b00                bob_dl_minside2_mesh_layer_1_vtx_5
+                0x0000000007014d00                bob_dl_minside2_mesh_layer_1_vtx_4
+                0x0000000007014ee0                bob_dl_minside2_mesh_layer_1_vtx_3
+                0x00000000070151e0                bob_dl_minside2_mesh_layer_1_vtx_2
+                0x00000000070152c0                bob_dl_minside2_mesh_layer_1_vtx_1
+                0x00000000070155c0                bob_dl_minside2_mesh_layer_1_vtx_0
+                0x0000000007015880                bob_dl_minside_mesh_layer_1_vtx_1
+                0x0000000007015b20                bob_dl_minside_mesh_layer_1_vtx_0
+                0x0000000007016fc0                bob_dl_minside_mesh_layer_1_vtx_cull
+                0x0000000007017040                bob_dl_ltrees_mesh_layer_1_vtx_1
+                0x0000000007017800                bob_dl_ltrees_mesh_layer_1_vtx_0
+                0x0000000007018b30                bob_dl_ltrees_mesh_layer_1_vtx_cull
+                0x0000000007018bb0                bob_dl_lsign2_mesh_layer_1_vtx_0
+                0x0000000007019290                bob_dl_lsign2_mesh_layer_1_vtx_cull
+                0x0000000007019310                bob_dl_lsign_mesh_layer_5_vtx_0
+                0x0000000007019670                bob_dl_lsign_mesh_layer_5_vtx_cull
+                0x00000000070196f0                bob_dl_lplat_mesh_layer_1_vtx_9
+                0x0000000007019730                bob_dl_lplat_mesh_layer_1_vtx_8
+                0x0000000007019770                bob_dl_lplat_mesh_layer_1_vtx_7
+                0x00000000070197b0                bob_dl_lplat_mesh_layer_1_vtx_6
+                0x00000000070197f0                bob_dl_lplat_mesh_layer_1_vtx_5
+                0x0000000007019830                bob_dl_lplat_mesh_layer_1_vtx_4
+                0x0000000007019870                bob_dl_lplat_mesh_layer_1_vtx_3
+                0x0000000007019a00                bob_dl_lplat_mesh_layer_1_vtx_2
+                0x0000000007019be0                bob_dl_lplat_mesh_layer_1_vtx_1
+                0x000000000701acb0                bob_dl_lplat_mesh_layer_1_vtx_0
+                0x000000000701af30                bob_dl_lplat_mesh_layer_1_vtx_cull
+                0x000000000701afb0                bob_dl_lflowers2_mesh_layer_4_vtx_0
+                0x000000000701b1b0                bob_dl_lflowers2_mesh_layer_4_vtx_cull
+                0x000000000701b230                bob_dl_lflowers_mesh_layer_1_vtx_1
+                0x000000000701b8b0                bob_dl_lflowers_mesh_layer_1_vtx_0
+                0x000000000701bb10                bob_dl_lflowers_mesh_layer_1_vtx_cull
+                0x000000000701bb90                bob_dl_h_007_mesh_layer_1_vtx_0
+                0x000000000701bc20                bob_dl_h_007_mesh_layer_1_vtx_cull
+                0x000000000701bca0                bob_dl_h_007_mesh_layer_2_vtx_0
+                0x000000000701c180                bob_dl_h_007_mesh_layer_2_vtx_cull
+                0x000000000701c200                bob_dl_h_006_because_texture_poking_through_mesh_layer_1_vtx_2
+                0x000000000701c4b0                bob_dl_h_006_because_texture_poking_through_mesh_layer_1_vtx_1
+                0x000000000701c5b0                bob_dl_h_006_because_texture_poking_through_mesh_layer_1_vtx_0
+                0x000000000701c5e0                bob_dl_h_006_because_texture_poking_through_mesh_layer_1_vtx_cull
+                0x000000000701c660                bob_dl_h_006_mesh_layer_1_vtx_0
+                0x000000000701ca90                bob_dl_h_006_mesh_layer_1_vtx_cull
+                0x000000000701cb10                bob_dl_h_005_mesh_layer_1_vtx_1
+                0x000000000701d150                bob_dl_h_005_mesh_layer_1_vtx_0
+                0x000000000701d2d0                bob_dl_h_005_mesh_layer_1_vtx_cull
+                0x000000000701d350                bob_dl_h_004_mesh_layer_4_vtx_0
+                0x000000000701d880                bob_dl_h_004_mesh_layer_4_vtx_cull
+                0x000000000701d900                bob_dl_h_003_mesh_layer_1_vtx_1
+                0x000000000701de90                bob_dl_h_003_mesh_layer_1_vtx_0
+                0x000000000701e3e0                bob_dl_h_003_mesh_layer_1_vtx_cull
+                0x000000000701e460                bob_dl_h_002_mesh_layer_1_vtx_0
+                0x000000000701e560                bob_dl_h_001_mesh_layer_1_vtx_1
+                0x000000000701e620                bob_dl_h_001_mesh_layer_1_vtx_0
+                0x000000000701e7e0                bob_dl_h_001_mesh_layer_1_vtx_cull
+                0x000000000701e860                bob_dl_h_001_mesh_layer_4_vtx_0
+                0x000000000701f060                bob_dl_h_001_mesh_layer_4_vtx_cull
+                0x000000000701f0e0                bob_dl_h_mesh_layer_4_vtx_1
+                0x000000000701f960                bob_dl_h_mesh_layer_4_vtx_0
+                0x000000000701fa00                bob_dl_h_mesh_layer_4_vtx_cull
+                0x000000000701fa80                bob_dl_h_mesh_layer_1_vtx_25
+                0x000000000701fac0                bob_dl_h_mesh_layer_1_vtx_24
+                0x000000000701fb20                bob_dl_h_mesh_layer_1_vtx_23
+                0x000000000701fb80                bob_dl_h_mesh_layer_1_vtx_22
+                0x000000000701fc00                bob_dl_h_mesh_layer_1_vtx_21
+                0x0000000007020b10                bob_dl_h_mesh_layer_1_vtx_20
+                0x0000000007020b70                bob_dl_h_mesh_layer_1_vtx_19
+                0x0000000007020bb0                bob_dl_h_mesh_layer_1_vtx_18
+                0x0000000007020dd0                bob_dl_h_mesh_layer_1_vtx_17
+                0x0000000007021120                bob_dl_h_mesh_layer_1_vtx_16
+                0x0000000007021470                bob_dl_h_mesh_layer_1_vtx_15
+                0x00000000070214a0                bob_dl_h_mesh_layer_1_vtx_14
+                0x0000000007021830                bob_dl_h_mesh_layer_1_vtx_13
+                0x0000000007021920                bob_dl_h_mesh_layer_1_vtx_12
+                0x0000000007021bf0                bob_dl_h_mesh_layer_1_vtx_11
+                0x0000000007021c20                bob_dl_h_mesh_layer_1_vtx_10
+                0x0000000007021f40                bob_dl_h_mesh_layer_1_vtx_9
+                0x0000000007022430                bob_dl_h_mesh_layer_1_vtx_8
+                0x0000000007022ab0                bob_dl_h_mesh_layer_1_vtx_7
+                0x0000000007022b80                bob_dl_h_mesh_layer_1_vtx_6
+                0x0000000007023d80                bob_dl_h_mesh_layer_1_vtx_5
+                0x0000000007023eb0                bob_dl_h_mesh_layer_1_vtx_4
+                0x00000000070248e0                bob_dl_h_mesh_layer_1_vtx_3
+                0x0000000007024970                bob_dl_h_mesh_layer_1_vtx_2
+                0x00000000070249a0                bob_dl_h_mesh_layer_1_vtx_1
+                0x0000000007024a70                bob_dl_h_mesh_layer_1_vtx_0
+                0x0000000007024da0                bob_dl_h_mesh_layer_1_vtx_cull
+                0x0000000007024e20                bob_dl_gwood_001_mesh_layer_1_vtx_1
+                0x0000000007024ee0                bob_dl_gwood_001_mesh_layer_1_vtx_0
+                0x00000000070252a0                bob_dl_gwood_001_mesh_layer_1_vtx_cull
+                0x0000000007025320                bob_dl_gwood_mesh_layer_1_vtx_1
+                0x0000000007025380                bob_dl_gwood_mesh_layer_1_vtx_0
+                0x0000000007026120                bob_dl_gwood_mesh_layer_1_vtx_cull
+                0x00000000070261a0                bob_dl_groof_mesh_layer_1_vtx_0
+                0x0000000007026580                bob_dl_groof_mesh_layer_1_vtx_cull
+                0x0000000007026600                bob_dl_gmush_001_mesh_layer_1_vtx_3
+                0x0000000007026700                bob_dl_gmush_001_mesh_layer_1_vtx_2
+                0x0000000007026940                bob_dl_gmush_001_mesh_layer_1_vtx_1
+                0x0000000007026dd0                bob_dl_gmush_001_mesh_layer_1_vtx_0
+                0x00000000070270a0                bob_dl_gmush_001_mesh_layer_1_vtx_cull
+                0x0000000007027120                bob_dl_gmush_mesh_layer_1_vtx_2
+                0x0000000007027400                bob_dl_gmush_mesh_layer_1_vtx_1
+                0x0000000007027b80                bob_dl_gmush_mesh_layer_1_vtx_0
+                0x0000000007028140                bob_dl_gmush_mesh_layer_1_vtx_cull
+                0x00000000070281c0                bob_dl_fgrass_mesh_layer_1_vtx_5
+                0x0000000007028280                bob_dl_fgrass_mesh_layer_1_vtx_4
+                0x0000000007028440                bob_dl_fgrass_mesh_layer_1_vtx_3
+                0x0000000007028540                bob_dl_fgrass_mesh_layer_1_vtx_2
+                0x0000000007028ad0                bob_dl_fgrass_mesh_layer_1_vtx_1
+                0x0000000007028d40                bob_dl_fgrass_mesh_layer_1_vtx_0
+                0x0000000007028fe0                bob_dl_fgrass_mesh_layer_1_vtx_cull
+                0x0000000007029060                bob_dl_etrees_mesh_layer_1_vtx_1
+                0x0000000007029560                bob_dl_etrees_mesh_layer_1_vtx_0
+                0x000000000702aba0                bob_dl_etrees_mesh_layer_1_vtx_cull
+                0x000000000702ac20                bob_dl_etree_pink_mesh_layer_1_vtx_1
+                0x000000000702aec0                bob_dl_etree_pink_mesh_layer_1_vtx_0
+                0x000000000702c360                bob_dl_etree_pink_mesh_layer_1_vtx_cull
+                0x000000000702c3e0                bob_dl_bwater_mesh_layer_1_vtx_0
+                0x000000000702c5d0                bob_dl_bwater_mesh_layer_1_vtx_cull
+                0x000000000702c650                bob_dl_btops_001_mesh_layer_1_vtx_0
+                0x000000000702cb10                bob_dl_btops_mesh_layer_1_vtx_5
+                0x000000000702cd90                bob_dl_btops_mesh_layer_1_vtx_4
+                0x000000000702d3c0                bob_dl_btops_mesh_layer_1_vtx_3
+                0x000000000702d670                bob_dl_btops_mesh_layer_1_vtx_2
+                0x000000000702dba0                bob_dl_btops_mesh_layer_1_vtx_1
+                0x000000000702de70                bob_dl_btops_mesh_layer_1_vtx_0
+                0x000000000702e470                bob_dl_btops_mesh_layer_1_vtx_cull
+                0x000000000702e4f0                bob_dl_aflowers_mesh_layer_1_vtx_1
+                0x000000000702ee00                bob_dl_aflowers_mesh_layer_1_vtx_0
+                0x000000000702f1a0                bob_dl_aflowers_mesh_layer_1_vtx_cull
+                0x000000000702f220                bob_dl_aatrees_mesh_layer_1_vtx_1
+                0x000000000702f600                bob_dl_aatrees_mesh_layer_1_vtx_0
+                0x000000000702ffa0                bob_dl_aatrees_mesh_layer_1_vtx_cull
+                0x0000000007030020                bob_dl__1_pal_rgba16_copy
+                0x0000000007030040                bob_dl__1_pal_rgba16_copy_aligner
+                0x0000000007030048                bob_dl__1_ci4
+                0x0000000007030848                bob_dl__1_ci4_aligner
+                0x0000000007030850                bob_dl__388_rgba16_copy
+                0x0000000007031850                bob_dl__388_rgba16_copy_aligner
+                0x0000000007031858                bob_dl__auto_598_i8
+                0x0000000007031c58                bob_dl__auto_598_i8_aligner
+                0x0000000007031c60                bob_dl__auto_283_pal_rgba16_copy
+                0x0000000007031c80                bob_dl__auto_283_pal_rgba16_copy_aligner
+                0x0000000007031c88                bob_dl__auto_283_ci4_copy
+                0x0000000007032488                bob_dl__auto_283_ci4_copy_aligner
+                0x0000000007032490                bob_dl_Sandstone_pal_rgba16
+                0x00000000070324a8                bob_dl_Sandstone_pal_rgba16_aligner
+                0x00000000070324b0                bob_dl_Sandstone_ci4
+                0x0000000007032cb0                bob_dl_Sandstone_ci4_aligner
+                0x0000000007032cb8                _rgba16::bob_dl(void)
+                0x00000000070334b8                bob_dl__7_rgba16_aligner
+                0x00000000070334c0                bob_dl__6_rgba16_copy_copy
+                0x0000000007033cc0                bob_dl__6_rgba16_copy_copy_aligner
+                0x0000000007033cc8                bob_dl__1_i8
+                0x0000000007034cc8                _::bob_dl(int, _aligner)
+                0x0000000007034cd0                bob_dl__10_rgba16
+                0x00000000070354d0                bob_dl__10_rgba16_aligner
+                0x00000000070354d8                bob_dl__2_pal_rgba16_copy_copy
+                0x00000000070354f8                bob_dl__2_pal_rgba16_copy_copy_aligner
+                0x0000000007035500                bob_dl__2_ci4_copy
+                0x0000000007035d00                bob_dl__2_ci4_copy_aligner
+                0x0000000007035d08                bob_dl___pal_rgba16
+                0x0000000007035d28                bob_dl___pal_rgba16_aligner
+                0x0000000007035d30                bob_dl___ci4
+                0x0000000007036530                bob_dl___ci4_aligner
+                0x0000000007036538                bob_dl_Stone_Vein_Gray_pal_rgba16
+                0x0000000007036558                bob_dl_Stone_Vein_Gray_pal_rgba16_aligner
+                0x0000000007036560                bob_dl_Stone_Vein_Gray_ci4
+                0x0000000007036d60                bob_dl_Stone_Vein_Gray_ci4_aligner
+                0x0000000007036d68                bob_dl_water5_pal_rgba16
+                0x0000000007036d78                bob_dl_water5_pal_rgba16_aligner
+                0x0000000007036d80                bob_dl_water5_ci4
+                0x0000000007036f80                bob_dl_water5_ci4_aligner
+                0x0000000007036f88                bob_dl_Glover_18184756_0_0_8FB42F5B_ciByRGBA_pal_rgba16
+                0x0000000007036f98                bob_dl_Glover_18184756_0_0_8FB42F5B_ciByRGBA_pal_rgba16_aligner
+                0x0000000007036fa0                bob_dl_Glover_18184756_0_0_8FB42F5B_ciByRGBA_ci4
+                0x00000000070371a0                bob_dl_Glover_18184756_0_0_8FB42F5B_ciByRGBA_ci4_aligner
+                0x00000000070371a8                bob_dl__388_rgba16
+                0x00000000070381a8                bob_dl__388_rgba16_aligner
+                0x00000000070381b0                bob_dl__20_rgba16
+                0x00000000070391b0                bob_dl__20_rgba16_aligner
+                0x00000000070391b8                bob_dl__40_rgba16
+                0x000000000703a1b8                bob_dl__40_rgba16_aligner
+                0x000000000703a1c0                bob_dl_Tan4_rgba16
+                0x000000000703a9c0                bob_dl_Tan4_rgba16_aligner
+                0x000000000703a9c8                bob_dl__6_rgba16_copy
+                0x000000000703b1c8                bob_dl__6_rgba16_copy_aligner
+                0x000000000703b1d0                bob_dl__5_rgba16_copy
+                0x000000000703b9d0                bob_dl__5_rgba16_copy_aligner
+                0x000000000703b9d8                bob_dl__4_rgba16_copy
+                0x000000000703c1d8                bob_dl__4_rgba16_copy_aligner
+                0x000000000703c1e0                bob_dl__3_rgba16
+                0x000000000703c9e0                bob_dl__3_rgba16_aligner
+                0x000000000703c9e8                bob_dl__2_pal_rgba16_copy
+                0x000000000703cb88                bob_dl__2_pal_rgba16_copy_aligner
+                0x000000000703cb90                bob_dl__2_ci8
+                0x000000000703cf90                _c::bob_dl(int, _aligner)
+                0x000000000703cf98                bob_dl__1_pal_rgba16
+                0x000000000703d090                bob_dl__1_pal_rgba16_aligner
+                0x000000000703d098                bob_dl__1_ci8
+                0x000000000703d498                _::bob_dl(char, int, _aligner)
+                0x000000000703d4a0                bob_dl_flower2_pal_rgba16
+                0x000000000703d4b8                bob_dl_flower2_pal_rgba16_aligner
+                0x000000000703d4c0                bob_dl_flower2_ci4
+                0x000000000703d6c0                bob_dl_flower2_ci4_aligner
+                0x000000000703d6c8                bob_dl__88_pal_rgba16
+                0x000000000703d6e8                bob_dl__88_pal_rgba16_aligner
+                0x000000000703d6f0                bob_dl__88_ci4
+                0x000000000703def0                bob_dl__88_ci4_aligner
+                0x000000000703def8                bob_dl__0x28C0_pal_rgba16
+                0x000000000703df18                bob_dl__0x28C0_pal_rgba16_aligner
+                0x000000000703df20                bob_dl__0x28C0_ci4
+                0x000000000703e720                bob_dl__0x28C0_ci4_aligner
+                0x000000000703e728                bob_dl__0x20_pal_rgba16
+                0x000000000703e748                bob_dl__0x20_pal_rgba16_aligner
+                0x000000000703e750                bob_dl__0x20_ci4
+                0x000000000703ef50                bob_dl__0x20_ci4_aligner
+                0x000000000703ef58                bob_dl_MARIOKART64_E19C0EEB_0_2_all_pal_rgba16
+                0x000000000703eff0                bob_dl_MARIOKART64_E19C0EEB_0_2_all_pal_rgba16_aligner
+                0x000000000703eff8                bob_dl_MARIOKART64_E19C0EEB_0_2_all_ci8
+                0x000000000703f3f8                bob_dl_MARIOKART64_E19C0EEB_0_2_all_ci8_aligner
+                0x000000000703f400                bob_dl__auto_168_rgba16
+                0x000000000703fc00                bob_dl__auto_168_rgba16_aligner
+                0x000000000703fc08                bob_dl__auto_167_rgba16
+                0x0000000007040408                bob_dl__auto_167_rgba16_aligner
+                0x0000000007040410                bob_dl_auto3_rgba16
+                0x0000000007040c10                bob_dl_auto3_rgba16_aligner
+                0x0000000007040c18                bob_dl_auto4_rgba16
+                0x0000000007041418                bob_dl_auto4_rgba16_aligner
+                0x0000000007041420                bob_dl_auto2_rgba16
+                0x0000000007041c20                bob_dl_auto2_rgba16_aligner
+                0x0000000007041c28                bob_dl__3_pal_rgba16
+                0x0000000007041c48                bob_dl__3_pal_rgba16_aligner
+                0x0000000007041c50                bob_dl__3_ci4
+                0x0000000007042450                bob_dl__3_ci4_aligner
+                0x0000000007042458                bob_dl__0x1B100_pal_rgba16
+                0x0000000007042638                bob_dl__0x1B100_pal_rgba16_aligner
+                0x0000000007042640                bob_dl__0x1B100_ci8
+                0x0000000007042a40                bob_dl__0x1B100_ci8_aligner
+                0x0000000007042a48                bob_dl_tempImgEd0021_rgba16
+                0x0000000007043a48                bob_dl_tempImgEd0021_rgba16_aligner
+                0x0000000007043a50                bob_dl__110_rgba16
+                0x0000000007044250                bob_dl__110_rgba16_aligner
+                0x0000000007044258                bob_dl__auto_302_rgba16
+                0x0000000007044a58                bob_dl__auto_302_rgba16_aligner
+                0x0000000007044a60                bob_dl__21_rgba16
+                0x0000000007045260                bob_dl__21_rgba16_aligner
+                0x0000000007045268                bob_dl__19_rgba16
+                0x0000000007046268                bob_dl__19_rgba16_aligner
+                0x0000000007046270                bob_dl__18_rgba16
+                0x0000000007047270                bob_dl__18_rgba16_aligner
+                0x0000000007047278                bob_dl__41_rgba16
+                0x0000000007048278                bob_dl__41_rgba16_aligner
+                0x0000000007048280                bob_dl__17_rgba16
+                0x0000000007048a80                bob_dl__17_rgba16_aligner
+                0x0000000007048a88                bob_dl__54_rgba16
+                0x0000000007049288                bob_dl__54_rgba16_aligner
+                0x0000000007049290                bob_dl__120_rgba16
+                0x0000000007049a90                bob_dl__120_rgba16_aligner
+                0x0000000007049a98                bob_dl__87_pal_rgba16
+                0x0000000007049ab8                bob_dl__87_pal_rgba16_aligner
+                0x0000000007049ac0                bob_dl__87_ci4
+                0x000000000704a2c0                bob_dl__87_ci4_aligner
+                0x000000000704a2c8                bob_dl__38_rgba16
+                0x000000000704aac8                bob_dl__38_rgba16_aligner
+                0x000000000704aad0                bob_dl__156_rgba16
+                0x000000000704b2d0                bob_dl__156_rgba16_aligner
+                0x000000000704b2d8                bob_dl__135_rgba16
+                0x000000000704bad8                bob_dl__135_rgba16_aligner
+                0x000000000704bae0                bob_dl__2_pal_rgba16
+                0x000000000704bb00                bob_dl__2_pal_rgba16_aligner
+                0x000000000704bb08                bob_dl__2_ci4
+                0x000000000704c308                bob_dl__2_ci4_aligner
+                0x000000000704c310                bob_dl__58_rgba16
+                0x000000000704cb10                bob_dl__58_rgba16_aligner
+                0x000000000704cb18                bob_dl__auto_283_pal_rgba16
+                0x000000000704cb38                bob_dl__auto_283_pal_rgba16_aligner
+                0x000000000704cb40                bob_dl__auto_283_ci4
+                0x000000000704d340                bob_dl__auto_283_ci4_aligner
+                0x000000000704d348                bob_dl__47_rgba16
+                0x000000000704db48                bob_dl__47_rgba16_aligner
+                0x000000000704db50                bob_dl__296_rgba16
+                0x000000000704eb50                bob_dl__296_rgba16_aligner
+                0x000000000704eb58                bob_dl__34_rgba16
+                0x000000000704f358                bob_dl__34_rgba16_aligner
+                0x000000000704f360                bob_dl__76_rgba16
+                0x0000000007050360                bob_dl__76_rgba16_aligner
+                0x0000000007050368                bob_dl__16_rgba16
+                0x0000000007050b68                bob_dl__16_rgba16_aligner
+                0x0000000007050b70                bob_dl__396_rgba16
+                0x0000000007051370                bob_dl__396_rgba16_aligner
+                0x0000000007051378                bob_dl__4_rgba16
+                0x0000000007051b78                bob_dl__4_rgba16_aligner
+                0x0000000007051b80                bob_dl__158_rgba32
+                0x0000000007052b80                bob_dl__158_rgba32_aligner
+                0x0000000007052b88                bob_dl__48_rgba32
+                0x0000000007053b88                bob_dl__48_rgba32_aligner
+                0x0000000007053b90                bob_dl__6_rgba16
+                0x0000000007054390                _rgba1::bob_dl(_align,...)(long double)
+                0x0000000007054398                bob_dl_auto1_rgba16
+                0x0000000007054b98                bob_dl_auto1_rgba16_aligner
+                0x0000000007054ba0                bob_dl_Tan2_rgba16
+                0x00000000070553a0                bob_dl_Tan2_rgba16_aligner
+                0x00000000070553a8                bob_dl_tex1_32x32_7D35203E613A53E4_13_ia8
+                0x00000000070557a8                bob_dl_tex1_32x32_7D35203E613A53E4_13_ia8_aligner
+                0x00000000070557b0                bob_dl_Waterfall_rgba16
+                0x0000000007055fb0                bob_dl_Waterfall_rgba16_aligner
+                0x0000000007055fb8                bob_dl__145_rgba16
+                0x00000000070567b8                bob_dl__145_rgba16_aligner
+                0x00000000070567c0                bob_dl__auto_598_rgba16
+                0x0000000007056fc0                bob_dl__auto_598_rgba16_aligner
+                0x0000000007056fc8                bob_dl__61_rgba16
+                0x00000000070577c8                bob_dl__61_rgba16_aligner
+                0x00000000070577d0                bob_dl__31_pal_rgba16
+                0x00000000070577e8                bob_dl__31_pal_rgba16_aligner
+                0x00000000070577f0                bob_dl__31_ci4
+                0x0000000007057ff0                bob_dl__31_ci4_aligner
+                0x0000000007057ff8                bob_dl_Material32_pal_rgba16
+                0x0000000007058010                bob_dl_Material32_pal_rgba16_aligner
+                0x0000000007058018                bob_dl_Material32_ci4
+                0x0000000007058818                bob_dl_Material32_ci4_aligner
+                0x0000000007058820                bob_dl__5_rgba16
+                0x0000000007059020                bob_dl__5_rgba16_aligner
+                0x0000000007059028                bob_dl__37_rgba16
+                0x0000000007059828                bob_dl__37_rgba16_aligner
+                0x0000000007059830                bob_dl__36_rgba16
+                0x000000000705a030                bob_dl__36_rgba16_aligner
+                0x000000000705a038                bob_dl_auto15_rgba16
+                0x000000000705a838                bob_dl_auto15_rgba16_aligner
+                0x000000000705a840                bob_dl_Tan1_rgba16
+                0x000000000705b040                bob_dl_Tan1_rgba16_aligner
+                0x000000000705b048                bob_area_3_macro_objs
+                0x000000000705b04c                bob_area_3_collision
+                0x000000000705b4d8                bob_area_2_macro_objs
+                0x000000000705b4dc                bob_area_2_collision
+                0x000000000705e860                bob_area_1_macro_objs
+                0x000000000705e864                bob_area_1_collision
+                0x000000000706be0c                bob_seg7_metal_ball_path1
+                0x000000000706bee8                bob_seg7_metal_ball_path0
+
+.data1
+ *(.data1)
+
+.got.plt
+ *(.got.plt)
+                0x000000000706bf7a                . = .
+                0x000000000706bf7a                . = .
+                0x0000000007073f70                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got)
+
+.sdata
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x000000000706bf7a                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x000000000706bf7a                . = .
+                0x000000000706bf7a                __bss_start = .
+                0x000000000706bf7a                _fbss = .
+
+.sbss
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+
+.bss            0x000000000706bf7a        0x0 load address 0x000000000706bf92
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000000000706bf7a        0x0 build/us_n64/levels/bob/leveldata.o
+ *(COMMON)
+                0x000000000706bf7a                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x000000000706bf7c                . = ALIGN (0x4)
+                0x000000000706bf7c                . = SEGMENT_START ("ldata-segment", .)
+                0x000000000706bf7c                . = ALIGN (0x4)
+                0x000000000706bf7c                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x000000000706bf7c                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x12
+ *(.comment)
+ .comment       0x0000000000000000       0x12 build/us_n64/levels/bob/leveldata.o
+                                         0x13 (size before relaxing)
+
+.pdr            0x0000000000000000        0x0
+ .pdr           0x0000000000000000        0x0 build/us_n64/levels/bob/leveldata.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+                0x0000000000000000       0x10
+ *(.gnu.attributes)
+ .gnu.attributes
+                0x0000000000000000       0x10 build/us_n64/levels/bob/leveldata.o
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32   0x0000000000000000        0x0
+ *(.mdebug.abi32)
+ .mdebug.abi32  0x0000000000000000        0x0 build/us_n64/levels/bob/leveldata.o
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(build/us_n64/levels/bob/leveldata.elf elf32-bigmips)

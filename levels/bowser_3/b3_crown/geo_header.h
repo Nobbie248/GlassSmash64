@@ -1,0 +1,17 @@
+extern const GeoLayout b3_crown_geo[];
+extern u8 b3_crown_purple_gem_ci4[];
+extern u8 b3_crown_purple_gem_pal_rgba16[];
+extern u8 b3_crown_yellow_shine_2_rgba16[];
+extern u8 b3_crown_green_gem_ci4[];
+extern u8 b3_crown_green_gem_pal_rgba16[];
+extern u8 b3_crown_blue_gem_ci4[];
+extern u8 b3_crown_blue_gem_pal_rgba16[];
+extern u8 b3_crown_red_gem_ci4[];
+extern u8 b3_crown_red_gem_pal_rgba16[];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_cull[8];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_0[98];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_1[409];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_2[96];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_3[98];
+extern Vtx b3_crown_Crown_Model_mesh_layer_1_vtx_4[96];
+extern Gfx b3_crown_Crown_Model_mesh_layer_1[];

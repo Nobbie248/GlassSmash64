@@ -1,0 +1,21 @@
+const Collision c1_leaf_collision[] = {
+	COL_INIT(),
+	COL_VERTEX_INIT(8),
+	COL_VERTEX(-219, 10, 205),
+	COL_VERTEX(15, 10, 180),
+	COL_VERTEX(165, 10, 105),
+	COL_VERTEX(206, 10, -18),
+	COL_VERTEX(225, 10, -239),
+	COL_VERTEX(-52, 10, -199),
+	COL_VERTEX(-166, 10, -94),
+	COL_VERTEX(-199, 10, 39),
+	COL_TRI_INIT(SURFACE_DEFAULT, 6),
+	COL_TRI(0, 1, 2),
+	COL_TRI(2, 3, 4),
+	COL_TRI(4, 5, 6),
+	COL_TRI(6, 7, 0),
+	COL_TRI(0, 2, 4),
+	COL_TRI(4, 6, 0),
+	COL_TRI_STOP(),
+	COL_END()
+};

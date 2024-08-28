@@ -1,0 +1,15 @@
+extern const GeoLayout gemmies_geo[];
+extern u8 gemmies_purple_gem_ci4[];
+extern u8 gemmies_purple_gem_pal_rgba16[];
+extern u8 gemmies_red_gem_ci4[];
+extern u8 gemmies_red_gem_pal_rgba16[];
+extern u8 gemmies_blue_gem_ci4[];
+extern u8 gemmies_blue_gem_pal_rgba16[];
+extern u8 gemmies_green_gem_ci4[];
+extern u8 gemmies_green_gem_pal_rgba16[];
+extern Vtx gemmies_gems_mesh_layer_1_vtx_cull[8];
+extern Vtx gemmies_gems_mesh_layer_1_vtx_0[64];
+extern Vtx gemmies_gems_mesh_layer_1_vtx_1[64];
+extern Vtx gemmies_gems_mesh_layer_1_vtx_2[64];
+extern Vtx gemmies_gems_mesh_layer_1_vtx_3[64];
+extern Gfx gemmies_gems_mesh_layer_1[];

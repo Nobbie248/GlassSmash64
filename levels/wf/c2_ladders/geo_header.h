@@ -1,0 +1,11 @@
+extern const GeoLayout c2_ladders_geo[];
+extern Lights1 c2_ladders_f3dlite_material_019_lights;
+extern Lights1 c2_ladders_f3dlite_material_020_lights;
+extern u8 c2_ladders_tex1_64x64_710D4481E0ADAB42_13_ci4[];
+extern u8 c2_ladders_tex1_64x64_710D4481E0ADAB42_13_pal_rgba16[];
+extern u8 c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_ci4[];
+extern u8 c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_pal_rgba16[];
+extern Vtx c2_ladders_Plane_mesh_layer_4_vtx_cull[8];
+extern Vtx c2_ladders_Plane_mesh_layer_4_vtx_0[8];
+extern Vtx c2_ladders_Plane_mesh_layer_4_vtx_1[32];
+extern Gfx c2_ladders_Plane_mesh_layer_4[];

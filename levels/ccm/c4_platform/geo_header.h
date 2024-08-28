@@ -1,0 +1,14 @@
+extern const GeoLayout c4_platform_geo[];
+extern u8 c4_platform__0x20_ci4[];
+extern u8 c4_platform__0x20_pal_rgba16[];
+extern u8 c4_platform__0x2EC0_ci4[];
+extern u8 c4_platform__0x2EC0_pal_rgba16[];
+extern Vtx c4_platform_Cube_mesh_layer_1_vtx_0[90];
+extern Gfx c4_platform_Cube_mesh_layer_1_tri_0[];
+extern Vtx c4_platform_Cube_mesh_layer_1_vtx_1[28];
+extern Gfx c4_platform_Cube_mesh_layer_1_tri_1[];
+extern Gfx mat_c4_platform_f3dlite_material[];
+extern Gfx mat_revert_c4_platform_f3dlite_material[];
+extern Gfx mat_c4_platform_f3dlite_material_001[];
+extern Gfx mat_revert_c4_platform_f3dlite_material_001[];
+extern Gfx c4_platform_Cube_mesh_layer_1[];

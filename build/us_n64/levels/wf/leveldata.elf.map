@@ -1,0 +1,812 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x7000000
+LOAD build/us_n64/bin/grass.elf
+LOAD build/us_n64/levels/wf/leveldata.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
+                0x0000000000400000                . = SEGMENT_START ("text-segment", 0x400000)
+
+.interp
+ *(.interp)
+
+.MIPS.abiflags  0x0000000000400000       0x18
+ *(.MIPS.abiflags)
+ .MIPS.abiflags
+                0x0000000000400000       0x18 build/us_n64/levels/wf/leveldata.o
+
+.reginfo        0x0000000000400018       0x18
+ *(.reginfo)
+ .reginfo       0x0000000000400018       0x18 build/us_n64/levels/wf/leveldata.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x0000000000400018        0x0 load address 0x0000000000400030
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.dyn)
+ .rel.dyn       0x0000000000400018        0x0 build/us_n64/levels/wf/leveldata.o
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rel_iplt_start = .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end = .)
+
+.rela.dyn       0x0000000000400018        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start = .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end = .)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000007000000        0x0 load address 0x0000000007000018
+                0x0000000007000000                _ftext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000007000000        0x0 build/us_n64/levels/wf/leveldata.o
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(SORT_NONE(.fini))
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000007000000                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000000007000000        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+                0x0000000007000000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000007000000    0x7b5c4 load address 0x0000000007000018
+                0x0000000007000000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000007000000    0x7b5c4 build/us_n64/levels/wf/leveldata.o
+                0x0000000007000000                c2_ladders_Plane_mesh_layer_4
+                0x0000000007000188                c2_ladders_Plane_mesh_layer_4_vtx_1
+                0x0000000007000388                c2_ladders_Plane_mesh_layer_4_vtx_0
+                0x0000000007000408                c2_ladders_Plane_mesh_layer_4_vtx_cull
+                0x0000000007000488                c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_pal_rgba16
+                0x00000000070004a8                c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_pal_rgba16_aligner
+                0x00000000070004b0                c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_ci4
+                0x0000000007000cb0                c2_ladders_tex1_64x64_951AA8FCC1C5D641_13_ci4_aligner
+                0x0000000007000cb8                c2_ladders_tex1_64x64_710D4481E0ADAB42_13_pal_rgba16
+                0x0000000007000cd8                c2_ladders_tex1_64x64_710D4481E0ADAB42_13_pal_rgba16_aligner
+                0x0000000007000ce0                c2_ladders_tex1_64x64_710D4481E0ADAB42_13_ci4
+                0x00000000070014e0                c2_ladders_tex1_64x64_710D4481E0ADAB42_13_ci4_aligner
+                0x00000000070014e8                c2_ladders_collision
+                0x0000000007001640                wf_dl_CityHall_Doubled__World_2__mesh_layer_5
+                0x00000000070017b8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1
+                0x0000000007003e00                wf_dl_zzWinterLevel_2020version_014_mesh_layer_0
+                0x0000000007004038                wf_dl_zzWinterLevel_2020version_013_mesh_layer_0
+                0x0000000007004598                wf_dl_zWinterLevel_2020version_007_mesh_layer_1
+                0x0000000007004a50                wf_dl_WinterLevel_2020version_014_mesh_layer_5
+                0x0000000007004bf0                wf_dl_WinterLevel_2020version_013_mesh_layer_1
+                0x0000000007004ea8                wf_dl_WinterLevel_2020version_012_mesh_layer_1
+                0x0000000007005a08                wf_dl_WinterLevel_2020version_011_mesh_layer_1
+                0x0000000007005ac8                wf_dl_WinterLevel_2020version_010_mesh_layer_1
+                0x0000000007005b88                wf_dl_WinterLevel_2020version_009_mesh_layer_1
+                0x0000000007005f18                wf_dl_WinterLevel_2020version_008_mesh_layer_1
+                0x00000000070060f0                wf_dl_WinterLevel_2020version_007_mesh_layer_1
+                0x00000000070069e8                wf_dl_WinterLevel_2020version_006_mesh_layer_1
+                0x0000000007006d70                wf_dl_WinterLevel_2020version_005_mesh_layer_1
+                0x0000000007007468                wf_dl_WinterLevel_2020version_004_mesh_layer_1
+                0x0000000007007728                wf_dl_WinterLevel_2020version_003_mesh_layer_1
+                0x0000000007007910                wf_dl_WinterLevel_2020version_002_mesh_layer_1
+                0x00000000070080a8                wf_dl_WinterLevel_2020version_001_mesh_layer_5
+                0x0000000007008180                wf_dl_snowman_face_mesh_layer_6
+                0x0000000007008278                wf_dl_low_poly_3_mesh_layer_1
+                0x0000000007008360                wf_dl_low_poly_2_mesh_layer_1
+                0x0000000007008660                wf_dl_low_poly_1_mesh_layer_1
+                0x00000000070087c0                wf_dl_gWinterLevel_2020version_006_mesh_layer_1
+                0x0000000007008a10                wf_dl_gWinterLevel_2020version_002_mesh_layer_2
+                0x0000000007008bc8                wf_dl_dWinterLevel_2020version_003_mesh_layer_1
+                0x0000000007009868                wf_dl_cWinterLevel_2020version_004_mesh_layer_1
+                0x0000000007009f80                wf_dl_cWinterLevel_2020version_003_mesh_layer_1
+                0x000000000700a2e8                wf_dl_cWinterLevel_2020version_001_mesh_layer_1
+                0x000000000700a3e8                wf_dl_bWinterLevel_2020version_003_mesh_layer_1
+                0x000000000700a6c8                wf_dl_bWinterLevel_2020version_mesh_layer_4
+                0x000000000700a7d8                wf_dl_bWinterLevel_2020version_mesh_layer_1
+                0x000000000700c218                wf_dl_aWinterLevel_2020version_013_mesh_layer_1
+                0x000000000700c748                wf_dl_CityHall_Doubled__World_2__mesh_layer_5_vtx_1
+                0x000000000700c9c8                wf_dl_CityHall_Doubled__World_2__mesh_layer_5_vtx_0
+                0x000000000700ca48                wf_dl_CityHall_Doubled__World_2__mesh_layer_5_vtx_cull
+                0x000000000700cac8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_11
+                0x000000000700cbc8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_10
+                0x000000000700cc08                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_9
+                0x000000000700ce78                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_8
+                0x000000000700d2a8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_7
+                0x000000000700dd68                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_6
+                0x000000000700f5e8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_5
+                0x000000000700f788                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_4
+                0x0000000007010588                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_3
+                0x0000000007012388                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_2
+                0x0000000007019188                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_1
+                0x000000000701b6b8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_0
+                0x000000000701cea8                wf_dl_CityHall_Doubled__World_2__mesh_layer_1_vtx_cull
+                0x000000000701cf28                wf_dl_zzWinterLevel_2020version_014_mesh_layer_0_vtx_0
+                0x000000000701d438                wf_dl_zzWinterLevel_2020version_014_mesh_layer_0_vtx_cull
+                0x000000000701d4b8                wf_dl_zzWinterLevel_2020version_013_mesh_layer_0_vtx_1
+                0x000000000701db28                wf_dl_zzWinterLevel_2020version_013_mesh_layer_0_vtx_0
+                0x000000000701ecb8                wf_dl_zzWinterLevel_2020version_013_mesh_layer_0_vtx_cull
+                0x000000000701ed38                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_6
+                0x000000000701ed78                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_5
+                0x000000000701edb8                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_4
+                0x000000000701edf8                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_3
+                0x000000000701ee38                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_2
+                0x000000000701f178                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_1
+                0x000000000701f518                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_0
+                0x000000000701fb68                wf_dl_zWinterLevel_2020version_007_mesh_layer_1_vtx_cull
+                0x000000000701fbe8                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_4
+                0x000000000701fc28                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_3
+                0x000000000701fc68                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_2
+                0x000000000701fca8                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_1
+                0x000000000701fce8                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_0
+                0x000000000701fd28                wf_dl_WinterLevel_2020version_014_mesh_layer_5_vtx_cull
+                0x000000000701fda8                wf_dl_WinterLevel_2020version_013_mesh_layer_1_vtx_2
+                0x000000000701ff68                wf_dl_WinterLevel_2020version_013_mesh_layer_1_vtx_1
+                0x00000000070202f8                wf_dl_WinterLevel_2020version_013_mesh_layer_1_vtx_0
+                0x00000000070204f8                wf_dl_WinterLevel_2020version_013_mesh_layer_1_vtx_cull
+                0x0000000007020578                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_4
+                0x00000000070205d8                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_3
+                0x00000000070218e8                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_2
+                0x0000000007023c28                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_1
+                0x0000000007024228                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_0
+                0x0000000007026558                wf_dl_WinterLevel_2020version_012_mesh_layer_1_vtx_cull
+                0x00000000070265d8                wf_dl_WinterLevel_2020version_011_mesh_layer_1_vtx_0
+                0x0000000007026658                wf_dl_WinterLevel_2020version_011_mesh_layer_1_vtx_cull
+                0x00000000070266d8                wf_dl_WinterLevel_2020version_010_mesh_layer_1_vtx_0
+                0x0000000007026758                wf_dl_WinterLevel_2020version_010_mesh_layer_1_vtx_cull
+                0x00000000070267d8                wf_dl_WinterLevel_2020version_009_mesh_layer_1_vtx_1
+                0x00000000070270c8                wf_dl_WinterLevel_2020version_009_mesh_layer_1_vtx_0
+                0x00000000070283c8                wf_dl_WinterLevel_2020version_009_mesh_layer_1_vtx_cull
+                0x0000000007028448                wf_dl_WinterLevel_2020version_008_mesh_layer_1_vtx_1
+                0x0000000007028b08                wf_dl_WinterLevel_2020version_008_mesh_layer_1_vtx_0
+                0x0000000007028bd8                wf_dl_WinterLevel_2020version_008_mesh_layer_1_vtx_cull
+                0x0000000007028c58                wf_dl_WinterLevel_2020version_007_mesh_layer_1_vtx_3
+                0x0000000007029ad8                wf_dl_WinterLevel_2020version_007_mesh_layer_1_vtx_2
+                0x000000000702b528                wf_dl_WinterLevel_2020version_007_mesh_layer_1_vtx_1
+                0x000000000702be98                wf_dl_WinterLevel_2020version_007_mesh_layer_1_vtx_0
+                0x000000000702bfe8                wf_dl_WinterLevel_2020version_007_mesh_layer_1_vtx_cull
+                0x000000000702c068                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_4
+                0x000000000702c5a8                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_3
+                0x000000000702c9a8                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_2
+                0x000000000702cba8                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_1
+                0x000000000702cc68                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_0
+                0x000000000702ce68                wf_dl_WinterLevel_2020version_006_mesh_layer_1_vtx_cull
+                0x000000000702cee8                wf_dl_WinterLevel_2020version_005_mesh_layer_1_vtx_3
+                0x000000000702d918                wf_dl_WinterLevel_2020version_005_mesh_layer_1_vtx_2
+                0x000000000702e0a8                wf_dl_WinterLevel_2020version_005_mesh_layer_1_vtx_1
+                0x000000000702f478                wf_dl_WinterLevel_2020version_005_mesh_layer_1_vtx_0
+                0x000000000702f668                wf_dl_WinterLevel_2020version_005_mesh_layer_1_vtx_cull
+                0x000000000702f6e8                wf_dl_WinterLevel_2020version_004_mesh_layer_1_vtx_2
+                0x000000000702f8c8                wf_dl_WinterLevel_2020version_004_mesh_layer_1_vtx_1
+                0x000000000702fd48                wf_dl_WinterLevel_2020version_004_mesh_layer_1_vtx_0
+                0x000000000702ffa8                wf_dl_WinterLevel_2020version_004_mesh_layer_1_vtx_cull
+                0x0000000007030028                wf_dl_WinterLevel_2020version_003_mesh_layer_1_vtx_1
+                0x0000000007030278                wf_dl_WinterLevel_2020version_003_mesh_layer_1_vtx_0
+                0x00000000070309f8                wf_dl_WinterLevel_2020version_003_mesh_layer_1_vtx_cull
+                0x0000000007030a78                wf_dl_WinterLevel_2020version_002_mesh_layer_1_vtx_2
+                0x0000000007031738                wf_dl_WinterLevel_2020version_002_mesh_layer_1_vtx_1
+                0x00000000070325c8                wf_dl_WinterLevel_2020version_002_mesh_layer_1_vtx_0
+                0x00000000070326b8                wf_dl_WinterLevel_2020version_002_mesh_layer_1_vtx_cull
+                0x0000000007032738                wf_dl_WinterLevel_2020version_001_mesh_layer_5_vtx_0
+                0x00000000070327c8                wf_dl_WinterLevel_2020version_001_mesh_layer_5_vtx_cull
+                0x0000000007032848                wf_dl_snowman_face_mesh_layer_6_vtx_0
+                0x0000000007032888                wf_dl_snowman_face_mesh_layer_6_vtx_cull
+                0x0000000007032908                wf_dl_low_poly_3_mesh_layer_1_vtx_1
+                0x00000000070329b8                wf_dl_low_poly_3_mesh_layer_1_vtx_0
+                0x0000000007032a98                wf_dl_low_poly_3_mesh_layer_1_vtx_cull
+                0x0000000007032b18                wf_dl_low_poly_2_mesh_layer_1_vtx_6
+                0x0000000007032c38                wf_dl_low_poly_2_mesh_layer_1_vtx_5
+                0x0000000007032c78                wf_dl_low_poly_2_mesh_layer_1_vtx_4
+                0x0000000007032d78                wf_dl_low_poly_2_mesh_layer_1_vtx_3
+                0x0000000007032f88                wf_dl_low_poly_2_mesh_layer_1_vtx_2
+                0x00000000070331b8                wf_dl_low_poly_2_mesh_layer_1_vtx_1
+                0x00000000070332f8                wf_dl_low_poly_2_mesh_layer_1_vtx_0
+                0x00000000070333b8                wf_dl_low_poly_2_mesh_layer_1_vtx_cull
+                0x0000000007033438                wf_dl_low_poly_1_mesh_layer_1_vtx_2
+                0x0000000007033578                wf_dl_low_poly_1_mesh_layer_1_vtx_1
+                0x0000000007033708                wf_dl_low_poly_1_mesh_layer_1_vtx_0
+                0x0000000007033898                wf_dl_low_poly_1_mesh_layer_1_vtx_cull
+                0x0000000007033918                wf_dl_gWinterLevel_2020version_006_mesh_layer_1_vtx_2
+                0x0000000007033b18                wf_dl_gWinterLevel_2020version_006_mesh_layer_1_vtx_1
+                0x0000000007033e68                wf_dl_gWinterLevel_2020version_006_mesh_layer_1_vtx_0
+                0x0000000007033ec8                wf_dl_gWinterLevel_2020version_006_mesh_layer_1_vtx_cull
+                0x0000000007033f48                wf_dl_gWinterLevel_2020version_002_mesh_layer_2_vtx_0
+                0x00000000070344c8                wf_dl_gWinterLevel_2020version_002_mesh_layer_2_vtx_cull
+                0x0000000007034548                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_10
+                0x00000000070346f8                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_9
+                0x0000000007034958                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_8
+                0x0000000007034c58                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_7
+                0x0000000007035e98                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_6
+                0x0000000007035f48                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_5
+                0x0000000007036368                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_4
+                0x0000000007036468                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_3
+                0x00000000070364a8                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_2
+                0x0000000007036c08                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_1
+                0x0000000007037d18                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_0
+                0x00000000070384b8                wf_dl_dWinterLevel_2020version_003_mesh_layer_1_vtx_cull
+                0x0000000007038538                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_8
+                0x00000000070385a8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_7
+                0x00000000070386e8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_6
+                0x00000000070388a8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_5
+                0x0000000007038ab8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_4
+                0x00000000070396b8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_3
+                0x0000000007039cb8                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_2
+                0x000000000703a798                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_1
+                0x000000000703a858                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_0
+                0x000000000703a918                wf_dl_cWinterLevel_2020version_004_mesh_layer_1_vtx_cull
+                0x000000000703a998                wf_dl_cWinterLevel_2020version_003_mesh_layer_1_vtx_3
+                0x000000000703ac58                wf_dl_cWinterLevel_2020version_003_mesh_layer_1_vtx_2
+                0x000000000703b828                wf_dl_cWinterLevel_2020version_003_mesh_layer_1_vtx_1
+                0x000000000703b8e8                wf_dl_cWinterLevel_2020version_003_mesh_layer_1_vtx_0
+                0x000000000703ba78                wf_dl_cWinterLevel_2020version_003_mesh_layer_1_vtx_cull
+                0x000000000703baf8                wf_dl_cWinterLevel_2020version_001_mesh_layer_1_vtx_2
+                0x000000000703bb38                wf_dl_cWinterLevel_2020version_001_mesh_layer_1_vtx_1
+                0x000000000703bc78                wf_dl_cWinterLevel_2020version_001_mesh_layer_1_vtx_0
+                0x000000000703bcd8                wf_dl_cWinterLevel_2020version_001_mesh_layer_1_vtx_cull
+                0x000000000703bd58                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_4
+                0x000000000703c1b8                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_3
+                0x000000000703c2b8                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_2
+                0x000000000703c738                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_1
+                0x000000000703c778                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_0
+                0x000000000703c818                wf_dl_bWinterLevel_2020version_003_mesh_layer_1_vtx_cull
+                0x000000000703c898                wf_dl_bWinterLevel_2020version_mesh_layer_4_vtx_0
+                0x000000000703c9b8                wf_dl_bWinterLevel_2020version_mesh_layer_4_vtx_cull
+                0x000000000703ca38                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_11
+                0x000000000703d068                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_10
+                0x000000000703d1c8                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_9
+                0x000000000703d3d8                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_8
+                0x000000000703d4a8                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_7
+                0x000000000703e328                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_6
+                0x000000000703e868                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_5
+                0x000000000703ee38                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_4
+                0x0000000007040f58                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_3
+                0x0000000007041fb8                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_2
+                0x0000000007042438                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_1
+                0x00000000070440d8                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_0
+                0x0000000007044258                wf_dl_bWinterLevel_2020version_mesh_layer_1_vtx_cull
+                0x00000000070442d8                wf_dl_aWinterLevel_2020version_013_mesh_layer_1_vtx_2
+                0x0000000007045038                wf_dl_aWinterLevel_2020version_013_mesh_layer_1_vtx_1
+                0x00000000070450f8                wf_dl_aWinterLevel_2020version_013_mesh_layer_1_vtx_0
+                0x00000000070459d8                wf_dl_aWinterLevel_2020version_013_mesh_layer_1_vtx_cull
+                0x0000000007045a58                wf_dl_pink_window_pal_rgba16
+                0x0000000007045a70                wf_dl_pink_window_pal_rgba16_aligner
+                0x0000000007045a78                wf_dl_pink_window_ci8
+                0x0000000007045e78                wf_dl_pink_window_ci8_aligner
+                0x0000000007045e80                wf_dl_dark_cave_pal_rgba16
+                0x0000000007045e98                wf_dl_dark_cave_pal_rgba16_aligner
+                0x0000000007045ea0                wf_dl_dark_cave_ci4
+                0x00000000070460a0                wf_dl_dark_cave_ci4_aligner
+                0x00000000070460a8                wf_dl__1_rgba16
+                0x00000000070470a8                wf_dl__1_rgba16_aligner
+                0x00000000070470b0                wf_dl__5_rgba16_copy_copy
+                0x00000000070474b0                _rgba::wf_dl(_copy_copy_align,...)(long double)
+                0x00000000070474b8                wf_dl__6_i8
+                0x0000000007047cb8                wf_dl__6_i8_aligner
+                0x0000000007047cc0                wf_dl__2_rgba16
+                0x00000000070484c0                wf_dl__2_rgba16_aligner
+                0x00000000070484c8                wf_dl___rgba16_copy_copy
+                0x00000000070494c8                wf_dl___rgba16_copy_copy_aligner
+                0x00000000070494d0                wf_dl__4_rgba16
+                0x0000000007049cd0                wf_dl__4_rgba16_aligner
+                0x0000000007049cd8                wf_dl__9_rgba16
+                0x000000000704a4d8                wf_dl__9_rgba16_aligner
+                0x000000000704a4e0                wf_dl__3_rgba16_copy_copy
+                0x000000000704ace0                wf_dl__3_rgba16_copy_copy_aligner
+                0x000000000704ace8                wf_dl__0x1240_pal_rgba16
+                0x000000000704ad08                wf_dl__0x1240_pal_rgba16_aligner
+                0x000000000704ad10                wf_dl__0x1240_ci4
+                0x000000000704b510                wf_dl__0x1240_ci4_aligner
+                0x000000000704b518                wf_dl_clouds3_pal_rgba16
+                0x000000000704b538                wf_dl_clouds3_pal_rgba16_aligner
+                0x000000000704b540                wf_dl_clouds3_ci4
+                0x000000000704bd40                wf_dl_clouds3_ci4_aligner
+                0x000000000704bd48                wf_dl__50_pal_rgba16
+                0x000000000704bd68                wf_dl__50_pal_rgba16_aligner
+                0x000000000704bd70                wf_dl__50_ci4
+                0x000000000704c570                wf_dl__50_ci4_aligner
+                0x000000000704c578                wf_dl_c2_painting_4_pal_rgba16
+                0x000000000704c598                wf_dl_c2_painting_4_pal_rgba16_aligner
+                0x000000000704c5a0                wf_dl_c2_painting_4_ci4
+                0x000000000704cda0                wf_dl_c2_painting_4_ci4_aligner
+                0x000000000704cda8                wf_dl_c2_painting_3_pal_rgba16
+                0x000000000704cdc8                wf_dl_c2_painting_3_pal_rgba16_aligner
+                0x000000000704cdd0                wf_dl_c2_painting_3_ci4
+                0x000000000704d5d0                wf_dl_c2_painting_3_ci4_aligner
+                0x000000000704d5d8                wf_dl_c2_painting_2_pal_rgba16
+                0x000000000704d5f8                wf_dl_c2_painting_2_pal_rgba16_aligner
+                0x000000000704d600                wf_dl_c2_painting_2_ci4
+                0x000000000704de00                wf_dl_c2_painting_2_ci4_aligner
+                0x000000000704de08                wf_dl_c2_painting_1_pal_rgba16
+                0x000000000704de28                wf_dl_c2_painting_1_pal_rgba16_aligner
+                0x000000000704de30                wf_dl_c2_painting_1_ci4
+                0x000000000704e630                wf_dl_c2_painting_1_ci4_aligner
+                0x000000000704e638                wf_dl__53_rgba16
+                0x000000000704f638                wf_dl__53_rgba16_aligner
+                0x000000000704f640                wf_dl_snow_button_pal_rgba16_copy_copy
+                0x000000000704f708                wf_dl_snow_button_pal_rgba16_copy_copy_aligner
+                0x000000000704f710                wf_dl_snow_button_ci8_copy_copy
+                0x000000000704fb10                wf_dl_snow_button_ci8_copy_copy_aligner
+                0x000000000704fb18                wf_dl_snow_button_pal_rgba16_copy
+                0x000000000704fbe0                wf_dl_snow_button_pal_rgba16_copy_aligner
+                0x000000000704fbe8                wf_dl_snow_button_ci8_copy
+                0x000000000704ffe8                wf_dl_snow_button_ci8_copy_aligner
+                0x000000000704fff0                wf_dl_snow_eye_pal_rgba16_copy
+                0x0000000007050080                wf_dl_snow_eye_pal_rgba16_copy_aligner
+                0x0000000007050088                wf_dl_snow_eye_ci8_copy
+                0x0000000007050488                wf_dl_snow_eye_ci8_copy_aligner
+                0x0000000007050490                wf_dl_snow_button_pal_rgba16
+                0x0000000007050558                wf_dl_snow_button_pal_rgba16_aligner
+                0x0000000007050560                wf_dl_snow_button_ci8
+                0x0000000007050960                wf_dl_snow_button_ci8_aligner
+                0x0000000007050968                wf_dl_snow_eye_pal_rgba16
+                0x00000000070509f8                wf_dl_snow_eye_pal_rgba16_aligner
+                0x0000000007050a00                wf_dl_snow_eye_ci8
+                0x0000000007050e00                wf_dl_snow_eye_ci8_aligner
+                0x0000000007050e08                wf_dl__38_rgba16
+                0x0000000007051608                wf_dl__38_rgba16_aligner
+                0x0000000007051610                wf_dl__45_pal_rgba16
+                0x0000000007051630                wf_dl__45_pal_rgba16_aligner
+                0x0000000007051638                wf_dl__45_ci4
+                0x0000000007051e38                wf_dl__45_ci4_aligner
+                0x0000000007051e40                wf_dl__17_pal_rgba16
+                0x0000000007051e60                _pal_rgba16_align::wf_dl(...)(long double)
+                0x0000000007051e68                wf_dl__17_ci4
+                0x0000000007052668                wf_dl__17_ci4_aligner
+                0x0000000007052670                wf_dl__26_pal_rgba16
+                0x0000000007052688                wf_dl__26_pal_rgba16_aligner
+                0x0000000007052690                wf_dl__26_ci4
+                0x0000000007052e90                wf_dl__26_ci4_aligner
+                0x0000000007052e98                wf_dl__22_pal_rgba16_copy
+                0x0000000007052eb8                _pal_rgba16_copy_align::wf_dl(...)(long double)
+                0x0000000007052ec0                wf_dl__22_ci4_copy
+                0x00000000070536c0                wf_dl__22_ci4_copy_aligner
+                0x00000000070536c8                wf_dl__20_rgba16_copy
+                0x0000000007053ec8                _rgba16_copy_aligner::wf_dl(void)
+                0x0000000007053ed0                wf_dl__21_pal_rgba16_copy
+                0x0000000007053ee8                wf_dl__21_pal_rgba16_copy_aligner
+                0x0000000007053ef0                wf_dl__21_ci4_copy
+                0x00000000070546f0                wf_dl__21_ci4_copy_aligner
+                0x00000000070546f8                wf_dl_SUPER_MARIO_64_9D15E307_0_2_all_pal_rgba16
+                0x0000000007054758                wf_dl_SUPER_MARIO_64_9D15E307_0_2_all_pal_rgba16_aligner
+                0x0000000007054760                wf_dl_SUPER_MARIO_64_9D15E307_0_2_all_ci8
+                0x0000000007054b60                wf_dl_SUPER_MARIO_64_9D15E307_0_2_all_ci8_aligner
+                0x0000000007054b68                wf_dl_Hat_pal_rgba16
+                0x0000000007054b80                wf_dl_Hat_pal_rgba16_aligner
+                0x0000000007054b88                wf_dl_Hat_ci4
+                0x0000000007055388                wf_dl_Hat_ci4_aligner
+                0x0000000007055390                wf_dl__18_pal_rgba16
+                0x00000000070553b0                _pal_rgba16_aligne::wf_dl(long double)
+                0x00000000070553b8                wf_dl__18_ci4
+                0x0000000007055bb8                wf_dl__18_ci4_aligner
+                0x0000000007055bc0                wf_dl_water5_pal_rgba16
+                0x0000000007055bd0                wf_dl_water5_pal_rgba16_aligner
+                0x0000000007055bd8                wf_dl_water5_ci4
+                0x0000000007055dd8                wf_dl_water5_ci4_aligner
+                0x0000000007055de0                wf_dl_face_pal_rgba16
+                0x0000000007055e00                wf_dl_face_pal_rgba16_aligner
+                0x0000000007055e08                wf_dl_face_ci4
+                0x0000000007056608                wf_dl_face_ci4_aligner
+                0x0000000007056610                wf_dl__33_rgba16_copy
+                0x0000000007057610                wf_dl__33_rgba16_copy_aligner
+                0x0000000007057618                wf_dl__24_rgba16_copy
+                0x0000000007057e18                wf_dl__24_rgba16_copy_aligner
+                0x0000000007057e20                wf_dl__23_rgba16_copy
+                0x0000000007058620                wf_dl__23_rgba16_copy_aligner
+                0x0000000007058628                wf_dl__5_rgba16_copy
+                0x0000000007058e28                wf_dl__5_rgba16_copy_aligner
+                0x0000000007058e30                wf_dl__6_rgba16_copy
+                0x0000000007059630                wf_dl__6_rgba16_copy_aligner
+                0x0000000007059638                wf_dl__27_pal_rgba16_copy
+                0x0000000007059658                wf_dl__27_pal_rgba16_copy_aligner
+                0x0000000007059660                wf_dl__27_ci4_copy
+                0x0000000007059e60                wf_dl__27_ci4_copy_aligner
+                0x0000000007059e68                wf_dl__3_rgba16_copy
+                0x000000000705a668                wf_dl__3_rgba16_copy_aligner
+                0x000000000705a670                wf_dl__22_pal_rgba16
+                0x000000000705a690                wf_dl__22_pal_rgba16_aligner
+                0x000000000705a698                wf_dl__22_ci4
+                0x000000000705ae98                wf_dl__22_ci4_aligner
+                0x000000000705aea0                wf_dl__20_rgba16
+                0x000000000705b6a0                wf_dl__20_rgba16_aligner
+                0x000000000705b6a8                wf_dl__21_pal_rgba16
+                0x000000000705b6c0                wf_dl__21_pal_rgba16_aligner
+                0x000000000705b6c8                wf_dl__21_ci4
+                0x000000000705bec8                wf_dl__21_ci4_aligner
+                0x000000000705bed0                wf_dl___rgba16_copy
+                0x000000000705c6d0                wf_dl___rgba16_copy_aligner
+                0x000000000705c6d8                wf_dl__33_rgba16
+                0x000000000705d6d8                wf_dl__33_rgba16_aligner
+                0x000000000705d6e0                wf_dl__24_rgba16
+                0x000000000705dee0                wf_dl__24_rgba16_aligner
+                0x000000000705dee8                wf_dl__23_rgba16
+                0x000000000705e6e8                wf_dl__23_rgba16_aligner
+                0x000000000705e6f0                wf_dl__16_pal_rgba16
+                0x000000000705e710                wf_dl__16_pal_rgba16_aligner
+                0x000000000705e718                wf_dl__16_ci4
+                0x000000000705ef18                wf_dl__16_ci4_aligner
+                0x000000000705ef20                wf_dl__10_rgba16
+                0x000000000705f720                wf_dl__10_rgba16_aligner
+                0x000000000705f728                wf_dl__6_rgba16
+                0x000000000705ff28                _rgba1::wf_dl(_align,...)(long double)
+                0x000000000705ff30                wf_dl__12_rgba16
+                0x0000000007060f30                wf_dl__12_rgba16_aligner
+                0x0000000007060f38                wf_dl__5_rgba16
+                0x0000000007061738                wf_dl__5_rgba16_aligner
+                0x0000000007061740                wf_dl_tex1_64x64_794C2D0C509157A0_12_pal_rgba16
+                0x0000000007061758                wf_dl_tex1_64x64_794C2D0C509157A0_12_pal_rgba16_aligner
+                0x0000000007061760                wf_dl_tex1_64x64_794C2D0C509157A0_12_ci4
+                0x0000000007061f60                wf_dl_tex1_64x64_794C2D0C509157A0_12_ci4_aligner
+                0x0000000007061f68                wf_dl__60_rgba16
+                0x0000000007062768                wf_dl__60_rgba16_aligner
+                0x0000000007062770                wf_dl__46_pal_rgba16
+                0x0000000007062790                wf_dl__46_pal_rgba16_aligner
+                0x0000000007062798                wf_dl__46_ci4
+                0x0000000007062f98                wf_dl__46_ci4_aligner
+                0x0000000007062fa0                wf_dl__59_rgba16
+                0x00000000070637a0                wf_dl__59_rgba16_aligner
+                0x00000000070637a8                wf_dl__51_pal_rgba16
+                0x00000000070637c8                wf_dl__51_pal_rgba16_aligner
+                0x00000000070637d0                wf_dl__51_ci4
+                0x0000000007063fd0                wf_dl__51_ci4_aligner
+                0x0000000007063fd8                wf_dl__44_pal_rgba16
+                0x0000000007063ff8                wf_dl__44_pal_rgba16_aligner
+                0x0000000007064000                wf_dl__44_ci4
+                0x0000000007064800                wf_dl__44_ci4_aligner
+                0x0000000007064808                wf_dl__27_pal_rgba16
+                0x0000000007064828                wf_dl__27_pal_rgba16_aligner
+                0x0000000007064830                wf_dl__27_ci4
+                0x0000000007065030                wf_dl__27_ci4_aligner
+                0x0000000007065038                wf_dl__15_rgba16
+                0x0000000007065838                _rgba16_aligner::wf_dl(void)
+                0x0000000007065840                wf_dl__3_rgba16
+                0x0000000007066040                wf_dl__3_rgba16_aligner
+                0x0000000007066048                wf_dl__43_pal_rgba16
+                0x0000000007066068                wf_dl__43_pal_rgba16_aligner
+                0x0000000007066070                wf_dl__43_ci4
+                0x0000000007066870                wf_dl__43_ci4_aligner
+                0x0000000007066878                wf_dl___rgba16
+                0x0000000007067078                wf_dl___rgba16_aligner
+                0x0000000007067080                wf_area_2_macro_objs
+                0x0000000007067084                wf_area_2_collision
+                0x000000000706c59c                wf_area_1_macro_objs
+                0x000000000706c5a0                wf_area_1_collision
+                0x000000000707b594                wf_movtex_water
+
+.data1
+ *(.data1)
+
+.got.plt
+ *(.got.plt)
+                0x000000000707b5c4                . = .
+                0x000000000707b5c4                . = .
+                0x00000000070835c0                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got)
+
+.sdata
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x000000000707b5c4                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x000000000707b5c4                . = .
+                0x000000000707b5c4                __bss_start = .
+                0x000000000707b5c4                _fbss = .
+
+.sbss
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+
+.bss            0x000000000707b5c4        0x0 load address 0x000000000707b5dc
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000000000707b5c4        0x0 build/us_n64/levels/wf/leveldata.o
+ *(COMMON)
+                0x000000000707b5c4                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x000000000707b5c4                . = ALIGN (0x4)
+                0x000000000707b5c4                . = SEGMENT_START ("ldata-segment", .)
+                0x000000000707b5c4                . = ALIGN (0x4)
+                0x000000000707b5c4                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x000000000707b5c4                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x12
+ *(.comment)
+ .comment       0x0000000000000000       0x12 build/us_n64/levels/wf/leveldata.o
+                                         0x13 (size before relaxing)
+
+.pdr            0x0000000000000000        0x0
+ .pdr           0x0000000000000000        0x0 build/us_n64/levels/wf/leveldata.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+                0x0000000000000000       0x10
+ *(.gnu.attributes)
+ .gnu.attributes
+                0x0000000000000000       0x10 build/us_n64/levels/wf/leveldata.o
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32   0x0000000000000000        0x0
+ *(.mdebug.abi32)
+ .mdebug.abi32  0x0000000000000000        0x0 build/us_n64/levels/wf/leveldata.o
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(build/us_n64/levels/wf/leveldata.elf elf32-bigmips)

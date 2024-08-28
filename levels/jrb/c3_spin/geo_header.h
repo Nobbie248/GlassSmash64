@@ -1,0 +1,11 @@
+extern const GeoLayout c3_spin_geo[];
+extern Lights1 c3_spin_f3dlite_material_002_layer1_lights;
+extern u8 c3_spin_blackrock_ci4[];
+extern u8 c3_spin_blackrock_x_lkava_pal_rgba16[];
+extern u8 c3_spin_lkava_ci8[];
+extern Vtx c3_spin_Plane_mesh_layer_1_vtx_cull[8];
+extern Vtx c3_spin_Plane_mesh_layer_1_vtx_0[20];
+extern Gfx c3_spin_Plane_mesh_layer_1_tri_0[];
+extern Gfx mat_c3_spin_f3dlite_material_002_layer1[];
+extern Gfx mat_revert_c3_spin_f3dlite_material_002_layer1[];
+extern Gfx c3_spin_Plane_mesh_layer_1[];

@@ -1,0 +1,575 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x3000000
+LOAD build/us_n64/actors/common1.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x400000))
+                0x0000000000400000                . = SEGMENT_START ("text-segment", 0x400000)
+
+.interp
+ *(.interp)
+
+.MIPS.abiflags  0x0000000000400000       0x18
+ *(.MIPS.abiflags)
+ .MIPS.abiflags
+                0x0000000000400000       0x18 build/us_n64/actors/common1.o
+
+.reginfo        0x0000000000400018       0x18
+ *(.reginfo)
+ .reginfo       0x0000000000400018       0x18 build/us_n64/actors/common1.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.dynamic
+ *(.dynamic)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x0000000000400018        0x0 load address 0x0000000000400030
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.dyn)
+ .rel.dyn       0x0000000000400018        0x0 build/us_n64/actors/common1.o
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rel_iplt_start = .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end = .)
+
+.rela.dyn       0x0000000000400018        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start = .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end = .)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000003000000        0x0 load address 0x0000000003000018
+                0x0000000003000000                _ftext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000003000000        0x0 build/us_n64/actors/common1.o
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.fini
+ *(SORT_NONE(.fini))
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000003000000                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000003000000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000000003000000        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000000003000000        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+                0x0000000003000000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000003000000    0x36528 load address 0x0000000003000018
+                0x0000000003000000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000003000000    0x36528 build/us_n64/actors/common1.o
+                0x0000000003000000                redcoinradar_material_revert_render_settings
+                0x0000000003000040                redcoinradar_Plane_mesh_layer_4
+                0x0000000003000080                mat_revert_redcoinradar_f3d_material
+                0x00000000030000a0                mat_redcoinradar_f3d_material
+                0x0000000003000160                redcoinradar_Plane_mesh_layer_4_tri_0
+                0x0000000003000178                redcoinradar_Plane_mesh_layer_4_vtx_0
+                0x00000000030001b8                redcoinradar_Plane_mesh_layer_4_vtx_cull
+                0x0000000003000238                redcoinradar_omm_texture_hud_arrow_ci8_pal_rgba16
+                0x00000000030002c0                redcoinradar_omm_texture_hud_arrow_ci8_pal_rgba16_aligner
+                0x00000000030002c8                redcoinradar_omm_texture_hud_arrow_ci8
+                0x00000000030006c8                redcoinradar_omm_texture_hud_arrow_ci8_aligner
+                0x00000000030006d0                tree_seg3_dl_palm_transparent
+                0x00000000030006e8                tree_seg3_dl_palm
+                0x0000000003000700                tree_seg3_sub_dl_palm
+                0x00000000030017e0                tree_seg3_dl_snowy_pine_transparent
+                0x00000000030017f8                tree_seg3_dl_snowy_pine
+                0x0000000003001810                tree_seg3_sub_dl_snowy_pine
+                0x00000000030028b0                tree_seg3_dl_spiky_transparent
+                0x00000000030028c8                tree_seg3_dl_spiky
+                0x00000000030028e0                tree_seg3_sub_dl_spiky
+                0x00000000030039c0                tree_seg3_dl_bubbly_transparent
+                0x00000000030039d8                tree_seg3_dl_bubbly
+                0x00000000030039f0                tree_seg3_sub_dl_bubbly
+                0x0000000003003a58                tree_seg3_sub_dl_bubbly_right_side
+                0x0000000003003a88                tree_seg3_sub_dl_bubbly_left_side
+                0x0000000003005b18                wooden_signpost_seg3_collision_0302DD80
+                0x0000000003005bb8                wooden_signpost_seg3_dl_0302DD08
+                0x0000000003005c30                wooden_signpost_seg3_dl_0302DCD0
+                0x0000000003005c60                wooden_signpost_seg3_dl_0302DC40
+                0x0000000003005e58                wooden_signpost_seg3_dl_0302DA48
+                0x0000000003005eb8                wooden_signpost_seg3_dl_0302D9C8
+                0x0000000003006f98                white_particle_dl
+                0x0000000003007268                transparent_star_seg3_dl_body
+                0x00000000030072a8                transparent_star_seg3_sub_dl_body
+                0x00000000030073e8                dirt_seg3_dl_tiny_particle_billboard
+                0x0000000003007410                dirt_seg3_dl_tiny_particle_yellow
+                0x0000000003007458                dirt_seg3_dl_tiny_particle_blue
+                0x00000000030074a0                dirt_seg3_dl_tiny_particle_green
+                0x00000000030074e8                dirt_seg3_dl_tiny_particle_red
+                0x0000000003007530                dirt_seg3_dl_cartoon_star_billboard
+                0x0000000003007570                dirt_seg3_dl_cartoon_star_yellow
+                0x00000000030075a0                dirt_seg3_dl_cartoon_star_blue
+                0x00000000030075d0                dirt_seg3_dl_cartoon_star_green
+                0x0000000003007600                dirt_seg3_dl_cartoon_star_red
+                0x0000000003007630                dirt_seg3_sub_dl_cartoon_star
+                0x0000000003007810                dirt_seg3_dl_dirt_particle
+                0x0000000003007880                dirt_seg3_sub_dl_dirt_particle
+                0x0000000003007ae0                sand_seg3_dl_particle
+                0x0000000003007db0                star_seg3_dl_eyes
+                0x0000000003007e20                star_seg3_sub_dl_eyes
+                0x0000000003007f18                star_seg3_dl_body
+                0x0000000003007fb0                star_seg3_sub_dl_body
+                0x00000000030090f0                mushroom_1up_seg3_dl_0302A660
+                0x0000000003009160                mushroom_1up_seg3_dl_0302A628
+                0x000000000300a1d0                dl_power_meter_health_segments_end
+                0x000000000300a208                dl_power_meter_health_segments_begin
+                0x000000000300a278                dl_power_meter_base
+                0x000000000300a398                power_meter_health_segments_lut
+                0x00000000030103b8                mario_cap_seg3_dl_03023298
+                0x0000000003010500                mario_cap_seg3_dl_03023160
+                0x0000000003010648                mario_cap_seg3_dl_03023108
+                0x00000000030106a0                mario_cap_seg3_dl_030230B0
+                0x00000000030106f8                mario_cap_seg3_dl_03022FF8
+                0x00000000030107c0                mario_cap_seg3_dl_03022F48
+                0x0000000003010880                mario_cap_seg3_dl_03022F20
+                0x00000000030108a8                mario_cap_seg3_dl_03022ED8
+                0x00000000030108f0                mario_cap_seg3_dl_03022EA8
+                0x0000000003010910                mario_cap_seg3_dl_03022E78
+                0x0000000003010a70                mario_cap_seg3_dl_03022D10
+                0x0000000003010aa8                mario_cap_seg3_dl_03022CC8
+                0x0000000003010ad8                mario_cap_seg3_dl_03022B68
+                0x0000000003010b98                mario_cap_seg3_dl_03022B30
+                0x00000000030167a0                leaves_seg3_dl_0301CDE0
+                0x0000000003016a70                pebble_seg3_dl_0301CB00
+                0x0000000003017340                blue_fish_seg3_anims_0301C2B0
+                0x0000000003017448                blue_fish_seg3_dl_0301C150
+                0x00000000030174a8                blue_fish_seg3_dl_0301C0A8
+                0x00000000030175b8                blue_fish_seg3_dl_0301BFB8
+                0x0000000003017618                blue_fish_seg3_dl_0301BEC0
+                0x0000000003017fa0                flame_seg3_dl_0301B5A8
+                0x0000000003017fb8                flame_seg3_dl_0301B590
+                0x0000000003017fd0                flame_seg3_dl_0301B578
+                0x0000000003017fe8                flame_seg3_dl_0301B560
+                0x0000000003018000                flame_seg3_dl_0301B548
+                0x0000000003018018                flame_seg3_dl_0301B530
+                0x0000000003018030                flame_seg3_dl_0301B518
+                0x0000000003018048                flame_seg3_dl_0301B500
+                0x0000000003018060                flame_seg3_dl_0301B470
+                0x00000000030180b0                flame_seg3_dl_0301B458
+                0x00000000030180c8                flame_seg3_dl_0301B440
+                0x00000000030180e0                flame_seg3_dl_0301B428
+                0x00000000030180f8                flame_seg3_dl_0301B410
+                0x0000000003018110                flame_seg3_dl_0301B3F8
+                0x0000000003018128                flame_seg3_dl_0301B3E0
+                0x0000000003018140                flame_seg3_dl_0301B3C8
+                0x0000000003018158                flame_seg3_dl_0301B3B0
+                0x0000000003018170                flame_seg3_dl_0301B320
+                0x00000000030181c0                flame_seg3_dl_end
+                0x00000000030181f0                flame_seg3_dl_draw
+                0x000000000301c250                bowser_key_seg3_anims_list
+                0x000000000301cff8                bowser_key_dl
+                0x000000000301dce0                door_seg3_collision_door
+                0x000000000301dd3c                door_seg3_anims_030156C0
+                0x000000000301e250                door_seg3_dl_haunted_door_far
+                0x000000000301e2d0                door_seg3_dl_cave_door_far
+                0x000000000301e350                door_seg3_dl_metal_door_far
+                0x000000000301e3d0                door_seg3_dl_rough_wooden_door2_far
+                0x000000000301e450                door_seg3_dl_rough_wooden_door_far
+                0x000000000301e4d0                door_seg3_sub_dl_themed_door_far_begin
+                0x000000000301e500                door_seg3_sub_dl_themed_handle_far
+                0x000000000301e528                door_seg3_sub_dl_themed_door_far
+                0x000000000301e668                door_seg3_dl_haunted_door_near
+                0x000000000301e728                door_seg3_dl_cave_door_near
+                0x000000000301e7e8                door_seg3_dl_metal_door_near
+                0x000000000301e8a8                door_seg3_dl_rough_wooden_door2_near
+                0x000000000301e968                door_seg3_dl_rough_wooden_door_near
+                0x000000000301ea28                door_seg3_sub_dl_themed_door_begin
+                0x000000000301ea58                door_seg3_sub_dl_themed_door
+                0x000000000301ea78                door_seg3_sub_dl_themed_door_sides
+                0x000000000301eac8                door_seg3_sub_dl_themed_handle_near
+                0x000000000301eea8                door_seg3_dl_key_door
+                0x000000000301ef38                door_seg3_sub_dl_lock
+                0x000000000301f070                door_seg3_sub_dl_key_door
+                0x000000000301f1c8                door_seg3_sub_dl_key_door_sides
+                0x000000000301f330                door_seg3_dl_three_stars_far
+                0x000000000301f360                door_seg3_dl_three_stars_near
+                0x000000000301f390                door_seg3_dl_one_star_far
+                0x000000000301f3c0                door_seg3_dl_one_star_near
+                0x000000000301f3f0                door_seg3_dl_zero_star_far
+                0x000000000301f420                door_seg3_dl_zero_star_near
+                0x000000000301f450                door_seg3_vertex_star_sign_end
+                0x000000000301f480                door_seg3_vertex_star_sign_begin
+                0x000000000301f568                door_seg3_dl_cabin_door_far
+                0x000000000301f580                door_seg3_dl_polished_wooden_door_far
+                0x000000000301f5a0                door_seg3_sub_dl_polished_wooden_door_far
+                0x000000000301f788                door_seg3_dl_cabin_door_near
+                0x000000000301f800                door_seg3_dl_polished_wooden_door_near
+                0x000000000301f880                door_seg3_sub_dl_polished_wooden_door_handle_2
+                0x000000000301f8f8                door_seg3_sub_dl_polished_wooden_door_handle_1
+                0x000000000301f970                door_seg3_sub_dl_polished_wooden_door_near
+                0x0000000003029908                warp_pipe_seg3_collision_03009AC8
+                0x0000000003029b80                warp_pipe_seg3_dl_03009A50
+                0x0000000003029bf8                warp_pipe_seg3_dl_03009A20
+                0x0000000003029c30                warp_pipe_seg3_dl_03009968
+                0x000000000302a5f8                warp_pipe_seg3_dl_03008F98
+                0x000000000302a658                warp_pipe_seg3_dl_03008E40
+                0x000000000302bb90                coin_seg3_dl_secret_r
+                0x000000000302bbb0                coin_seg3_dl_secret
+                0x000000000302bbd0                coin_seg3_dl_red_r
+                0x000000000302bbf0                coin_seg3_dl_red
+                0x000000000302bc10                coin_seg3_dl_blue_r
+                0x000000000302bc30                coin_seg3_dl_blue
+                0x000000000302bc50                coin_seg3_dl_yellow_r
+                0x000000000302bc70                coin_seg3_dl_yellow
+                0x000000000302bc90                dl_coin_90
+                0x000000000302bca8                dl_coin_67_5
+                0x000000000302bcc0                dl_coin_45
+                0x000000000302bcd8                dl_coin_22_5
+                0x000000000302bcf0                dl_coin_0
+                0x000000000302bd08                dl_coin_end
+                0x000000000302bd28                coin_seg3_dl_start
+                0x0000000003030f08                butterfly_seg3_anims_030056B0
+                0x0000000003031088                butterfly_seg3_dl_030054A0
+                0x0000000003031118                butterfly_seg3_dl_03005408
+                0x0000000003032268                explosion_seg3_dl_03004328
+                0x0000000003032280                explosion_seg3_dl_03004310
+                0x0000000003032298                explosion_seg3_dl_030042F8
+                0x00000000030322b0                explosion_seg3_dl_030042E0
+                0x00000000030322c8                explosion_seg3_dl_030042C8
+                0x00000000030322e0                explosion_seg3_dl_030042B0
+                0x00000000030322f8                explosion_seg3_dl_03004298
+                0x0000000003032310                explosion_seg3_dl_03004208
+                0x0000000003035bd8                mist_seg3_dl_03000920
+                0x0000000003035bf8                mist_seg3_dl_03000880
+                0x0000000003035c18                mist_dl_end
+                0x0000000003035c48                mist_dl
+
+.data1
+ *(.data1)
+
+.got.plt
+ *(.got.plt)
+                0x0000000003036528                . = .
+                0x0000000003036528                . = .
+                0x000000000303e520                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got
+ *(.got)
+
+.sdata
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x0000000003036528                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x0000000003036528                . = .
+                0x0000000003036528                __bss_start = .
+                0x0000000003036528                _fbss = .
+
+.sbss
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+
+.bss            0x0000000003036528        0x0 load address 0x0000000003036540
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000003036528        0x0 build/us_n64/actors/common1.o
+ *(COMMON)
+                0x0000000003036528                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000003036528                . = ALIGN (0x4)
+                0x0000000003036528                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000003036528                . = ALIGN (0x4)
+                0x0000000003036528                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x0000000003036528                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x12
+ *(.comment)
+ .comment       0x0000000000000000       0x12 build/us_n64/actors/common1.o
+                                         0x13 (size before relaxing)
+
+.pdr            0x0000000000000000        0x0
+ .pdr           0x0000000000000000        0x0 build/us_n64/actors/common1.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+                0x0000000000000000       0x10
+ *(.gnu.attributes)
+ .gnu.attributes
+                0x0000000000000000       0x10 build/us_n64/actors/common1.o
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32   0x0000000000000000        0x0
+ *(.mdebug.abi32)
+ .mdebug.abi32  0x0000000000000000        0x0 build/us_n64/actors/common1.o
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(build/us_n64/actors/common1.elf elf32-bigmips)
