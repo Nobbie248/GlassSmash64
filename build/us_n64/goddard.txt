@@ -1,1 +1,0 @@
-GODDARD_SIZE = 0x6120;
