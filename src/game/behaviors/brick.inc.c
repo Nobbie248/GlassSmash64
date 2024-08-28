@@ -1,47 +1,35 @@
-// brick.inc.c
 
-struct ObjectHitbox sBrickHitbox = {
-    /* interactType:      */ INTERACT_BREAKABLE,
-    /* downOffset:        */ 20,
-    /* damageOrCoinValue: */ 0,
-    /* health:            */ 1,
-    /* numLootCoins:      */ 0,
-    /* radius:            */ 150,
-    /* height:            */ 250,
-    /* hurtboxRadius:     */ 150,
-    /* hurtboxHeight:     */ 250,
-};
-
-#define LOAD_OBJECT_FROM_GEO(MODEL_BRICK, brick_geo)
 
 void bhv_brick_init(void) {
-    o->oGravity = 2.5f;
-    o->oFriction = 0.99f;
-    o->oBuoyancy = 1.4f;
+    if (gMarioState->forwardVel >= 5.f) {
+    o->oVelX = 100.0f * sins(gMarioState->faceAngle[1]);
+    o->oVelZ = 100.0f * coss(gMarioState->faceAngle[1]);
+    } else {
+    o->oVelX = 50.0f * sins(gMarioState->faceAngle[1]);
+    o->oVelZ = 50.0f * coss(gMarioState->faceAngle[1]);
+    }
     
-    obj_set_hitbox(o, &sBrickHitbox);
-    o->oAnimState = BREAKABLE_BOX_ANIM_STATE_CORK_BOX;
-    o->activeFlags |= ACTIVE_FLAG_DESTRUCTIVE_OBJ_DONT_DESTROY;
+    
+    o->oVelY = 45.0f;
+    o->oGravity = -5.0f;
+    o->oTimer = 0;
+    o->oAngleVelPitch = 0x400;
+    
 }
 
 void bhv_brick_loop(void) {
-    switch (o->oHeldState) {
-        create_respawner(MODEL_BRICK, bhvBrick, 3000);
+    
+    o->oVelY += o->oGravity;
 
-        case HELD_FREE:
-            brick_thrown();
-            break;
+    o->oPosX += o->oVelX;
+    o->oPosZ += o->oVelZ;
+    o->oPosY += o->oVelY;
 
+    o->oFaceAnglePitch += o->oAngleVelPitch;
+
+    struct Surface *surface;
+    f32 floorHeight = find_floor(o->oPosX, o->oPosY, o->oPosZ, &surface); // not the final detection system i will make a better one
+    if (floorHeight < 0.0f) {
+        obj_mark_for_deletion(o);
     }
-
-    o->oInteractStatus = INT_STATUS_NONE;
-}
-
-void brick_thrown(void) {
-    o->oForwardVel = 40.0f;
-    o->oVelY = 20.0f;
-
-    o->oVelX = 10.0f;  // adjust the value if you want idk if it’s right
-
-    o->oFaceAngleYaw += 0x4000;  // rotation to make it a little realistic
 }
