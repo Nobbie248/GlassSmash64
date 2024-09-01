@@ -3,13 +3,7 @@
 const GeoLayout castle_grounds_area_1_geo[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_FORCE, 0, -873, -5474, castle_grounds_dl_background1_mesh_layer_0),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_FORCE, 0, -873, -5474, castle_grounds_dl_background2_mesh_layer_0),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 0, -873, -5474, castle_grounds_dl_background3_mesh_layer_1),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 28, 100, -37, castle_grounds_dl_Plane_mesh_layer_1),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 28, 100, -37, castle_grounds_dl_Plane_001_mesh_layer_1),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -1952, 406, -416, castle_grounds_dl_Plane_002_mesh_layer_1),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 28, 100, -37, castle_grounds_dl_Plane_003_mesh_layer_1),
+		GEO_DISPLAY_LIST(LAYER_OPAQUE, castle_grounds_dl_hub_mesh_layer_1),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
 };
