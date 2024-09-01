@@ -6255,16 +6255,11 @@ const BehaviorScript bhvBrick[] = {
 
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_DESTRUCTIVE),
-    
-    
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(gemmies_collision),
     SET_HOME(),
-    
-    
     BEGIN_LOOP(),
-        
-        
+    CALL_NATIVE(bhv_breakable_object_loop),
     END_LOOP(),
 };
