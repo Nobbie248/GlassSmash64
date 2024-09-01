@@ -12,7 +12,7 @@
 /**
  * Disables all debug options (except PUPPYPRINT).
  */
-#define DISABLE_ALL
+//#define DISABLE_ALL
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +27,7 @@
 /**
  * Enables debug level select. Hold L while the game boots to turn it on.
  */
-#define DEBUG_LEVEL_SELECT
+//#define DEBUG_LEVEL_SELECT
 
 /**
  * Enables debug free move (D-pad up to enter, A to exit).
@@ -59,7 +59,7 @@
 /**
  * Opens all courses and doors. Used for debugging purposes to unlock all content.
  */
-#define UNLOCK_ALL
+//#define UNLOCK_ALL
 
 /**
  * Same as above, but also reads all save file flags as complete.

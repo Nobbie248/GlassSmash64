@@ -37,3 +37,4 @@
 #include "gem_glow/geo.inc.c"
 
 #include "brick/geo.inc.c"
+#include "glass/geo.inc.c"

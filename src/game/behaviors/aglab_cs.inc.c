@@ -34,26 +34,26 @@ void bhv_cs_init()
         o->activeFlags = 0;
         return;        
     }
-    
-    int idx = gCurrCourseNum - 1;
-    int flags = save_file_get_star_flags(gCurrSaveFileNum - 1, idx);
-    if (flags)
-    {
-        resetFlags();
-        o->activeFlags = 0;
-        return;
-    }
+    // this code allows cs to happen only once per savefile
+    // int idx = gCurrCourseNum - 1;
+    // int flags = save_file_get_star_flags(gCurrSaveFileNum - 1, idx);
+    // if (flags)
+    // {
+    //     resetFlags();
+    //     o->activeFlags = 0;
+    //     return;
+    // }
 
-    if (sCsShown[idx])
-    {
-        resetFlags();
-        o->activeFlags = 0;
-        return;
-    }
-    else
-    {
-        sCsShown[idx] = 1;
-    }
+    // if (sCsShown[idx])
+    // {
+    //     resetFlags();
+    //     o->activeFlags = 0;
+    //     return;
+    // }
+    // else
+    // {
+    //     sCsShown[idx] = 1;
+    // }
 
     disableHud();
 }

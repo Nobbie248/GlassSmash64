@@ -211,4 +211,8 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "brick/geo_header.h"
 
+#include "glass/geo_header.h"
+
+#include "glass/collision_header.h"
+
 #endif
