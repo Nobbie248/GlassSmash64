@@ -65,7 +65,7 @@ const LevelScript level_bob_entry[] = {
 		OBJECT(MODEL_GLASS, 4265, 396, -896, 0, 0, 0, 0x00000000, bhvGlass),
 		OBJECT(MODEL_GLASS, 4265, 396, -2479, 0, 0, 0, 0x00000000, bhvGlass),
 		OBJECT(MODEL_GLASS, 3177, 396, -3454, 0, 0, 0, 0x00000000, bhvGlass),
-		OBJECT(MODEL_GLASS, 3177, 396, -5038, 0, 0, 0, 0x00000000, bhvGlass),
+		OBJECT(MODEL_GLASS, 3721, 396, -896, 0, 0, 0, 0x00000000, bhvGlass),
 		MARIO_POS(3, 0, 715, 203, 0),
 		MARIO_POS(0x01, 0, 715, 203, 0),
 		OBJECT(0, 713, 100, 0, 0, 0, 0, 0xe0000, bhvAirborneWarp),
