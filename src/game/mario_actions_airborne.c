@@ -2012,7 +2012,7 @@ s32 mario_execute_airborne_action(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
-        play_sound(SOUND_ACTION_THROW, m);
+        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
         o->oTimer = 30;
     }
     if (check_common_airborne_cancels(m)) {
