@@ -744,6 +744,7 @@ u32 interact_coin(struct MarioState *m, UNUSED u32 interactType, struct Object *
         && m->numCoins >= X_COIN_STAR && !g100CoinStarSpawned) {
         bhv_spawn_star_no_level_exit(STAR_BP_ACT_100_COINS);
         g100CoinStarSpawned = TRUE;
+        level_control_timer(TIMER_CONTROL_STOP);
     }
 #endif
 #if ENABLE_RUMBLE
