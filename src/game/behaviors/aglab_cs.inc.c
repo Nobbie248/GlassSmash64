@@ -1,5 +1,9 @@
+
+
 #include "game/game_init.h"
 #include "game/level_update.h"
+
+
 
 char gIsCs = 0;
 
@@ -19,9 +23,13 @@ static void disableHud()
 static char sCsShown[4] = {};
 extern struct CreditsEntry *gCurrCreditsEntry;
 
+
 void bhv_cs_init()
 {
+    
+        
     if (gCurrCreditsEntry)
+
     {
         disableHud();
         o->activeFlags = 0;
@@ -101,7 +109,10 @@ void bhv_cs_loop()
 
     if (buttonPressed & (A_BUTTON | B_BUTTON))
     {
-        o->oSubAction++;
+        
+        level_control_timer(TIMER_CONTROL_SHOW) & o->oSubAction++;
+        level_control_timer(TIMER_CONTROL_START) & o->oSubAction++;
+    
     }
 
     if (o->oTimer > 290 || (o->oSubAction > 2))
@@ -109,5 +120,7 @@ void bhv_cs_loop()
         resetFlags();
         reset_camera(gCamera);
         o->activeFlags = 0;
+        level_control_timer(TIMER_CONTROL_SHOW);
+    level_control_timer(TIMER_CONTROL_START);
     }
 }

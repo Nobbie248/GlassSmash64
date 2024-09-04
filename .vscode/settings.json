@@ -7,6 +7,7 @@
         "external.h": "c",
         "mario_actions_stationary.h": "c",
         "camera.h": "c",
-        "spawn_object.h": "c"
+        "spawn_object.h": "c",
+        "segment7.h": "c"
     }
 }

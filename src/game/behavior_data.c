@@ -6263,3 +6263,13 @@ const BehaviorScript bhvGlass[] = {
     CALL_NATIVE(bhv_breakable_object_loop),
     END_LOOP(),
 };
+
+const BehaviorScript bhvTimer[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    SET_HOME(),
+    CALL_NATIVE(bhv_timer_init),
+    
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_timer_loop),
+    END_LOOP(),
+};
