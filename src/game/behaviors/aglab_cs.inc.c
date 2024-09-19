@@ -8,6 +8,8 @@
 
 
 
+
+
 char gIsCs = 0;
 
 static void resetFlags()
@@ -92,12 +94,15 @@ void bhv_cs_loop()
             break;
         
     }
-    if (buttonPressed & (A_BUTTON | B_BUTTON))
+    if (buttonPressed & (A_BUTTON | B_BUTTON | START_BUTTON))
     {
-        resetFlags();
-        reset_camera(gCamera);
-        o->activeFlags = 0;
-        o->oSubAction++;
+        initiate_warp(EXIT_COURSE_LEVEL, EXIT_COURSE_AREA, EXIT_COURSE_NODE, WARP_FLAG_EXIT_COURSE);
+            fade_into_special_warp(WARP_SPECIAL_NONE, 0);
+            gSavedCourseNum = COURSE_NONE;
+        // resetFlags();
+        // reset_camera(gCamera);
+        // o->activeFlags = 0;
+        // o->oSubAction++;
         
         //gLoadLevel->LEVEL_CASTLE_GROUNDS;
     }
