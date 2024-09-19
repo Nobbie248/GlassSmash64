@@ -4,6 +4,7 @@ const GeoLayout wmotr_area_1_geo[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, wmotr_dl_Cube_mesh_layer_1),
+		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, wmotr_dl_Cube_mesh_layer_5),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_TRANSPARENT_INTER, 1045, 3317, -6355, wmotr_dl_Plane_mesh_layer_7),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, wmotr_dl_water_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, wmotr_dl_water_001_mesh_layer_1),

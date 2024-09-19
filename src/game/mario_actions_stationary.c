@@ -179,13 +179,13 @@ s32 act_idle(struct MarioState *m) {
                     m->actionState = ACT_STATE_IDLE_HEAD_LEFT;
                 } else {
                     // If Mario hasn't turned his head 10 times yet, stay idle instead of going to sleep.
-                    m->actionTimer++;
+                    //m->actionTimer++;
                     if (m->actionTimer < 10) {
                         m->actionState = ACT_STATE_IDLE_HEAD_LEFT;
                     }
-                }
+                 }
 #endif
-            }
+             }
         }
     }
 
@@ -200,120 +200,120 @@ void play_anim_sound(struct MarioState *m, u32 actionState, s32 animFrame, u32 s
     }
 }
 
-s32 act_start_sleeping(struct MarioState *m) {
-    s32 animFrame = 0;
+// s32 act_start_sleeping(struct MarioState *m) {
+//     s32 animFrame = 0;
 
-    if (check_common_idle_cancels(m)) {
-        return TRUE;
-    }
+//     if (check_common_idle_cancels(m)) {
+//         return TRUE;
+//     }
 
-    if (m->quicksandDepth > 30.0f) {
-        return set_mario_action(m, ACT_IN_QUICKSAND, 0);
-    }
+//     if (m->quicksandDepth > 30.0f) {
+//         return set_mario_action(m, ACT_IN_QUICKSAND, 0);
+//     }
 
-    if (m->actionState == 4) {
-        return set_mario_action(m, ACT_SLEEPING, 0);
-    }
+//     if (m->actionState == 4) {
+//         return set_mario_action(m, ACT_SLEEPING, 0);
+//     }
 
-    switch (m->actionState) {
-        case ACT_STATE_START_SLEEPING_IDLE:
-            animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_IDLE);
-            break;
+//     switch (m->actionState) {
+//         case ACT_STATE_START_SLEEPING_IDLE:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_IDLE);
+//             break;
 
-        case ACT_STATE_START_SLEEPING_SCRATCH:
-            animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_SCRATCH);
-            break;
+//         case ACT_STATE_START_SLEEPING_SCRATCH:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_SCRATCH);
+//             break;
 
-        case ACT_STATE_START_SLEEPING_YAWN:
-            animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_YAWN);
-            m->marioBodyState->eyeState = MARIO_EYES_HALF_CLOSED;
-            break;
+//         case ACT_STATE_START_SLEEPING_YAWN:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_YAWN);
+//             m->marioBodyState->eyeState = MARIO_EYES_HALF_CLOSED;
+//             break;
 
-        case ACT_STATE_START_SLEEPING_SITTING:
-            animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_SITTING);
-            m->marioBodyState->eyeState = MARIO_EYES_HALF_CLOSED;
-            break;
-    }
+//         case ACT_STATE_START_SLEEPING_SITTING:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_START_SLEEP_SITTING);
+//             m->marioBodyState->eyeState = MARIO_EYES_HALF_CLOSED;
+//             break;
+//     }
 
-    play_anim_sound(m, ACT_STATE_START_SLEEPING_SCRATCH, 41, SOUND_ACTION_PAT_BACK);
-    play_anim_sound(m, ACT_STATE_START_SLEEPING_SCRATCH, 49, SOUND_ACTION_PAT_BACK);
-    play_anim_sound(m, ACT_STATE_START_SLEEPING_SITTING, 15, m->terrainSoundAddend + SOUND_ACTION_TERRAIN_BODY_HIT_GROUND);
+//     play_anim_sound(m, ACT_STATE_START_SLEEPING_SCRATCH, 41, SOUND_ACTION_PAT_BACK);
+//     play_anim_sound(m, ACT_STATE_START_SLEEPING_SCRATCH, 49, SOUND_ACTION_PAT_BACK);
+//     play_anim_sound(m, ACT_STATE_START_SLEEPING_SITTING, 15, m->terrainSoundAddend + SOUND_ACTION_TERRAIN_BODY_HIT_GROUND);
 
-    if (is_anim_at_end(m)) {
-        m->actionState++;
-    }
+//     if (is_anim_at_end(m)) {
+//         m->actionState++;
+//     }
 
-    if (m->actionState == ACT_STATE_START_SLEEPING_YAWN && animFrame == -1) {
-        play_sound(SOUND_MARIO_YAWNING, m->marioObj->header.gfx.cameraToObject);
-    }
+//     if (m->actionState == ACT_STATE_START_SLEEPING_YAWN && animFrame == -1) {
+//         play_sound(SOUND_MARIO_YAWNING, m->marioObj->header.gfx.cameraToObject);
+//     }
 
-    if (m->actionState == ACT_STATE_START_SLEEPING_SCRATCH && animFrame == -1) {
-        play_sound(SOUND_MARIO_IMA_TIRED, m->marioObj->header.gfx.cameraToObject);
-    }
+//     if (m->actionState == ACT_STATE_START_SLEEPING_SCRATCH && animFrame == -1) {
+//         play_sound(SOUND_MARIO_IMA_TIRED, m->marioObj->header.gfx.cameraToObject);
+//     }
 
-    stationary_ground_step(m);
-    return FALSE;
-}
+//     stationary_ground_step(m);
+//     return FALSE;
+// }
 
-s32 act_sleeping(struct MarioState *m) {
-    s32 animFrame;
-    if (m->input
-        & (INPUT_NONZERO_ANALOG | INPUT_A_PRESSED | INPUT_OFF_FLOOR | INPUT_ABOVE_SLIDE
-           | INPUT_FIRST_PERSON | INPUT_STOMPED | INPUT_B_PRESSED | INPUT_Z_PRESSED)) {
-        return set_mario_action(m, ACT_WAKING_UP, m->actionState);
-    }
+// s32 act_sleeping(struct MarioState *m) {
+//     s32 animFrame;
+//     if (m->input
+//         & (INPUT_NONZERO_ANALOG | INPUT_A_PRESSED | INPUT_OFF_FLOOR | INPUT_ABOVE_SLIDE
+//            | INPUT_FIRST_PERSON | INPUT_STOMPED | INPUT_B_PRESSED | INPUT_Z_PRESSED)) {
+//         return set_mario_action(m, ACT_WAKING_UP, m->actionState);
+//     }
 
-    if (m->quicksandDepth > 30.0f) {
-        return set_mario_action(m, ACT_WAKING_UP, m->actionState);
-    }
+//     if (m->quicksandDepth > 30.0f) {
+//         return set_mario_action(m, ACT_WAKING_UP, m->actionState);
+//     }
 
-    if (m->pos[1] - find_floor_height_relative_polar(m, -0x8000, 60.0f) > 24.0f) {
-        return set_mario_action(m, ACT_WAKING_UP, m->actionState);
-    }
+//     if (m->pos[1] - find_floor_height_relative_polar(m, -0x8000, 60.0f) > 24.0f) {
+//         return set_mario_action(m, ACT_WAKING_UP, m->actionState);
+//     }
 
-    m->marioBodyState->eyeState = MARIO_EYES_CLOSED;
-    stationary_ground_step(m);
-    switch (m->actionState) {
-        case ACT_SLEEPING_STATE_IDLE:
-            animFrame = set_mario_animation(m, MARIO_ANIM_SLEEP_IDLE);
+//     m->marioBodyState->eyeState = MARIO_EYES_CLOSED;
+//     stationary_ground_step(m);
+//     switch (m->actionState) {
+//         case ACT_SLEEPING_STATE_IDLE:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_SLEEP_IDLE);
 
-            if (animFrame == -1 && !m->actionTimer) {
-                lower_background_noise(2);
-            }
+//             if (animFrame == -1 && !m->actionTimer) {
+//                 lower_background_noise(2);
+//             }
 
-            if (animFrame == 2) {
-                play_sound(SOUND_MARIO_SNORING1, m->marioObj->header.gfx.cameraToObject);
-            }
+//             if (animFrame == 2) {
+//                 play_sound(SOUND_MARIO_SNORING1, m->marioObj->header.gfx.cameraToObject);
+//             }
 
-            if (animFrame == 20) {
-                play_sound(SOUND_MARIO_SNORING2, m->marioObj->header.gfx.cameraToObject);
-            }
+//             if (animFrame == 20) {
+//                 play_sound(SOUND_MARIO_SNORING2, m->marioObj->header.gfx.cameraToObject);
+//             }
 
-            if (is_anim_at_end(m)) {
-                m->actionTimer++;
-                if (m->actionTimer > 45) {
-                    m->actionState = ACT_SLEEPING_STATE_START_LYING;
-                }
-            }
-            break;
+//             if (is_anim_at_end(m)) {
+//                 m->actionTimer++;
+//                 if (m->actionTimer > 45) {
+//                     m->actionState = ACT_SLEEPING_STATE_START_LYING;
+//                 }
+//             }
+//             break;
 
-        case ACT_SLEEPING_STATE_START_LYING:
-            if (set_mario_animation(m, MARIO_ANIM_SLEEP_START_LYING) == 18) {
-                play_mario_heavy_landing_sound(m, SOUND_ACTION_TERRAIN_BODY_HIT_GROUND);
-            }
+//         case ACT_SLEEPING_STATE_START_LYING:
+//             if (set_mario_animation(m, MARIO_ANIM_SLEEP_START_LYING) == 18) {
+//                 play_mario_heavy_landing_sound(m, SOUND_ACTION_TERRAIN_BODY_HIT_GROUND);
+//             }
 
-            if (is_anim_at_end(m)) {
-                m->actionState = ACT_SLEEPING_STATE_LYING;
-            }
-            break;
+//             if (is_anim_at_end(m)) {
+//                 m->actionState = ACT_SLEEPING_STATE_LYING;
+//             }
+//             break;
 
-        case ACT_SLEEPING_STATE_LYING:
-            animFrame = set_mario_animation(m, MARIO_ANIM_SLEEP_LYING);
-            play_sound_if_no_flag(m, SOUND_MARIO_SNORING3, MARIO_ACTION_SOUND_PLAYED);
-            break;
-    }
-    return FALSE;
-}
+//         case ACT_SLEEPING_STATE_LYING:
+//             animFrame = set_mario_animation(m, MARIO_ANIM_SLEEP_LYING);
+//             play_sound_if_no_flag(m, SOUND_MARIO_SNORING3, MARIO_ACTION_SOUND_PLAYED);
+//             break;
+//     }
+//     return FALSE;
+// }
 
 s32 act_waking_up(struct MarioState *m) {
     if (!m->actionTimer) {
@@ -1108,8 +1108,8 @@ s32 mario_execute_stationary_action(struct MarioState *m) {
     /* clang-format off */
     switch (m->action) {
         case ACT_IDLE:                    cancel = act_idle(m);                             break;
-        case ACT_START_SLEEPING:          cancel = act_start_sleeping(m);                   break;
-        case ACT_SLEEPING:                cancel = act_sleeping(m);                         break;
+      //case ACT_START_SLEEPING:          cancel = act_start_sleeping(m);                   break;
+      //case ACT_SLEEPING:                cancel = act_sleeping(m);                         break;
         case ACT_WAKING_UP:               cancel = act_waking_up(m);                        break;
         case ACT_PANTING:                 cancel = act_panting(m);                          break;
         case ACT_HOLD_PANTING_UNUSED:     cancel = act_hold_panting_unused(m);              break;
