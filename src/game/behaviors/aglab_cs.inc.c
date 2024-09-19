@@ -2,6 +2,9 @@
 
 #include "game/game_init.h"
 #include "game/level_update.h"
+#include "src/engine/level_script.h"
+#include "level_commands.h"
+#include "src/game/level_update.h"
 
 
 
@@ -65,12 +68,42 @@ void bhv_cs_init()
 
     disableHud();
 }
-
+u8 gLoadLevel;
 void bhv_cs_loop()
 {
     if (!o->activeFlags)
         return;
+    if (gCurrCourseNum == COURSE_WMOTR)
+    {
+    int buttonPressed = gMarioStates->controller->buttonPressed;
+    gMarioStates->input = 0;
+    gMarioStates->controller->rawStickX = 0;
+    gMarioStates->controller->rawStickY = 0;
+    gMarioStates->controller->stickX = 0;
+    gMarioStates->controller->stickY = 0;
+    gMarioStates->controller->stickMag = 0;
+    gMarioStates->controller->buttonDown = 0;
+    gMarioStates->controller->buttonPressed = 0;
 
+    switch (gCurrCourseNum)
+    {
+        case COURSE_WMOTR:
+            gCamera->cutscene = CUTSCENE_INTRO;
+            break;
+        
+    }
+    if (buttonPressed & (A_BUTTON | B_BUTTON))
+    {
+        resetFlags();
+        reset_camera(gCamera);
+        o->activeFlags = 0;
+        o->oSubAction++;
+        
+        //gLoadLevel->LEVEL_CASTLE_GROUNDS;
+    }
+
+    }
+    else{
     if (gCurrCourseNum == COURSE_NONE)
     {
         resetFlags();
@@ -122,5 +155,6 @@ void bhv_cs_loop()
         o->activeFlags = 0;
         level_control_timer(TIMER_CONTROL_SHOW);
     level_control_timer(TIMER_CONTROL_START);
+    }
     }
 }

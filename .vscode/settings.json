@@ -8,6 +8,9 @@
         "mario_actions_stationary.h": "c",
         "camera.h": "c",
         "spawn_object.h": "c",
-        "segment7.h": "c"
+        "segment7.h": "c",
+        "geo_layout.h": "c",
+        "sound_init.h": "c",
+        "object_list_processor.h": "c"
     }
 }

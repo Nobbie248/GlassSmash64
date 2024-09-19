@@ -10381,6 +10381,48 @@ struct CutsceneSplinePoint gCSAglab4Focus[] = {
     { -1, 100, { 5759, 866, 172  } },
 };
 
+struct CutsceneSplinePoint gCSAglabintroPos[] = {
+    { 0, 100, { 1000, 1500, 0 } }, 
+    { 1, 100, { 1000, 1500, 0 } }, 
+    { 2, 100, { 1000, 1500, 0} }, 
+    { 3, 100, { 1000, 1500, 1000 } },
+    { 4, 100, { 1000, 1500, 0 } },
+    { 5, 100, { 1000, 1500, -1000 } },
+    { 6, 100, { 1000, 1500, 0 } },
+    { 7, 100, { 1000, 1500, 1000 } },
+    { 8, 100, { 1000, 1500, 0 } },
+    { 9, 100, { 1000, 1500, -1000 } },
+    { 10, 100, { 1000, 1500, 0 } },
+    { 11, 100, { 1000, 1500, 1000 } },
+    { 12, 100, { 1000, 1500, 0} },
+    { 13, 100, { 1000, 1500, -1000 } },
+    { 14, 100, { 1000, 1500, 0 } },
+    { 15, 100, { 1000, 1500, 0 } },
+    { 16, 100, { 1000, 1500, 0 } },
+    { -1, 0, { 1000, 1500, 0 } },
+};
+
+struct CutsceneSplinePoint gCSAglabintroFocus[] = {
+    { 0, 100, { 3000, 1350, 0 } },
+    { 1, 100, { 3000, 1350, 0 } },
+    { 2, 100, { 3000, 1350, 0 } },
+    { 3, 100, { 3000, 1350, 0 } },
+    { 4, 100, { 3000, 1350, 0 } },
+    { 5, 100, { 3000, 1350, 0 } },
+    { 6, 100, { 3000, 1350, 0 } },
+    { 7, 100, { 3000, 1350, 0 } },
+    { 8, 100, { 3000, 1350, 0 } },
+    { 9, 100, { 3000, 1350, 0 } },
+    { 10, 100, { 3000, 1350, 0 } },
+    { 11, 100, { 3000, 1350, 0 } },
+    { 12, 100, { 3000, 1350, 0 } },
+    { 13, 100, { 3000, 1350, 0 } },
+    { 14, 100, { 3000, 1350, 0 } },
+    { 15, 100, { 3000, 1350, 0 } },
+    { 16, 100, { 3000, 1350, 0 } },
+    { -1, 100, { 3000, 1350, 0  } },
+};
+
 void cutscene_c1(struct Camera *c) {
     cutscene_event(cutscene_end_waving_start, c, 0, 0);
     move_point_along_spline(c->pos, gCSAglab1Pos, &sCutsceneSplineSegment, &sCutsceneSplineSegmentProgress);
@@ -10419,6 +10461,16 @@ void cutscene_c4(struct Camera *c) {
 
 struct Cutscene sCutsceneC4[] = {
     { cutscene_c4, CUTSCENE_LOOP }
+};
+
+void cutscene_intro(struct Camera *c) {
+    cutscene_event(cutscene_end_waving_start, c, 0, 0);
+    move_point_along_spline(c->pos, gCSAglabintroPos, &sCutsceneSplineSegment, &sCutsceneSplineSegmentProgress);
+    move_point_along_spline(c->focus, gCSAglabintroFocus, &sCutsceneSplineSegment, &sCutsceneSplineSegmentProgress);
+}
+
+struct Cutscene sCutsceneINTRO[] = {
+    { cutscene_intro, CUTSCENE_LOOP }
 };
 /* TODO:
  * The next two arrays are both related to levels, and they look generated.
@@ -10886,6 +10938,8 @@ void play_cutscene(struct Camera *c) {
         CUTSCENE(CUTSCENE_C2,                   sCutsceneC2)
         CUTSCENE(CUTSCENE_C3,                   sCutsceneC3)
         CUTSCENE(CUTSCENE_C4,                   sCutsceneC4)
+        CUTSCENE(CUTSCENE_INTRO,                   sCutsceneINTRO)
+
     }
 
 #undef CUTSCENE
