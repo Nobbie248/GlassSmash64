@@ -139,7 +139,7 @@ s32 act_idle(struct MarioState *m) {
         if ((m->area->terrainType & TERRAIN_MASK) == TERRAIN_SNOW) {
             return set_mario_action(m, ACT_SHIVERING, 0);
         } else {
-            return set_mario_action(m, ACT_START_SLEEPING, 0);
+            //return set_mario_action(m, ACT_START_SLEEPING, 0);
         }
 #endif
     }
