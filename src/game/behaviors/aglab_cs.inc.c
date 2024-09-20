@@ -70,7 +70,7 @@ void bhv_cs_init()
 
     disableHud();
 }
-u8 gLoadLevel;
+
 void bhv_cs_loop()
 {
     if (!o->activeFlags)

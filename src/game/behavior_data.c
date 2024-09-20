@@ -6243,6 +6243,7 @@ const BehaviorScript bhvBrick[] = {
     BEGIN(OBJ_LIST_DESTRUCTIVE),
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     DROP_TO_FLOOR(),
+    SET_HITBOX(/*Radius*/ 100, /*Height*/ 100),
     LOAD_COLLISION_DATA(brick_collision),
     SET_HOME(),
     CALL_NATIVE(bhv_brick_init),
@@ -6254,13 +6255,16 @@ const BehaviorScript bhvBrick[] = {
 
 
 const BehaviorScript bhvGlass[] = {
-    BEGIN(OBJ_LIST_DESTRUCTIVE),
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_HITBOX(/*Radius*/ 100, /*Height*/ 100),
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-    LOAD_COLLISION_DATA(gemmies_collision),
+    LOAD_COLLISION_DATA(glass_collision),
     SET_HOME(),
     BEGIN_LOOP(),
-    CALL_NATIVE(bhv_breakable_object_loop),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_object_loop),
     END_LOOP(),
 };
 

@@ -117,7 +117,7 @@ s32 act_idle(struct MarioState *m) {
         play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
         o->oTimer = 30;
     }
-
+    
     if (m->quicksandDepth > 30.0f) {
         return set_mario_action(m, ACT_IN_QUICKSAND, 0);
     }

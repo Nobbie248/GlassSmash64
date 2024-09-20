@@ -15,6 +15,7 @@
 #include "game/memory.h"
 #include "game/object_helpers.h"
 #include "game/object_list_processor.h"
+#include "game/obj_behaviors_2.h"
 #include "game/save_file.h"
 #include "game/sound_init.h"
 #include "goddard/renderer.h"

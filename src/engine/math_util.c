@@ -659,7 +659,7 @@ s16 atan2s(f32 y, f32 x) {
         }
     } else {
         x = -x;
-        if (y < 0) {
+        if (y < 0) { // woissil goat
             y = -y;
             if (y >= x) {
                 ret = 0x8000 + atan2_lookup(x, y);

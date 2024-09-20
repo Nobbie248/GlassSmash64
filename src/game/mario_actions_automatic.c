@@ -10,6 +10,7 @@
 #include "engine/math_util.h"
 #include "memory.h"
 #include "engine/graph_node.h"
+#include "game/game_init.h"
 #include "save_file.h"
 #include "engine/surface_collision.h"
 #include "interaction.h"
@@ -20,6 +21,16 @@
 #include "config.h"
 
 #define HANG_DISTANCE 144.0f
+
+s32 act_throwing_brick(struct MarioState *m) {
+    // if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    //     count_objects_with_behavior(bhvBrick);
+    //     spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+    //     set_mario_action(m, ACT_PUNCHING, 0);
+    //     play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+    // }
+    // return FALSE;
+}
 
 void add_tree_leaf_particles(struct MarioState *m) {
     if (m->usedObj->behavior == segmented_to_virtual(bhvTree)) {
@@ -866,6 +877,7 @@ s32 mario_execute_automatic_action(struct MarioState *m) {
 
     /* clang-format off */
     switch (m->action) {
+        case ACT_THROWING_BRICK:         cancel = act_throwing_brick(m);         break;
         case ACT_HOLDING_POLE:           cancel = act_holding_pole(m);           break;
         case ACT_GRAB_POLE_SLOW:         cancel = act_grab_pole_slow(m);         break;
         case ACT_GRAB_POLE_FAST:         cancel = act_grab_pole_fast(m);         break;

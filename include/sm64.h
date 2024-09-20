@@ -626,6 +626,7 @@ enum MarioActionFlags {
 #define ACT_UNUSED_13F                 0x0000013F // (0x13F)
 
 // group 0x140: "automatic" actions
+#define ACT_THROWING_BRICK             0x08100339 // ok
 #define ACT_HOLDING_POLE               0x08100340 // (0x140 | ACT_FLAG_STATIONARY | ACT_FLAG_ON_POLE | ACT_FLAG_PAUSE_EXIT)
 #define ACT_GRAB_POLE_SLOW             0x00100341 // (0x141 | ACT_FLAG_STATIONARY | ACT_FLAG_ON_POLE)
 #define ACT_GRAB_POLE_FAST             0x00100342 // (0x142 | ACT_FLAG_STATIONARY | ACT_FLAG_ON_POLE)

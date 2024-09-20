@@ -760,6 +760,14 @@ s32 act_walking(struct MarioState *m) {
     Vec3f startPos;
     s16 startYaw = m->faceAngle[1];
 
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        count_objects_with_behavior(bhvBrick);
+        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        set_mario_action(m, ACT_PUNCHING, 0);
+        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        o->oTimer = 30;
+    }
+
     mario_drop_held_object(m);
 
     if (should_begin_sliding(m)) {
@@ -1943,13 +1951,13 @@ s32 act_hold_quicksand_jump_land(struct MarioState *m) {
 }
 
 s32 check_common_moving_cancels(struct MarioState *m) {
-    if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_action(m, ACT_PUNCHING, 0);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
-        o->oTimer = 30;
-    }
+    // if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    //     count_objects_with_behavior(bhvBrick);
+    //     spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+    //     set_mario_action(m, ACT_PUNCHING, 0);
+    //     play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+    //     o->oTimer = 30;
+    // }
 
     if (m->pos[1] < m->waterLevel - 100) {
         return set_water_plunge_action(m);

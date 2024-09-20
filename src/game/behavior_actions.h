@@ -555,6 +555,7 @@ void bhv_brick_loop(void);
 void bhv_timer_init(void);
 void bhv_timer_loop(void);
 void bhv_breakable_object_loop(void);
+void bhv_breakable_object_init(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
