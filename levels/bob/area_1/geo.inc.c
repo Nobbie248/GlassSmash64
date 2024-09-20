@@ -9,7 +9,7 @@ const GeoLayout bob_area_1_geo[] = {
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_aatrees_003_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_aatrees_004_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_building_mesh_layer_1),
-		GEO_DISPLAY_LIST(LAYER_FORCE, bob_dl_clouds_mesh_layer_0),
+		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, bob_dl_clouds_mesh_layer_5),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_ground_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_Plane_002_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, bob_dl_Plane_003_mesh_layer_5),
