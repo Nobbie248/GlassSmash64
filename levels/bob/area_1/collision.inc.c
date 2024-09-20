@@ -965,5 +965,7 @@ const Collision bob_area_1_collision[] = {
 	COL_TRI(375, 377, 376),
 	COL_TRI(375, 376, 372),
 	COL_TRI_STOP(),
+	COL_WATER_BOX_INIT(1),
+	COL_WATER_BOX(0x00, -6236, -6970, 6236, 6970, 24),
 	COL_END()
 };
