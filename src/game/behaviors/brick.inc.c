@@ -14,7 +14,7 @@ struct ObjectHitbox sBrickHitbox = { // hey hitbox!
 
 void bhv_brick_init(void) {
     obj_set_hitbox(o, &sBrickHitbox); // lol
-    
+    o->oForwardVel = 80.0f;
     if (gMarioState->forwardVel >= 5.f) {
         o->oVelX = 100.0f * sins(gMarioState->faceAngle[1]);
         o->oVelZ = 100.0f * coss(gMarioState->faceAngle[1]);
@@ -24,13 +24,17 @@ void bhv_brick_init(void) {
     }
     
     o->oPosY = gMarioState->pos[1]; // now the brick can spawn at marios Y value :)
-    o->oVelY = 45.0f;
-    o->oGravity = -5.0f;
+    o->oVelY = 38.0f;
+    o->oGravity = -1.8f;
     o->oTimer = 0;
     o->oAngleVelPitch = 0x400;
 }
 
-void bhv_brick_loop(void) {
+void bhv_brick_loop(void) { 
+    
+    cur_obj_update_floor_and_walls();
+    cur_obj_if_hit_wall_bounce_away();
+    cur_obj_move_standard(1);
     o->oVelY += o->oGravity;
 
     o->oPosX += o->oVelX;
@@ -39,9 +43,14 @@ void bhv_brick_loop(void) {
 
     o->oFaceAnglePitch += o->oAngleVelPitch;
 
-    struct Surface *surface;
-    f32 floorHeight = find_floor(o->oPosX, o->oPosY, o->oPosZ, &surface); // not the final detection system i will make a better one if, i don't forget lol
-    if (floorHeight < 0.0f) {
+    if (cur_obj_wait_then_blink(45, 0)) {
         obj_mark_for_deletion(o);
     }
+    if (o->oForwardVel <= 20.0f) {
+        o->oAngleVelPitch = 0x1200;
+    }
+
+
+    
+    
 }
