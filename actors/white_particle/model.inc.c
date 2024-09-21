@@ -12,7 +12,7 @@ static const Vtx white_particle_vertex[] = {
 ALIGNED8 static const Texture white_particle_texture[] = {
 #include "actors/white_particle/snow_particle.rgba16.inc.c"
 };
-
+//
 // 0x0302C8A0 - 0x0302C938
 const Gfx white_particle_dl[] = {
     gsDPPipeSync(),

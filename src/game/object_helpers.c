@@ -1750,7 +1750,7 @@ s32 cur_obj_wait_then_blink(s32 timeUntilBlinking, s32 numBlinks) {
     if (o->oTimer >= timeUntilBlinking) {
         s32 timeBlinking = o->oTimer - timeUntilBlinking;
         if (timeBlinking & 0x1) {
-            o->header.gfx.node.flags |= GRAPH_RENDER_INVISIBLE;
+            //o->header.gfx.node.flags |= GRAPH_RENDER_INVISIBLE;
             if (timeBlinking / 2 > numBlinks) {
                 return TRUE;
             }
