@@ -3,25 +3,23 @@ struct ObjectHitbox sBrickHitbox = { // hey hitbox!
     /* interactType: */ INTERACT_COIN,
     /* downOffset: */ 0,
     /* damageOrCoinValue: */ 0,
-    /* health: */ 0,
+    /* health: */ 1,
     /* numLootCoins: */ 0,
-    /* radius: */ 100,
-    /* height: */ 100,
-    /* hurtboxRadius: */ 0,
-    /* hurtboxHeight: */ 0,
+    /* radius: */ 50,
+    /* height: */ 50,
+    /* hurtboxRadius: */ 50,
+    /* hurtboxHeight: */ 50,
 }; // bye hitbox..
 
 
 void bhv_brick_init(void) {
     obj_set_hitbox(o, &sBrickHitbox); // lol
-    o->oForwardVel = 80.0f;
-    if (gMarioState->forwardVel >= 5.f) {
-        o->oVelX = 100.0f * sins(gMarioState->faceAngle[1]);
-        o->oVelZ = 100.0f * coss(gMarioState->faceAngle[1]);
+    
+    if (gMarioState->forwardVel >= 2.f) {
+        o->oForwardVel = 120.0f;  
     } else {
-        o->oVelX = 50.0f * sins(gMarioState->faceAngle[1]);
-        o->oVelZ = 50.0f * coss(gMarioState->faceAngle[1]);
-    }
+        o->oForwardVel = 80.0f;
+         }
     
     o->oPosY = gMarioState->pos[1]; // now the brick can spawn at marios Y value :)
     o->oVelY = 38.0f;
@@ -43,14 +41,23 @@ void bhv_brick_loop(void) {
 
     o->oFaceAnglePitch += o->oAngleVelPitch;
 
-    if (cur_obj_wait_then_blink(45, 0)) {
+    if (cur_obj_wait_then_blink(45, 0)) {   
         obj_mark_for_deletion(o);
     }
-    if (o->oForwardVel <= 20.0f) {
-        o->oAngleVelPitch = 0x1200;
+
+
+    // if (o->oForwardVel <= 20.0f) {
+    //     o->oAngleVelPitch = 0x1200; 
+    // }          
+    if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
+        }
+    if (o->oCoinBounceTimer > 20) {
+            o->oAngleVelPitch = 0x1300;
+        }
+    if (o->oMoveFlags & OBJ_MOVE_LANDED) {      //brick resting.. not ready yet
+            o->oFaceAnglePitch = 0;
+        }
+    o->oCoinBounceTimer++;
+    
+        
     }
-
-
-    
-    
-}
