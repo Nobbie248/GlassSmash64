@@ -12,6 +12,7 @@
         "geo_layout.h": "c",
         "sound_init.h": "c",
         "object_list_processor.h": "c",
-        "make_const_nonconst.h": "c"
+        "make_const_nonconst.h": "c",
+        "surface_collision.h": "c"
     }
 }

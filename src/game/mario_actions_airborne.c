@@ -447,7 +447,7 @@ s32 act_jump(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
