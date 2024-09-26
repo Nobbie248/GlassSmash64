@@ -13,6 +13,7 @@
         "sound_init.h": "c",
         "object_list_processor.h": "c",
         "make_const_nonconst.h": "c",
-        "surface_collision.h": "c"
+        "surface_collision.h": "c",
+        "object_helpers.h": "c"
     }
 }

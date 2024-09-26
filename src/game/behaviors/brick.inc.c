@@ -1,3 +1,4 @@
+#include "src/game/mario_actions_airborne.h"
 
 struct ObjectHitbox sBrickHitbox = { // hey hitbox!
     /* interactType: */ INTERACT_COIN,
@@ -12,14 +13,15 @@ struct ObjectHitbox sBrickHitbox = { // hey hitbox!
 }; // bye hitbox..
 
 
+
 void bhv_brick_init(void) {
-    obj_set_hitbox(o, &sBrickHitbox); // lol
+    obj_set_hitbox(o, &sBrickHitbox);
     
     if (gMarioState->forwardVel >= 2.f) {
         o->oForwardVel = 120.0f;  
     } else {
         o->oForwardVel = 80.0f;
-         }
+         } 
     
     o->oPosY = gMarioState->pos[1]; // now the brick can spawn at marios Y value :)
     o->oVelY = 38.0f;
@@ -29,6 +31,16 @@ void bhv_brick_init(void) {
 }
 
 void bhv_brick_loop(void) { 
+
+    if (1 == flagflip) {
+         o->oVelY = 40.0f;
+         o->oForwardVel = 0.0f;
+        
+        flagflip = 0;
+        
+    }
+
+  
     
     cur_obj_update_floor_and_walls();
     cur_obj_if_hit_wall_bounce_away();
@@ -56,8 +68,10 @@ void bhv_brick_loop(void) {
         }
     if (o->oMoveFlags & OBJ_MOVE_LANDED) {      //brick resting.. not ready yet
             o->oFaceAnglePitch = 0;
+            o->oAngleVelPitch = 0;
         }
     o->oCoinBounceTimer++;
     
         
+    
     }
