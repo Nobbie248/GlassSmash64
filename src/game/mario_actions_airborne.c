@@ -19,8 +19,10 @@
 #include "spawn_object.h"
 #include "behavior_data.h"
 #include "object_list_processor.h"
+#include "src/game/object_helpers.h"
 
 #include "config.h"
+int flagflip = 0;
 
 void play_flip_sounds(struct MarioState *m, s16 frame1, s16 frame2, s16 frame3) {
     s32 animFrame = m->marioObj->header.gfx.animInfo.animFrame;
@@ -474,7 +476,7 @@ s32 act_double_jump(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -501,7 +503,7 @@ s32 act_triple_jump(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -556,7 +558,7 @@ s32 act_freefall(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -619,6 +621,7 @@ s32 act_hold_freefall(struct MarioState *m) {
     return FALSE;
 }
 
+
 s32 act_side_flip(struct MarioState *m) {
     if (m->input & INPUT_B_PRESSED) {
         m->marioObj->header.gfx.angle[1] += 0x8000;
@@ -635,12 +638,13 @@ s32 act_side_flip(struct MarioState *m) {
     if (common_air_action_step(m, ACT_SIDE_FLIP_LAND, MARIO_ANIM_SLIDEFLIP, AIR_STEP_CHECK_LEDGE_GRAB)
         != AIR_STEP_GRABBED_LEDGE) {
         m->marioObj->header.gfx.angle[1] += 0x8000;
+        flagflip = 1;
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -675,7 +679,7 @@ s32 act_long_jump(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -775,7 +779,7 @@ s32 act_dive(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -1653,7 +1657,7 @@ s32 act_jump_kick(struct MarioState *m) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }
 
@@ -2070,13 +2074,7 @@ s32 check_common_airborne_cancels(struct MarioState *m) {
 
 s32 mario_execute_airborne_action(struct MarioState *m) {
     u32 cancel = FALSE;
-    // if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    //     count_objects_with_behavior(bhvBrick);
-    //     spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-    //     set_mario_action(m, ACT_PUNCHING, 0);
-    //     play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
-    //     o->oTimer = 30;
-    // }
+ 
     if (check_common_airborne_cancels(m)) {
         return TRUE;
     }

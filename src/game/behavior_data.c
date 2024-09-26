@@ -6257,7 +6257,7 @@ const BehaviorScript bhvBrick[] = {
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 2000),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 250, /*Height*/ 380, /*Downwards offset*/ 120),
+   SET_HITBOX_WITH_OFFSET(/*Radius*/ 250, /*Height*/ 380, /*Downwards offset*/ 120),
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(glass_collision),

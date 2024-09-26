@@ -79,5 +79,6 @@ enum ActionArgsFreefall { // act_freefall
 };
 
 s32 mario_execute_airborne_action(struct MarioState *m);
+extern int flagflip;
 
 #endif // MARIO_ACTIONS_AIRBORNE_H
