@@ -642,8 +642,8 @@ s32 act_side_flip(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        count_objects_with_behavior(bhvBrick2);
+        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick2);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         o->oTimer = 30;
     }

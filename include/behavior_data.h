@@ -560,6 +560,7 @@ extern const BehaviorScript bhvbreakwindow[];
 extern const BehaviorScript bhvSALadder[];
 extern const BehaviorScript bhvGemmies[];
 extern const BehaviorScript bhvBrick[];
+extern const BehaviorScript bhvBrick2[];
 extern const BehaviorScript bhvGlass[];
 extern const BehaviorScript bhvTimer[];
 #endif // BEHAVIOR_DATA_H
