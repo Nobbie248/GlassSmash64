@@ -6253,6 +6253,19 @@ const BehaviorScript bhvBrick[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvBrick2[] = {
+    BEGIN(OBJ_LIST_DESTRUCTIVE),
+    OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 50, /*Gravity*/ -400, /*Bounciness*/ -70, /*Drag strength*/ 2500, /*Friction*/ 5000, /*Buoyancy*/ 300, /*Unused*/ 0, 0),
+    LOAD_COLLISION_DATA(brick_collision),
+    SET_HOME(),
+    CALL_NATIVE(bhv_brick_init2),
+    BEGIN_LOOP(),
+        SET_INT(oIntangibleTimer, 0),
+        CALL_NATIVE(bhv_brick_loop2),
+    END_LOOP(),
+};
 
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_SURFACE),

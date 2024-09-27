@@ -552,6 +552,8 @@ void bhv_yoshi_loop(void);
 void bhv_volcano_trap_loop(void);
 void bhv_brick_init(void);
 void bhv_brick_loop(void);
+void bhv_brick_init2(void);
+void bhv_brick_loop2(void);
 void bhv_timer_init(void);
 void bhv_timer_loop(void);
 void bhv_breakable_object_loop(void);
