@@ -16,7 +16,7 @@ struct ObjectHitbox sBrickHitbox = { // hey hitbox!
 
 void bhv_brick_init(void) {
     obj_set_hitbox(o, &sBrickHitbox);
-    
+
     if (gMarioState->forwardVel >= 2.f) {
         o->oForwardVel = 120.0f;  
     } else {
@@ -32,16 +32,12 @@ void bhv_brick_init(void) {
 
 void bhv_brick_loop(void) { 
 
-    if (1 == flagflip) {
+    if (1 == flagflip) {            // there is an issue where this will change all bricks loaded in to go up, I can fix later
          o->oVelY = 40.0f;
          o->oForwardVel = 0;
         
-        flagflip = 0;
-        
-    }
-
-  
-    
+        flagflip = 0;    
+    }  
     cur_obj_update_floor_and_walls();
     cur_obj_if_hit_wall_bounce_away();
     cur_obj_move_standard(1);

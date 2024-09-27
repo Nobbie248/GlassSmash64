@@ -745,6 +745,7 @@ u32 interact_coin(struct MarioState *m, UNUSED u32 interactType, struct Object *
         bhv_spawn_star_no_level_exit(STAR_BP_ACT_100_COINS);
         g100CoinStarSpawned = TRUE;
         level_control_timer(TIMER_CONTROL_STOP);
+        play_sound(SOUND_OBJ_UKIKI_CHATTER_LONG, gGlobalSoundSource);
     }
 #endif
 #if ENABLE_RUMBLE

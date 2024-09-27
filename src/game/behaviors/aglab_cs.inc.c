@@ -150,6 +150,7 @@ void bhv_cs_loop()
         
         level_control_timer(TIMER_CONTROL_SHOW) & o->oSubAction++;
         level_control_timer(TIMER_CONTROL_START) & o->oSubAction++;
+        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
     
     }
 
@@ -160,6 +161,7 @@ void bhv_cs_loop()
         o->activeFlags = 0;
         level_control_timer(TIMER_CONTROL_SHOW);
     level_control_timer(TIMER_CONTROL_START);
+    play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
     }
     }
 }
