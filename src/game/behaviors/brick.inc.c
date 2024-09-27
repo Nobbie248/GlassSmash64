@@ -34,7 +34,7 @@ void bhv_brick_loop(void) {
 
     if (1 == flagflip) {
          o->oVelY = 40.0f;
-         o->oForwardVel = 0.0f;
+         o->oForwardVel = 0;
         
         flagflip = 0;
         
@@ -53,23 +53,29 @@ void bhv_brick_loop(void) {
 
     o->oFaceAnglePitch += o->oAngleVelPitch;
 
-    if (cur_obj_wait_then_blink(45, 0)) {   
+    if (cur_obj_wait_then_blink(100, 0)) {   
         obj_mark_for_deletion(o);
     }
 
 
-    // if (o->oForwardVel <= 20.0f) {
-    //     o->oAngleVelPitch = 0x1200; 
-    // }          
+    //brick resting.. not ready yet it shakes      
     if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
         }
     if (o->oCoinBounceTimer > 20) {
             o->oAngleVelPitch = 0x1300;
+            if (o->oCoinBounceTimer > 40) {
+                o->oAngleVelPitch = 0x600;
+              if (o->oForwardVel <= 7.0f){
+               o->oDragStrength = 300.0f;
+               
+              }
+            }
         }
-    if (o->oMoveFlags & OBJ_MOVE_LANDED) {      //brick resting.. not ready yet
+    if (o->oMoveFlags & OBJ_MOVE_LANDED & o->oForwardVel <= 100.0f) {
             o->oFaceAnglePitch = 0;
-            o->oAngleVelPitch = 0;
+            o->oAngleVelPitch = 0;    
         }
+        
     o->oCoinBounceTimer++;
     
         
