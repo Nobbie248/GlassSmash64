@@ -3567,15 +3567,10 @@ layer_end
 chan_setbank 5
 chan_setinstr 7
 chan_setlayer 0, .layer_1582
-chan_setlayer 1, .layer_1582
 chan_end
 
 .layer_1582:
-layer_somethingon
-layer_portamento 0x85, 39, 255
-layer_note1 36, 0x14, 110
-layer_note1 38, 0x10, 110
-layer_note1 27, 0x64, 110
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_general_door_insert_key:
@@ -5237,7 +5232,7 @@ chan_setlayer 0, .layer_20A2
 chan_end
 
 .layer_20A2:
-layer_note1 39, 0x48, 110
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_jump_walk_water:
@@ -5450,7 +5445,7 @@ chan_setlayer 0, .layer_21E0
 chan_end
 
 .layer_21E0:
-layer_note1 39, 0x30, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_monty_mole_lakitu_attack:

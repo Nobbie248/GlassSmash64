@@ -10,6 +10,8 @@
 
 
 
+
+
 char gIsCs = 0;
 
 static void resetFlags()
@@ -71,8 +73,15 @@ void bhv_cs_init()
     disableHud();
 }
 
+
+
 void bhv_cs_loop()
 {
+
+    s32 mode = MENU_OPT_NONE;
+
+    create_dl_ortho_matrix();
+
     if (!o->activeFlags)
         return;
     if (gCurrCourseNum == COURSE_WMOTR)
@@ -91,6 +100,7 @@ void bhv_cs_loop()
     {
         case COURSE_WMOTR:
             gCamera->cutscene = CUTSCENE_INTRO;
+            
             break;
         
     }
@@ -151,6 +161,9 @@ void bhv_cs_loop()
         level_control_timer(TIMER_CONTROL_SHOW) & o->oSubAction++;
         level_control_timer(TIMER_CONTROL_START) & o->oSubAction++;
         play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
+        
+        
+
     
     }
 
