@@ -6,7 +6,7 @@ void bhv_breakable_object_init(void) {
     obj_get_collision_data();
 }
 
-
+int hitwallflag = 0;
 
 void bhv_breakable_object_loop(void) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
@@ -22,6 +22,7 @@ void bhv_breakable_object_loop(void) {
         obj_mark_for_deletion(o);
 
         gMarioState->numCoins++;
+        hitwallflag = 0;
     }
     
     
