@@ -17,6 +17,7 @@
         "object_helpers.h": "c",
         "math_util.h": "c",
         "memory.h": "c",
-        "texscroll.h": "c"
+        "texscroll.h": "c",
+        "type_traits": "c"
     }
 }

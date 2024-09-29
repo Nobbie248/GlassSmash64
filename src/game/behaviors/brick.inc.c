@@ -1,13 +1,15 @@
+
+
 struct ObjectHitbox sBrickHitbox = { // hey hitbox!
     /* interactType: */ INTERACT_COIN,
     /* downOffset: */ 0,
     /* damageOrCoinValue: */ 0,
     /* health: */ 1,
     /* numLootCoins: */ 0,
-    /* radius: */ 50,
-    /* height: */ 50,
-    /* hurtboxRadius: */ 50,
-    /* hurtboxHeight: */ 50,
+    /* radius: */ 80,
+    /* height: */ 80,
+    /* hurtboxRadius: */ 80,
+    /* hurtboxHeight: */ 80,
 }; // bye hitbox..
 
 void bhv_brick_init(void) {

@@ -157,14 +157,12 @@ void bhv_cs_loop()
 
     if (buttonPressed & (A_BUTTON | B_BUTTON))
     {
-        
-        level_control_timer(TIMER_CONTROL_SHOW) & o->oSubAction++;
-        level_control_timer(TIMER_CONTROL_START) & o->oSubAction++;
-        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
-        
-        
-
-    
+        resetFlags();
+        reset_camera(gCamera);
+        o->activeFlags = 0;
+        level_control_timer(TIMER_CONTROL_SHOW);
+        level_control_timer(TIMER_CONTROL_START);
+        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource); 
     }
 
     if (o->oTimer > 290 || (o->oSubAction > 2))
