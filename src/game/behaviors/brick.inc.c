@@ -45,20 +45,17 @@ void bhv_brick_loop(void) {
     }
     if (o->oCoinBounceTimer > 40) {
             o->oAngleVelPitch = 0x600;           
-    }
-    if (o->oForwardVel <= 7.0f){
-            o->oDragStrength = 300.0f;           
-    }
-    if (o->oMoveFlags & OBJ_MOVE_LANDED & o->oForwardVel < 60.0f) {
+    }    
+    if (o->oMoveFlags & OBJ_MOVE_LANDED & o->oForwardVel < 70.0f) {
             o->oFaceAnglePitch = 0;
-            o->oAngleVelPitch = 0;       
+            o->oAngleVelPitch = 0;      
     }
     if (o->oCoinBounceTimer > 70) {
             o->oFaceAnglePitch = 0;
             o->oAngleVelPitch = 0;
             o->oVelY = 0.f;
             o->oDragStrength = 800.0f;
-    }  
+    }
 }
 
 void bhv_brick_init2(void) {                      //sideflip throw init
@@ -91,17 +88,14 @@ void bhv_brick_loop2(void) {                      //sideflip throw loop
     if (o->oCoinBounceTimer > 50) {
             o->oAngleVelPitch = 0x600;         
     }
-    if (o->oForwardVel <= 7.0f){
-            o->oDragStrength = 300.0f;          
-    }
     if (o->oMoveFlags & OBJ_MOVE_LANDED) {
             o->oFaceAnglePitch = 0;
             o->oAngleVelPitch = 0;        
     }
-    if (o->oCoinBounceTimer > 80) {
+    if (o->oCoinBounceTimer > 90) {
             o->oFaceAnglePitch = 0;
             o->oAngleVelPitch = 0;
             o->oVelY = 0.f;
-            o->oDragStrength = 800.0f;
+            o->oDragStrength = 200.0f;
     } 
 }

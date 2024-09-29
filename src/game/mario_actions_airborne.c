@@ -663,6 +663,13 @@ s32 act_wall_kick_air(struct MarioState *m) {
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     }
 
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        count_objects_with_behavior(bhvBrick2);
+        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+        o->oTimer = 30;
+    }
+
     play_mario_jump_sound(m);
     common_air_action_step(m, ACT_JUMP_LAND, MARIO_ANIM_SLIDEJUMP, AIR_STEP_CHECK_LEDGE_GRAB);
     return FALSE;
