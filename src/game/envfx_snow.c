@@ -75,8 +75,8 @@ s32 envfx_init_snow(s32 mode) {
             break;
 
         case ENVFX_SNOW_BLIZZARD:
-            gSnowParticleMaxCount = 140;
-            gSnowParticleCount = 140;
+            gSnowParticleMaxCount = 10;
+            gSnowParticleCount = 10;
             break;
     }
 
@@ -256,11 +256,11 @@ void envfx_update_snow_blizzard(s32 snowCylinderX, s32 snowCylinderY, s32 snowCy
                 400.0f * random_float() - 200.0f + snowCylinderX + (s16)(deltaX * 2);
             (gEnvFxBuffer + i)->zPos =
                 400.0f * random_float() - 200.0f + snowCylinderZ + (s16)(deltaZ * 2);
-            (gEnvFxBuffer + i)->yPos = 400.0f * random_float() - 200.0f + snowCylinderY;
+            (gEnvFxBuffer + i)->yPos = 200.0f * random_float() + snowCylinderY;
             (gEnvFxBuffer + i)->isAlive = TRUE;
         } else {
-            (gEnvFxBuffer + i)->xPos += random_float() * 2 - 1.0f + (s16)(deltaX / 1.2) + 20.0f;
-            (gEnvFxBuffer + i)->yPos -= 5 -(s16)(deltaY * 0.8);
+            (gEnvFxBuffer + i)->xPos += random_float() * 2 - 1.0f + (s16)(deltaX / 1.2);
+            (gEnvFxBuffer + i)->yPos -= 1 -(s16)(deltaY * 0.8);
             (gEnvFxBuffer + i)->zPos += random_float() * 2 - 1.0f + (s16)(deltaZ / 1.2);
         }
     }
