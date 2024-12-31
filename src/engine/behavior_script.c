@@ -14,6 +14,7 @@
 #include "math_util.h"
 #include "graph_node.h"
 #include "surface_collision.h"
+// #include "game/mario_actions_moving.h"
 
 // Macros for retrieving arguments from behavior scripts.
 #define BHV_CMD_GET_1ST_U8(index)     (u8)((gCurBhvCommand[index] >> 24) & 0xFF) // unused
@@ -563,7 +564,7 @@ static s32 bhv_cmd_sum_int(void) {
 }
 
 // Command 0x23: Sets the size of the object's cylindrical hitbox.
-// Usage: SET_HITBOX(radius, height)
+// Usage: SET_HITBOX(radius, height, depth)
 static s32 bhv_cmd_set_hitbox(void) {
     s16 radius = BHV_CMD_GET_1ST_S16(1);
     s16 height = BHV_CMD_GET_2ND_S16(1);

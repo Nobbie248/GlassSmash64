@@ -31,3 +31,8 @@
 #include FONT_C_FILE
 #endif
 
+
+#include "liane/model.inc.c"
+#include "liane/collision.inc.c"
+#include "pipe/model.inc.c"
+#include "pipe/collision.inc.c"

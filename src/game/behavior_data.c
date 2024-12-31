@@ -65,6 +65,7 @@
 #define BC_B0H(a, b) (_SHIFTL(a, 24, 8) | _SHIFTL(b, 0, 16))
 #define BC_H(a) _SHIFTL(a, 16, 16)
 #define BC_HH(a, b) (_SHIFTL(a, 16, 16) | _SHIFTL(b, 0, 16))
+#define BC_HHH(a, b, c) (_SHIFTL(a, 32, 16) | _SHIFTL(b, 16, 16) | _SHIFTL(c, 0, 16))
 #define BC_W(a) ((uintptr_t)(u32)(a))
 #define BC_PTR(a) ((uintptr_t)(a))
 #define BC_BPTR(a, b) (_SHIFTL(a, 24, 8) + OS_K0_TO_PHYSICAL(b))
@@ -884,7 +885,7 @@ const BehaviorScript bhvWarpPipe[] = {
     BEGIN(OBJ_LIST_SURFACE),
     OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     SET_INT(oInteractType, INTERACT_WARP),
-    LOAD_COLLISION_DATA(warp_pipe_seg3_collision_03009AC8),
+    LOAD_COLLISION_DATA(pipe_collision),
     SET_FLOAT(oDrawingDistance, 16000),
     SET_INT(oIntangibleTimer, 0),
     SET_HITBOX(/*Radius*/ 70, /*Height*/ 50),
@@ -6270,7 +6271,6 @@ const BehaviorScript bhvBrick2[] = {
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 2000),
-   SET_HITBOX_WITH_OFFSET(/*Radius*/ 250, /*Height*/ 380, /*Downwards offset*/ 120),
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(glass_collision),
@@ -6285,8 +6285,16 @@ const BehaviorScript bhvTimer[] = {
     BEGIN(OBJ_LIST_DEFAULT),
     SET_HOME(),
     CALL_NATIVE(bhv_timer_init),
-    
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_timer_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvVine[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_FLOAT(oGraphYOffset, 1000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_vine_loop),
     END_LOOP(),
 };

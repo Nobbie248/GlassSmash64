@@ -1,0 +1,15 @@
+extern const GeoLayout liane_geo[];
+extern u8 liane_DreamWhite_ci8[];
+extern u8 liane_DreamWhite_pal_rgba16[];
+extern u8 liane__78_ci8[];
+extern u8 liane__78_pal_rgba16[];
+extern Vtx liane_liane_mesh_layer_1_vtx_0[32];
+extern Gfx liane_liane_mesh_layer_1_tri_0[];
+extern Vtx liane_liane_mesh_layer_5_vtx_0[24];
+extern Gfx liane_liane_mesh_layer_5_tri_0[];
+extern Gfx mat_liane_f3dlite_material_001[];
+extern Gfx mat_revert_liane_f3dlite_material_001[];
+extern Gfx mat_liane_f3dlite_material[];
+extern Gfx mat_revert_liane_f3dlite_material[];
+extern Gfx liane_liane_mesh_layer_1[];
+extern Gfx liane_liane_mesh_layer_5[];

@@ -18,6 +18,23 @@
         "math_util.h": "c",
         "memory.h": "c",
         "texscroll.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "xiosbase": "c",
+        "functional": "c",
+        "regex": "c",
+        "system_error": "c",
+        "xlocmon": "c",
+        "xtr1common": "c",
+        "algorithm": "c",
+        "iterator": "c",
+        "xhash": "c",
+        "xmemory": "c",
+        "xtree": "c",
+        "xutility": "c",
+        "behavior_script.h": "c",
+        "graph_node.h": "c",
+        "object_constants.h": "c",
+        "surface_load.h": "c",
+        "common0.h": "c"
     }
 }

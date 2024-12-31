@@ -32,6 +32,15 @@ s32 act_throwing_brick(struct MarioState *m) {
     // return FALSE;
 }
 
+s32 act_hang_vine(struct MarioState *m) {
+    m->actionTimer++;
+    set_mario_animation(m, MARIO_ANIM_IDLE_ON_POLE);
+    play_sound_if_no_flag(m, SOUND_ACTION_HANGING_STEP, MARIO_ACTION_SOUND_PLAYED);
+    vec3f_copy(m->marioObj->header.gfx.pos, m->pos);
+    vec3s_set(m->marioObj->header.gfx.angle, 0, m->faceAngle[1], 0); // Ajustement de l'angle de rotation
+    return FALSE;
+}
+
 void add_tree_leaf_particles(struct MarioState *m) {
     if (m->usedObj->behavior == segmented_to_virtual(bhvTree)) {
         // make leaf effect spawn higher on the Shifting Sand Land palm tree
@@ -885,6 +894,7 @@ s32 mario_execute_automatic_action(struct MarioState *m) {
         case ACT_TOP_OF_POLE_TRANSITION: cancel = act_top_of_pole_transition(m); break;
         case ACT_TOP_OF_POLE:            cancel = act_top_of_pole(m);            break;
         case ACT_START_HANGING:          cancel = act_start_hanging(m);          break;
+        case ACT_HANG_VINE:              cancel = act_hang_vine(m);             break;
         case ACT_HANGING:                cancel = act_hanging(m);                break;
         case ACT_HANG_MOVING:            cancel = act_hang_moving(m);            break;
         case ACT_LEDGE_GRAB:             cancel = act_ledge_grab(m);             break;

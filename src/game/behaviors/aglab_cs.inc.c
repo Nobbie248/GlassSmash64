@@ -5,7 +5,7 @@
 #include "src/engine/level_script.h"
 #include "level_commands.h"
 #include "src/game/level_update.h"
-
+// #include "print.h"
 
 
 
@@ -140,6 +140,7 @@ void bhv_cs_loop()
     {
         case COURSE_BOB:
             gCamera->cutscene = CUTSCENE_C1;
+                print_text(30, 40, "China");
             break;
         case COURSE_WF:
             gCamera->cutscene = CUTSCENE_C2;

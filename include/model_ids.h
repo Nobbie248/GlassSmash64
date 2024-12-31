@@ -448,6 +448,8 @@
 #define MODEL_GEMMIES                     0xE7        // big floating gems
 #define MODEL_BRICK                       0xE8        // brick
 #define MODEL_GLASS                       0xE9        // glass
+#define MODEL_VINE                        0xF0        // vine
+#define MODEL_PIPE                        0XF1        // pipe
 // find me
 #define MODEL_CANNON_BARREL               0x7F        // cannon_barrel_geo
 #define MODEL_CANNON_BASE                 0x80        // cannon_base_geo

@@ -202,6 +202,8 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_RED_COIN_ARROW,            redcoinradar_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BRICK,                   brick_geo),
     LOAD_MODEL_FROM_GEO(MODEL_GLASS,                   glass_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_VINE,                    liane_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_PIPE,                    pipe_geo),
     RETURN(),
 };
 
