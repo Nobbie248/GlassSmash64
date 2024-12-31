@@ -215,4 +215,8 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "glass/collision_header.h"
 
+#include "lantern/geo_header.h"
+
+#include "lantern/collision_header.h"
+
 #endif

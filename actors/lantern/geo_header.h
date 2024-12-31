@@ -1,0 +1,14 @@
+extern const GeoLayout lantern_geo[];
+extern u8 lantern_lantern_ci4[];
+extern u8 lantern_lantern_pal_rgba16[];
+extern u8 lantern_lantern2_ci4[];
+extern u8 lantern_lantern2_pal_rgba16[];
+extern Vtx lantern_Icosphere_mesh_layer_1_vtx_0[106];
+extern Gfx lantern_Icosphere_mesh_layer_1_tri_0[];
+extern Vtx lantern_Icosphere_mesh_layer_1_vtx_1[29];
+extern Gfx lantern_Icosphere_mesh_layer_1_tri_1[];
+extern Gfx mat_lantern_f3dlite_material_002[];
+extern Gfx mat_revert_lantern_f3dlite_material_002[];
+extern Gfx mat_lantern_f3dlite_material_026[];
+extern Gfx mat_revert_lantern_f3dlite_material_026[];
+extern Gfx lantern_Icosphere_mesh_layer_1[];

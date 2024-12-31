@@ -557,8 +557,10 @@ void bhv_brick_loop2(void);
 void bhv_timer_init(void);
 void bhv_timer_loop(void);
 void bhv_brick_spawner_update(void);
-void bhv_breakable_object_loop(void);
-void bhv_breakable_object_init(void);
+void bhv_breakable_glass_loop(void);
+void bhv_breakable_glass_init(void);
+void bhv_breakable_lantern_loop(void);
+void bhv_breakable_lantern_init(void);
 void bhv_vine_loop(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
