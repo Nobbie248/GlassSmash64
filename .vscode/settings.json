@@ -35,6 +35,8 @@
         "graph_node.h": "c",
         "object_constants.h": "c",
         "surface_load.h": "c",
-        "common0.h": "c"
+        "common0.h": "c",
+        "level_commands.h": "c",
+        "sm64.h": "c"
     }
 }
