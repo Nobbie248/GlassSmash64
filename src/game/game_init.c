@@ -11,6 +11,7 @@
 #include "engine/math_util.h"
 #include "game_init.h"
 #include "main.h"
+#include "src/game/mario.h"
 #include "memory.h"
 #include "save_file.h"
 #include "seq_ids.h"
@@ -596,7 +597,7 @@ void adjust_analog_stick(struct Controller *controller) {
         controller->stickMag = 64;
     }
 }
-
+int buttonswap = FALSE;
 /**
  * Update the controller struct with available inputs if present.
  */
@@ -619,9 +620,24 @@ void read_controller_inputs(s32 threadID) {
         struct Controller* controller = &gControllers[cont];
         OSContPadEx* controllerData = controller->controllerData;
 
+        
+
         // if we're receiving inputs, update the controller struct with the new button info.
         if (controller->controllerData != NULL) {
-            // HackerSM64: Swaps Z and L, only on console, and only when playing with a GameCube controller.
+
+            if (buttonswap = TRUE){
+                u32 oldButton = controllerData->button;
+                u32 newButton = oldButton & ~(L_TRIG | R_TRIG);
+                if (oldButton & L_TRIG) {
+                    newButton |= R_TRIG; 
+                }
+                
+                controllerData->button = newButton;
+                
+            }
+
+            
+                      // HackerSM64: Swaps Z and L, only on console, and only when playing with a GameCube controller.
             if ((controller->statusData->type & CONT_CONSOLE_MASK) == CONT_CONSOLE_GCN) {
                 u32 oldButton = controllerData->button;
                 u32 newButton = oldButton & ~(Z_TRIG | L_TRIG);
