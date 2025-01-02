@@ -53,7 +53,5 @@ s32 set_water_plunge_action(struct MarioState *m);
 s32 execute_mario_action(UNUSED struct Object *obj);
 void init_mario(void);
 void init_mario_from_save_file(void);
-
-
-
+extern int buttonswap;
 #endif // MARIO_H

@@ -37,6 +37,7 @@
         "surface_load.h": "c",
         "common0.h": "c",
         "level_commands.h": "c",
-        "sm64.h": "c"
+        "sm64.h": "c",
+        "level_script.h": "c"
     }
 }

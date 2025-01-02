@@ -1622,9 +1622,12 @@ void render_widescreen_setting(void) {
         gConfig.widescreen ^= 1;
         save_file_set_widescreen_mode(gConfig.widescreen);
     }
+    
+    
 }
 #endif
 
+        
 void render_hacktice_setting(int x, int y)
 {
     bool hackticeAllowed = save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1) >= STARS_TO_ENABLE_HACKTICE;
