@@ -445,12 +445,18 @@ s32 act_jump(struct MarioState *m) {
     }
 #endif
 
+    if (gPlayer1Controller->buttonPressed & B_BUTTON) { // remove these when you're done with testing
+        buttonswap = TRUE;
+    }
+
+    if (gPlayer1Controller->buttonPressed & A_BUTTON) {
+        buttonswap = FALSE;
+    }
+
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     if (check_kick_or_dive_in_air(m)) {
@@ -473,11 +479,9 @@ s32 act_double_jump(struct MarioState *m) {
         : MARIO_ANIM_DOUBLE_JUMP_FALL;
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     if (check_kick_or_dive_in_air(m)) {
@@ -500,11 +504,9 @@ s32 act_triple_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     if (m->input & INPUT_B_PRESSED) {
@@ -555,11 +557,9 @@ s32 act_freefall(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     switch (m->actionArg) {
@@ -642,10 +642,8 @@ s32 act_side_flip(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick2);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick2);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     if (m->marioObj->header.gfx.animInfo.animFrame == 6) {
@@ -664,10 +662,8 @@ s32 act_wall_kick_air(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick2);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     play_mario_jump_sound(m);
@@ -684,10 +680,8 @@ s32 act_long_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_YAHOO);
@@ -783,11 +777,9 @@ s32 act_twirling(struct MarioState *m) {
 
 s32 act_dive(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) { // helo
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     if (m->actionArg == 0) {
@@ -1661,11 +1653,9 @@ s32 act_jump_kick(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
 
     s32 animFrame = m->marioObj->header.gfx.animInfo.animFrame;

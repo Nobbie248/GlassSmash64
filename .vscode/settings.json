@@ -38,6 +38,12 @@
         "common0.h": "c",
         "level_commands.h": "c",
         "sm64.h": "c",
-        "level_script.h": "c"
+        "level_script.h": "c",
+        "surface_terrains.h": "c",
+        "main.h": "c",
+        "mario.h": "c",
+        "gfx_output_buffer.h": "c",
+        "game_init.h": "c",
+        "ultra64.h": "c"
     }
 }

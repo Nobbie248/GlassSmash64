@@ -109,11 +109,6 @@ s32 check_common_hold_idle_cancels(struct MarioState *m) {
 
 //! TODO: actionArg names
 s32 act_idle(struct MarioState *m) {
-    buttonswap = FALSE;
-    if (gPlayer1Controller->buttonPressed & D_JPAD) {
-        buttonswap = TRUE;
-        
-    }
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
