@@ -623,13 +623,18 @@ void read_controller_inputs(s32 threadID) {
         OSContPadEx* controllerData = controller->controllerData;
 
         if (controller->controllerData != NULL) {
-            if (buttonswap == TRUE) { //use == instead of = to prevent assignment lol
+            if (buttonswap == TRUE) { //use == instead of = to prevent assignment lol <- thank you
                 u32 oldButton = controllerData->button;
                 u32 newButton = oldButton & ~(L_TRIG | R_TRIG);
                 if (oldButton & L_TRIG) {
                     newButton |= R_TRIG; 
                 }
                 controllerData->button = newButton;
+                if (oldButton & R_TRIG) {
+                    newButton |= L_TRIG; 
+                }
+                controllerData->button = newButton;
+                
             }
 
             // HackerSM64: Swaps Z and L, only on console, and only when playing with a GameCube controller.
