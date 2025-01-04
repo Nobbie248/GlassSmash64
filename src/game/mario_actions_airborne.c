@@ -445,13 +445,6 @@ s32 act_jump(struct MarioState *m) {
     }
 #endif
 
-    if (gPlayer1Controller->buttonPressed & B_BUTTON) { // remove these when you're done with testing
-        buttonswap = TRUE;
-    }
-
-    if (gPlayer1Controller->buttonPressed & A_BUTTON) {
-        buttonswap = FALSE;
-    }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);

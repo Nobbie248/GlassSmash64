@@ -1592,14 +1592,14 @@ void render_pause_red_coins(void) {
 }
 
 LangArray textCurrRatio43 = DEFINE_LANGUAGE_ARRAY(
-    "ASPECT RATIO: 4:3\nPRESS L TO SWITCH",
+    "ASPECT RATIO: 4:3\nPRESS L TO SWITCH       PRESS LEFT JPAD TO SWAP L & R",
     "RATIO D'ASPECT: 4:3\nAPPUYEZ SUR L POUR CHANGER",
     "SEITENVERHÄLTNIS: 4:3\nDRÜCKE L ZUM WECHSELN",
     "アスペクトひ: ４:３\nＬボタンできりかえ",
     "RELACIÓN DE ASPECTO: 4:3\nPULSA L PARA CAMBIAR");
 
 LangArray textCurrRatio169 = DEFINE_LANGUAGE_ARRAY(
-    "ASPECT RATIO: 16:9\nPRESS L TO SWITCH",
+    "ASPECT RATIO: 16:9\nPRESS L TO SWITCH       PRESS LEFT JPAD TO SWAP L & R",
     "RATIO D'ASPECT: 16:9\nAPPUYEZ SUR L POUR CHANGER",
     "SEITENVERHÄLTNIS: 16:9\nDRÜCKE L ZUM WECHSELN",
     "アスペクトひ: １６:９\nＬボタンできりかえ",
@@ -1620,8 +1620,15 @@ void render_widescreen_setting(void) {
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
     if (gPlayer1Controller->buttonPressed & L_TRIG){
         gConfig.widescreen ^= 1;
+        play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);
         save_file_set_widescreen_mode(gConfig.widescreen);
     }
+    if (gPlayer1Controller->buttonPressed & L_JPAD) { 
+        buttonswap ^= TRUE;
+        play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);
+        
+    }
+
     
     
 }
