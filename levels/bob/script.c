@@ -89,6 +89,8 @@ const LevelScript level_bob_entry[] = {
 		OBJECT(0, 724, 100, 0, 0, 0, 0, 0xa0000, bhvSpinAirborneWarp),
 		OBJECT(0, 1062, 34, 6266, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
 		OBJECT(0, -4355, 34, -2578, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
+		OBJECT(MODEL_STATUE, 3045, 234, 715, 0, -180, 0, 0x00000000, bhvStatue),
+		OBJECT(MODEL_STATUE, 3045, 234, 1532, 0, -180, 0, 0x00000000, bhvStatue),
 		OBJECT(MODEL_NONE, 2046, 1079, 0, 0, 0, 0, 0x00000000, bhvTimer),
 		TERRAIN(bob_area_1_collision),
 		MACRO_OBJECTS(bob_area_1_macro_objs),
