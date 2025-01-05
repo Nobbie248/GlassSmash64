@@ -52,3 +52,20 @@ void bhv_breakable_lantern_loop(void) {
         hitwallflag = 0;
     }
 }
+
+void bhv_breakable_statue_loop(void) {
+    struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
+    struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2);
+
+    if (obj_check_if_collided_with_object(o, brick) || obj_check_if_collided_with_object(o, brick2)) {                         
+        play_sound(SOUND_GENERAL_LOUD_POUND, gGlobalSoundSource);
+        spawn_mist_particles_variable(0, 0, 46.0f);
+        spawn_triangle_break_particles(15, MODEL_SAND_DUST, 5.0f, 4);
+        spawn_triangle_break_particles(10, MODEL_SAND_DUST, 3.0f, 4);
+        
+        obj_mark_for_deletion(o);
+
+        gMarioState->numCoins++;
+        hitwallflag = 0;
+    }
+}

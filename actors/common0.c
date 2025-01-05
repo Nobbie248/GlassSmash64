@@ -94,3 +94,5 @@ UNUSED static const u64 binid_18 = 18;
 #include "glass/collision.inc.c"
 #include "lantern/model.inc.c"
 #include "lantern/collision.inc.c"
+#include "statue/collision.inc.c"
+#include "statue/model.inc.c"

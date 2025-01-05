@@ -20,6 +20,7 @@ const GeoLayout bob_area_1_geo[] = {
 		GEO_DISPLAY_LIST(LAYER_ALPHA, bob_dl_ground_mesh_layer_4),
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, bob_dl_ground_001_mesh_layer_5),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_ground_002_mesh_layer_1),
+		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, bob_dl_pinkgrass_mesh_layer_5),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
 };

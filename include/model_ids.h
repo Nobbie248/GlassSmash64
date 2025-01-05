@@ -451,6 +451,7 @@
 #define MODEL_VINE                        0xF0        // vine
 #define MODEL_PIPE                        0XF1        // pipe
 #define MODEL_LANTERN                     0XF3        // lantern
+#define MODEL_STATUE                      0XF4        // statue
 
 // find me
 #define MODEL_CANNON_BARREL               0x7F        // cannon_barrel_geo

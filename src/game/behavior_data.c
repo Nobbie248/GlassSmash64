@@ -6271,6 +6271,7 @@ const BehaviorScript bhvBrick2[] = {
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(glass_collision),
@@ -6302,12 +6303,27 @@ const BehaviorScript bhvVine[] = {
 
 const BehaviorScript bhvLantern[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
     SET_INT(oIntangibleTimer, 0),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_breakable_lantern_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvStatue[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(statue_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_statue_loop),
     END_LOOP(),
 };

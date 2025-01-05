@@ -39,3 +39,4 @@
 #include "brick/geo.inc.c"
 #include "glass/geo.inc.c"
 #include "lantern/geo.inc.c"
+#include "statue/geo.inc.c"
