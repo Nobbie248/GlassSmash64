@@ -110,12 +110,20 @@ s32 check_common_hold_idle_cancels(struct MarioState *m) {
 //! TODO: actionArg names
 s32 act_idle(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        o->oTimer = 30;
     }
+}
+
     
     if (m->quicksandDepth > 30.0f) {
         return set_mario_action(m, ACT_IN_QUICKSAND, 0);
