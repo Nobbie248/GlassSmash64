@@ -447,10 +447,20 @@ s32 act_jump(struct MarioState *m) {
 
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     if (check_kick_or_dive_in_air(m)) {
         return TRUE;
@@ -472,10 +482,20 @@ s32 act_double_jump(struct MarioState *m) {
         : MARIO_ANIM_DOUBLE_JUMP_FALL;
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     if (check_kick_or_dive_in_air(m)) {
         return TRUE;
@@ -497,10 +517,20 @@ s32 act_triple_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     if (m->input & INPUT_B_PRESSED) {
         return set_mario_action(m, ACT_DIVE, 0);
@@ -550,10 +580,20 @@ s32 act_freefall(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     switch (m->actionArg) {
         case ACT_ARG_FREEFALL_GENERAL:
@@ -635,9 +675,20 @@ s32 act_side_flip(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick2);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     if (m->marioObj->header.gfx.animInfo.animFrame == 6) {
         play_sound(SOUND_ACTION_SIDE_FLIP_UNK, m->marioObj->header.gfx.cameraToObject);
@@ -655,9 +706,20 @@ s32 act_wall_kick_air(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     play_mario_jump_sound(m);
     common_air_action_step(m, ACT_JUMP_LAND, MARIO_ANIM_SLIDEJUMP, AIR_STEP_CHECK_LEDGE_GRAB);
@@ -673,9 +735,20 @@ s32 act_long_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_YAHOO);
 
@@ -769,11 +842,21 @@ s32 act_twirling(struct MarioState *m) {
 }
 
 s32 act_dive(struct MarioState *m) {
-    if (gPlayer1Controller->buttonPressed & L_TRIG) { // helo
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     if (m->actionArg == 0) {
         play_mario_sound(m, SOUND_ACTION_THROW, SOUND_MARIO_HOOHOO);
@@ -1646,10 +1729,20 @@ s32 act_jump_kick(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
+        count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
 
     s32 animFrame = m->marioObj->header.gfx.animInfo.animFrame;
     if (animFrame == 0) {

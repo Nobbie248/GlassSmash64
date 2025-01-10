@@ -761,11 +761,21 @@ s32 act_walking(struct MarioState *m) {
     s16 startYaw = m->faceAngle[1];
     
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    static u32 lastExecutionTime = 0;
+    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+
+    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
+    if (currentTime - lastExecutionTime >= 15) {
+        lastExecutionTime = currentTime;
+
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
     }
+}
+
+
 
     mario_drop_held_object(m);
 
