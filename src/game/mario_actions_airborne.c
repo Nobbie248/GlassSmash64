@@ -447,18 +447,21 @@ s32 act_jump(struct MarioState *m) {
 
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -482,18 +485,21 @@ s32 act_double_jump(struct MarioState *m) {
         : MARIO_ANIM_DOUBLE_JUMP_FALL;
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -517,18 +523,21 @@ s32 act_triple_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -580,18 +589,21 @@ s32 act_freefall(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -675,18 +687,20 @@ s32 act_side_flip(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick2);
-        set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -706,18 +720,21 @@ s32 act_wall_kick_air(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -735,18 +752,21 @@ s32 act_long_jump(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -843,18 +863,21 @@ s32 act_twirling(struct MarioState *m) {
 
 s32 act_dive(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
@@ -1729,18 +1752,21 @@ s32 act_jump_kick(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
-
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
-
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
+}
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
 }
 
 
