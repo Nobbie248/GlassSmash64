@@ -760,20 +760,29 @@ s32 act_walking(struct MarioState *m) {
     Vec3f startPos;
     s16 startYaw = m->faceAngle[1];
     
-    if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    static u32 lastExecutionTime = 0;
-    u32 currentTime = gGlobalTimer; // Use the game's global timer (assumes it's in frames)
+    // Static variable to track the cooldown
 
-    // Check if at least 15 frames (0.5 seconds at 30fps) have passed
-    if (currentTime - lastExecutionTime >= 15) {
-        lastExecutionTime = currentTime;
 
+// Check if L_TRIG is pressed
+if (gPlayer1Controller->buttonPressed & L_TRIG) {
+    if (lTrigCooldown == 0) {
+        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+
+        // Start the cooldown
+        lTrigCooldown = 15;
     }
 }
+
+// Decrement the cooldown counter each frame
+if (lTrigCooldown > 0) {
+    lTrigCooldown--;
+}
+
+
 
 
 
