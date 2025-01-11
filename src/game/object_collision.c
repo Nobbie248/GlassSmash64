@@ -23,32 +23,23 @@ UNUSED struct Object *debug_print_obj_collision(struct Object *a) {
 }
 
 s32 detect_object_hitbox_overlap(struct Object *a, struct Object *b) {
-    // Define the bottom, top, and extents for object A
-    f32 ax_min = a->oPosX - a->hitboxRadius; // Left extent
-    f32 ax_max = a->oPosX + a->hitboxRadius; // Right extent
-    f32 az_min = a->oPosZ - a->hitboxRadius; // Front extent
-    f32 az_max = a->oPosZ + a->hitboxRadius; // Back extent
-    f32 ay_min = a->oPosY - a->hitboxDownOffset; // Bottom
-    f32 ay_max = ay_min + a->hitboxHeight;       // Top
+    f32 dya_bottom = a->oPosY - a->hitboxDownOffset;
+    f32 dyb_bottom = b->oPosY - b->hitboxDownOffset;
+    f32 dx = a->oPosX - b->oPosX;
+    f32 dz = a->oPosZ - b->oPosZ;
+    f32 collisionRadius = a->hitboxRadius + b->hitboxRadius;
+    f32 distance = sqr(dx) + sqr(dz);
 
-    // Define the bottom, top, and extents for object B
-    f32 bx_min = b->oPosX - b->hitboxRadius; // Left extent
-    f32 bx_max = b->oPosX + b->hitboxRadius; // Right extent
-    f32 bz_min = b->oPosZ - b->hitboxRadius; // Front extent
-    f32 bz_max = b->oPosZ + b->hitboxRadius; // Back extent
-    f32 by_min = b->oPosY - b->hitboxDownOffset; // Bottom
-    f32 by_max = by_min + b->hitboxHeight;       // Top
+    if (sqr(collisionRadius) > distance) {
+        f32 dya_top = a->hitboxHeight + dya_bottom;
+        f32 dyb_top = b->hitboxHeight + dyb_bottom;
 
-    // Check for overlap in all three dimensions
-    if (ax_min < bx_max && ax_max > bx_min && // Overlap in X
-        az_min < bz_max && az_max > bz_min && // Overlap in Z
-        ay_min < by_max && ay_max > by_min) { // Overlap in Y
-
-        if (a->numCollidedObjs >= 4 || b->numCollidedObjs >= 4) {
+        if (dya_bottom > dyb_top
+            || dya_top < dyb_bottom
+            || a->numCollidedObjs >= 4
+            || b->numCollidedObjs >= 4) {
             return FALSE;
         }
-
-        // Register collision
         a->collidedObjs[a->numCollidedObjs] = b;
         b->collidedObjs[b->numCollidedObjs] = a;
         a->collidedObjInteractTypes |= b->oInteractType;
