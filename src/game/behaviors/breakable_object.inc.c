@@ -6,7 +6,7 @@ void bhv_breakable_object_init(void) {
     obj_get_collision_data();
 }
 
-int hitwallflag = 0;
+
 
 void bhv_breakable_glass_loop(void) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
@@ -21,7 +21,7 @@ void bhv_breakable_glass_loop(void) {
         obj_mark_for_deletion(o);
 
         gMarioState->numCoins++;
-        hitwallflag = 0;
+        
     }
     
     if (cur_obj_was_attacked_or_ground_pounded()) {
@@ -49,7 +49,7 @@ void bhv_breakable_lantern_loop(void) {
         obj_mark_for_deletion(o);
 
         gMarioState->numCoins++;
-        hitwallflag = 0;
+        
     }
 }
 
@@ -66,6 +66,6 @@ void bhv_breakable_statue_loop(void) {
         obj_mark_for_deletion(o);
 
         gMarioState->numCoins++;
-        hitwallflag = 0;
+        
     }
 }
