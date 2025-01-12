@@ -450,7 +450,7 @@ s32 act_jump(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -487,7 +487,7 @@ s32 act_double_jump(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -524,7 +524,7 @@ s32 act_triple_jump(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -589,7 +589,7 @@ s32 act_freefall(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -686,7 +686,7 @@ s32 act_side_flip(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick2);
+        spawn_object_relative(0, 0, 0, 0, m->marioObj, MODEL_BRICK, bhvBrick2);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -719,7 +719,7 @@ s32 act_wall_kick_air(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -750,7 +750,7 @@ s32 act_long_jump(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -860,7 +860,7 @@ s32 act_dive(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
@@ -1748,7 +1748,7 @@ s32 act_jump_kick(struct MarioState *m) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown

@@ -768,7 +768,7 @@ if (gPlayer1Controller->buttonPressed & L_TRIG) {
     if (lTrigCooldown == 0) {
         // Execute the functionality
         count_objects_with_behavior(bhvBrick);
-        spawn_object_relative(0, 0, -20, 40, m->marioObj, MODEL_BRICK, bhvBrick);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
         // Start the cooldown
