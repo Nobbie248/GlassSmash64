@@ -12,7 +12,9 @@ void bhv_breakable_glass_loop(void) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
     struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2);
 
-    if (obj_check_if_collided_with_object(o, brick) || obj_check_if_collided_with_object(o, brick2)) {                         
+    if ((brick && obj_check_if_collided_with_object(o, brick)) || 
+    (brick2 && obj_check_if_collided_with_object(o, brick2))) {
+                          
         play_sound(SOUND_GENERAL_BREAK_BOX, gGlobalSoundSource);
         spawn_mist_particles_variable(0, 0, 46.0f);
         spawn_triangle_break_particles(15, MODEL_WHITE_PARTICLE_SMALL, 10.0f, 4);
@@ -21,7 +23,7 @@ void bhv_breakable_glass_loop(void) {
         obj_mark_for_deletion(o);
 
         gMarioState->numCoins++;
-        
+    
     }
     
     if (cur_obj_was_attacked_or_ground_pounded()) {
