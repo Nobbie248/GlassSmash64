@@ -206,6 +206,7 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_PIPE,                    pipe_geo),
     LOAD_MODEL_FROM_GEO(MODEL_LANTERN,                 lantern_geo),
     LOAD_MODEL_FROM_GEO(MODEL_STATUE,                  statue_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_VASE,                    vase_geo),
     RETURN(),
 };
 
