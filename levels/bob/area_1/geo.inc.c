@@ -19,6 +19,8 @@ const GeoLayout bob_area_1_geo[] = {
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_ground_003_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_ALPHA, bob_dl_ground_004_mesh_layer_4),
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, bob_dl_pinkgrass_mesh_layer_5),
+		GEO_DISPLAY_LIST(LAYER_OPAQUE, bob_dl_puzzle_mesh_layer_1),
+		GEO_DISPLAY_LIST(LAYER_ALPHA, bob_dl_puzzle_mesh_layer_4),
 		GEO_TRANSLATE_ROTATE(LAYER_OPAQUE, 2325, 3743, -5052, 90, 0, 0),
 		GEO_OPEN_NODE(),
 			GEO_CULL(-32000, 1000, -32000, 32000, -2500, 32000, 0),

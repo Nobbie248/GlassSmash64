@@ -223,4 +223,6 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "statue/geo_header.h"
 
+#include "vase/geo_header.h"
+
 #endif

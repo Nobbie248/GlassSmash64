@@ -566,4 +566,5 @@ extern const BehaviorScript bhvTimer[];
 extern const BehaviorScript bhvVine[];
 extern const BehaviorScript bhvLantern[];
 extern const BehaviorScript bhvStatue[];
+extern const BehaviorScript bhvVase[];
 #endif // BEHAVIOR_DATA_H
