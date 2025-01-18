@@ -73,42 +73,57 @@ u8 glass_glass_pal_rgba16[] = {
 	0xbe, 0xbf, 0xc6, 0xff, 
 };
 
-Vtx glass_glass_mesh_layer_5_vtx_0[8] = {
-	{{ {15, -150, -253}, 0, {1008, 800}, {139, 142, 101, 255} }},
-	{{ {15, 150, -253}, 0, {1008, 192}, {139, 142, 101, 255} }},
-	{{ {15, 150, 253}, 0, {-16, 192}, {139, 142, 101, 255} }},
-	{{ {-15, -150, -253}, 0, {1008, 800}, {139, 142, 101, 255} }},
-	{{ {-15, -150, 253}, 0, {-16, 800}, {139, 142, 101, 255} }},
-	{{ {15, -150, 253}, 0, {-16, 800}, {139, 142, 101, 255} }},
-	{{ {-15, 150, 253}, 0, {-16, 192}, {139, 142, 101, 255} }},
-	{{ {-15, 150, -253}, 0, {1008, 192}, {139, 142, 101, 255} }},
+Vtx glass_glass_mesh_layer_1_vtx_0[24] = {
+	{{ {17, -150, -253}, 0, {1008, 800}, {127, 0, 0, 255} }},
+	{{ {17, 150, -253}, 0, {1008, 192}, {127, 0, 0, 255} }},
+	{{ {17, 150, 253}, 0, {-16, 192}, {127, 0, 0, 255} }},
+	{{ {17, -150, 253}, 0, {-16, 800}, {127, 0, 0, 255} }},
+	{{ {-17, -150, -253}, 0, {1008, 800}, {129, 0, 0, 255} }},
+	{{ {-17, -150, 253}, 0, {-16, 800}, {129, 0, 0, 255} }},
+	{{ {-17, 150, 253}, 0, {-16, 192}, {129, 0, 0, 255} }},
+	{{ {-17, 150, -253}, 0, {1008, 192}, {129, 0, 0, 255} }},
+	{{ {17, -150, 253}, 0, {-16, 800}, {0, 0, 127, 255} }},
+	{{ {17, 150, 253}, 0, {-16, 192}, {0, 0, 127, 255} }},
+	{{ {-17, 150, 253}, 0, {-16, 192}, {0, 0, 127, 255} }},
+	{{ {-17, -150, 253}, 0, {-16, 800}, {0, 0, 127, 255} }},
+	{{ {17, 150, 253}, 0, {-16, 192}, {0, 127, 0, 255} }},
+	{{ {17, 150, -253}, 0, {1008, 192}, {0, 127, 0, 255} }},
+	{{ {-17, 150, -253}, 0, {1008, 192}, {0, 127, 0, 255} }},
+	{{ {-17, 150, 253}, 0, {-16, 192}, {0, 127, 0, 255} }},
+	{{ {17, 150, -253}, 0, {1008, 192}, {0, 0, 129, 255} }},
+	{{ {17, -150, -253}, 0, {1008, 800}, {0, 0, 129, 255} }},
+	{{ {-17, -150, -253}, 0, {1008, 800}, {0, 0, 129, 255} }},
+	{{ {-17, 150, -253}, 0, {1008, 192}, {0, 0, 129, 255} }},
+	{{ {17, -150, -253}, 0, {1008, 800}, {0, 129, 0, 255} }},
+	{{ {17, -150, 253}, 0, {-16, 800}, {0, 129, 0, 255} }},
+	{{ {-17, -150, 253}, 0, {-16, 800}, {0, 129, 0, 255} }},
+	{{ {-17, -150, -253}, 0, {1008, 800}, {0, 129, 0, 255} }},
 };
 
-Gfx glass_glass_mesh_layer_5_tri_0[] = {
-	gsSPVertex(glass_glass_mesh_layer_5_vtx_0 + 0, 8, 0),
+Gfx glass_glass_mesh_layer_1_tri_0[] = {
+	gsSPVertex(glass_glass_mesh_layer_1_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsSP1Triangle(1, 0, 3, 0),
-	gsSP1Triangle(0, 4, 3, 0),
-	gsSP1Triangle(0, 5, 4, 0),
-	gsSP1Triangle(0, 2, 5, 0),
-	gsSP1Triangle(5, 2, 6, 0),
-	gsSP1Triangle(2, 7, 6, 0),
-	gsSP1Triangle(2, 1, 7, 0),
-	gsSP1Triangle(1, 3, 7, 0),
-	gsSP1Triangle(3, 6, 7, 0),
-	gsSP1Triangle(3, 4, 6, 0),
-	gsSP1Triangle(5, 6, 4, 0),
+	gsSP1Triangle(0, 2, 3, 0),
+	gsSP1Triangle(4, 5, 6, 0),
+	gsSP1Triangle(4, 6, 7, 0),
+	gsSP1Triangle(8, 9, 10, 0),
+	gsSP1Triangle(8, 10, 11, 0),
+	gsSP1Triangle(12, 13, 14, 0),
+	gsSP1Triangle(12, 14, 15, 0),
+	gsSPVertex(glass_glass_mesh_layer_1_vtx_0 + 16, 8, 0),
+	gsSP1Triangle(0, 1, 2, 0),
+	gsSP1Triangle(0, 2, 3, 0),
+	gsSP1Triangle(4, 5, 6, 0),
+	gsSP1Triangle(4, 6, 7, 0),
 	gsSPEndDisplayList(),
 };
 
 
 Gfx mat_glass_f3dlite_material_018[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
-	gsSPClearGeometryMode(G_LIGHTING),
+	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, ENVIRONMENT, 0, 0, 0, TEXEL0, 0, 0, 0, ENVIRONMENT),
 	gsDPSetTextureLUT(G_TT_RGBA16),
 	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsDPSetPrimColor(0, 0, 255, 255, 255, 138),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, glass_glass_pal_rgba16),
 	gsDPSetTile(0, 0, 0, 256, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
 	gsDPLoadTLUTCmd(5, 5),
@@ -122,14 +137,13 @@ Gfx mat_glass_f3dlite_material_018[] = {
 
 Gfx mat_revert_glass_f3dlite_material_018[] = {
 	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPSetTextureLUT(G_TT_NONE),
 	gsSPEndDisplayList(),
 };
 
-Gfx glass_glass_mesh_layer_5[] = {
+Gfx glass_glass_mesh_layer_1[] = {
 	gsSPDisplayList(mat_glass_f3dlite_material_018),
-	gsSPDisplayList(glass_glass_mesh_layer_5_tri_0),
+	gsSPDisplayList(glass_glass_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_glass_f3dlite_material_018),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
