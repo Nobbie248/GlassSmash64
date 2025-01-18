@@ -6278,7 +6278,7 @@ const BehaviorScript bhvGlass[] = {
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 135, /*Height*/ 250, /*Downwards offset*/ 90),
     SET_HOME(),
     BEGIN_LOOP(),
-        CALL_NATIVE(load_object_collision_model),
+        //CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_glass_loop),
     END_LOOP(),
 };
