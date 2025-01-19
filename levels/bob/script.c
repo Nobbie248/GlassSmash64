@@ -98,8 +98,6 @@ const LevelScript level_bob_entry[] = {
 		OBJECT(MODEL_BLUE_COIN, -2556, 212, 1137, 0, -90, 0, 0x00000000, bhvBlueCoinJumping),
 		OBJECT(MODEL_BLUE_COIN, -2556, 212, 1137, 0, -90, 0, 0x00000000, bhvBlueCoinJumping),
 		OBJECT(MODEL_BLUE_COIN, -2556, 212, 1137, 0, -90, 0, 0x00000000, bhvBlueCoinJumping),
-		OBJECT(MODEL_BLUE_COIN, -2556, 212, 1137, 0, -90, 0, 0x00000000, bhvBlueCoinJumping),
-		OBJECT(MODEL_BLUE_COIN, -2556, 212, 1137, 0, -90, 0, 0x00000000, bhvBlueCoinJumping),
 		TERRAIN(bob_area_1_collision),
 		MACRO_OBJECTS(bob_area_1_macro_objs),
 		SET_BACKGROUND_MUSIC(0x00, 0x2a),

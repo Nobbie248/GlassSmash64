@@ -619,8 +619,26 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
         }
     } else if (m->actionState == ACT_STATE_STAR_DANCE_DO_SAVE && gDialogResponse != DIALOG_RESPONSE_NONE) {
         if (gDialogResponse == DIALOG_RESPONSE_YES) {
-            save_file_do_save(gCurrSaveFileNum - 1);
-        }
+    save_file_do_save(gCurrSaveFileNum - 1);
+
+    
+    
+    if (gCurrLevelNum == LEVEL_BOB) {
+        m->numCoins = 0;
+        gHudDisplay.coins = 0;
+    fade_into_special_warp(LEVEL_BOB, 0);
+    }
+    if (gCurrLevelNum == LEVEL_WF) {
+        m->numCoins = 0;
+        gHudDisplay.coins = 0;
+    fade_into_special_warp(LEVEL_WF, 0);
+    }
+    if (gCurrLevelNum == LEVEL_JRB) {
+        m->numCoins = 0;
+        gHudDisplay.coins = 0;
+    fade_into_special_warp(LEVEL_JRB, 0);
+    } 
+    }
         m->actionState = ACT_STATE_STAR_DANCE_RETURN;
     } else if (m->actionState == ACT_STATE_STAR_DANCE_RETURN && is_anim_at_end(m)) {
         disable_time_stop();
@@ -631,6 +649,10 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
             set_mario_action(m, ACT_READING_AUTOMATIC_DIALOG, dialogID);
         } else {
             set_mario_action(m, isInWater ? ACT_WATER_IDLE : ACT_IDLE, 0);
+            save_file_do_save(gCurrSaveFileNum - 1);
+            m->numCoins = 0;
+             gHudDisplay.coins = 0;
+            fade_into_special_warp(LEVEL_CASTLE_GROUNDS, 0);
         }
     }
 }

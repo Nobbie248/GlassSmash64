@@ -7,10 +7,7 @@ s32 gTotalBrokenObjects = 0;
 
 void check_and_spawn_star(void) {
     if (gTotalBrokenObjects >= 30) {
-        struct Object* star = spawn_object(gMarioObject, MODEL_STAR, bhvSpawnedStarNoLevelExit);
-        star->oPosX = gMarioState->pos[0];
-        star->oPosY = gMarioState->pos[1] + 200.0f;
-        star->oPosZ = gMarioState->pos[2];
+        bhv_spawn_star_no_level_exit(STAR_BP_ACT_100_COINS);
         gTotalBrokenObjects = 0;
         level_control_timer(TIMER_CONTROL_STOP);
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);

@@ -24,6 +24,11 @@
 #include "config.h"
 #include "puppycam2.h"
 #include "main.h"
+#include "mario_actions_object.h"
+#include "mario_step.h"
+#include "mario.h"
+#include "interaction.h"
+#include "rumble_init.h"
 
 #include "hacktice/main.h"
 
@@ -2061,6 +2066,8 @@ s32 render_pause_courses_and_castle(void) {
                 gMenuMode = MENU_MODE_NONE;
 
                 if (gDialogLineNum == MENU_OPT_EXIT_COURSE) {
+                    gMarioState->numCoins = 0;
+                    gHudDisplay.coins = 0;
                     index = gDialogLineNum;
                 } else { // MENU_OPT_CONTINUE or MENU_OPT_CAMERA_ANGLE_R
                     index = MENU_OPT_DEFAULT;
