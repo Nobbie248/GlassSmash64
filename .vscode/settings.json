@@ -46,6 +46,9 @@
         "game_init.h": "c",
         "ultra64.h": "c",
         "mario_actions_airborne.h": "c",
-        "level_update.h": "c"
+        "level_update.h": "c",
+        "ingame_menu.h": "c",
+        "mario_step.h": "c",
+        "moving_texture.h": "c"
     }
 }
