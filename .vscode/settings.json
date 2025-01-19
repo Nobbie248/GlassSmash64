@@ -45,6 +45,7 @@
         "gfx_output_buffer.h": "c",
         "game_init.h": "c",
         "ultra64.h": "c",
-        "mario_actions_airborne.h": "c"
+        "mario_actions_airborne.h": "c",
+        "level_update.h": "c"
     }
 }
