@@ -11,7 +11,6 @@ struct ObjectHitbox sBrickHitbox = { // hey hitbox!
 }; // bye hitbox..
 
 
-
 void bhv_brick_init(void) {
     obj_set_hitbox(o, &sBrickHitbox);
 
@@ -27,9 +26,7 @@ void bhv_brick_init(void) {
     o->oAngleVelPitch = 0x400;
 }
 
-void bhv_brick_loop(void) {
-    struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
-    struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2); 
+void bhv_brick_loop(void) { 
     o->oCoinBounceTimer++;   
     cur_obj_update_floor_and_walls();
     cur_obj_if_hit_wall_bounce_away();
@@ -59,8 +56,6 @@ void bhv_brick_loop(void) {
         o->oVelY = 0.f;
         o->oDragStrength = 800.0f;
     }
-
-
 }
 
 void bhv_brick_init2(void) {
