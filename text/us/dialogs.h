@@ -220,10 +220,9 @@ Would you like to Save?\n\
 \n\
 \tYes\t\tNo")
 
-DEFINE_DIALOG(DIALOG_013,1,5,30,200, "Yeah, we don't mess\n\
-around with that 80 or\n\
-90 coin star business.\n\
-Isn't that dope?\n\
+DEFINE_DIALOG(DIALOG_013,1,5,30,200, "You did it!\n\
+Would you like to restart?\n\
+Progress will be saved.\n\
 \tYes\t\tNo")
 
 DEFINE_DIALOG(DIALOG_014,1,4,30,200, "Well done! Each star you \n\

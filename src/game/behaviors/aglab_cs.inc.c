@@ -5,11 +5,11 @@
 #include "src/engine/level_script.h"
 #include "level_commands.h"
 #include "src/game/level_update.h"
+
 // #include "print.h"
 
 
-
-
+static int lTrigCooldown;
 
 
 char gIsCs = 0;
@@ -33,7 +33,8 @@ extern struct CreditsEntry *gCurrCreditsEntry;
 
 void bhv_cs_init()
 {
-    
+        gMarioState->numCoins = 0;
+        
         
     if (gCurrCreditsEntry)
 
@@ -72,7 +73,6 @@ void bhv_cs_init()
 
     disableHud();
 }
-
 
 
 void bhv_cs_loop()
@@ -158,6 +158,7 @@ void bhv_cs_loop()
 
     if (buttonPressed & (A_BUTTON | B_BUTTON))
     {
+        
         resetFlags();
         reset_camera(gCamera);
         o->activeFlags = 0;
@@ -168,6 +169,7 @@ void bhv_cs_loop()
 
     if (o->oTimer > 290 || (o->oSubAction > 2))
     {
+        
         resetFlags();
         reset_camera(gCamera);
         o->activeFlags = 0;
