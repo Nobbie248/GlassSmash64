@@ -472,6 +472,10 @@ if (lTrigCooldown > 0) {
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     }
 
+    if (m->input & INPUT_A_PRESSED) {
+        return set_mario_action(m, ACT_SPIN_JUMP, 0);
+    }
+
     play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
     common_air_action_step(m, ACT_JUMP_LAND, MARIO_ANIM_SINGLE_JUMP,
                            AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);

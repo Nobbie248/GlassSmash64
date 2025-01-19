@@ -120,7 +120,7 @@ enum CameraModes {
     /*14*/ CAMERA_MODE_8_DIRECTIONS, // AKA Parallel Camera, Bowser Courses & Rainbow Ride
     /*15*/ CAMERA_MODE_0F,
     /*16*/ CAMERA_MODE_FREE_ROAM,
-    /*17*/ CAMERA_MODE_SPIRAL_STAIRS
+    /*17*/ CAMERA_MODE_SPIRAL_STAIRS,
 };
 
 enum CameraMovementFlags {
@@ -612,6 +612,7 @@ struct Camera {
     /// The y coordinate of the "center" of the area. Unlike areaCenX and areaCenZ, this is only used
     /// when paused. See zoom_out_if_paused_and_outside
     /*0x68*/ f32 areaCenY;
+    /*0x69*/ s16 pitch;
 };
 
 /**
@@ -803,6 +804,8 @@ void play_cutscene(struct Camera *c);
 void cutscene_event(CameraEvent event, struct Camera * c, s16 start, s16 end);
 void cutscene_spawn_obj(u32 obj, s16 frame);
 void set_fov_shake(s16 amplitude, s16 decay, s16 shakeSpeed);
+void update_camera_mode(struct Camera *c);
+void mode_aim_camera(struct Camera *c);
 
 void set_fov_function(u8 func);
 void cutscene_set_fov_shake_preset(u8 preset);

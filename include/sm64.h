@@ -762,6 +762,7 @@ enum MarioActionFlags {
 // group 0x1C0: custom actions
 // 0x1C0 - 0x1FF
 #define ACT_BRICK_THROW                 0x000001BF // (0x1C0)
+#define ACT_AIM_MODE                    0x000002BF // (0x152 | ACT_FLAG_STATIONARY )
 /*
  this input mask is unused by the controller,
  but END_DEMO is used internally to signal
