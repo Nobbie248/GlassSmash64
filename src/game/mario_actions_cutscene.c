@@ -626,16 +626,19 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
     if (gCurrLevelNum == LEVEL_BOB) {
         m->numCoins = 0;
         gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_BOB, 0);
     }
     if (gCurrLevelNum == LEVEL_WF) {
         m->numCoins = 0;
         gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_WF, 0);
     }
     if (gCurrLevelNum == LEVEL_JRB) {
         m->numCoins = 0;
         gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_JRB, 0);
     } 
     }

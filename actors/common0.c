@@ -98,3 +98,6 @@ UNUSED static const u64 binid_18 = 18;
 #include "statue/model.inc.c"
 #include "vase/model.inc.c"
 #include "vase/collision.inc.c"
+#include "crumbles/model.inc.c"
+#include "lantern_pop/model.inc.c"
+#include "china_pop/model.inc.c"

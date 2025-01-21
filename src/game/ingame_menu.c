@@ -33,7 +33,7 @@
 #include "hacktice/main.h"
 
 #define STARS_TO_ENABLE_HACKTICE 31
-
+int gTotalBrokenObjects = 0;
 u16 gDialogColorFadeTimer;
 s8 gLastDialogLineNum;
 DialogVariable gDialogVariable;
@@ -1804,12 +1804,13 @@ LangArray textExitCourse = DEFINE_LANGUAGE_ARRAY(
     "コースからでる？",
     "SALIR DEL NIVEL");
 
-LangArray textCameraAngleR = DEFINE_LANGUAGE_ARRAY(
-    "SET CAMERA ANGLE WITH Ⓡ",
-    "RÉGLAGE CAMÉRA AVEC Ⓡ",
-    "KAMERA MIT Ⓡ VERSTELLEN",
-    "Ｒボタンのカメラきりかえ",
-    "MODO DE CÁMARA CON Ⓡ");
+LangArray textRestartLevel = DEFINE_LANGUAGE_ARRAY(
+    "RESTART LEVEL",
+    "RECOMMENCER NIVEAU",
+    "LEVEL NEUSTARTEN",
+    "レベルをやりなおす",
+    "REINICIAR NIVEL");
+
 
 void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
     handle_menu_scrolling(MENU_SCROLL_VERTICAL, index, 1, 3);
@@ -1817,24 +1818,19 @@ void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
 
     set_text_color(255, 255, 255);
-    print_generic_string(x, y,      LANG_ARRAY(textContinue));
-    print_generic_string(x, y - 15, LANG_ARRAY(textExitCourse));
+    print_generic_string(x, y, LANG_ARRAY(textContinue));            // Option 1: Continue
+    print_generic_string(x, y - 15, LANG_ARRAY(textExitCourse));     // Option 2: Exit Course
+    print_generic_string(x, y - 31, LANG_ARRAY(textRestartLevel));   // Option 3: Restart Level
 
-    if (*index != MENU_OPT_CAMERA_ANGLE_R) {
-        print_generic_string(x, y - 31, LANG_ARRAY(textCameraAngleR));
-        gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+    gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 
-        create_dl_translation_matrix(MENU_MTX_PUSH, x - 14, (y - ((*index - 1) * yIndex)), 0);
+    create_dl_translation_matrix(MENU_MTX_PUSH, x - 14, (y - ((*index - 1) * yIndex)), 0);
 
-        gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
-        gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
-        gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
-    }
-
-    if (*index == MENU_OPT_CAMERA_ANGLE_R) {
-        render_pause_camera_options(x - 52, y - 38, &gDialogCameraAngleIndex, 110);
-    }
+    gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
+    gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 }
+
 
 void render_pause_castle_menu_box(s16 x, s16 y) {
     create_dl_translation_matrix(MENU_MTX_PUSH, x - 78, y - 32, 0);
@@ -2019,6 +2015,7 @@ s8 gCourseCompleteCoinsEqual = FALSE;
 s32 gCourseDoneMenuTimer = 0;
 s32 gCourseCompleteCoins = 0;
 s8 gHudFlash = HUD_FLASH_NONE;
+#define MENU_OPT_RESTART_LEVEL 3
 
 s32 render_pause_courses_and_castle(void) {
     s16 index;
@@ -2049,6 +2046,7 @@ s32 render_pause_courses_and_castle(void) {
             render_pause_my_score_coins();
             render_pause_red_coins();
 #ifndef DISABLE_EXIT_COURSE
+render_pause_course_options(109, 91, &gDialogLineNum, 15);
 #ifdef EXIT_COURSE_WHILE_MOVING
             if ((gMarioStates[0].action & (ACT_FLAG_SWIMMING | ACT_FLAG_METAL_WATER | ACT_FLAG_PAUSE_EXIT))
              || (gMarioStates[0].pos[1] <= gMarioStates[0].floorHeight)) {
@@ -2060,21 +2058,42 @@ s32 render_pause_courses_and_castle(void) {
 #endif
 
             if (gPlayer1Controller->buttonPressed & (A_BUTTON | START_BUTTON)) {
-                level_set_transition(0, NULL);
-                play_sound(SOUND_MENU_PAUSE_CLOSE, gGlobalSoundSource);
-                gDialogBoxState = DIALOG_STATE_OPENING;
-                gMenuMode = MENU_MODE_NONE;
+    level_set_transition(0, NULL);
+    play_sound(SOUND_MENU_PAUSE_CLOSE, gGlobalSoundSource);
+    gDialogBoxState = DIALOG_STATE_OPENING;
+    gMenuMode = MENU_MODE_NONE;
 
-                if (gDialogLineNum == MENU_OPT_EXIT_COURSE) {
-                    gMarioState->numCoins = 0;
-                    gHudDisplay.coins = 0;
-                    index = gDialogLineNum;
-                } else { // MENU_OPT_CONTINUE or MENU_OPT_CAMERA_ANGLE_R
-                    index = MENU_OPT_DEFAULT;
-                }
+    if (gDialogLineNum == MENU_OPT_EXIT_COURSE) {  // Option 2: Exit Course
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+        return MENU_OPT_EXIT_COURSE;
+    } else if (gDialogLineNum == MENU_OPT_RESTART_LEVEL) {  // Option 3: Restart Level
+        play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
+        if (gCurrLevelNum == LEVEL_BOB) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_BOB, 0);
+    }
+    if (gCurrLevelNum == LEVEL_WF) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_WF, 0);
+    }
+    if (gCurrLevelNum == LEVEL_JRB) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_JRB, 0);
+    }  // Restart the level
+        return;
+    }
 
-                return index;
-            }
+    return MENU_OPT_DEFAULT;
+}
+
             break;
 
         case DIALOG_STATE_HORIZONTAL:

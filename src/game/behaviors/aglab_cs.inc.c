@@ -74,7 +74,7 @@ void bhv_cs_init()
     disableHud();
 }
 
-
+static int delayTimer = 0;
 void bhv_cs_loop()
 {
 
@@ -96,25 +96,34 @@ void bhv_cs_loop()
     gMarioStates->controller->buttonDown = 0;
     gMarioStates->controller->buttonPressed = 0;
 
-    switch (gCurrCourseNum)
+    if (delayTimer == 0)
+{
+    delayTimer = 5; // Delay for 5 frames (adjust as needed)
+}
+
+// Count down the delay timer
+if (delayTimer > 0)
+{
+    delayTimer--;
+
+    // Execute the switch statement only after the delay
+    if (delayTimer == 0)
     {
-        case COURSE_WMOTR:
-            gCamera->cutscene = CUTSCENE_INTRO;
+        switch (gCurrCourseNum)
+        {
+            case COURSE_WMOTR:
+                gCamera->cutscene = CUTSCENE_INTRO;
+                break;
             
-            break;
-        
+            // Add more cases if needed
+        }
     }
+}
     if (buttonPressed & (A_BUTTON | B_BUTTON | START_BUTTON))
     {
         initiate_warp(EXIT_COURSE_LEVEL, EXIT_COURSE_AREA, EXIT_COURSE_NODE, WARP_FLAG_EXIT_COURSE);
             fade_into_special_warp(WARP_SPECIAL_NONE, 0);
             gSavedCourseNum = COURSE_NONE;
-        // resetFlags();
-        // reset_camera(gCamera);
-        // o->activeFlags = 0;
-        // o->oSubAction++;
-        
-        //gLoadLevel->LEVEL_CASTLE_GROUNDS;
     }
 
     }
@@ -157,15 +166,31 @@ void bhv_cs_loop()
         gBorderHeight++;
 
     if (buttonPressed & (A_BUTTON | B_BUTTON))
+{
+    if (delayTimer == 0)
     {
-        
+        // Start the delay timer
+        delayTimer = 5; // Delay for 5 frames (adjust as needed)
+    }
+}
+
+// Count down the delay timer
+if (delayTimer > 0)
+{
+    delayTimer--;
+
+    // Execute the original code when the timer reaches zero
+    if (delayTimer == 0)
+    {
         resetFlags();
         reset_camera(gCamera);
         o->activeFlags = 0;
         level_control_timer(TIMER_CONTROL_SHOW);
         level_control_timer(TIMER_CONTROL_START);
         play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource); 
+        
     }
+}
 
     if (o->oTimer > 290 || (o->oSubAction > 2))
     {
@@ -176,6 +201,7 @@ void bhv_cs_loop()
         level_control_timer(TIMER_CONTROL_SHOW);
     level_control_timer(TIMER_CONTROL_START);
     play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
+    
     }
     }
 }
