@@ -227,4 +227,10 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "vase/collision_header.h"
 
+#include "crumbles/geo_header.h"
+
+#include "lantern_pop/geo_header.h"
+
+#include "china_pop/geo_header.h"
+
 #endif

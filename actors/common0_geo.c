@@ -41,3 +41,6 @@
 #include "lantern/geo.inc.c"
 #include "statue/geo.inc.c"
 #include "vase/geo.inc.c"
+#include "crumbles/geo.inc.c"
+#include "lantern_pop/geo.inc.c"
+#include "china_pop/geo.inc.c"

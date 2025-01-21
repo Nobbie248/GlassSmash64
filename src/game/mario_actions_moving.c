@@ -766,13 +766,12 @@ s32 act_walking(struct MarioState *m) {
 // Check if L_TRIG is pressed
 if (gPlayer1Controller->buttonPressed & L_TRIG) {
     if (lTrigCooldown == 0) {
-        // Execute the functionality
         count_objects_with_behavior(bhvBrick);
         spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 
-        // Start the cooldown
-        lTrigCooldown = 15;
+        
+        lTrigCooldown = 12;
     }
 }
 

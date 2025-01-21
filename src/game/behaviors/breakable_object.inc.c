@@ -1,9 +1,9 @@
 #include "game/level_update.h"
-#include "game/game_init.h"
 #include "game/behavior_actions.h"
 #include "include/behavior_data.h"
+#include "src/game/ingame_menu.h"
 
-s32 gTotalBrokenObjects = 0;
+
 
 void check_and_spawn_star(void) {
     if (gTotalBrokenObjects >= 30) {
@@ -38,13 +38,13 @@ void bhv_breakable_glass_loop(void) {
 }
 
 void bhv_breakable_lantern_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_SAND_DUST, 5.0f, 3.0f);
+    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_LANTERN_POP, 0.f, 2.0f);
 }
 
 void bhv_breakable_statue_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_LOUD_POUND, MODEL_SAND_DUST, 5.0f, 3.0f);
+    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 0.f, 2.0f);
 }
 
 void bhv_breakable_vase_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_SAND_DUST, 5.0f, 3.0f);
+    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_CHINA_POP, 0.f, 1.5f);
 }

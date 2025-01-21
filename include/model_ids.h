@@ -453,6 +453,10 @@
 #define MODEL_LANTERN                     0XF3        // lantern
 #define MODEL_STATUE                      0XF4        // statue
 #define MODEL_VASE                        0XF5        // vase
+#define MODEL_CRUMBLES                    0XF6        // crumbles
+#define MODEL_LANTERN_POP                 0XF7        // pop
+#define MODEL_CHINA_POP                   0XF8        // pop
+
 
 // find me
 #define MODEL_CANNON_BARREL               0x7F        // cannon_barrel_geo

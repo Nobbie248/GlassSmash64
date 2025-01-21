@@ -3757,14 +3757,13 @@ layer_end
 chan_setbank 5
 chan_setinstr 0
 chan_setval 127
-chan_call .set_reverb
 chan_setlayer 0, .layer_16CE
 chan_setlayer 1, .layer_16CE
 chan_setlayer 2, .layer_16D2
 chan_end
 
 .layer_16CE:
-layer_note1 49, 0x3a, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .layer_16D2:
@@ -6057,14 +6056,11 @@ layer_end
 .sound_obj_snufit_shoot:
 chan_setbank 6
 chan_setinstr 0
-chan_setenvelope .envelope_32D4
-chan_setlayer 0, .layer_25B2
+chan_setlayer 0, .layer_1582
 chan_end
 
 .layer_25B2:
-layer_somethingon
-layer_portamento 0x81, 44, 255
-layer_note1 51, 0x8, 118
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_skeeter_walk:
