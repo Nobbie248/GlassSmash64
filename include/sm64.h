@@ -758,6 +758,7 @@ enum MarioActionFlags {
 #define ACT_UNUSED_1BE                 0x000001BE // (0x1BE)
 #define ACT_UNUSED_1BF                 0x000001BF // (0x1BF)
 #define ACT_HANG_VINE                  0x08000351 // (0x151 | ACT_FLAG_STATIONARY | ACT_FLAG_ON_POLE | ACT_FLAG_PAUSE_EXIT)
+#define ACT_HAMMER_ATTACK              0x00800352 // (0x152 | ACT_FLAG_STATIONARY | ACT_FLAG_ATTACKING)
 
 // group 0x1C0: custom actions
 // 0x1C0 - 0x1FF
