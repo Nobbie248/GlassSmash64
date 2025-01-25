@@ -44,3 +44,5 @@
 #include "crumbles/geo.inc.c"
 #include "lantern_pop/geo.inc.c"
 #include "china_pop/geo.inc.c"
+#include "closehit/geo.inc.c"
+#include "glassshard/geo.inc.c"

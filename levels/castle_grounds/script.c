@@ -93,6 +93,7 @@ const LevelScript level_castle_grounds_entry[] = {
 		OBJECT(MODEL_THI_WARP_PIPE, 0, 0, -1220, 0, 136, 0, 0xe0000, bhvWarpPipe),
 		OBJECT(MODEL_THI_WARP_PIPE, 0, 0, -710, 0, -39, 0, 0x100000, bhvWarpPipe),
 		OBJECT(MODEL_THI_WARP_PIPE, 558, 0, -710, 0, 0, 0, 0x110000, bhvWarpPipe),
+		OBJECT(MODEL_TOAD, 200, 0, -1220, 0, 136, 0, 0x52000000, bhvToadMessage),
 		OBJECT(0, 0, 900, 654, 0, -90, 0, 0xd0000, bhvWarp),
 		OBJECT(0, 0, 900, 654, 0, 0, 0, 0x120000, bhvWarp),
 		OBJECT(0, 0, 900, 654, 0, 136, 0, (22 << 16), bhvDeathWarp),

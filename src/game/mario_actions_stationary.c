@@ -110,13 +110,10 @@ s32 check_common_hold_idle_cancels(struct MarioState *m) {
 //! TODO: actionArg names
 s32 act_idle(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-        // Execute the functionality
-        count_objects_with_behavior(bhvBrick);
+        spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
         spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         set_mario_action(m, ACT_PUNCHING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        
-    
 }
 
     

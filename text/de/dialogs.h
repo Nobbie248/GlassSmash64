@@ -2061,3 +2061,8 @@ Wer sich hier ohne meine\n\
 Erlaubnis Zutritt\n\
 verschafft, handelt sich\n\
 eine Menge Ärger ein!!!")
+
+DEFINE_DIALOG(DIALOG_CONFIRM_DELETE, NO_SOUND, 4, 30, 200, "\
+Are you sure you want to\n"
+"delete all save files?\n\n"
+"Yes   No")

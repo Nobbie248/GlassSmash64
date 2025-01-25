@@ -132,7 +132,12 @@ static void toad_message_talking(void) {
         switch (o->oToadMessageDialogId) {
             case TOAD_STAR_1_DIALOG:
                 o->oToadMessageDialogId = TOAD_STAR_1_DIALOG_AFTER;
-                bhv_spawn_star_no_level_exit(STAR_BP_ACT_1);
+                 play_sound(SOUND_MARIO_WAAAOOOW, gGlobalSoundSource);
+            save_file_erase(0);
+            save_file_erase(1);
+            save_file_erase(2);
+            save_file_erase(3);
+            initiate_warp(LEVEL_WMOTR, 1, 0x0A);
                 break;
             case TOAD_STAR_2_DIALOG:
                 o->oToadMessageDialogId = TOAD_STAR_2_DIALOG_AFTER;
@@ -193,10 +198,10 @@ void bhv_toad_message_init(void) {
 
     switch (dialogId) {
         case TOAD_STAR_1_DIALOG:
-            enoughStars = (starCount >= TOAD_STAR_1_REQUIREMENT);
-            if (saveFlags & SAVE_FLAG_COLLECTED_TOAD_STAR_1) {
-                dialogId = TOAD_STAR_1_DIALOG_AFTER;
-            }
+            // enoughStars = (starCount >= TOAD_STAR_1_REQUIREMENT);
+            // if (saveFlags & SAVE_FLAG_COLLECTED_TOAD_STAR_1) {
+            //     dialogId = TOAD_STAR_1_DIALOG_AFTER;
+            // }
             break;
         case TOAD_STAR_2_DIALOG:
             enoughStars = (starCount >= TOAD_STAR_2_REQUIREMENT);

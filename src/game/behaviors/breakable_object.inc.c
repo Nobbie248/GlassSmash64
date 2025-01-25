@@ -14,18 +14,19 @@ void check_and_spawn_star(void) {
     }
 }
 
-void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSize1, f32 particleSize2) {
+void breakable_object_behavior_loop(u32 sound, u32 particleModel,f32 particleSize1) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
     struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2);
+    struct Object* closehit = cur_obj_nearest_object_with_behavior(bhvClosehit);
 
     if ((brick && obj_check_if_collided_with_object(o, brick)) ||
         (brick2 && obj_check_if_collided_with_object(o, brick2)) ||
+        (closehit && obj_check_if_collided_with_object(o, closehit)) ||
         cur_obj_was_attacked_or_ground_pounded()) {
         
         play_sound(sound, gGlobalSoundSource);
         spawn_mist_particles_variable(0, 0, 46.0f);
         spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
-        spawn_triangle_break_particles(10, particleModel, particleSize2, 4);
         obj_mark_for_deletion(o);
         gMarioState->numCoins++;
         gTotalBrokenObjects++;
@@ -34,17 +35,17 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
 }
 
 void bhv_breakable_glass_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_WHITE_PARTICLE_SMALL, 10.0f, 4.0f);
+    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_GLASS_SHARD, 1.2f);
 }
 
 void bhv_breakable_lantern_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_LANTERN_POP, 0.f, 2.0f);
+    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_LANTERN_POP, 2.0f);
 }
 
 void bhv_breakable_statue_loop(void) {
-    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 0.f, 2.0f);
+    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 2.0f);
 }
 
 void bhv_breakable_vase_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_CHINA_POP, 0.f, 1.5f);
+    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_CHINA_POP, 1.5f);
 }

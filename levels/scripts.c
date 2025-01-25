@@ -210,6 +210,8 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_CRUMBLES,                crumbles_geo),
     LOAD_MODEL_FROM_GEO(MODEL_LANTERN_POP,             lantern_pop_geo),
     LOAD_MODEL_FROM_GEO(MODEL_CHINA_POP,               china_pop_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_CLOSE_HIT,               closehit_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_GLASS_SHARD,             glassshard_geo),
     RETURN(),
 };
 

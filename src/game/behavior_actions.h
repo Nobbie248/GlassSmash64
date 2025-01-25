@@ -565,6 +565,7 @@ void bhv_breakable_statue_loop(void);
 void bhv_breakable_statue_init(void);
 void bhv_vine_loop(void);
 void bhv_breakable_vase_loop(void);
+void bhv_close_hit_loop(void);
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

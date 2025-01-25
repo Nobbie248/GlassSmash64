@@ -984,13 +984,9 @@ The city welcomes visitors\n\
 with the depth they bring\n\
 as they enter.")
 
-DEFINE_DIALOG(DIALOG_082,1,4,30,200, "Ahh! I thought you'd \n\
-never find me up here!\n\
-Oh...Mario! I thought you \n\
-were someone else.\n\
-Well hey, since you're\n\
-here, I have something\n\
-for you. Hope this helps!")
+DEFINE_DIALOG(DIALOG_082,1,4,30,200, "Wanna delete all\n\
+your progress?\n\
+\tYes\t\tNo")
 
 DEFINE_DIALOG(DIALOG_083,1,6,30,200, "There's something strange\n\
 about that clock. As you\n\
@@ -1956,3 +1952,7 @@ Anyone entering this cave\n\
 without permission will\n\
 meet certain disaster.")
 
+DEFINE_DIALOG(DIALOG_CONFIRM_DELETE, NO_SOUND, 4, 30, 200, "\
+Are you sure you want to\n"
+"delete all save files?\n\n"
+"Yes   No")
