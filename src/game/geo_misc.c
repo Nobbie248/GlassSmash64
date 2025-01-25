@@ -69,6 +69,8 @@ Gfx *geo_exec_inside_castle_light(s32 callContext, struct GraphNode *node, UNUSE
 }
 #undef NUM_STARS_REQUIRED_FOR_WING_CAP_LIGHT
 
+
+
 /**
  * Update static timer variables that control the flying carpets' ripple effect.
  */

@@ -101,3 +101,6 @@ UNUSED static const u64 binid_18 = 18;
 #include "crumbles/model.inc.c"
 #include "lantern_pop/model.inc.c"
 #include "china_pop/model.inc.c"
+#include "closehit/model.inc.c"
+#include "closehit/collision.inc.c"
+#include "glassshard/model.inc.c"

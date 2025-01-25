@@ -562,7 +562,7 @@ extern const BehaviorScript bhvGemmies[];
 extern const BehaviorScript bhvBrick[];
 extern const BehaviorScript bhvBrick2[];
 extern const BehaviorScript bhvGlass[];
-extern const BehaviorScript bhvTimer[];
+extern const BehaviorScript bhvClosehit[];
 extern const BehaviorScript bhvVine[];
 extern const BehaviorScript bhvLantern[];
 extern const BehaviorScript bhvStatue[];

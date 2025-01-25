@@ -453,9 +453,11 @@
 #define MODEL_LANTERN                     0XF3        // lantern
 #define MODEL_STATUE                      0XF4        // statue
 #define MODEL_VASE                        0XF5        // vase
-#define MODEL_CRUMBLES                    0XF6        // crumbles
-#define MODEL_LANTERN_POP                 0XF7        // pop
-#define MODEL_CHINA_POP                   0XF8        // pop
+#define MODEL_CRUMBLES                    0XFA        // crumbles
+#define MODEL_LANTERN_POP                 0XFB        // pop
+#define MODEL_CHINA_POP                   0XFC        // pop
+#define MODEL_CLOSE_HIT                   0XFD        // closehit
+#define MODEL_GLASS_SHARD                 0XFE        // glassshard
 
 
 // find me

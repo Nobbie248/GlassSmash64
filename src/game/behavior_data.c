@@ -6245,7 +6245,6 @@ const BehaviorScript bhvBrick[] = {
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 50, /*Gravity*/ -400, /*Bounciness*/ -70, /*Drag strength*/ 2500, /*Friction*/ 5000, /*Buoyancy*/ 300, /*Unused*/ 0, 0),
-    LOAD_COLLISION_DATA(brick_collision),
     SET_HOME(),
     CALL_NATIVE(bhv_brick_init),
     BEGIN_LOOP(),
@@ -6259,7 +6258,6 @@ const BehaviorScript bhvBrick2[] = {
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 50, /*Gravity*/ -400, /*Bounciness*/ -70, /*Drag strength*/ 2500, /*Friction*/ 5000, /*Buoyancy*/ 300, /*Unused*/ 0, 0),
-    LOAD_COLLISION_DATA(brick_collision),
     SET_HOME(),
     CALL_NATIVE(bhv_brick_init2),
     BEGIN_LOOP(),
@@ -6284,12 +6282,14 @@ const BehaviorScript bhvGlass[] = {
     END_LOOP(),
 };
 
-const BehaviorScript bhvTimer[] = {
-    BEGIN(OBJ_LIST_DEFAULT),
+const BehaviorScript bhvClosehit[] = {
+    BEGIN(OBJ_LIST_DESTRUCTIVE),
+    OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 135, /*Height*/ 350, /*Downwards offset*/ 90),
     SET_HOME(),
-    CALL_NATIVE(bhv_timer_init),
     BEGIN_LOOP(),
-        CALL_NATIVE(bhv_timer_loop),
+        CALL_NATIVE(bhv_close_hit_loop),
     END_LOOP(),
 };
 

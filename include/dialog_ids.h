@@ -173,6 +173,7 @@ enum DialogId {
     DIALOG_167,
     DIALOG_168,
     DIALOG_169,
+    DIALOG_CONFIRM_DELETE,
     DIALOG_COUNT
 };
 

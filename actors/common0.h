@@ -233,4 +233,10 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "china_pop/geo_header.h"
 
+#include "closehit/geo_header.h"
+
+#include "closehit/collision_header.h"
+
+#include "glassshard/geo_header.h"
+
 #endif
