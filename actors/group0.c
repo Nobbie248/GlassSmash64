@@ -36,5 +36,3 @@
 #include "liane/collision.inc.c"
 #include "pipe/model.inc.c"
 #include "pipe/collision.inc.c"
-#include "mario/anims/data.inc.c"
-#include "mario/anims/table.inc.c"

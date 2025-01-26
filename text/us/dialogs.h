@@ -984,9 +984,10 @@ The city welcomes visitors\n\
 with the depth they bring\n\
 as they enter.")
 
-DEFINE_DIALOG(DIALOG_082,1,4,30,200, "Wanna delete all\n\
-your progress?\n\
-\tYes\t\tNo")
+DEFINE_DIALOG(DIALOG_082,1,4,30,200, "Hey Mario\n\
+I can delete all your\n\
+progress just press down\n\
+on the Jpad.")
 
 DEFINE_DIALOG(DIALOG_083,1,6,30,200, "There's something strange\n\
 about that clock. As you\n\
