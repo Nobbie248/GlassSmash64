@@ -29,6 +29,7 @@
 #include "mario.h"
 #include "interaction.h"
 #include "rumble_init.h"
+#define TOAD_STAR_1_DIALOG DIALOG_082
 
 #include "hacktice/main.h"
 
@@ -1334,6 +1335,16 @@ void render_dialog_entries(void) {
                     play_sound(SOUND_MENU_MESSAGE_NEXT_PAGE, gGlobalSoundSource);
                 }
             }
+            if (gDialogID == TOAD_STAR_1_DIALOG && (gPlayer1Controller->buttonPressed & D_JPAD)) {
+    play_sound(SOUND_MARIO_WAAAOOOW, gGlobalSoundSource);
+    save_file_erase(0);
+    save_file_erase(1);
+    save_file_erase(2);
+    save_file_erase(3);
+    fade_into_special_warp(LEVEL_WMOTR, 0);
+    gDialogBoxState = DIALOG_STATE_CLOSING;
+}
+
             break;
         case DIALOG_STATE_HORIZONTAL: // scrolling
             gDialogScrollOffsetY += (dialog->linesPerBox * 2);

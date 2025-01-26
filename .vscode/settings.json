@@ -49,6 +49,7 @@
         "level_update.h": "c",
         "ingame_menu.h": "c",
         "mario_step.h": "c",
-        "moving_texture.h": "c"
+        "moving_texture.h": "c",
+        "random": "c"
     }
 }
