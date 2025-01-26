@@ -1713,8 +1713,14 @@ void queue_rumble_particles(struct MarioState *m) {
 s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
-    if (gMarioState->action == ACT_DIVE) { // works, but not in every level
-        obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
+    if (gMarioState->action == ACT_DIVE) {
+        if (gMarioState->marioObj->oTimer > 30) {
+            obj_set_model(gMarioState->marioObj, MODEL_MARIO);
+        } else {
+            obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
+        }
+    } else {
+        gMarioState->marioObj->oTimer = 0;
     }
 
     // Updates once per frame:
