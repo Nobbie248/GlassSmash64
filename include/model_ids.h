@@ -609,7 +609,7 @@
 
 // Can be only one of the 4 gems per course
 #define MODEL_GEM_STAR 0xfa
-#define MODEL_H_MARIO 0xfb
-#define MODEL_D_MARIO 0xff
+#define MODEL_H_MARIO 0xEF // Hammer Mario for Attack
+#define MODEL_D_MARIO 0xff // Hammer Mario dive
 
 #endif // MODEL_IDS_H
