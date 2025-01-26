@@ -344,4 +344,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 
 
+#include "d_hammer_mario/geo_header.h"
+
+#include "hammer_mario/geo_header.h"
+
 #endif

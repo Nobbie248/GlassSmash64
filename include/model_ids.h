@@ -6,7 +6,7 @@
 /* Global models that are loaded for every level */
 
 #define MODEL_MARIO                            0x01        // mario_geo
-#define MODEL_LUIGI                            0x02        // unused
+#define MODEL_D_MARIO                          0x02        // unused
 
 /* Various static level geometry, the geo layout differs but terrain object presets treat them the same.*/
 
@@ -609,5 +609,6 @@
 
 // Can be only one of the 4 gems per course
 #define MODEL_GEM_STAR 0xfa
+#define MODEL_H_MARIO 0xfb
 
 #endif // MODEL_IDS_H

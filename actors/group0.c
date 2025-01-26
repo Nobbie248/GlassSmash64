@@ -36,3 +36,6 @@
 #include "liane/collision.inc.c"
 #include "pipe/model.inc.c"
 #include "pipe/collision.inc.c"
+
+#include "d_hammer_mario/model.inc.c"
+#include "hammer_mario/model.inc.c"
