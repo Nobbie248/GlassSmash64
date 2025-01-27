@@ -6286,7 +6286,7 @@ const BehaviorScript bhvClosehit[] = {
     BEGIN(OBJ_LIST_DESTRUCTIVE),
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 135, /*Height*/ 350, /*Downwards offset*/ 90),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 100, /*Height*/ 350, /*Downwards offset*/ 90),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_close_hit_loop),

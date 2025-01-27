@@ -1838,42 +1838,33 @@ void check_kick_or_punch_wall(struct MarioState *m) {
 
 void mario_process_interactions(struct MarioState *m) {
     sDelayInvincTimer = FALSE;
-    sInvulnerable = (m->action & ACT_FLAG_INVULNERABLE) || m->invincTimer != 0;
+    sInvulnerable = (m->action & ACT_FLAG_INVULNERABLE) || (m->invincTimer != 0);
 
-    if (!(m->action & ACT_FLAG_INTANGIBLE) && m->collidedObjInteractTypes != 0) {
-        s32 i;
-        for (i = 0; i < ARRAY_COUNT(sInteractionHandlers); i++) {
+    if (!(m->action & ACT_FLAG_INTANGIBLE) && m->collidedObjInteractTypes) {
+        for (s32 i = 0; i < ARRAY_COUNT(sInteractionHandlers); i++) {
             u32 interactType = sInteractionHandlers[i].interactType;
             if (m->collidedObjInteractTypes & interactType) {
                 struct Object *object = mario_get_collided_object(m, interactType);
-
                 m->collidedObjInteractTypes &= ~interactType;
-
-                if (!(object->oInteractStatus & INT_STATUS_INTERACTED)) {
-                    if (sInteractionHandlers[i].handler(m, interactType, object)) {
-                        break;
-                    }
+                if (!(object->oInteractStatus & INT_STATUS_INTERACTED) &&
+                    sInteractionHandlers[i].handler(m, interactType, object)) {
+                    break;
                 }
             }
         }
     }
 
-    if (m->invincTimer > 0 && !sDelayInvincTimer) {
-        m->invincTimer--;
-    }
+    if (m->invincTimer > 0 && !sDelayInvincTimer) m->invincTimer--;
 
-    //! If the kick/punch flags are set and an object collision changes Mario's
-    // action, he will get the kick/punch wall speed anyway.
+    m->flags &= ~(MARIO_PUNCHING | MARIO_KICKING | MARIO_TRIPPING);
+
+    if (!(m->marioObj->collidedObjInteractTypes & (INTERACT_WARP_DOOR | INTERACT_DOOR))) sDisplayingDoorText = FALSE;
+    if (!(m->marioObj->collidedObjInteractTypes & INTERACT_WARP)) sJustTeleported = FALSE;
+
     check_kick_or_punch_wall(m);
-    m->flags &= ~MARIO_PUNCHING & ~MARIO_KICKING & ~MARIO_TRIPPING;
-
-    if (!(m->marioObj->collidedObjInteractTypes & (INTERACT_WARP_DOOR | INTERACT_DOOR))) {
-        sDisplayingDoorText = FALSE;
-    }
-    if (!(m->marioObj->collidedObjInteractTypes & INTERACT_WARP)) {
-        sJustTeleported = FALSE;
-    }
 }
+
+
 
 void check_death_barrier(struct MarioState *m) {
     if (m->pos[1] < m->floorHeight + 2048.0f) {

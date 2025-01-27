@@ -1713,15 +1713,98 @@ void queue_rumble_particles(struct MarioState *m) {
 s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
-    if (gMarioState->action == ACT_DIVE) {
-        if (gMarioState->marioObj->oTimer > 30) {
-            obj_set_model(gMarioState->marioObj, MODEL_MARIO);
-        } else {
-            obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
-        }
-    } else {
-        gMarioState->marioObj->oTimer = 0;
+static struct Object *diveHitbox = NULL;
+static struct Object *slideHitbox = NULL;
+static struct Object *rolloutHitbox = NULL;
+static struct Object *punchingHitbox = NULL;
+
+if (gMarioState->action == ACT_DIVE) {
+    obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
+
+    if (diveHitbox == NULL) {
+        diveHitbox = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
     }
+
+    if (diveHitbox != NULL) {
+        float distanceInFront = 320;
+        float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+        float offsetX = distanceInFront * sinf(marioYaw);
+        float offsetZ = distanceInFront * cosf(marioYaw);
+        diveHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
+        diveHitbox->oPosY = gMarioState->marioObj->oPosY + 10;
+        diveHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+    }
+} else if (gMarioState->action == ACT_DIVE_SLIDE) {
+    obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
+
+    if (slideHitbox == NULL) {
+        slideHitbox = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+    }
+
+    if (slideHitbox != NULL) {
+        float distanceInFront = 250;
+        float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+        float offsetX = distanceInFront * sinf(marioYaw);
+        float offsetZ = distanceInFront * cosf(marioYaw);
+        slideHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
+        slideHitbox->oPosY = gMarioState->marioObj->oPosY + 10;
+        slideHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+    }
+} else if (gMarioState->action == ACT_FORWARD_ROLLOUT) {
+    obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
+
+    if (rolloutHitbox == NULL) {
+        rolloutHitbox = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+    }
+
+    if (rolloutHitbox != NULL) {
+        float distanceInFront = 150;
+        float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+        float offsetX = distanceInFront * sinf(marioYaw);
+        float offsetZ = distanceInFront * cosf(marioYaw);
+        rolloutHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
+        rolloutHitbox->oPosY = gMarioState->marioObj->oPosY + 10;
+        rolloutHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+    }
+} else if ((gMarioState->action == ACT_PUNCHING) || (gMarioState->action == ACT_MOVE_PUNCHING)) {
+    obj_set_model(gMarioState->marioObj, MODEL_H_MARIO);
+
+    if (punchingHitbox == NULL) {
+        punchingHitbox = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+    }
+
+    if (punchingHitbox != NULL) {
+        float distanceInFront = 150;
+        float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+        float offsetX = distanceInFront * sinf(marioYaw);
+        float offsetZ = distanceInFront * cosf(marioYaw);
+        punchingHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
+        punchingHitbox->oPosY = gMarioState->marioObj->oPosY + 50;
+        punchingHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+    }
+} else {
+    obj_set_model(gMarioState->marioObj, MODEL_MARIO);
+
+    if (diveHitbox != NULL) {
+        obj_mark_for_deletion(diveHitbox);
+        diveHitbox = NULL;
+    }
+    if (slideHitbox != NULL) {
+        obj_mark_for_deletion(slideHitbox);
+        slideHitbox = NULL;
+    }
+    if (rolloutHitbox != NULL) {
+        obj_mark_for_deletion(rolloutHitbox);
+        rolloutHitbox = NULL;
+    }
+    if (punchingHitbox != NULL) {
+        obj_mark_for_deletion(punchingHitbox);
+        punchingHitbox = NULL;
+    }
+}
+
+
+
 
     // Updates once per frame:
     vec3f_get_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);
