@@ -4,10 +4,10 @@ struct ObjectHitbox sClosehitHitbox = {
     /* damageOrCoinValue: */ 0,
     /* health: */ 1,
     /* numLootCoins: */ 0,
-    /* radius: */ 100,
-    /* height: */ 100,
-    /* hurtboxRadius: */ 100,
-    /* hurtboxHeight: */ 100,
+    /* radius: */ 80,
+    /* height: */ 80,
+    /* hurtboxRadius: */ 80,
+    /* hurtboxHeight: */ 80,
 };
 
 void bhv_close_hit_loop(void) {

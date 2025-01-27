@@ -23,11 +23,10 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel,f32 particleSiz
         (brick2 && obj_check_if_collided_with_object(o, brick2)) ||
         (closehit && obj_check_if_collided_with_object(o, closehit)) ||
         cur_obj_was_attacked_or_ground_pounded()) {
-        
+        obj_mark_for_deletion(o);
         play_sound(sound, gGlobalSoundSource);
         spawn_mist_particles_variable(0, 0, 46.0f);
         spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
-        obj_mark_for_deletion(o);
         gMarioState->numCoins++;
         gTotalBrokenObjects++;
         check_and_spawn_star();

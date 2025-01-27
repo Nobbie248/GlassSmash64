@@ -848,6 +848,7 @@ s32 act_twirling(struct MarioState *m) {
 }
 
 s32 act_dive(struct MarioState *m) {
+
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         if (lTrigCooldown == 0) {
             spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
