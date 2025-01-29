@@ -39,3 +39,5 @@
 
 #include "d_hammer_mario/model.inc.c"
 #include "hammer_mario/model.inc.c"
+#include "mario/anims/data.inc.c"
+#include "mario/anims/table.inc.c"
