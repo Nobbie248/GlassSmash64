@@ -25,125 +25,162 @@ void animated_stationary_ground_step(struct MarioState *m, s32 animation, u32 en
     }
 }
 
+// s32 mario_update_punch_sequence(struct MarioState *m) {
+//     u32 endAction, crouchEndAction;
+//     s32 animFrame;
+
+//     if (m->action & ACT_FLAG_MOVING) {
+//         endAction = ACT_WALKING, crouchEndAction = ACT_CROUCH_SLIDE;
+//     } else {
+//         endAction = ACT_IDLE, crouchEndAction = ACT_CROUCHING;
+//     }
+
+//     switch (m->actionArg) {
+//         case ACT_ARG_PUNCH_SEQUENCE_YAH:
+//             play_sound(SOUND_MARIO_PUNCH_YAH, m->marioObj->header.gfx.cameraToObject);
+//             FALL_THROUGH;
+//         case ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH:
+//             set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
+//             if (is_anim_past_end(m)) {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST;
+//             } else {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH;
+//             }
+
+//             if (m->marioObj->header.gfx.animInfo.animFrame >= 2) {
+//                 if (mario_check_object_grab(m)) {
+//                     return TRUE;
+//                 }
+
+//                 m->flags |= MARIO_PUNCHING;
+//             }
+
+//             if (m->actionArg == ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST) {
+//                 m->marioBodyState->punchState = (PUNCH_STATE_TYPE_FIRST_PUNCH | 0x4);
+//             }
+//             break;
+
+//         case ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST:
+//             set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH_FAST);
+
+//             if (m->marioObj->header.gfx.animInfo.animFrame <= 0) {
+//                 m->flags |= MARIO_PUNCHING;
+//             }
+
+//             if (m->input & INPUT_B_PRESSED) {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_WAH;
+//             }
+
+//             if (is_anim_at_end(m)) {
+//                 set_mario_action(m, endAction, 0);
+//             }
+//             break;
+
+//         case ACT_ARG_PUNCH_SEQUENCE_WAH:
+//             play_sound(SOUND_MARIO_PUNCH_WAH, m->marioObj->header.gfx.cameraToObject);
+//             // fallthrough
+//         case ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH:
+//             set_mario_animation(m, MARIO_ANIM_SECOND_PUNCH);
+//             if (is_anim_past_end(m)) {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST;
+//             } else {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH;
+//             }
+
+//             if (m->marioObj->header.gfx.animInfo.animFrame > 0) {
+//                 m->flags |= MARIO_PUNCHING;
+//             }
+
+//             if (m->actionArg == ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST) {
+//                 m->marioBodyState->punchState = (PUNCH_STATE_TYPE_SECOND_PUNCH | 0x4);
+//             }
+//             break;
+
+//         case ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST:
+//             set_mario_animation(m, MARIO_ANIM_SECOND_PUNCH_FAST);
+//             if (m->marioObj->header.gfx.animInfo.animFrame <= 0) {
+//                 m->flags |= MARIO_PUNCHING;
+//             }
+
+//             if (m->input & INPUT_B_PRESSED) {
+//                 m->actionArg = ACT_ARG_PUNCH_SEQUENCE_GROUND_KICK;
+//             }
+
+//             if (is_anim_at_end(m)) {
+//                 set_mario_action(m, endAction, 0);
+//             }
+//             break;
+
+//         case ACT_ARG_PUNCH_SEQUENCE_GROUND_KICK:
+//             play_mario_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
+//             animFrame = set_mario_animation(m, MARIO_ANIM_GROUND_KICK);
+//             if (animFrame == 0) {
+//                 m->marioBodyState->punchState = (PUNCH_STATE_TYPE_KICK | 0x6);
+//             }
+
+//             if (animFrame >= 0 && animFrame < 8) {
+//                 m->flags |= MARIO_KICKING;
+//             }
+
+//             if (is_anim_at_end(m)) {
+//                 set_mario_action(m, endAction, 0);
+//             }
+//             break;
+
+//         case ACT_ARG_PUNCH_SEQUENCE_BREAKDANCE:
+//             play_mario_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
+//             set_mario_animation(m, MARIO_ANIM_BREAKDANCE);
+//             animFrame = m->marioObj->header.gfx.animInfo.animFrame;
+
+//             if (animFrame >= 2 && animFrame < 8) {
+//                 m->flags |= MARIO_TRIPPING;
+//             }
+
+//             if (is_anim_at_end(m)) {
+//                 set_mario_action(m, crouchEndAction, 0);
+//             }
+//             break;
+//     }
+
+//     return FALSE;
+// }
+
 s32 mario_update_punch_sequence(struct MarioState *m) {
-    u32 endAction, crouchEndAction;
+    u32 endAction;
     s32 animFrame;
 
     if (m->action & ACT_FLAG_MOVING) {
-        endAction = ACT_WALKING, crouchEndAction = ACT_CROUCH_SLIDE;
+        endAction = ACT_WALKING;
     } else {
-        endAction = ACT_IDLE, crouchEndAction = ACT_CROUCHING;
+        endAction = ACT_IDLE;
     }
 
     switch (m->actionArg) {
-        case ACT_ARG_PUNCH_SEQUENCE_YAH:
+        case 0:
             play_sound(SOUND_MARIO_PUNCH_YAH, m->marioObj->header.gfx.cameraToObject);
-            FALL_THROUGH;
-        case ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH:
-            set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH);
-            if (is_anim_past_end(m)) {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST;
-            } else {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH;
-            }
 
-            if (m->marioObj->header.gfx.animInfo.animFrame >= 2) {
-                if (mario_check_object_grab(m)) {
-                    return TRUE;
-                }
+            set_mario_animation(m, MARIO_ANIM_HAMMER_ATTACK);
 
-                m->flags |= MARIO_PUNCHING;
-            }
-
-            if (m->actionArg == ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST) {
-                m->marioBodyState->punchState = (PUNCH_STATE_TYPE_FIRST_PUNCH | 0x4);
-            }
+            m->actionArg = 1;
             break;
 
-        case ACT_ARG_PUNCH_SEQUENCE_FIRST_PUNCH_FAST:
-            set_mario_animation(m, MARIO_ANIM_FIRST_PUNCH_FAST);
-
-            if (m->marioObj->header.gfx.animInfo.animFrame <= 0) {
-                m->flags |= MARIO_PUNCHING;
-            }
-
-            if (m->input & INPUT_B_PRESSED) {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_WAH;
-            }
-
-            if (is_anim_at_end(m)) {
-                set_mario_action(m, endAction, 0);
-            }
-            break;
-
-        case ACT_ARG_PUNCH_SEQUENCE_WAH:
-            play_sound(SOUND_MARIO_PUNCH_WAH, m->marioObj->header.gfx.cameraToObject);
-            // fallthrough
-        case ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH:
-            set_mario_animation(m, MARIO_ANIM_SECOND_PUNCH);
-            if (is_anim_past_end(m)) {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST;
-            } else {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH;
-            }
-
-            if (m->marioObj->header.gfx.animInfo.animFrame > 0) {
-                m->flags |= MARIO_PUNCHING;
-            }
-
-            if (m->actionArg == ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST) {
-                m->marioBodyState->punchState = (PUNCH_STATE_TYPE_SECOND_PUNCH | 0x4);
-            }
-            break;
-
-        case ACT_ARG_PUNCH_SEQUENCE_SECOND_PUNCH_FAST:
-            set_mario_animation(m, MARIO_ANIM_SECOND_PUNCH_FAST);
-            if (m->marioObj->header.gfx.animInfo.animFrame <= 0) {
-                m->flags |= MARIO_PUNCHING;
-            }
-
-            if (m->input & INPUT_B_PRESSED) {
-                m->actionArg = ACT_ARG_PUNCH_SEQUENCE_GROUND_KICK;
-            }
-
-            if (is_anim_at_end(m)) {
-                set_mario_action(m, endAction, 0);
-            }
-            break;
-
-        case ACT_ARG_PUNCH_SEQUENCE_GROUND_KICK:
-            play_mario_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            animFrame = set_mario_animation(m, MARIO_ANIM_GROUND_KICK);
-            if (animFrame == 0) {
-                m->marioBodyState->punchState = (PUNCH_STATE_TYPE_KICK | 0x6);
-            }
-
-            if (animFrame >= 0 && animFrame < 8) {
-                m->flags |= MARIO_KICKING;
-            }
-
-            if (is_anim_at_end(m)) {
-                set_mario_action(m, endAction, 0);
-            }
-            break;
-
-        case ACT_ARG_PUNCH_SEQUENCE_BREAKDANCE:
-            play_mario_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            set_mario_animation(m, MARIO_ANIM_BREAKDANCE);
+        case 1:
             animFrame = m->marioObj->header.gfx.animInfo.animFrame;
 
-            if (animFrame >= 2 && animFrame < 8) {
-                m->flags |= MARIO_TRIPPING;
+            if (animFrame >= 2) {
+                m->flags |= MARIO_PUNCHING;
             }
 
             if (is_anim_at_end(m)) {
-                set_mario_action(m, crouchEndAction, 0);
+                set_mario_action(m, endAction, 0);
             }
             break;
     }
 
     return FALSE;
 }
+
+
 
 s32 act_punching(struct MarioState *m) {
     if (m->input & INPUT_STOMPED) {
