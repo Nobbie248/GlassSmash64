@@ -20,3 +20,5 @@
 #include "pipe/geo.inc.c"
 #include "d_hammer_mario/geo.inc.c"
 #include "hammer_mario/geo.inc.c"
+#include "target/geo.inc.c"
+#include "cg_barrier/geo.inc.c"

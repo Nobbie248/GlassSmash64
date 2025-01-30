@@ -350,4 +350,10 @@ extern const Gfx white_particle_small_unused_dl[];
 
 
 #include "mario/anim_header.h"
+#include "target/collision_header.h"
+
+#include "target/geo_header.h"
+
+#include "cg_barrier/geo_header.h"
+
 #endif

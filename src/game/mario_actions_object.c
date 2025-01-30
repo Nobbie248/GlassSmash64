@@ -158,7 +158,7 @@ s32 mario_update_punch_sequence(struct MarioState *m) {
     switch (m->actionArg) {
         case 0:
             play_sound(SOUND_MARIO_PUNCH_YAH, m->marioObj->header.gfx.cameraToObject);
-
+            m->pos[1] += 50;
             set_mario_animation(m, MARIO_ANIM_HAMMER_ATTACK);
 
             m->actionArg = 1;

@@ -6346,3 +6346,19 @@ const BehaviorScript bhvVase[] = {
         CALL_NATIVE(bhv_breakable_vase_loop),
     END_LOOP(),
 };
+
+const BehaviorScript bhvTarget[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(target_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 80, /*Height*/ 300, /*Downwards offset*/ 90),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_statue_loop),
+    END_LOOP(),
+};

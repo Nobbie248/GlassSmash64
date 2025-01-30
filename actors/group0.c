@@ -41,3 +41,6 @@
 #include "hammer_mario/model.inc.c"
 #include "mario/anims/data.inc.c"
 #include "mario/anims/table.inc.c"
+#include "target/collision.inc.c"
+#include "target/model.inc.c"
+#include "cg_barrier/model.inc.c"

@@ -1,0 +1,10 @@
+extern const GeoLayout target_geo[];
+extern Lights1 target_f3dlite_material_lights;
+extern Lights1 target_f3dlite_material_001_lights;
+extern Vtx target_targets_mesh_layer_1_vtx_0[64];
+extern Gfx target_targets_mesh_layer_1_tri_0[];
+extern Vtx target_targets_mesh_layer_1_vtx_1[96];
+extern Gfx target_targets_mesh_layer_1_tri_1[];
+extern Gfx mat_target_f3dlite_material[];
+extern Gfx mat_target_f3dlite_material_001[];
+extern Gfx target_targets_mesh_layer_1[];
