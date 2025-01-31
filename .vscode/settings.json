@@ -50,6 +50,7 @@
         "ingame_menu.h": "c",
         "mario_step.h": "c",
         "moving_texture.h": "c",
-        "random": "c"
+        "random": "c",
+        "types.h": "c"
     }
 }

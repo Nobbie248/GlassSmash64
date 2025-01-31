@@ -158,7 +158,6 @@ s32 mario_update_punch_sequence(struct MarioState *m) {
     switch (m->actionArg) {
         case 0:
             play_sound(SOUND_MARIO_PUNCH_YAH, m->marioObj->header.gfx.cameraToObject);
-            m->pos[1] += 50;
             set_mario_animation(m, MARIO_ANIM_HAMMER_ATTACK);
 
             m->actionArg = 1;
@@ -309,14 +308,14 @@ s32 act_throwing(struct MarioState *m) {
 
     if (++m->actionTimer == 7) {
         mario_throw_held_object(m);
-        play_sound_if_no_flag(m, SOUND_MARIO_WAH2, MARIO_MARIO_SOUND_PLAYED);
-        play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
+        //play_sound_if_no_flag(m, SOUND_MARIO_WAH2, MARIO_MARIO_SOUND_PLAYED);
+        //play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
 #if ENABLE_RUMBLE
         queue_rumble_data(3, 50);
 #endif
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_GROUND_THROW, ACT_IDLE);
+    animated_stationary_ground_step(m, MARIO_ANIM_FIRST_PUNCH_FAST, ACT_IDLE);
     return FALSE;
 }
 
