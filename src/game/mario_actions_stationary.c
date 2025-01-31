@@ -112,10 +112,12 @@ s32 act_idle(struct MarioState *m) {
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
         spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
         spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
-        set_mario_action(m, ACT_PUNCHING, 0);
+        set_mario_action(m, ACT_THROWING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 }
-
+if (m->input & INPUT_B_PRESSED) {
+    m->vel[1] = 30.0f;
+}
     
     if (m->quicksandDepth > 30.0f) {
         return set_mario_action(m, ACT_IN_QUICKSAND, 0);
