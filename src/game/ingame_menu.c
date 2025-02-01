@@ -1337,6 +1337,7 @@ void render_dialog_entries(void) {
             }
             if (gDialogID == TOAD_STAR_1_DIALOG && (gPlayer1Controller->buttonPressed & D_JPAD)) {
     play_sound(SOUND_MARIO_WAAAOOOW, gGlobalSoundSource);
+    gHudDisplay.stars = 0;
     save_file_erase(0);
     save_file_erase(1);
     save_file_erase(2);
