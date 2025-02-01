@@ -51,6 +51,7 @@
         "mario_step.h": "c",
         "moving_texture.h": "c",
         "random": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "interaction.h": "c"
     }
 }

@@ -2,17 +2,50 @@
 #include "game/behavior_actions.h"
 #include "include/behavior_data.h"
 #include "src/game/ingame_menu.h"
+#include "src/game/interaction.h"
+#include "game/save_file.h"
+#include "game/hud.h"
 
+void award_star(s16 starIndex) {
+    s16 fileNum = gCurrSaveFileNum - 1;
+    s16 courseNum = gCurrCourseNum - 1;
 
+    if (starIndex < 0 || starIndex > 6) {
+        return;
+    }
 
-void check_and_spawn_star(void) {
-    if (gTotalBrokenObjects >= 30) {
-        bhv_spawn_star_no_level_exit(STAR_BP_ACT_100_COINS);
-        gTotalBrokenObjects = 0;
-        level_control_timer(TIMER_CONTROL_STOP);
+    u8 starFlags = save_file_get_star_flags(fileNum, courseNum);
+
+    if (!(starFlags & (1 << starIndex))) {
+        save_file_set_star_flags(fileNum, courseNum, starFlags | (1 << starIndex));
+        gMarioState->numStars++;
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
+        save_file_do_save(gCurrSaveFileNum - 1);
     }
 }
+
+void check_and_spawn_star(void) {
+    u16 slideTime = level_control_timer(TIMER_CONTROL_START);
+
+    if (gTotalBrokenObjects >= 30) {
+        if (slideTime < 1830) {
+            award_star(0);
+            award_star(1);
+            award_star(2);
+        }
+        else if (slideTime < 2130) {
+            award_star(0);
+            award_star(1);
+        }
+        else if (slideTime < 2730) {
+            award_star(0);
+        }
+
+        gTotalBrokenObjects = 0;
+        level_control_timer(TIMER_CONTROL_STOP);
+    }
+}
+
 
 void breakable_object_behavior_loop(u32 sound, u32 particleModel,f32 particleSize1) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);

@@ -5,6 +5,7 @@
 #include "src/engine/level_script.h"
 #include "level_commands.h"
 #include "src/game/level_update.h"
+#include "src/game/ingame_menu.h"
 
 // #include "print.h"
 
@@ -189,6 +190,7 @@ if (delayTimer > 0)
         level_control_timer(TIMER_CONTROL_START);
         play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource); 
         
+        
     }
 }
 
@@ -199,9 +201,9 @@ if (delayTimer > 0)
         reset_camera(gCamera);
         o->activeFlags = 0;
         level_control_timer(TIMER_CONTROL_SHOW);
-    level_control_timer(TIMER_CONTROL_START);
-    play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
-    
+        level_control_timer(TIMER_CONTROL_START);
+        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
+        
     }
     }
 }
