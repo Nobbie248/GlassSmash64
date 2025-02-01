@@ -6268,9 +6268,9 @@ const BehaviorScript bhvBrick2[] = {
 
 const BehaviorScript bhvGlass[] = {
     BEGIN(OBJ_LIST_SURFACE),
+    SET_INT(oIntangibleTimer, 0),
     SET_FLOAT(oCollisionDistance, 2000),
     SET_FLOAT(oDrawingDistance, 30000),
-    SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(glass_collision),

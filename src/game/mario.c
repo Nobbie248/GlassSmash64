@@ -1714,6 +1714,7 @@ s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
 static struct Object *diveHitbox = NULL;
+static struct Object *diveHitbox2 = NULL;
 static struct Object *slideHitbox = NULL;
 static struct Object *rolloutHitbox = NULL;
 static struct Object *punchingHitbox = NULL;
@@ -1724,15 +1725,27 @@ if (gMarioState->action == ACT_DIVE) {
     if (diveHitbox == NULL) {
         diveHitbox = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
     }
+    if (diveHitbox2 == NULL) {
+        diveHitbox2 = spawn_object_relative(0, 0, 0, 0, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+    }
 
     if (diveHitbox != NULL) {
-        float distanceInFront = 320;
+        float distanceInFront = 300;
         float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
         float offsetX = distanceInFront * sinf(marioYaw);
         float offsetZ = distanceInFront * cosf(marioYaw);
         diveHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
         diveHitbox->oPosY = gMarioState->marioObj->oPosY + 10;
         diveHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+    }
+    if (diveHitbox2 != NULL) {
+        float distanceInFront = 190;
+        float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+        float offsetX = distanceInFront * sinf(marioYaw);
+        float offsetZ = distanceInFront * cosf(marioYaw);
+        diveHitbox2->oPosX = gMarioState->marioObj->oPosX + offsetX;
+        diveHitbox2->oPosY = gMarioState->marioObj->oPosY + 10;
+        diveHitbox2->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
     }
 } else if (gMarioState->action == ACT_DIVE_SLIDE) {
     obj_set_model(gMarioState->marioObj, MODEL_D_MARIO);
@@ -1788,6 +1801,10 @@ if (gMarioState->action == ACT_DIVE) {
     if (diveHitbox != NULL) {
         obj_mark_for_deletion(diveHitbox);
         diveHitbox = NULL;
+    }
+    if (diveHitbox2 != NULL) {
+        obj_mark_for_deletion(diveHitbox2);
+        diveHitbox2 = NULL;
     }
     if (slideHitbox != NULL) {
         obj_mark_for_deletion(slideHitbox);
