@@ -115,9 +115,6 @@ s32 act_idle(struct MarioState *m) {
         set_mario_action(m, ACT_THROWING, 0);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
 }
-if (m->input & INPUT_B_PRESSED) {
-    m->vel[1] = 30.0f;
-}
     
     if (m->quicksandDepth > 30.0f) {
         return set_mario_action(m, ACT_IN_QUICKSAND, 0);

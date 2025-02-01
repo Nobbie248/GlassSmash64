@@ -1,6 +1,6 @@
 void scroll_wmotr_dl_Plane_mesh_layer_7_vtx_0() {
 	int i = 0;
-	int count = 177;
+	int count = 176;
 	int height = 32 * 0x20;
 
 	static int currentY = 0;

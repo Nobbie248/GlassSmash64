@@ -24,6 +24,13 @@
 #include "config.h"
 int flagflip = 0;
 
+void make_mario_jump_if_hammer(struct MarioState *m) {
+    if (m->action == ACT_PUNCHING) {
+        m->vel[1] = 30.0f;
+    }
+}
+
+
 void play_flip_sounds(struct MarioState *m, s16 frame1, s16 frame2, s16 frame3) {
     s32 animFrame = m->marioObj->header.gfx.animInfo.animFrame;
     if (animFrame == frame1 || animFrame == frame2 || animFrame == frame3) {
@@ -377,7 +384,7 @@ u32 common_air_action_step(struct MarioState *m, u32 landAction, s32 animation, 
 
         case AIR_STEP_HIT_WALL:
             set_mario_animation(m, animation);
-
+            
             if (m->forwardVel > 16.0f) {
 #if ENABLE_RUMBLE
                 queue_rumble_data(5, 40);

@@ -11,6 +11,7 @@ struct ObjectHitbox sClosehitHitbox = {
 };
 
 void bhv_close_hit_loop(void) {
+    o->oIntangibleTimer = 0;
     obj_set_hitbox(o, &sClosehitHitbox);
     if (o->oTimer >= 60) { 
         obj_mark_for_deletion(o);

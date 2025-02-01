@@ -43,14 +43,14 @@ const LevelScript level_castle_grounds_entry[] = {
 	JUMP_LINK(script_func_global_16), 
 	JUMP_LINK(script_func_vo_castle_inside), 
 	LOAD_MODEL_FROM_GEO(MODEL_CASTLE_DOOR_0_STARS, castle_door_0_star_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_SL_SNOW_TREE, snow_tree_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_CASTLE_DOOR_L, beta_door_l_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_CASTLE_DOOR_R, beta_door_r_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_GEM_BLUE, gem_blue_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_GEM_GREEN, gem_green_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_GEM_PURPLE, gem_purple_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_GEM_RED, gem_red_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_CASTLE_JABO, jabo_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_SL_SNOW_TREE, snow_tree_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_CASTLE_DOOR_L, beta_door_l_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_CASTLE_DOOR_R, beta_door_r_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_GEM_BLUE, gem_blue_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_GEM_GREEN, gem_green_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_GEM_PURPLE, gem_purple_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_GEM_RED, gem_red_geo), 
+	//LOAD_MODEL_FROM_GEO(MODEL_CASTLE_JABO, jabo_geo), 
 
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
