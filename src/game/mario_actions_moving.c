@@ -858,15 +858,6 @@ s32 act_move_punching(struct MarioState *m) {
 
     mario_update_punch_sequence(m);
 
-    if (m->forwardVel >= 0.0f) {
-        apply_slope_decel(m, 0.5f);
-    } else {
-        if ((m->forwardVel += 8.0f) >= 0.0f) {
-            m->forwardVel = 0.0f;
-        }
-        apply_slope_accel(m);
-    }
-
     switch (perform_ground_step(m)) {
         case GROUND_STEP_LEFT_GROUND:
             set_mario_action(m, ACT_FREEFALL, 0);

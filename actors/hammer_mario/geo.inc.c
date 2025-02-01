@@ -272,7 +272,7 @@ const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt1_head_switch_opt0_ey
 const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt1[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
-		GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, NULL),
+		GEO_ANIMATED_PART(LAYER_OPAQUE, 31, 0, 0, NULL),
 		GEO_OPEN_NODE(),
 			GEO_ANIMATED_PART(LAYER_TRANSPARENT, 0, 0, 0, hammer_mario_pelvis_mesh_layer_1),
 			GEO_OPEN_NODE(),
@@ -480,7 +480,7 @@ const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt2_jump_hammer_mario_r
 const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt2[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
-		GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, NULL),
+		GEO_ANIMATED_PART(LAYER_OPAQUE, 31, 0, 0, NULL),
 		GEO_OPEN_NODE(),
 			GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, hammer_mario_pelvis_mesh_layer_1_mat_override_metal_0),
 			GEO_OPEN_NODE(),
@@ -681,7 +681,7 @@ const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt3_jump_hammer_mario_r
 const GeoLayout hammer_mario_002_switch_opt0_cap_switch_opt3[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
-		GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, NULL),
+		GEO_ANIMATED_PART(LAYER_OPAQUE, 31, 0, 0, NULL),
 		GEO_OPEN_NODE(),
 			GEO_ANIMATED_PART(LAYER_TRANSPARENT, 0, 0, 0, hammer_mario_pelvis_mesh_layer_1_mat_override_metal_0),
 			GEO_OPEN_NODE(),
@@ -891,7 +891,7 @@ const GeoLayout hammer_mario_geo[] = {
 						GEO_OPEN_NODE(),
 							GEO_NODE_START(),
 							GEO_OPEN_NODE(),
-								GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, NULL),
+								GEO_ANIMATED_PART(LAYER_OPAQUE, 31, 0, 0, NULL),
 								GEO_OPEN_NODE(),
 									GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 0, 0, hammer_mario_pelvis_mesh_layer_1),
 									GEO_OPEN_NODE(),

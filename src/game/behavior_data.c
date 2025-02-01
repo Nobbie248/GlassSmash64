@@ -6355,7 +6355,7 @@ const BehaviorScript bhvTarget[] = {
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(target_collision),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 80, /*Height*/ 300, /*Downwards offset*/ 90),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 210, /*Height*/ 160, /*Downwards offset*/ 90),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
