@@ -189,8 +189,8 @@ if (delayTimer > 0)
         level_control_timer(TIMER_CONTROL_SHOW);
         level_control_timer(TIMER_CONTROL_START);
         play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource); 
-        
-        
+        gTotalBrokenObjects = 0;
+        gHudDisplay.coins = 0;
     }
 }
 
@@ -203,7 +203,8 @@ if (delayTimer > 0)
         level_control_timer(TIMER_CONTROL_SHOW);
         level_control_timer(TIMER_CONTROL_START);
         play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
-        
+        gTotalBrokenObjects = 0;
+        gHudDisplay.coins = 0;
     }
     }
 }

@@ -558,14 +558,12 @@ void bhv_timer_init(void);
 void bhv_timer_loop(void);
 void bhv_brick_spawner_update(void);
 void bhv_breakable_glass_loop(void);
-void bhv_breakable_glass_init(void);
 void bhv_breakable_lantern_loop(void);
-void bhv_breakable_lantern_init(void);
 void bhv_breakable_statue_loop(void);
-void bhv_breakable_statue_init(void);
-void bhv_vine_loop(void);
 void bhv_breakable_vase_loop(void);
+void bhv_breakable_target_loop(void);
 void bhv_close_hit_loop(void);
+void bhv_vine_loop(void);
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

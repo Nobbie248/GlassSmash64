@@ -578,10 +578,14 @@ void render_hud(void) {
 #endif
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
+            if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS) {
             render_hud_coins();
+            }
+            
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
+            gHudDisplay.stars = save_file_get_total_star_count(0, 0, 0);
             render_hud_stars();
         }
 
@@ -614,4 +618,13 @@ void render_hud(void) {
         }
 #endif
     }
+}
+
+void dont_render_hud_sometimes(void) {
+    if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+        
+}
 }

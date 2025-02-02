@@ -6359,6 +6359,6 @@ const BehaviorScript bhvTarget[] = {
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
-        CALL_NATIVE(bhv_breakable_statue_loop),
+        CALL_NATIVE(bhv_breakable_target_loop),
     END_LOOP(),
 };
