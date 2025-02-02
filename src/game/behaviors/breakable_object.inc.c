@@ -27,24 +27,22 @@ void award_star(s16 starIndex) {
 void check_and_spawn_star(void) {
     u16 slideTime = level_control_timer(TIMER_CONTROL_START);
 
-    if (gTotalBrokenObjects >= 30) {    
+    if (gTotalBrokenObjects >= 30) {
         if (slideTime < 1830) {
             award_star(0);
             award_star(1);
             award_star(2);
         }
-
         else if (slideTime < 2130) {
             award_star(0);
             award_star(1);
         }
-
         else if (slideTime < 2730) {
             award_star(0);
         }
-        
-    gTotalBrokenObjects = 0;
-    level_control_timer(TIMER_CONTROL_STOP);
+
+        gTotalBrokenObjects = 0;
+        level_control_timer(TIMER_CONTROL_STOP);
     }
 }
 
@@ -82,4 +80,8 @@ void bhv_breakable_statue_loop(void) {
 
 void bhv_breakable_vase_loop(void) {
     breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_CHINA_POP, 1.5f);
+}
+
+void bhv_breakable_target_loop(void) {
+    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 2.0f);
 }

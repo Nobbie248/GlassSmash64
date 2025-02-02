@@ -377,7 +377,7 @@ void init_mario_after_warp(void) {
 #endif
 #ifndef DISABLE_EXIT_COURSE
        if (sWarpDest.arg == WARP_FLAG_EXIT_COURSE) {
-            play_sound(SOUND_MENU_MARIO_CASTLE_WARP, gGlobalSoundSource);
+            //play_sound(SOUND_MENU_MARIO_CASTLE_WARP, gGlobalSoundSource);
         }
 #endif
     }

@@ -577,11 +577,21 @@ castle. Tread carefully,\n\
 my Italian friend.\n\
 BWA HA HA HAAA!")
 
-DEFINE_DIALOG(DIALOG_050,1,5,30,200, "If you ever see something\n\
-that looks like me, it's\n\
-probably a good sign\n\
-that you should start\n\
-reading.")
+DEFINE_DIALOG(DIALOG_050,1,5,30,200, "Welcome to the demo.\n\
+It seems you have been\n\
+chosen to see if this\n\
+pile of crap is worth\n\
+the time continuing\n\
+development.\n\
+Things are not fully \n\
+implemented yet so just\n\
+keep that in mind\n\
+Okay lets see..\n\
+Score 1 star with 30\n\
+breakables under 1:30\n\
+2 stars under 1:10\n\
+and 3 stars under 1:00.\n\
+Good luck!")
 
 DEFINE_DIALOG(DIALOG_051,1,6,30,200, "Climbing's easy! When you\n\
 jump at trees, poles or\n\
@@ -987,7 +997,7 @@ as they enter.")
 DEFINE_DIALOG(DIALOG_082,1,4,30,200, "Hey Mario\n\
 I can delete all your\n\
 progress just press down\n\
-on the Jpad.")
+on the Dpad.")
 
 DEFINE_DIALOG(DIALOG_083,1,6,30,200, "There's something strange\n\
 about that clock. As you\n\
