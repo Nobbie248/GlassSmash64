@@ -11,6 +11,19 @@
 #include "game/puppyprint.h"
 
 /**************************************************
+ *                 Serene Fusion lol              *
+ **************************************************/
+
+u32 gGravityMode = FALSE; // Is flipped gravity currently being applied (only when Mario is updated)
+u32 gIsGravityFlipped = FALSE; // Is gravity flipped
+
+struct Surface gCeilingDeathPlane = {
+    SURFACE_DEATH_PLANE, 0,    0,    0, 0, 0, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 },
+    { 0.0f, -1.0f, 0.0f },  0.0f, NULL,
+};
+
+
+/**************************************************
  *                      WALLS                     *
  **************************************************/
 
@@ -62,6 +75,13 @@ static s32 find_wall_collisions_from_list(struct SurfaceNode *surfaceNode, struc
     f32 invDenom;
     TerrainData type = SURFACE_DEFAULT;
     s32 numCols = 0;
+
+    if (radius > 200) {
+        radius = 200;
+    }
+
+    if (gGravityMode) pos[1] = 9000.f - pos[1];
+
 
     f32 margin_radius = radius - 1.0f;
 
@@ -437,6 +457,8 @@ static struct Surface *find_floor_from_list(struct SurfaceNode *surfaceNode, s32
     register f32 height;
     register s32 bufferY = y + FIND_FLOOR_BUFFER;
 
+    if (gGravityMode) floor = &gCeilingDeathPlane;
+
     // Iterate through the list of floors until there are no more floors.
     while (surfaceNode != NULL) {
         surf = surfaceNode->surface;
@@ -460,12 +482,21 @@ static struct Surface *find_floor_from_list(struct SurfaceNode *surfaceNode, s32
         }
 
         // Exclude all floors above the point.
-        if (bufferY < surf->lowerY) continue;
-        // Check that the point is within the triangle bounds.
-        if (!check_within_floor_triangle_bounds(x, z, surf)) continue;
+        if (gGravityMode) {
+        } else {
+            if (bufferY < surf->lowerY) continue;
+        }
+
+        if (gGravityMode) {
+            if (!check_within_ceil_triangle_bounds(x, z, surf, 0.0f)) continue;
+        } else {
+            if (!check_within_floor_triangle_bounds(x, z, surf)) continue;
+        }
 
         // Get the height of the floor under the current location.
         height = get_surface_height_at_location(x, z, surf);
+
+        if (gGravityMode) height = 9000.f - height;
 
         // Exclude floors lower than the previous highest floor.
         if (height <= *pheight) continue;
@@ -605,6 +636,7 @@ f32 find_floor_marioair(f32 xPos, f32 yPos, f32 zPos, struct Surface **pfloor) {
  */
 f32 unused_find_dynamic_floor(f32 xPos, f32 yPos, f32 zPos, struct Surface **pfloor) {
     f32 floorHeight = FLOOR_LOWER_LIMIT;
+    s32 floorPartition = (gGravityMode ? SPATIAL_PARTITION_CEILS : SPATIAL_PARTITION_FLOORS);
 
     // Would normally cause PUs, but dynamic floors unload at that range.
     s32 x = xPos;
@@ -631,6 +663,7 @@ f32 find_floor(f32 xPos, f32 yPos, f32 zPos, struct Surface **pfloor) {
 
     f32 height        = FLOOR_LOWER_LIMIT;
     f32 dynamicHeight = FLOOR_LOWER_LIMIT;
+    s32 floorPartition = (gGravityMode ? SPATIAL_PARTITION_CEILS : SPATIAL_PARTITION_FLOORS);
 
     //! (Parallel Universes) Because position is casted to an s16, reaching higher
     //  float locations can return floors despite them not existing there.

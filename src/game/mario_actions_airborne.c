@@ -4,6 +4,7 @@
 #include "mario_actions_airborne.h"
 #include "area.h"
 #include "audio/external.h"
+#include "engine/surface_collision.h"
 #include "camera.h"
 #include "engine/graph_node.h"
 #include "engine/math_util.h"
@@ -890,10 +891,15 @@ if (lTrigCooldown > 0) {
 
     switch (perform_air_step(m, 0)) {
         case AIR_STEP_NONE:
-            if (m->vel[1] < 0.0f && m->faceAngle[0] > -DEGREES(60)) {
-                m->faceAngle[0] -= 0x200;
-                if (m->faceAngle[0] < -DEGREES(60)) {
-                    m->faceAngle[0] = -DEGREES(60);
+            if (m->vel[1] < 0.0f) {
+                if (gGravityMode) {
+                    m->faceAngle[0] += 0x200;
+                    if (m->faceAngle[0] > 0x2AAA)
+                        m->faceAngle[0] = 0x2AAA;
+                } else {
+                    m->faceAngle[0] -= 0x200;
+                    if (m->faceAngle[0] < -0x2AAA)
+                        m->faceAngle[0] = -0x2AAA;
                 }
             }
             m->marioObj->header.gfx.angle[0] = -m->faceAngle[0];

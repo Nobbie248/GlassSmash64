@@ -36,7 +36,7 @@ void bhv_brick_loop(void) {
     o->oPosZ += o->oVelZ;
     o->oPosY += o->oVelY;
     o->oFaceAnglePitch += o->oAngleVelPitch;
-
+    
     if (cur_obj_wait_then_blink(80, 0)) {   
         obj_mark_for_deletion(o);
     }

@@ -1537,8 +1537,11 @@ void update_mario_info_for_cam(struct MarioState *m) {
     vec3s_copy(m->statusForCamera->faceAngle, m->faceAngle);
 
     if (!(m->flags & MARIO_LEDGE_CLIMB_CAMERA)) {
-        vec3f_copy(m->statusForCamera->pos, m->pos);
+        vec3f_copy_with_gravity_switch(m->statusForCamera->pos, m->pos);
     }
+    
+    if (gGravityMode)
+        m->statusForCamera->pos[1] -= 165.f;
 }
 
 /**
@@ -2017,3 +2020,11 @@ void init_mario_from_save_file(void) {
     gHudDisplay.coins = 0;
     gHudDisplay.wedges = 8;
 }
+
+void vec3f_copy_with_gravity_switch(Vec3f dst, Vec3f src) {
+    dst[0] = src[0];
+    dst[1] = src[1];
+    if (gGravityMode) dst[1] = 9000.f - dst[1];
+    dst[2] = src[2];
+}
+

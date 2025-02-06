@@ -37,6 +37,8 @@ void update_mario_platform(void) {
     //  of displacement since he is considered to be far from the platform's
     //  axis of rotation.
 
+    gGravityMode = gIsGravityFlipped;
+
     marioX = gMarioObject->oPosX;
     marioY = gMarioObject->oPosY;
     marioZ = gMarioObject->oPosZ;
@@ -61,6 +63,8 @@ void update_mario_platform(void) {
             gMarioObject->platform = NULL;
         }
     }
+
+    gGravityMode = 0;
 }
 
 /**

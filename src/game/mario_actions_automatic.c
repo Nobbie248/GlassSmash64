@@ -561,6 +561,7 @@ void update_ledge_climb_camera(struct MarioState *m) {
     m->statusForCamera->pos[0] = m->pos[0] + dist * sins(m->faceAngle[1]);
     m->statusForCamera->pos[2] = m->pos[2] + dist * coss(m->faceAngle[1]);
     m->statusForCamera->pos[1] = m->pos[1];
+    if (gGravityMode) m->statusForCamera->pos[1] = 9000.f - m->pos[1];
     m->actionTimer++;
     m->flags |= MARIO_LEDGE_CLIMB_CAMERA;
 }
