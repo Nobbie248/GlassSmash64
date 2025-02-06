@@ -27,7 +27,7 @@ extern Vtx castle_grounds_dl_Plane_001_mesh_layer_1_vtx_cull[8];
 extern Vtx castle_grounds_dl_Plane_001_mesh_layer_1_vtx_0[104];
 extern Vtx castle_grounds_dl_Plane_002_mesh_layer_1_vtx_cull[8];
 extern Vtx castle_grounds_dl_Plane_002_mesh_layer_1_vtx_0[132];
-extern Vtx castle_grounds_dl_Plane_002_mesh_layer_1_vtx_1[30];
+extern Vtx castle_grounds_dl_Plane_002_mesh_layer_1_vtx_1[24];
 extern Vtx castle_grounds_dl_Plane_002_mesh_layer_1_vtx_2[2338];
 extern Vtx castle_grounds_dl_Plane_003_mesh_layer_1_vtx_cull[8];
 extern Vtx castle_grounds_dl_Plane_003_mesh_layer_1_vtx_0[136];
