@@ -264,6 +264,10 @@ void bhv_mario_update(void) {
     u32 particleFlags = 0;
     s32 i;
 
+    if (gIsPer ==1) {
+        pauseinputscore();
+    }
+
     gGravityMode = gIsGravityFlipped;
 
     particleFlags = execute_mario_action(gCurrentObject);

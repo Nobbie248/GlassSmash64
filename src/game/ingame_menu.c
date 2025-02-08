@@ -34,6 +34,7 @@
 #include "hacktice/main.h"
 
 #define STARS_TO_ENABLE_HACKTICE 31
+char gIsPer = 0;
 int gTotalBrokenObjects = 0;
 u16 gDialogColorFadeTimer;
 s8 gLastDialogLineNum;

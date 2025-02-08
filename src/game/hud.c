@@ -578,15 +578,16 @@ void render_hud(void) {
 #endif
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
-            if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS) {
+            if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS && gIsPer == 0) {
             render_hud_coins();
-            }
-            
+            }    
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
+            if (gIsPer == 0) {
             gHudDisplay.stars = save_file_get_total_star_count(0, 0, 0);
             render_hud_stars();
+            }
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
@@ -609,7 +610,9 @@ void render_hud(void) {
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_TIMER) {
+            if (gIsPer == 0) {
             render_hud_timer();
+            }
         }
 
 #ifdef VANILLA_STYLE_CUSTOM_DEBUG
