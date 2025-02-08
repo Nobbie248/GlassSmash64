@@ -16,6 +16,7 @@
 #include "rendering_graph_node.h"
 #include "save_file.h"
 #include "segment2.h"
+#include "levels/wf/header.h"
 
 /**
  * @file geo_misc.c

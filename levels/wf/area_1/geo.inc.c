@@ -4,6 +4,8 @@ const GeoLayout wf_area_1_geo[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
 		GEO_ROTATION_NODE_WITH_DL(LAYER_OPAQUE, 0, 19, 0, wf_dl_Plane_mesh_layer_1),
+		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 0, -4495, 2214, wf_dl_plane_mesh_layer_1),
+		GEO_TRANSLATE_NODE_WITH_DL(LAYER_TRANSPARENT, 0, -3894, 0, wf_dl_water_mesh_layer_5),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
 };
@@ -14,7 +16,7 @@ const GeoLayout wf_area_1[] = {
 		GEO_OPEN_NODE(),
 			GEO_NODE_ORTHO(100.0000),
 			GEO_OPEN_NODE(),
-				GEO_BACKGROUND_COLOR(0x1B41),
+				GEO_BACKGROUND_COLOR(0x0001),
 			GEO_CLOSE_NODE(),
 		GEO_CLOSE_NODE(),
 		GEO_ZBUFFER(1),

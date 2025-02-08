@@ -3,6 +3,7 @@
 
 #include <PR/ultratypes.h>
 #include <PR/gbi.h>
+#include "game_init.h"
 
 enum FlyingCarpetState {
     FLYING_CARPET_IDLE = 0,
