@@ -28,7 +28,7 @@ void award_star(s16 starIndex) {
 void check_and_spawn_star(void) {
     u16 slideTime = level_control_timer(TIMER_CONTROL_START);
 
-    if (gTotalBrokenObjects >= 3) {
+    if (gTotalBrokenObjects >= 30) {
         gIsPer = 1;
 
         if (slideTime < 1830) {
