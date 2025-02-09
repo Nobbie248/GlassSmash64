@@ -33,7 +33,7 @@ struct SaveFile {
     // Note: the coordinates get set, but are never actually used, since the
     // cap can always be found in a fixed spot within the course
     Vec3s capPos; // 48 bits
-
+    
     u32 flags;
 
     // Star flags for each course.
@@ -42,7 +42,7 @@ struct SaveFile {
     u8 courseStars[COURSE_COUNT]; // 200 bits
 
     u8 courseCoinScores[COURSE_STAGES_COUNT]; // 120 bits
-
+    u16 bestSlideTimes[COURSE_STAGES_COUNT];
     struct SaveBlockSignature signature; // 32 bits
 };
 
@@ -203,6 +203,8 @@ void save_file_move_cap_to_default_location(void);
 void disable_warp_checkpoint(void);
 void check_if_should_set_warp_checkpoint(struct WarpNode *warpNode);
 s32 check_warp_checkpoint(struct WarpNode *warpNode);
+void save_file_collect_slide_time(s32 fileIndex, s32 courseIndex, u16 newTime);
+u16 save_file_get_best_slide_time(s32 fileIndex, s32 courseIndex);
 
 #ifdef MULTILANG
 void multilang_set_language(u32 language);

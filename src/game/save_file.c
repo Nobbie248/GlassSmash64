@@ -842,3 +842,29 @@ s32 check_warp_checkpoint(struct WarpNode *warpNode) {
 
     return warpCheckpointActive;
 }
+
+void save_file_collect_slide_time(s32 fileIndex, s32 courseIndex, u16 newTime) {
+
+    if (courseIndex < 0 || courseIndex >= COURSE_COUNT) {
+        return;
+    }
+
+    struct SaveFile *saveFile = &gSaveBuffer.files[fileIndex][0];
+    u16 *savedTime = &saveFile->bestSlideTimes[courseIndex];
+
+    if (*savedTime == 0 || newTime < *savedTime) {
+        *savedTime = newTime;
+        gSaveFileModified = TRUE;
+        save_file_do_save(fileIndex);
+    }
+}
+
+u16 save_file_get_best_slide_time(s32 fileIndex, s32 courseIndex) {
+
+    if (courseIndex < 0 || courseIndex >= COURSE_COUNT) {
+        return 0;
+    }
+
+    struct SaveFile *saveFile = &gSaveBuffer.files[fileIndex][0];
+    return saveFile->bestSlideTimes[courseIndex];
+}
