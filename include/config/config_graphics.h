@@ -15,7 +15,7 @@
  * By modifying `globalLightDirection`, you can choose the direction that points TOWARDS the light,
  * but keep in mind that this direction should be normalized to roughly ~127 if changed.
  */
-#define WORLDSPACE_LIGHTING
+ //#define WORLDSPACE_LIGHTING
 
 /**
  * Show a watermark on the title screen that reads "Made with HackerSM64", instead of the copyright message.
@@ -82,12 +82,12 @@
  * Also, this also disables anti-aliasing on Mario.
  * NOTE: Regarding performance, silhouette seems to lose 1-2 frames on console.
  */
-// #define SILHOUETTE 127
+//#define SILHOUETTE 127
 
 /**
  * Use 64x64 quarter shadow textures (Vanilla are 16x16).
  */
-#define HD_SHADOWS
+//#define HD_SHADOWS
 
 /**
  * Makes certain objects (mainly trees) transparent when the camera gets close.
