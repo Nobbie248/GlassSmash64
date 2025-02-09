@@ -100,6 +100,9 @@ void convert_slide_time(s32 slideTime, char *buffer) {
 void pauseinputscore(void) {
     static int delayTimer = 0;
     u16 slideTime = level_control_timer(TIMER_CONTROL_STOP);
+    u16 currentTime = level_control_timer(TIMER_CONTROL_STOP);
+    save_file_collect_slide_time(gCurrSaveFileNum - 1, gCurrCourseNum - 1, currentTime);
+
     int buttonPressed = gMarioStates->controller->buttonPressed;
 
     if (delayTimer >= 60) {
@@ -112,7 +115,14 @@ void pauseinputscore(void) {
     } else {
         delayTimer++;
     }
-    
+
+    u16 bestTime = save_file_get_best_slide_time(gCurrSaveFileNum - 1, gCurrCourseNum - 1);
+    if (bestTime != 0) {
+        char bestTimeString[16];
+        convert_slide_time(bestTime, bestTimeString);
+        print_text(200, 100, bestTimeString);
+    }
+
     s16 fileNum = gCurrSaveFileNum - 1;
     s16 courseNum = gCurrCourseNum - 1;
     u8 starFlags = save_file_get_star_flags(fileNum, courseNum);
@@ -135,11 +145,11 @@ void pauseinputscore(void) {
     print_text(125, 180, "score");
     print_text(50, 150, "your time");
     print_text(200, 150, timeString);
-    print_text(200, 100, timeString);
     
     sprintf(starString, "Stars: %d out of 3", collectedStars);
 
     print_text(50, 100, "best time"); 
     print_text(70, 50, starString);
+    save_file_do_save(gCurrSaveFileNum - 1);
 }
 
