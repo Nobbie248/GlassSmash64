@@ -4,6 +4,7 @@
 #include "level_commands.h"
 #include "src/game/level_update.h"
 #include "src/game/ingame_menu.h"
+#include "src/game/mario.h"
 
 static int delayTimer = 0;
 char gIsCs = 0;
@@ -42,6 +43,8 @@ extern struct CreditsEntry *gCurrCreditsEntry;
 void bhv_cs_init(void) {
     delayTimer = 0;
     gMarioState->numCoins = 0;
+    countdownStage = 0;
+    frameCount = 0; 
     if (gCurrCreditsEntry) { disableHud(); o->activeFlags = 0; return; }
     if (gCurrCourseNum == COURSE_NONE) { resetFlags(); o->activeFlags = 0; return; }
     disableHud();
@@ -54,7 +57,7 @@ void bhv_cs_loop(void) {
     resetMarioState();
     if (gCurrCourseNum == COURSE_WMOTR) { handleCutscene(); warpIfButtonPressed(buttonPressed); return; }
     if (gCurrCourseNum == COURSE_NONE) { resetFlags(); o->activeFlags = 0; return; }
-    
+
     switch (gCurrCourseNum) {
         case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; print_text(30, 40, "China"); break;
         case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; break;
@@ -63,19 +66,18 @@ void bhv_cs_loop(void) {
     }
 
     if (gBorderHeight < 33) gBorderHeight++;
-    if ((buttonPressed & (A_BUTTON | B_BUTTON)) && !delayTimer) delayTimer = 5;
-    if (delayTimer && --delayTimer == 0) {
+
+    if (buttonPressed & (A_BUTTON | B_BUTTON)) {
         resetFlags(); reset_camera(gCamera); o->activeFlags = 0;
-        level_control_timer(TIMER_CONTROL_SHOW);
-        level_control_timer(TIMER_CONTROL_START);
-        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
-        gTotalBrokenObjects = gHudDisplay.coins = 0;
+        countdownStage = 1;
+        frameCount = 0;
+        isCountdown = 1;
     }
+
     if (o->oTimer > 290 || (o->oSubAction > 2)) {
         resetFlags(); reset_camera(gCamera); o->activeFlags = 0;
-        level_control_timer(TIMER_CONTROL_SHOW);
-        level_control_timer(TIMER_CONTROL_START);
-        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
-        gTotalBrokenObjects = gHudDisplay.coins = 0;
+        countdownStage = 1;
+        frameCount = 0;
+        isCountdown = 1;
     }
 }

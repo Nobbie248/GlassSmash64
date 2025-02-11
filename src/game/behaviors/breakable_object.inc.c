@@ -27,30 +27,53 @@ void award_star(s16 starIndex) {
 
 void check_and_spawn_star(void) {
     u16 slideTime = level_control_timer(TIMER_CONTROL_START);
+    s32 shouldWin = 0;
 
-    if (gTotalBrokenObjects >= 30) {
+    if (gCurrLevelNum == LEVEL_BOB) {
+        if (gTotalBrokenObjects >= 30) {
+            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2130) { award_star(0); award_star(1); }
+            else if (slideTime < 2730) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (gCurrLevelNum == LEVEL_WF) {
+        if (gTotalBrokenObjects >= 30) {
+            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2130) { award_star(0); award_star(1); }
+            else if (slideTime < 2730) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (gCurrLevelNum == LEVEL_JRB) {
+        if (gTotalBrokenObjects >= 30) {
+            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2130) { award_star(0); award_star(1); }
+            else if (slideTime < 2730) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (gCurrLevelNum == LEVEL_CCM) {
+        if (gTotalBrokenObjects >= 30) {
+            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2130) { award_star(0); award_star(1); }
+            else if (slideTime < 2730) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (shouldWin) {
         gIsPer = 1;
-
-        if (slideTime < 1830) {
-            award_star(0);
-            award_star(1);
-            award_star(2);
-        }
-        else if (slideTime < 2130) {
-            award_star(0);
-            award_star(1);
-        }
-        else if (slideTime < 2730) {
-            award_star(0);
-        }
-        
         seq_player_lower_volume(SEQ_PLAYER_LEVEL, 0, 40);
         play_sound(SOUND_OBJ_UKIKI_CHATTER_LONG, gGlobalSoundSource);
-        
         gTotalBrokenObjects = 0;
         level_control_timer(TIMER_CONTROL_STOP);
     }
 }
+
 
 void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSize1) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
@@ -152,4 +175,3 @@ void pauseinputscore(void) {
     print_text(70, 50, starString);
     save_file_do_save(gCurrSaveFileNum - 1);
 }
-

@@ -2100,6 +2100,12 @@ render_pause_course_options(109, 91, &gDialogLineNum, 15);
         gHudDisplay.coins = 0;
         gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_JRB, 0);
+    }
+     if (gCurrLevelNum == LEVEL_CCM) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_CCM, 0);
     }  // Restart the level
         return;
     }
