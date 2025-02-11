@@ -52,6 +52,7 @@
         "moving_texture.h": "c",
         "random": "c",
         "types.h": "c",
-        "interaction.h": "c"
+        "interaction.h": "c",
+        "atomic": "c"
     }
 }

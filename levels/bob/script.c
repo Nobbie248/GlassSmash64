@@ -75,7 +75,7 @@ const LevelScript level_bob_entry[] = {
 		OBJECT(MODEL_LANTERN, 2052, 819, -1902, 0, -120, 0, 0x00000000, bhvLantern),
 		OBJECT(MODEL_LANTERN, 2496, 1004, -2658, 0, -120, 0, 0x00000000, bhvLantern),
 		OBJECT(MODEL_LANTERN, 2962, 1315, -3451, 0, -120, 0, 0x00000000, bhvLantern),
-		MARIO_POS(1, 0, -4476, 203, 1324),
+		MARIO_POS(1, 90, -4476, 203, 1324),
 		OBJECT(0, -4416, 100, 1355, 0, 90, 0, 0xe0000, bhvAirborneWarp),
 		OBJECT(0, -4416, 100, 1344, 0, 90, 0, 0xa0000, bhvSpinAirborneWarp),
 		OBJECT(0, 1062, 34, 6266, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
@@ -101,7 +101,7 @@ const LevelScript level_bob_entry[] = {
 	END_AREA(),
 
 	FREE_LEVEL_POOL(),
-	MARIO_POS(1, 0, -4476, 203, 1324),
+	MARIO_POS(1, 90, -4476, 203, 1324),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),

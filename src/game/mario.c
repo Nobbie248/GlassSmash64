@@ -33,7 +33,9 @@
 #include "sound_init.h"
 #include "rumble_init.h"
 
-
+int countdownStage = 0;
+int frameCount = 0;
+int isCountdown = 0;
 /**************************************************
  *                    ANIMATIONS                  *
  **************************************************/
@@ -1821,11 +1823,53 @@ if (gMarioState->action == ACT_DIVE) {
         obj_mark_for_deletion(punchingHitbox);
         punchingHitbox = NULL;
     }
+
 }
-
-
-
-
+static int inputHold = 0;
+static int goGo = 0;
+if (isCountdown == 1) {
+    if (inputHold == 1){
+    struct Controller *c = gMarioStates->controller;
+    c->rawStickX = c->rawStickY = c->stickX = c->stickY = c->stickMag = 0;
+    c->buttonPressed &= ~(A_BUTTON | B_BUTTON | START_BUTTON | Z_TRIG | L_TRIG | R_TRIG);
+    c->buttonDown &= ~(A_BUTTON | B_BUTTON | START_BUTTON | Z_TRIG | L_TRIG | R_TRIG);
+    }
+    if (countdownStage == 1) {
+        inputHold = 1;
+        print_text(150, 120, "3");
+        if (++frameCount >= 30) {
+            countdownStage = 2;
+            frameCount = 0;
+            goGo = 1;
+        }
+    } else if (countdownStage == 2) {
+        print_text(150, 120, "2");
+        if (++frameCount >= 30) {
+            countdownStage = 3;
+            frameCount = 0;
+        }
+    } else if (countdownStage == 3) {
+        print_text(150, 120, "1");
+        if (++frameCount >= 30) {
+            countdownStage = 4;
+            frameCount = 0;
+        }
+    } else if (countdownStage == 4) {
+        inputHold = 0;
+        if (goGo == 1){
+        level_control_timer(TIMER_CONTROL_SHOW);
+        level_control_timer(TIMER_CONTROL_START);
+        play_sound(SOUND_OBJ2_PIRANHA_PLANT_DYING, gGlobalSoundSource);
+        gTotalBrokenObjects = gHudDisplay.coins = 0;
+        goGo = 0;
+        }
+        print_text(150, 120, "Go!");
+        if (++frameCount >= 30) {
+            countdownStage = 0;
+            isCountdown = 0;
+        }
+    }
+}
     // Updates once per frame:
     vec3f_get_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);
     vec3f_get_lateral_dist(gMarioState->prevPos, gMarioState->pos, &gMarioState->lateralSpeed);
@@ -1916,6 +1960,7 @@ if (gMarioState->action == ACT_DIVE) {
 
     return ACTIVE_PARTICLE_NONE;
 }
+
 
 /**************************************************
  *                  INITIALIZATION                *
