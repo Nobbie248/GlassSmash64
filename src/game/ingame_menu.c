@@ -1899,42 +1899,36 @@ void print_hud_pause_colorful_str(void) {
 
 void render_pause_castle_course_stars(s16 x, s16 y, s16 fileIndex, s16 courseIndex) {
     s16 hasStar = 0;
-
     char str[30];
-    char *entries[6];
-
+    char *entries[3];
     u8 starFlags = save_file_get_star_flags(fileIndex, courseIndex);
     u16 starCount = save_file_get_course_star_count(fileIndex, courseIndex);
-
     u16 nextStar = 0;
 
     if (starFlags & STAR_FLAG_ACT_100_COINS) {
         starCount--;
-        print_generic_string(x + 98, y, "★");
+        print_generic_string(x + 50, y, "★");
     }
 
-    while (hasStar != starCount) {
+    while (hasStar != starCount && hasStar < 3) {
         if (starFlags & (1 << nextStar)) {
-            entries[nextStar] = "★";
+            entries[hasStar] = "★";
             hasStar++;
-        } else {
-            entries[nextStar] = "☆";
+        } else if (hasStar < 3) {
+            entries[hasStar] = "☆";
         }
         nextStar++;
     }
 
-    if (starCount == nextStar && starCount != 6) {
-        entries[nextStar] = "☆";
-        nextStar++;
-    }
-    while (nextStar < 6) {
-        entries[nextStar] = "";
-        nextStar++;
+    while (hasStar < 3) {
+        entries[hasStar] = "☆";
+        hasStar++;
     }
 
-    sprintf(str, "%s %s %s %s %s %s", entries[0], entries[1], entries[2], entries[3], entries[4], entries[5]);
+    sprintf(str, "%s %s %s", entries[0], entries[1], entries[2]);
     print_generic_string(x + 23, y + 18, str);
 }
+
 
 LangArray textCoinX = DEFINE_LANGUAGE_ARRAY(
     "✪× %s",
@@ -1950,15 +1944,25 @@ LangArray textStarX = DEFINE_LANGUAGE_ARRAY(
     "★ｘ%s",
     "★× %s");
 
+void convert_time(s32 timeFrames, char *buffer) {
+    if (timeFrames < 0) {
+        sprintf(buffer, "--'--\"-");
+        return;
+    }
+
+    s32 totalSeconds = timeFrames / 30;
+    s32 frames = (timeFrames % 30) / 3;
+
+    sprintf(buffer, "%d'%02d\"%d", totalSeconds / 60, totalSeconds % 60, frames);
+}
+
 void render_pause_castle_main_strings(s16 x, s16 y) {
     void **courseNameTbl = segmented_to_virtual(gLanguageTables[gInGameLanguage].course_name_table);
-
     void *courseName;
 
-    char str[8];
-    char countText[10];
+    char str[16];
+    char timeString[16];
     s16 prevCourseIndex = gDialogLineNum;
-
 
     handle_menu_scrolling(
         MENU_SCROLL_VERTICAL, &gDialogLineNum,
@@ -1966,11 +1970,11 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     );
 
     if (gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES) + 1) {
-        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN); // Exceeded max, set to min
+        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
     }
 
     if (gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_MIN) - 1) {
-        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES); // Exceeded min, set to max
+        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES);
     }
 
     if (gDialogLineNum != COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES)) {
@@ -1990,11 +1994,11 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     }
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-
     set_text_color(255, 255, 255);
-    
-    if (Hacktice_gEnabled)
+
+    if (Hacktice_gEnabled) {
         Hacktice_onPause();
+    }
 
     if (gDialogLineNum <= COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) { // Main courses
         courseName = segmented_to_virtual(courseNameTbl[gDialogLineNum]);
@@ -2002,27 +2006,21 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
 
         render_pause_castle_course_stars(x - 65, y, gCurrSaveFileNum - 1, gDialogLineNum);
 
-        format_int_to_string(countText, save_file_get_course_coin_score(gCurrSaveFileNum - 1, gDialogLineNum));
-        sprintf(str, LANG_ARRAY(textCoinX), countText);
+        s32 bestTime = save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum);
+        convert_time(bestTime, timeString);
+
+        sprintf(str, LANG_ARRAY(textCoinX), timeString);
         print_generic_string(x - 22, y, str);
 
-        format_int_to_string(str, gDialogLineNum + 1);
+        sprintf(str, "%d", gDialogLineNum + 1);
         print_generic_string_aligned(x - 55, y + 35, str, TEXT_ALIGN_RIGHT);
-    } else { // Castle secret stars
-        courseName = segmented_to_virtual(courseNameTbl[COURSE_MAX]);
-        print_generic_string_aligned(x, y + 35, courseName, TEXT_ALIGN_CENTER);
-
-        format_int_to_string(countText, save_file_get_total_star_count(gCurrSaveFileNum - 1,
-                                                             COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES),
-                                                             COURSE_NUM_TO_INDEX(COURSE_MAX)));
-        sprintf(str, LANG_ARRAY(textStarX), countText);
-        print_generic_string_aligned(x, y + 18, str, TEXT_ALIGN_CENTER);
     }
-    
+
     render_hacktice_setting(x - 20, y + 120);
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
+
 
 s8 gCourseCompleteCoinsEqual = FALSE;
 s32 gCourseDoneMenuTimer = 0;

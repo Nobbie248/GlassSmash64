@@ -14,6 +14,7 @@ const GeoLayout castle_grounds_area_1_geo[] = {
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, castle_grounds_dl_Plane_009_mesh_layer_5),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, castle_grounds_dl_Plane_009_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, castle_grounds_dl_Plane_010_mesh_layer_1),
+		GEO_DISPLAY_LIST(LAYER_OPAQUE, castle_grounds_dl_Plane_011_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, castle_grounds_dl_tree6_mesh_layer_1),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
