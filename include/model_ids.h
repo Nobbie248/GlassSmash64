@@ -612,5 +612,10 @@
 #define MODEL_H_MARIO 0xEF // Hammer Mario for Attack
 #define MODEL_D_MARIO 0xff // Hammer Mario dive
 #define MODEL_TARGETS 0xAB // Training Targets
+#define MODEL_BOUNCE 0xBD // Bounce
+#define MODEL_BLUE_MUSHROOM 0xC4 // Blue Mushroom
+#define MODEL_RED_MUSHROOM 0xC5 // Red Mushroom
+#define MODEL_LEAVES_PILE 0xC6 // Leaves
+#define MODEL_P_LEAVES 0xA9 // Leaves Particle
 
 #endif // MODEL_IDS_H

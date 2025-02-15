@@ -22,3 +22,8 @@
 #include "hammer_mario/geo.inc.c"
 #include "target/geo.inc.c"
 #include "cg_barrier/geo.inc.c"
+#include "bounce/geo.inc.c"
+#include "schoom_blue/geo.inc.c"
+#include "schoom_red/geo.inc.c"
+#include "pleaves/geo.inc.c"
+#include "leaves_p/geo.inc.c"

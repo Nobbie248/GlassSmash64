@@ -356,4 +356,18 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "cg_barrier/geo_header.h"
 
+#include "bounce/geo_header.h"
+
+#include "bounce/collision_header.h"
+
+#include "schoom_blue/geo_header.h"
+
+#include "schoom_red/geo_header.h"
+
+#include "schoom_red/collision_header.h"
+
+#include "pleaves/geo_header.h"
+
+#include "leaves_p/geo_header.h"
+
 #endif

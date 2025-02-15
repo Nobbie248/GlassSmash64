@@ -1,0 +1,10 @@
+extern const GeoLayout bounce_geo[];
+extern Lights1 bounce_f3dlite_material_lights;
+extern Lights1 bounce_f3dlite_material_001_lights;
+extern Vtx bounce_bonce_mesh_layer_1_vtx_0[27];
+extern Gfx bounce_bonce_mesh_layer_1_tri_0[];
+extern Vtx bounce_bonce_mesh_layer_1_vtx_1[7];
+extern Gfx bounce_bonce_mesh_layer_1_tri_1[];
+extern Gfx mat_bounce_f3dlite_material[];
+extern Gfx mat_bounce_f3dlite_material_001[];
+extern Gfx bounce_bonce_mesh_layer_1[];

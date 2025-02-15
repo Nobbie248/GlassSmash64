@@ -49,17 +49,26 @@ const LevelScript level_wf_entry[] = {
 	/* Fast64 end persistent block [level commands] */
 
 	AREA(1, wf_area_1),
-		MARIO_POS(0x01, 0, 0, 1946, -931),
+		OBJECT(MODEL_LEAVES_PILE, 2534, 2164, -4260, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 2662, 2164, -5646, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 3515, 2164, -5932, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		MARIO_POS(0x01, 0, -3258, 491, 3582),
+		OBJECT(MODEL_RED_MUSHROOM, -869, 0, -13001, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_BLUE_MUSHROOM, 2509, 0, 843, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_RED_MUSHROOM, 398, 0, 1540, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_BLUE_MUSHROOM, 5044, 0, -562, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_RED_MUSHROOM, -1464, 0, 496, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_RED_MUSHROOM, 223, 0, -14522, 0, 0, 0, 0x00000000, bhvBounce),
 		TERRAIN(wf_area_1_collision),
 		MACRO_OBJECTS(wf_area_1_macro_objs),
-		SET_BACKGROUND_MUSIC(0x00, SEQ_LEVEL_GRASS),
+		STOP_MUSIC(0),
 		TERRAIN_TYPE(TERRAIN_GRASS),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
 
 	FREE_LEVEL_POOL(),
-	MARIO_POS(0x01, 0, 0, 1946, -931),
+	MARIO_POS(0x01, 0, -3258, 491, 3582),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),

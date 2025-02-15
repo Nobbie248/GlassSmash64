@@ -369,6 +369,10 @@ void update_flying(struct MarioState *m) {
 u32 common_air_action_step(struct MarioState *m, u32 landAction, s32 animation, u32 stepArg) {
     u32 stepResult;
 
+    if (m->action == ACT_TRIPLE_JUMP || m->action == ACT_FREEFALL) {
+        update_air_with_turn(m);
+    }
+
     update_air_without_turn(m);
 
     stepResult = perform_air_step(m, stepArg);
@@ -2052,7 +2056,7 @@ s32 act_flying_triple_jump(struct MarioState *m) {
         set_camera_mode(m->area->camera, FLYING_CAMERA_MODE, 1);
     }
 
-    update_air_without_turn(m);
+    update_air_with_turn(m);
 
     switch (perform_air_step(m, 0)) {
         case AIR_STEP_LANDED:
@@ -2129,7 +2133,7 @@ s32 act_special_triple_jump(struct MarioState *m) {
 
     play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_YAHOO);
 
-    update_air_without_turn(m);
+    update_air_with_turn(m);
 
     switch (perform_air_step(m, 0)) {
         case AIR_STEP_LANDED:

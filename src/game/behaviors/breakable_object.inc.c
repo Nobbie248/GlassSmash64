@@ -94,6 +94,10 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
     }
 }
 
+void bhv_breakable_leaves_loop(void) {
+    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_P_LEAVES, 1.3f);
+}
+
 void bhv_breakable_glass_loop(void) {
     breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_GLASS_SHARD, 1.2f);
 }
