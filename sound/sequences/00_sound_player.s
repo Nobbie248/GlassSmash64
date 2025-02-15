@@ -4272,7 +4272,7 @@ chan_setlayer 0, .layer_1A35
 chan_end
 
 .layer_1A35:
-layer_note1 39, 0x32, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_general_splattering:
