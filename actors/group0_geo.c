@@ -27,3 +27,4 @@
 #include "schoom_red/geo.inc.c"
 #include "pleaves/geo.inc.c"
 #include "leaves_p/geo.inc.c"
+#include "palmleaf/geo.inc.c"

@@ -370,4 +370,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "leaves_p/geo_header.h"
 
+#include "palmleaf/geo_header.h"
+
+#include "palmleaf/collision_header.h"
+
 #endif

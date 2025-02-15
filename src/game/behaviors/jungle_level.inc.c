@@ -36,3 +36,24 @@ void bhv_bounce_object_loop(void) {
     
     o->oTimer++;
 }
+
+// void bhv_tilting_platform(void) {
+//     struct Object *platform = o;
+
+//     if (gMarioObject->platform == platform) {
+//         f32 distX = gMarioObject->oPosX - platform->oPosX;
+//         f32 distZ = gMarioObject->oPosZ - platform->oPosZ;
+
+//         f32 tAngleX = distZ * 0.1f;
+//         f32 tAngleZ = -distX * 0.1f;
+
+//         tAngleX = clamp_f32(tAngleX, -0x2000, 0x2000);
+//         tAngleZ = clamp_f32(tAngleZ, -0x2000, 0x2000);
+
+//         platform->oFaceAnglePitch = tAngleX;
+//         platform->oFaceAngleRoll = tAngleZ;
+//     } else {
+//         platform->oFaceAnglePitch = 0;
+//         platform->oFaceAngleRoll = 0;
+//     }
+// }

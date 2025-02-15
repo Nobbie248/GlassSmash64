@@ -51,3 +51,5 @@
 #include "schoom_red/collision.inc.c"
 #include "pleaves/model.inc.c"
 #include "leaves_p/model.inc.c"
+#include "palmleaf/model.inc.c"
+#include "palmleaf/collision.inc.c"

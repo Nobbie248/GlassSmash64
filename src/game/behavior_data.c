@@ -6388,3 +6388,23 @@ const BehaviorScript bhvPileLeaves[] = {
         CALL_NATIVE(bhv_breakable_leaves_loop),
     END_LOOP(),
 };
+
+
+const BehaviorScript bhvLeafParticle[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    BEGIN_LOOP(),
+    CALL_NATIVE(bhv_falling_leaf_particle),
+    END_LOOP(),
+};
+
+// const BehaviorScript bhvPalmLeaf[] = {
+//     BEGIN(OBJ_LIST_SURFACE),
+//     SET_FLOAT(oCollisionDistance, 3000),
+//     SET_FLOAT(oDrawingDistance, 30000),
+//     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+//     LOAD_COLLISION_DATA(palmleaf_collision),
+//     BEGIN_LOOP(),
+//     CALL_NATIVE(bhv_tilting_platform),
+//     END_LOOP(),
+// };

@@ -6,6 +6,7 @@
 #include "game/save_file.h"
 #include "game/hud.h"
 #include "src/game/print.h"
+#include "src/game/spawn_object.h"
 
 void award_star(s16 starIndex) {
     s16 fileNum = gCurrSaveFileNum - 1;
@@ -74,7 +75,6 @@ void check_and_spawn_star(void) {
     }
 }
 
-
 void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSize1) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
     struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2);
@@ -84,18 +84,69 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
         (brick2 && obj_check_if_collided_with_object(o, brick2)) ||
         (closehit && obj_check_if_collided_with_object(o, closehit)) ||
         cur_obj_was_attacked_or_ground_pounded()) {
+    
         obj_mark_for_deletion(o);
         play_sound(sound, gGlobalSoundSource);
-        spawn_mist_particles_variable(0, 0, 46.0f);
-        spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
+
+        if (o->behavior == bhvPileLeaves) {
+            for (int i = 0; i < 9; i++) {
+                struct Object *leafParticle = spawn_object(o, MODEL_P_LEAVES, bhvLeafParticle);
+
+                f32 angle = random_float() * 2.0f * M_PI;
+                f32 distance = random_float() * 10.0f;
+                
+                leafParticle->oPosX = o->oPosX + sins(angle) * distance;
+                leafParticle->oPosY = o->oPosY + random_float() * 50.0f;
+                leafParticle->oPosZ = o->oPosZ + coss(angle) * distance;
+                
+
+                leafParticle->oVelX = sins(angle) * (random_float() * 5.0f + 2.0f);
+                leafParticle->oVelZ = coss(angle) * (random_float() * 5.0f + 2.0f);
+                leafParticle->oVelY = random_float() * 10.0f + 5.0f;
+            }
+        } else {
+            spawn_mist_particles_variable(0, 0, 46.0f);
+            spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
+        }
+        
         gMarioState->numCoins++;
         gTotalBrokenObjects++;
         check_and_spawn_star();
     }
 }
 
+void bhv_falling_leaf_particle(void) {
+    if (o->oTimer == 0) {
+        o->oVelX = (random_float() - 0.5f) * 30.0f;
+        o->oVelZ = (random_float() - 0.5f) * 30.0f;
+        o->oVelY = 20.0f + random_float() * 10.0f;
+
+        o->oFaceAnglePitch = (s16)(random_float() * 0x4000);
+        o->oFaceAngleYaw = (s16)(random_float() * 0x4000);
+        o->oFaceAngleRoll = (s16)(random_float() * 0x4000);
+
+        o->oAngleVelPitch = (s16)(random_float() * 0x1000);
+        o->oAngleVelYaw = (s16)(random_float() * 0x1000);
+        o->oAngleVelRoll = (s16)(random_float() * 0x1000);
+    }
+
+    o->oVelY -= 1.0f; 
+
+    o->oPosX += o->oVelX;
+    o->oPosZ += o->oVelZ;
+    o->oPosY += o->oVelY;
+
+    o->oFaceAnglePitch += o->oAngleVelPitch;
+    o->oFaceAngleYaw += o->oAngleVelYaw;
+    o->oFaceAngleRoll += o->oAngleVelRoll;
+
+    if (o->oTimer > 60) {
+        obj_mark_for_deletion(o);
+    }
+}
+
 void bhv_breakable_leaves_loop(void) {
-    breakable_object_behavior_loop(SOUND_GENERAL_YOSHI_TALK, MODEL_P_LEAVES, 1.3f);
+    breakable_object_behavior_loop(SOUND_GENERAL_YOSHI_TALK, MODEL_P_LEAVES, 1.0f);
 }
 
 void bhv_breakable_glass_loop(void) {

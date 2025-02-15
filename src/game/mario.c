@@ -1807,23 +1807,26 @@ if (gMarioState->action == ACT_DIVE) {
         obj_mark_for_deletion(diveHitbox);
         diveHitbox = NULL;
     }
+
     if (diveHitbox2 != NULL) {
         obj_mark_for_deletion(diveHitbox2);
         diveHitbox2 = NULL;
     }
+
     if (slideHitbox != NULL) {
         obj_mark_for_deletion(slideHitbox);
         slideHitbox = NULL;
     }
+
     if (rolloutHitbox != NULL) {
         obj_mark_for_deletion(rolloutHitbox);
         rolloutHitbox = NULL;
     }
+    
     if (punchingHitbox != NULL) {
         obj_mark_for_deletion(punchingHitbox);
         punchingHitbox = NULL;
     }
-
 }
 static int inputHold = 0;
 static int goGo = 0;
