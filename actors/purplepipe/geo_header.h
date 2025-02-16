@@ -1,0 +1,15 @@
+extern const GeoLayout purplepipe_geo[];
+extern Lights1 purplepipe_f3dlite_material_lights;
+extern u8 purplepipe__76A02A69_c_ci8[];
+extern u8 purplepipe__76A02A69_c_pal_rgba16[];
+extern u8 purplepipe__6C0274DD_c_ci8[];
+extern u8 purplepipe__6C0274DD_c_pal_rgba16[];
+extern Vtx purplepipe_Pipe_ShapeIndexedFaceSet_47_ShapeIndexedFaceSet_mesh_layer_1_vtx_0[52];
+extern Gfx purplepipe_Pipe_ShapeIndexedFaceSet_47_ShapeIndexedFaceSet_mesh_layer_1_tri_0[];
+extern Vtx purplepipe_Pipe_ShapeIndexedFaceSet_47_ShapeIndexedFaceSet_mesh_layer_1_vtx_1[16];
+extern Gfx purplepipe_Pipe_ShapeIndexedFaceSet_47_ShapeIndexedFaceSet_mesh_layer_1_tri_1[];
+extern Gfx mat_purplepipe_f3dlite_material[];
+extern Gfx mat_revert_purplepipe_f3dlite_material[];
+extern Gfx mat_purplepipe_f3dlite_material_001[];
+extern Gfx mat_revert_purplepipe_f3dlite_material_001[];
+extern Gfx purplepipe_Pipe_ShapeIndexedFaceSet_47_ShapeIndexedFaceSet_mesh_layer_1[];

@@ -239,4 +239,8 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "glassshard/geo_header.h"
 
+#include "purplepipe/collision_header.h"
+
+#include "purplepipe/geo_header.h"
+
 #endif
