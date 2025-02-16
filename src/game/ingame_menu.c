@@ -1882,11 +1882,11 @@ void highlight_last_course_complete_stars(void) {
 }
 
 LangArray textPause = DEFINE_LANGUAGE_ARRAY(
-    "PAUSE",
-    "PAUSE",
-    "PAUSE",
-    "PAUSE",
-    "PAUSA");
+    "",
+    "",
+    "",
+    "",
+    "");
 
 void print_hud_pause_colorful_str(void) {
     gSPDisplayList(gDisplayListHead++, dl_rgba16_text_begin);
@@ -2000,7 +2000,7 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
         Hacktice_onPause();
     }
 
-    if (gDialogLineNum <= COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) { // Main courses
+    if (gDialogLineNum <= COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
         courseName = segmented_to_virtual(courseNameTbl[gDialogLineNum]);
         print_generic_string(x - 50, y + 35, courseName);
 
@@ -2020,6 +2020,7 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
+
 
 
 s8 gCourseCompleteCoinsEqual = FALSE;
@@ -2129,6 +2130,16 @@ render_pause_course_options(109, 91, &gDialogLineNum, 15);
             }
             break;
     }
+
+gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+    set_text_color(255, 255, 255);
+    char sheeeit[16];
+    s32 totalStars = save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1);
+
+    sprintf(sheeeit, "Total Stars: %d", totalStars);
+    print_generic_string(230, 220, sheeeit);
+    gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+
 #if defined(WIDE) && !defined(PUPPYCAM)
         if (!Hacktice_gEnabled)
             render_widescreen_setting();

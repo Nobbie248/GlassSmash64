@@ -53,6 +53,7 @@
         "random": "c",
         "types.h": "c",
         "interaction.h": "c",
-        "atomic": "c"
+        "atomic": "c",
+        "sstream": "c"
     }
 }

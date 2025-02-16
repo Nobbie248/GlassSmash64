@@ -429,7 +429,7 @@ void render_debug_mode(void) {
 void render_hud_coins(void) {
     char str[10];
     sprintf(str, "✪×%d", gHudDisplay.coins);
-    print_text(HUD_COINS_X, HUD_TOP_Y, str);
+    print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(260), 210, str, TEXT_ALIGN_RIGHT);
 }
 
 /**
@@ -482,7 +482,7 @@ void render_hud_timer(void) {
     else
         sprintf(str, "%0d'%02d\"%02d", timerMins, timerSecs, timerFracMSecs);
 
-    print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(28), 185, str, TEXT_ALIGN_RIGHT);
+    print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(20), 210, str, TEXT_ALIGN_RIGHT);
 }
 
 /**
@@ -583,12 +583,12 @@ void render_hud(void) {
             }    
         }
 
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
-            if (gIsPer == 0) {
-            gHudDisplay.stars = save_file_get_total_star_count(0, 0, 0);
-            render_hud_stars();
-            }
-        }
+        // if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
+        //     if (gIsPer == 0) {
+        //     gHudDisplay.stars = save_file_get_total_star_count(0, 0, 0);
+        //     render_hud_stars();
+        //     }
+        // }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
             render_hud_keys();
@@ -603,7 +603,9 @@ void render_hud(void) {
 #ifdef PUPPYCAM
             if (!gPuppyCam.enabled) {
 #endif
+        if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS && gIsPer == 0) {
             render_hud_camera_status();
+            }
 #ifdef PUPPYCAM
             }
 #endif
