@@ -46,3 +46,4 @@
 #include "china_pop/geo.inc.c"
 #include "closehit/geo.inc.c"
 #include "glassshard/geo.inc.c"
+#include "purplepipe/geo.inc.c"

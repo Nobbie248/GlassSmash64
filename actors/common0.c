@@ -104,3 +104,5 @@ UNUSED static const u64 binid_18 = 18;
 #include "closehit/model.inc.c"
 #include "closehit/collision.inc.c"
 #include "glassshard/model.inc.c"
+#include "purplepipe/collision.inc.c"
+#include "purplepipe/model.inc.c"

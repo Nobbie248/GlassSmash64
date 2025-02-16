@@ -458,7 +458,7 @@
 #define MODEL_CHINA_POP                   0XFC        // pop
 #define MODEL_CLOSE_HIT                   0XFD        // closehit
 #define MODEL_GLASS_SHARD                 0XFE        // glassshard
-
+#define MODEL_PURPLE_PIPE                 0x49        // warp pipe
 
 // find me
 #define MODEL_CANNON_BARREL               0x7F        // cannon_barrel_geo
