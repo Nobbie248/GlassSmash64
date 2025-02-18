@@ -28,3 +28,7 @@
 #include "pleaves/geo.inc.c"
 #include "leaves_p/geo.inc.c"
 #include "palmleaf/geo.inc.c"
+#include "PotPlant/geo.inc.c"
+#include "PotOrnate/geo.inc.c"
+#include "PotFlowerOrnate/geo.inc.c"
+#include "PotFloral/geo.inc.c"

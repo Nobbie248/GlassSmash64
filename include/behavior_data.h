@@ -571,6 +571,7 @@ extern const BehaviorScript bhvTarget[];
 extern const BehaviorScript bhvBounce[];
 extern const BehaviorScript bhvPileLeaves[];
 extern const BehaviorScript bhvLeafParticle[];
+extern const BehaviorScript bhvAztecPots[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H

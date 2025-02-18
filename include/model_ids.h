@@ -617,5 +617,9 @@
 #define MODEL_RED_MUSHROOM 0xC5 // Red Mushroom
 #define MODEL_LEAVES_PILE 0xC6 // Leaves
 #define MODEL_P_LEAVES 0xA9 // Leaves Particle
+#define MODEL_PLANT_POT 0x100
+#define MODEL_ORNATE_POT 0x101
+#define MODEL_FLOWER_ORNATE_POT 0x103
+#define MODEL_FLORAL_POT 0X104
 
 #endif // MODEL_IDS_H

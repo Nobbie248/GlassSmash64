@@ -268,6 +268,10 @@ void bhv_mario_update(void) {
         pauseinputscore();
     }
 
+    if (gCurrLevelNum == LEVEL_JRB) {
+        obj_set_model(gMarioState->marioObj, MODEL_MARIO);
+    }
+
     gGravityMode = gIsGravityFlipped;
 
     particleFlags = execute_mario_action(gCurrentObject);

@@ -118,6 +118,10 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_RED_MUSHROOM,            schoom_red_geo),
     LOAD_MODEL_FROM_GEO(MODEL_LEAVES_PILE,             pleaves_geo),
     LOAD_MODEL_FROM_GEO(MODEL_P_LEAVES,                leaves_p_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_PLANT_POT,               PotPlant_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_ORNATE_POT,              PotOrnate_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_FLOWER_ORNATE_POT,       PotFlowerOrnate_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_FLORAL_POT,              PotFloral_geo),
 #ifdef IA8_30FPS_COINS
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN,             silver_coin_geo),
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN_NO_SHADOW,   silver_coin_no_shadow_geo),

@@ -49,7 +49,7 @@ void check_and_spawn_star(void) {
     }
 
     if (gCurrLevelNum == LEVEL_JRB) {
-        if (gTotalBrokenObjects >= 30) {
+        if (gTotalBrokenObjects >= 31) {
             if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
             else if (slideTime < 2130) { award_star(0); award_star(1); }
             else if (slideTime < 2730) { award_star(0); }
@@ -72,6 +72,33 @@ void check_and_spawn_star(void) {
         play_sound(SOUND_OBJ_UKIKI_CHATTER_LONG, gGlobalSoundSource);
         gTotalBrokenObjects = 0;
         level_control_timer(TIMER_CONTROL_STOP);
+    }
+}
+
+#define MODEL_1 MODEL_PLANT_POT
+#define MODEL_2 MODEL_ORNATE_POT
+#define MODEL_3 MODEL_FLOWER_ORNATE_POT
+#define MODEL_4 MODEL_FLORAL_POT
+
+void bhv_pots_init(void) {
+    struct Object *obj = gCurrentObject;
+    if (gCurrLevelNum == LEVEL_JRB && obj->behavior == bhvAztecPots) {
+        u16 randVal = random_u16() % 4;
+
+        switch (randVal) {
+            case 0:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_1];
+                break;
+            case 1:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_2];
+                break;
+            case 2:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_3];
+                break;
+            case 3:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_4];
+                break;
+        }
     }
 }
 

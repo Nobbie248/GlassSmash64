@@ -53,3 +53,8 @@
 #include "leaves_p/model.inc.c"
 #include "palmleaf/model.inc.c"
 #include "palmleaf/collision.inc.c"
+#include "PotPlant/model.inc.c"
+#include "PotOrnate/model.inc.c"
+#include "PotFlowerOrnate/model.inc.c"
+#include "PotFloral/collision.inc.c"
+#include "PotFloral/model.inc.c"

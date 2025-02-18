@@ -374,4 +374,14 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "palmleaf/collision_header.h"
 
+#include "PotPlant/geo_header.h"
+
+#include "PotOrnate/geo_header.h"
+
+#include "PotFlowerOrnate/geo_header.h"
+
+#include "PotFloral/collision_header.h"
+
+#include "PotFloral/geo_header.h"
+
 #endif

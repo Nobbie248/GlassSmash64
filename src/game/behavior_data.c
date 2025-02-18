@@ -6398,13 +6398,19 @@ const BehaviorScript bhvLeafParticle[] = {
     END_LOOP(),
 };
 
-// const BehaviorScript bhvPalmLeaf[] = {
-//     BEGIN(OBJ_LIST_SURFACE),
-//     SET_FLOAT(oCollisionDistance, 3000),
-//     SET_FLOAT(oDrawingDistance, 30000),
-//     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-//     LOAD_COLLISION_DATA(palmleaf_collision),
-//     BEGIN_LOOP(),
-//     CALL_NATIVE(bhv_tilting_platform),
-//     END_LOOP(),
-// };
+const BehaviorScript bhvAztecPots[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 20000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(PotFloral_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 300, /*Downwards offset*/ 90),
+    CALL_NATIVE(bhv_pots_init),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_lantern_loop),
+    END_LOOP(),
+};
