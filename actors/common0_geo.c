@@ -47,3 +47,4 @@
 #include "closehit/geo.inc.c"
 #include "glassshard/geo.inc.c"
 #include "purplepipe/geo.inc.c"
+#include "crumblesb/geo.inc.c"

@@ -184,14 +184,15 @@ s32 render_textured_transition(u8 transTime, struct WarpTransitionData *transDat
     return set_and_reset_transition_fade_timer(transTime);
 }
 
+#define FADE_PADDING 32
 Vtx *vertex_transition_color() {
     Vtx *verts = alloc_display_list(4 * sizeof(Vtx));
 
     if (verts != NULL) {
-        make_simple_vertex(verts, 0, GFX_DIMENSIONS_FROM_LEFT_EDGE(0), 0, -1, 0, 0);
-        make_simple_vertex(verts, 1, GFX_DIMENSIONS_FROM_RIGHT_EDGE(0), 0, -1, 0, 0);
-        make_simple_vertex(verts, 2, GFX_DIMENSIONS_FROM_RIGHT_EDGE(0), SCREEN_HEIGHT, -1, 0, 0);
-        make_simple_vertex(verts, 3, GFX_DIMENSIONS_FROM_LEFT_EDGE(0), SCREEN_HEIGHT, -1, 0, 0);
+        make_simple_vertex(verts, 0, GFX_DIMENSIONS_FROM_LEFT_EDGE(0) - FADE_PADDING, -FADE_PADDING, -1, 0, 0);
+        make_simple_vertex(verts, 1, GFX_DIMENSIONS_FROM_RIGHT_EDGE(0) + FADE_PADDING, -FADE_PADDING, -1, 0, 0);
+        make_simple_vertex(verts, 2, GFX_DIMENSIONS_FROM_RIGHT_EDGE(0) + FADE_PADDING, SCREEN_HEIGHT + FADE_PADDING, -1, 0, 0);
+        make_simple_vertex(verts, 3, GFX_DIMENSIONS_FROM_LEFT_EDGE(0) - FADE_PADDING, SCREEN_HEIGHT + FADE_PADDING, -1, 0, 0);
     }
     return verts;
 }

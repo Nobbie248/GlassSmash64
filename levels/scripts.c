@@ -225,6 +225,7 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_GLASS_SHARD,             glassshard_geo),
     LOAD_MODEL_FROM_GEO(MODEL_TARGETS,                 target_geo),
     LOAD_MODEL_FROM_GEO(MODEL_PURPLE_PIPE,             purplepipe_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_CRUMBLESB,               crumblesb_geo),
     RETURN(),
 };
 

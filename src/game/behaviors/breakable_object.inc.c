@@ -50,9 +50,9 @@ void check_and_spawn_star(void) {
 
     if (gCurrLevelNum == LEVEL_JRB) {
         if (gTotalBrokenObjects >= 31) {
-            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2130) { award_star(0); award_star(1); }
-            else if (slideTime < 2730) { award_star(0); }
+            if (slideTime < 2730) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 3630) { award_star(0); award_star(1); }
+            else if (slideTime < 4530) { award_star(0); }
             shouldWin = 1;
         }
     }
@@ -194,6 +194,10 @@ void bhv_breakable_vase_loop(void) {
 
 void bhv_breakable_target_loop(void) {
     breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 2.0f);
+}
+
+void bhv_breakable_pot_loop(void) {
+    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLESB, 2.0f);
 }
 
 void convert_slide_time(s32 slideTime, char *buffer) {

@@ -6411,6 +6411,6 @@ const BehaviorScript bhvAztecPots[] = {
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
-        CALL_NATIVE(bhv_breakable_lantern_loop),
+        CALL_NATIVE(bhv_breakable_pot_loop),
     END_LOOP(),
 };
