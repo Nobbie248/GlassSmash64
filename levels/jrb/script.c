@@ -73,7 +73,7 @@ const LevelScript level_jrb_entry[] = {
 		OBJECT(MODEL_NONE, -739, 1793, 5656, 0, -19, 0, 0x00000000, bhvCS),
 		TERRAIN(jrb_area_1_collision),
 		MACRO_OBJECTS(jrb_area_1_macro_objs),
-		STOP_MUSIC(0),
+		SET_BACKGROUND_MUSIC(0x00, 0x2D),
 		TERRAIN_TYPE(TERRAIN_GRASS),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */

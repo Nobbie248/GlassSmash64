@@ -41,6 +41,8 @@ static void warpIfButtonPressed(int buttonPressed) {
 extern struct CreditsEntry *gCurrCreditsEntry;
 
 void bhv_cs_init(void) {
+    gHudDisplay.coins = 0;
+    gTotalBrokenObjects = 0;
     delayTimer = 0;
     gMarioState->numCoins = 0;
     countdownStage = 0;
