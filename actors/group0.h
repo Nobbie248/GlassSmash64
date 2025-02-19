@@ -384,4 +384,6 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "PotFloral/geo_header.h"
 
+#include "flamedl/header.h"
+
 #endif

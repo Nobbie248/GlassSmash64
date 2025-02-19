@@ -49,9 +49,14 @@ const LevelScript level_wf_entry[] = {
 	/* Fast64 end persistent block [level commands] */
 
 	AREA(1, wf_area_1),
-		OBJECT(MODEL_LEAVES_PILE, 2534, 2164, -4260, 0, 0, 0, 0x00000000, bhvPileLeaves),
-		OBJECT(MODEL_LEAVES_PILE, 2662, 2164, -5646, 0, 0, 0, 0x00000000, bhvPileLeaves),
-		OBJECT(MODEL_LEAVES_PILE, 3515, 2164, -5932, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		WARP_NODE(0x0A, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		WARP_NODE(0x02, LEVEL_WF, 0x02, 0x03, WARP_NO_CHECKPOINT),
+		WARP_NODE(0x03, LEVEL_WF, 0x01, 0x02, WARP_NO_CHECKPOINT),
+		OBJECT(MODEL_LEAVES_PILE, 2534, 1872, -4260, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 2662, 1983, -5646, 9, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 3515, 2066, -5932, 10, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, -2919, 1053, 724, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, -2619, 1053, 973, 0, 0, 0, 0x00000000, bhvPileLeaves),
 		MARIO_POS(0x01, 0, -3258, 491, 3582),
 		OBJECT(MODEL_RED_MUSHROOM, -869, 0, -13001, 0, 0, 0, 0x00000000, bhvBounce),
 		OBJECT(MODEL_BLUE_MUSHROOM, 2509, 0, 843, 0, 0, 0, 0x00000000, bhvBounce),
@@ -59,8 +64,21 @@ const LevelScript level_wf_entry[] = {
 		OBJECT(MODEL_BLUE_MUSHROOM, 5044, 0, -562, 0, 0, 0, 0x00000000, bhvBounce),
 		OBJECT(MODEL_RED_MUSHROOM, -1464, 0, 496, 0, 0, 0, 0x00000000, bhvBounce),
 		OBJECT(MODEL_RED_MUSHROOM, 223, 0, -14522, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_NONE, 580, 1701, -15786, 0, 0, 0, (0x02 << 16), bhvWarp),
+		OBJECT(MODEL_NONE, 1216, 1701, -15724, 0, 0, 0, (0x02 << 16), bhvWarp),
+		OBJECT(MODEL_NONE, 1904, 1701, -15550, 0, 0, 0, (0x02 << 16), bhvWarp),
 		TERRAIN(wf_area_1_collision),
 		MACRO_OBJECTS(wf_area_1_macro_objs),
+		STOP_MUSIC(0),
+		TERRAIN_TYPE(TERRAIN_GRASS),
+		/* Fast64 begin persistent block [area commands] */
+		/* Fast64 end persistent block [area commands] */
+	END_AREA(),
+
+	AREA(2, wf_area_2),
+		OBJECT(MODEL_NONE, 101, 1232, 0, 0, 0, 0, (0x03 << 16), bhvSpinAirborneWarp),
+		TERRAIN(wf_area_2_collision),
+		MACRO_OBJECTS(wf_area_2_macro_objs),
 		STOP_MUSIC(0),
 		TERRAIN_TYPE(TERRAIN_GRASS),
 		/* Fast64 begin persistent block [area commands] */

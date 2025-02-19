@@ -58,3 +58,4 @@
 #include "PotFlowerOrnate/model.inc.c"
 #include "PotFloral/collision.inc.c"
 #include "PotFloral/model.inc.c"
+#include "flamedl/model.inc.c"
