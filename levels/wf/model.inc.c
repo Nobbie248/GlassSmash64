@@ -1,6 +1,3 @@
-Lights1 wf_dl_f3dlite_material_009_lights = gdSPDefLights1(
-	0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x49, 0x49, 0x49);
 
 Gfx wf_dl_plank_ci4_aligner[] = {gsSPEndDisplayList()};
 u8 wf_dl_plank_ci4[] = {
@@ -7973,7 +7970,8 @@ Gfx mat_wf_dl_f3dlite_material_009[] = {
 	gsSPSetGeometryMode(G_CULL_FRONT),
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsSPSetLights1(wf_dl_f3dlite_material_009_lights),
+    gsSPLightColor(LIGHT_1, 0xff),
+    gsSPLightColor(LIGHT_2, 0xff),
 	gsSPEndDisplayList(),
 };
 

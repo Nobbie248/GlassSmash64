@@ -67,6 +67,7 @@ const LevelScript level_wf_entry[] = {
 		OBJECT(MODEL_NONE, 580, 1701, -15786, 0, 0, 0, (0x02 << 16), bhvWarp),
 		OBJECT(MODEL_NONE, 1216, 1701, -15724, 0, 0, 0, (0x02 << 16), bhvWarp),
 		OBJECT(MODEL_NONE, 1904, 1701, -15550, 0, 0, 0, (0x02 << 16), bhvWarp),
+		OBJECT(MODEL_NONE, -739, 1793, 5656, 0, -19, 0, 0x00000000, bhvCS),
 		TERRAIN(wf_area_1_collision),
 		MACRO_OBJECTS(wf_area_1_macro_objs),
 		STOP_MUSIC(0),
