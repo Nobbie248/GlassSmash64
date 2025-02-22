@@ -107,7 +107,9 @@ void scroll_gfx_bob_dl_ground_001_mesh_layer_5() {
 	Gfx *mat = segmented_to_virtual(bob_dl_ground_001_mesh_layer_5);
 
 
-	shift_t(mat, 18, PACK_TILESIZE(0, 1));
+
+	shift_t(mat, 17, PACK_TILESIZE(0, 1));
+	shift_t(mat, 33, PACK_TILESIZE(0, 1));
 	shift_s(mat, 47, PACK_TILESIZE(0, 1));
 
 };

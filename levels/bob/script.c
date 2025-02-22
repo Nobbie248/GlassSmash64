@@ -14,10 +14,6 @@
 #include "actors/common0.h"
 #include "actors/common1.h"
 #include "actors/group0.h"
-
-/* Fast64 begin persistent block [includes] */
-/* Fast64 end persistent block [includes] */
-
 #include "make_const_nonconst.h"
 #include "levels/bob/header.h"
 
@@ -35,12 +31,13 @@ const LevelScript level_bob_entry[] = {
 	LOAD_YAY0(0x06, _group17_yay0SegmentRomStart, _group17_yay0SegmentRomEnd), 
 	LOAD_RAW(0x0D, _group17_geoSegmentRomStart, _group17_geoSegmentRomEnd), 
 	LOAD_YAY0(0xb, _effect_yay0SegmentRomStart, _effect_yay0SegmentRomEnd), 
+	LOAD_MIO0(0x7, _bob_segment_7SegmentRomStart, _bob_segment_7SegmentRomEnd), 
+	LOAD_MIO0(0xb, _effect_mio0SegmentRomStart, _effect_mio0SegmentRomEnd), 
 	ALLOC_LEVEL_POOL(),
 	MARIO(MODEL_MARIO, 0x00000001, bhvMario), 
 	JUMP_LINK(script_func_global_1), 
 	JUMP_LINK(script_func_global_5), 
 	JUMP_LINK(script_func_global_18), 
-
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
 
@@ -56,6 +53,11 @@ const LevelScript level_bob_entry[] = {
 		WARP_NODE(6, LEVEL_BOB, 1, 5, WARP_NO_CHECKPOINT),
 		WARP_NODE(5, LEVEL_BOB, 1, 6, WARP_NO_CHECKPOINT),
 		WARP_NODE(10, LEVEL_CASTLE_GROUNDS, 1, 10, WARP_NO_CHECKPOINT),
+		MARIO_POS(1, 90, -4476, 203, 1324),
+		OBJECT(0, -4416, 100, 1355, 0, 90, 0, 0xe0000, bhvAirborneWarp),
+		OBJECT(0, -4416, 100, 1344, 0, 90, 0, 0xa0000, bhvSpinAirborneWarp),
+		OBJECT(0, 1062, 34, 6266, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
+		OBJECT(0, -4355, 34, -2578, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
 		OBJECT(MODEL_NONE, 2046, 1079, 0, 0, 0, 0, 0x00000000, bhvCS),
 		OBJECT(MODEL_GLASS, 3205, 396, 327, 0, 0, 0, 0x00000000, bhvGlass),
 		OBJECT(MODEL_GLASS, 3205, 396, 1911, 0, 0, 0, 0x00000000, bhvGlass),
@@ -75,11 +77,6 @@ const LevelScript level_bob_entry[] = {
 		OBJECT(MODEL_LANTERN, 2052, 819, -1902, 0, -120, 0, 0x00000000, bhvLantern),
 		OBJECT(MODEL_LANTERN, 2496, 1004, -2658, 0, -120, 0, 0x00000000, bhvLantern),
 		OBJECT(MODEL_LANTERN, 2962, 1315, -3451, 0, -120, 0, 0x00000000, bhvLantern),
-		MARIO_POS(1, 90, -4476, 203, 1324),
-		OBJECT(0, -4416, 100, 1355, 0, 90, 0, 0xe0000, bhvAirborneWarp),
-		OBJECT(0, -4416, 100, 1344, 0, 90, 0, 0xa0000, bhvSpinAirborneWarp),
-		OBJECT(0, 1062, 34, 6266, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
-		OBJECT(0, -4355, 34, -2578, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
 		OBJECT(MODEL_STATUE, 3045, 234, 715, 0, -180, 0, 0x00000000, bhvStatue),
 		OBJECT(MODEL_STATUE, 3045, 234, 1532, 0, -180, 0, 0x00000000, bhvStatue),
 		OBJECT(MODEL_STATUE, -968, 1323, 2662, 0, 0, 0, 0x00000000, bhvStatue),
@@ -99,7 +96,6 @@ const LevelScript level_bob_entry[] = {
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
-
 	FREE_LEVEL_POOL(),
 	MARIO_POS(1, 90, -4476, 203, 1324),
 	CALL(0, lvl_init_or_update),
