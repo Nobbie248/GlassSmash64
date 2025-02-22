@@ -4,7 +4,6 @@
 #include "engine/math_util.h"
 #include "src/engine/behavior_script.h"
 #include "tile_scroll.h"
-#include "texscroll.h"
 
 #ifdef TARGET_N64
 #define SCROLL_CONDITION(condition) condition
@@ -18,7 +17,6 @@
 #include "src/game/texscroll/jrb_texscroll.inc.c"
 #include "src/game/texscroll/bits_texscroll.inc.c"
 #include "src/game/texscroll/bbh_texscroll.inc.c"
-#include "src/game/texscroll/ccm_texscroll.inc.c"
 #include "src/game/texscroll/bowser_3_texscroll.inc.c"
 #include "src/game/texscroll/pss_texscroll.inc.c"
 #include "src/game/texscroll/sa_texscroll.inc.c"
@@ -45,9 +43,9 @@ void scroll_textures() {
 		scroll_textures_bbh();
 	}
 
-	if(SCROLL_CONDITION(sSegmentROMTable[0x7] == (uintptr_t)_ccm_segment_7SegmentRomStart)) {
-		scroll_textures_ccm();
-	}
+	// if(SCROLL_CONDITION(sSegmentROMTable[0x7] == (uintptr_t)_ccm_segment_7SegmentRomStart)) {
+	// 	scroll_textures_ccm();
+	// }
 
 	if(SCROLL_CONDITION(sSegmentROMTable[0x7] == (uintptr_t)_bowser_3_segment_7SegmentRomStart)) {
 		scroll_textures_bowser_3();

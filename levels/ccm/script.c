@@ -13,10 +13,6 @@
 
 #include "actors/common0.h"
 #include "actors/common1.h"
-
-/* Fast64 begin persistent block [includes] */
-/* Fast64 end persistent block [includes] */
-
 #include "make_const_nonconst.h"
 #include "levels/ccm/header.h"
 
@@ -40,26 +36,33 @@ const LevelScript level_ccm_entry[] = {
 	JUMP_LINK(script_func_global_6), 
 	JUMP_LINK(script_func_global_18), 
 	JUMP_LINK(script_func_vo_bob), 
-	LOAD_MODEL_FROM_GEO(MODEL_SSL_PALM_TREE, palm_tree_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_C4_RIPPLE, c4_ripple_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_C4_PLATFORM, c4_platform_geo), 
-	LOAD_MODEL_FROM_GEO(MODEL_GEM_STAR, gem_star_purple_geo), 
-
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
 
 	AREA(1, ccm_area_1),
-		MARIO_POS(0x01, 0, -1468, 1159, 1410),
+		WARP_NODE(241, LEVEL_CASTLE_GROUNDS, 1, 32, WARP_NO_CHECKPOINT),
+		WARP_NODE(240, LEVEL_CASTLE_GROUNDS, 1, 31, WARP_NO_CHECKPOINT),
+		WARP_NODE(25, LEVEL_CCM, 1, 26, WARP_NO_CHECKPOINT),
+		WARP_NODE(26, LEVEL_CCM, 1, 25, WARP_NO_CHECKPOINT),
+		WARP_NODE(24, LEVEL_CCM, 1, 23, WARP_NO_CHECKPOINT),
+		WARP_NODE(23, LEVEL_CCM, 1, 24, WARP_NO_CHECKPOINT),
+		WARP_NODE(19, LEVEL_CCM, 2, 18, WARP_NO_CHECKPOINT),
+		WARP_NODE(33, LEVEL_CCM, 2, 10, WARP_NO_CHECKPOINT),
+		WARP_NODE(3, LEVEL_CCM, 1, 4, WARP_NO_CHECKPOINT),
+		WARP_NODE(4, LEVEL_CCM, 1, 3, WARP_NO_CHECKPOINT),
+		WARP_NODE(10, LEVEL_CCM, 1, 0, WARP_NO_CHECKPOINT),
+		MARIO_POS(0x01, 0, -10297, 5950, 21386),
+		OBJECT(0, -10297, 5950, 21386, 0, 0, 0, 0xa0000, bhvSpinAirborneWarp),
+		OBJECT(MODEL_NONE, 3798, 1793, 11526, 0, -19, 0, 0x00000000, bhvCS),
 		TERRAIN(ccm_area_1_collision),
 		MACRO_OBJECTS(ccm_area_1_macro_objs),
-		STOP_MUSIC(0),
-		TERRAIN_TYPE(TERRAIN_GRASS),
+		SET_BACKGROUND_MUSIC(0x00, 0x2E),
+		TERRAIN_TYPE(TERRAIN_SAND),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
-
 	FREE_LEVEL_POOL(),
-	MARIO_POS(0x01, 0, -1468, 1159, 1410),
+	MARIO_POS(0x01, 0, -10297, 5950, 21386),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),
