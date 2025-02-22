@@ -690,12 +690,14 @@ void geo_process_cull(struct GraphNodeCull* node)
         {
             active = !(node->style & 4);
         }
-
+        
         if (node->style & 16)
         {
             active = 0;
+        
         }
-    }
+        }
+    
 
     if ((active ^ (1 & node->style)) && node->node.children != 0) {
         geo_process_node_and_siblings(node->node.children);

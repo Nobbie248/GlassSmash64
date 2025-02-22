@@ -62,9 +62,9 @@ void bhv_cs_loop(void) {
 
     switch (gCurrCourseNum) {
         case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; print_text(30, 40, "Chinese Village"); break;
-        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2;  break;
-        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; break;
-        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; break;
+        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; print_text(30, 40, "Jungle Cavern"); break;
+        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; print_text(30, 40, "Aztec Ruins"); break;
+        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; print_text(30, 40, "Synthwave Waters"); break;
     }
 
     if (gBorderHeight < 33) gBorderHeight++;

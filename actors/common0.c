@@ -107,3 +107,4 @@ UNUSED static const u64 binid_18 = 18;
 #include "purplepipe/collision.inc.c"
 #include "purplepipe/model.inc.c"
 #include "crumblesb/model.inc.c"
+#include "PotFloral/collision.inc.c"
