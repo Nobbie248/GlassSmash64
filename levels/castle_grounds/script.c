@@ -14,10 +14,6 @@
 #include "actors/common0.h"
 #include "actors/common1.h"
 #include "actors/group0.h"
-
-/* Fast64 begin persistent block [includes] */
-/* Fast64 end persistent block [includes] */
-
 #include "make_const_nonconst.h"
 #include "levels/castle_grounds/header.h"
 
@@ -51,7 +47,6 @@ const LevelScript level_castle_grounds_entry[] = {
 	LOAD_MODEL_FROM_GEO(MODEL_GEM_PURPLE, gem_purple_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_GEM_RED, gem_red_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_CASTLE_JABO, jabo_geo), 
-
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
 
@@ -78,6 +73,7 @@ const LevelScript level_castle_grounds_entry[] = {
 		WARP_NODE(16, LEVEL_WF, 1, 10, WARP_NO_CHECKPOINT),
 		WARP_NODE(22, LEVEL_SA, 1, 10, WARP_NO_CHECKPOINT),
 		WARP_NODE(1, LEVEL_SA, 1, 10, WARP_NO_CHECKPOINT),
+		MARIO_POS(0x01, 0, 0, 0, 0),
 		OBJECT(0, 0, 2110, 0, 0, 48, 0, 0x60000, bhvAirborneDeathWarp),
 		OBJECT(0, 0, 2110, 0, 0, -55, 0, 0x40000, bhvAirborneDeathWarp),
 		OBJECT(0, 0, 2110, 0, 0, -90, 0, 0x80000, bhvAirborneDeathWarp),
@@ -89,19 +85,19 @@ const LevelScript level_castle_grounds_entry[] = {
 		OBJECT(0, 0, 2110, 0, 0, -180, 0, 0x250000, bhvDeathWarp),
 		OBJECT(0, 0, 2110, 0, 0, -180, 0, 0x260000, bhvDeathWarp),
 		OBJECT(0, 0, 2493, 0, 0, 0, 0, 0x2c1e00, bhvFadingWarp),
-		MARIO_POS(0x01, 0, 0, 0, 0),
 		OBJECT(0, 0, 0, 0, 0, -180, 0, 0xa0000, bhvSpinAirborneWarp),
 		OBJECT(MODEL_PURPLE_PIPE, -953, 0, 2035, 0, 136, 0, 0xe0000, bhvWarpPipe),
 		OBJECT(MODEL_PURPLE_PIPE, 956, 0, 4322, 0, -39, 0, 0x100000, bhvWarpPipe),
+		OBJECT(MODEL_PURPLE_PIPE, -952, 0, 6126, 0, 0, 0, 0x110000, bhvWarp),
 		OBJECT(0, 0, 2493, 654, 0, -90, 0, 0xd0000, bhvWarp),
 		OBJECT(0, 0, 2493, 654, 0, 0, 0, 0x120000, bhvWarp),
 		OBJECT(0, 0, 2493, 654, 0, 136, 0, (22 << 16), bhvDeathWarp),
+		OBJECT(MODEL_NONE, 0, 124, -331, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
 		OBJECT(MODEL_TARGETS, 1201, 325, -260, 0, 0, 90, 0, bhvTarget),
 		OBJECT(MODEL_TARGETS, 1201, 325, 573, 0, 0, 90, 0, bhvTarget),
 		OBJECT(MODEL_TARGETS, -1211, 645, 573, 0, 0, 0, 0, bhvTarget),
 		OBJECT(MODEL_TARGETS, -1211, 130, -255, 0, 0, 0, 0, bhvTarget),
 		OBJECT(MODEL_TOAD, 0, 0, -1517, 0, 0, 0, 0x52000000, bhvToadMessage),
-		OBJECT(MODEL_NONE, 0, 124, -331, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
 		TERRAIN(castle_grounds_area_1_collision),
 		MACRO_OBJECTS(castle_grounds_area_1_macro_objs),
 		SET_BACKGROUND_MUSIC(0x00, 0x2b),
@@ -109,7 +105,6 @@ const LevelScript level_castle_grounds_entry[] = {
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
-
 	FREE_LEVEL_POOL(),
 	MARIO_POS(0x01, 0, 0, 0, 0),
 	CALL(0, lvl_init_or_update),

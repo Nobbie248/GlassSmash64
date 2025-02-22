@@ -245,4 +245,6 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "crumblesb/geo_header.h"
 
+#include "PotFloral/collision_header.h"
+
 #endif
