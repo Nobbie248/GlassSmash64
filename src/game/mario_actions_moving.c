@@ -514,8 +514,19 @@ s32 begin_braking_action(struct MarioState *m) {
 
     if (m->forwardVel >= 16.0f && m->floor->normal.y >= COS80) {
         return set_mario_action(m, ACT_BRAKING, 0);
+        if (gPlayer1Controller->buttonPressed & L_TRIG) {
+            if (lTrigCooldown == 0) {
+            spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+            spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
+            play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+            lTrigCooldown = 8;
+            }
+        }
+    
+        if (lTrigCooldown > 0) {
+            lTrigCooldown--;
+        }    
     }
-
     return set_mario_action(m, ACT_DECELERATING, 0);
 }
 
@@ -764,24 +775,19 @@ s32 act_walking(struct MarioState *m) {
     // Static variable to track the cooldown
 
 
-// Check if L_TRIG is pressed
-if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    if (lTrigCooldown == 0) {
+    // Check if L_TRIG is pressed
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        if (lTrigCooldown == 0) {
         spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
         spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
-        lTrigCooldown = 12;
+        lTrigCooldown = 8;
+        }
     }
-}
 
-// Decrement the cooldown counter each frame
-if (lTrigCooldown > 0) {
-    lTrigCooldown--;
-}
-
-
-
-
+    if (lTrigCooldown > 0) {
+        lTrigCooldown--;
+    }    
 
     mario_drop_held_object(m);
 
@@ -1019,6 +1025,19 @@ s32 act_finish_turning_around(struct MarioState *m) {
         return set_jumping_action(m, ACT_SIDE_FLIP, 0);
     }
 
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        if (lTrigCooldown == 0) {
+        spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+        lTrigCooldown = 8;
+        }
+    }
+
+    if (lTrigCooldown > 0) {
+        lTrigCooldown--;
+    }    
+
 #ifdef RESET_DIRECTION_WHEN_TURNING_AROUND
     if (analog_stick_held_back(m)) {
         return set_mario_action(m, ACT_TURNING_AROUND, 0);
@@ -1055,10 +1074,23 @@ s32 act_braking(struct MarioState *m) {
             & (INPUT_NONZERO_ANALOG | INPUT_A_PRESSED | INPUT_OFF_FLOOR | INPUT_ABOVE_SLIDE))) {
         return check_common_action_exits(m);
     }
-
+    
     if (apply_slope_decel(m, 2.0f)) {
         return set_mario_action(m, ACT_BRAKING_STOP, 0);
     }
+
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        if (lTrigCooldown == 0) {
+        spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+        lTrigCooldown = 8;
+        }
+    }
+
+    if (lTrigCooldown > 0) {
+        lTrigCooldown--;
+    }    
 
     if (m->input & INPUT_B_PRESSED) {
         return set_mario_action(m, ACT_MOVE_PUNCHING, 0);
@@ -1108,6 +1140,19 @@ s32 act_decelerating(struct MarioState *m) {
             return set_mario_action(m, ACT_CROUCH_SLIDE, 0);
         }
     }
+
+    if (gPlayer1Controller->buttonPressed & L_TRIG) {
+        if (lTrigCooldown == 0) {
+        spawn_object_relative(0, 0, 50, 100, m->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+        spawn_object_relative(0, 0, 0, -110, m->marioObj, MODEL_BRICK, bhvBrick);
+        play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
+        lTrigCooldown = 8;
+        }
+    }
+
+    if (lTrigCooldown > 0) {
+        lTrigCooldown--;
+    }    
 
     if (update_decelerating_speed(m)) {
         return set_mario_action(m, ACT_IDLE, 0);

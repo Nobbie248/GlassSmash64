@@ -386,4 +386,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "flamedl/header.h"
 
+#include "mask/geo_header.h"
+
+#include "mask_hitbox/collision_header.h"
+
 #endif

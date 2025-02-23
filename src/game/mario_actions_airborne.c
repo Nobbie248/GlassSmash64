@@ -693,7 +693,7 @@ s32 act_side_flip(struct MarioState *m) {
     }
 
     if (gPlayer1Controller->buttonPressed & L_TRIG) {
-    if (lTrigCooldown == 0) {
+        if (lTrigCooldown == 0) {
         spawn_object_relative(0, 0, 0, 0, m->marioObj, MODEL_BRICK, bhvBrick2);
         play_sound(SOUND_ACTION_THROW, gGlobalSoundSource);
         lTrigCooldown = 12;
