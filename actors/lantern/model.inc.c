@@ -413,9 +413,10 @@ Gfx lantern_Icosphere_mesh_layer_1_tri_1[] = {
 
 
 Gfx mat_lantern_f3dlite_material_002[] = {
+	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0),
-	gsSPClearGeometryMode(G_LIGHTING),
+	gsDPSetAlphaDither(G_AD_NOISE),
 	gsDPSetTextureLUT(G_TT_RGBA16),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, lantern_lantern_pal_rgba16),
@@ -430,16 +431,18 @@ Gfx mat_lantern_f3dlite_material_002[] = {
 };
 
 Gfx mat_revert_lantern_f3dlite_material_002[] = {
-	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsDPSetTextureLUT(G_TT_NONE),
 	gsSPEndDisplayList(),
 };
 
 Gfx mat_lantern_f3dlite_material_026[] = {
+	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0),
-	gsSPClearGeometryMode(G_LIGHTING),
+	gsDPSetAlphaDither(G_AD_NOISE),
 	gsDPSetTextureLUT(G_TT_RGBA16),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, lantern_lantern2_pal_rgba16),
@@ -454,8 +457,9 @@ Gfx mat_lantern_f3dlite_material_026[] = {
 };
 
 Gfx mat_revert_lantern_f3dlite_material_026[] = {
-	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsDPSetTextureLUT(G_TT_NONE),
 	gsSPEndDisplayList(),
 };

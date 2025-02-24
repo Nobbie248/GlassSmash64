@@ -247,4 +247,30 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "PotFloral/collision_header.h"
 
+#include "saver/geo_header.h"
+
+#include "oogabooga2/geo_header.h"
+
+#include "oogabooga/geo_header.h"
+
+#include "diamond/geo_header.h"
+
+#include "chest/geo_header.h"
+
+#include "bottle/geo_header.h"
+
+#include "barrel/geo_header.h"
+
+#include "ball/geo_header.h"
+
+#include "ball_saver_particle/geo_header.h"
+
+#include "bottle_particle/geo_header.h"
+
+#include "chest_barrel_particle/geo_header.h"
+
+#include "diamond_particle/geo_header.h"
+
+#include "kite/geo_header.h"
+
 #endif

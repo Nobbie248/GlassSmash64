@@ -570,6 +570,11 @@ void bhv_breakable_leaves_loop(void);
 void bhv_falling_leaf_particle(void);
 void bhv_pots_init(void);
 void bhv_breakable_pot_loop(void);
+void bhv_breakable_ball_saver_loop(void);
+void bhv_breakable_barrel_chest_loop(void);
+void bhv_breakable_diamond_loop(void);
+void bhv_breakable_oogaboogas_loop(void);
+void bhv_breakable_bottle_loop(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 

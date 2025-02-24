@@ -606,9 +606,8 @@
 #define MODEL_GEM_BLUE 0xf7
 #define MODEL_GEM_RED 0xf8
 #define MODEL_GEM_PURPLE 0xf9
-
-// Can be only one of the 4 gems per course
 #define MODEL_GEM_STAR 0xfa
+
 #define MODEL_H_MARIO 0xEF // Hammer Mario for Attack
 #define MODEL_D_MARIO 0xff // Hammer Mario dive
 #define MODEL_TARGETS 0xAB // Training Targets
@@ -622,4 +621,19 @@
 #define MODEL_FLOWER_ORNATE_POT 0x103
 #define MODEL_FLORAL_POT 0X104
 #define MODEL_CRUMBLESB 0X105
+// jacks
+#define MODEL_BALL 0x106
+#define MODEL_BARREL 0x107
+#define MODEL_BOTTLE 0x108
+#define MODEL_DIAMOND 0x109
+#define MODEL_SAVER 0x110
+#define MODEL_OOGABOOGA 0x111
+#define MODEL_OOGABOOGA2 0X112
+#define MODEL_CHEST 0X113
+#define MODEL_KITE 0X114
+// jacks particles
+#define MODEL_CHEST_BARREL_PARTICLE 0x115
+#define MODEL_BOTTLE_PARTICLE 0x116
+#define MODEL_BALL_SAVER_PARTICLE 0X117
+#define MODEL_DIAMOND_PARTICLE 0X118
 #endif // MODEL_IDS_H

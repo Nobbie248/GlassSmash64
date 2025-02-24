@@ -1,0 +1,14 @@
+extern const GeoLayout chest_geo[];
+extern u8 chest__auto_122_ci8[];
+extern u8 chest__auto_122_pal_rgba16[];
+extern u8 chest_metal23_i8[];
+extern Vtx chest_chest_mesh_layer_1_vtx_cull[8];
+extern Vtx chest_chest_mesh_layer_1_vtx_0[82];
+extern Gfx chest_chest_mesh_layer_1_tri_0[];
+extern Vtx chest_chest_mesh_layer_1_vtx_1[227];
+extern Gfx chest_chest_mesh_layer_1_tri_1[];
+extern Gfx mat_chest_f3dlite_material_007[];
+extern Gfx mat_revert_chest_f3dlite_material_007[];
+extern Gfx mat_chest_f3dlite_material_008[];
+extern Gfx mat_revert_chest_f3dlite_material_008[];
+extern Gfx chest_chest_mesh_layer_1[];

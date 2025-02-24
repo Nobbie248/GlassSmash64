@@ -1814,24 +1814,11 @@ chan_setbank 9
 chan_setinstr 3
 chan_setenvelope .envelope_3368
 chan_setlayer 0, .layer_AD8
-chan_setlayer 1, .layer_AD6
-chan_setlayer 2, .layer_AD4
 chan_end
 
-.layer_AD4:
-layer_delay 0x4
-
-.layer_AD6:
-layer_delay 0x4
-
 .layer_AD8:
-layer_transpose 24
-.layer_ADA:
-layer_portamento 0x85, 32, 40
-layer_note1 39, 0x9, 100
-layer_note1 44, 0x6, 50
-layer_note1 51, 0x3, 20
-layer_jump .layer_ADA
+layer_note1 39, 0x150, 127
+layer_end
 
 .sound_moving_riding_shell_default:
 chan_setbank 3
@@ -5186,7 +5173,7 @@ chan_setlayer 0, .layer_2061
 chan_end
 
 .layer_2061:
-layer_note1 39, 0xd2, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_cannon2:
@@ -5196,7 +5183,7 @@ chan_setlayer 0, .layer_206E
 chan_end
 
 .layer_206E:
-layer_note1 39, 0xd2, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_cannon3:
@@ -5206,7 +5193,7 @@ chan_setlayer 0, .layer_207B
 chan_end
 
 .layer_207B:
-layer_note1 39, 0x24, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_piranha_plant_bite:
@@ -5348,7 +5335,7 @@ chan_setlayer 0, .layer_2142
 chan_end
 
 .layer_2142:
-layer_note1 39, 0x68, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_bully_walk:
@@ -5495,7 +5482,7 @@ chan_setlayer 0, .layer_2231
 chan_end
 
 .layer_2231:
-layer_note1 48, 0x55, 127
+layer_note1 39, 0x150, 127
 layer_end
 
 .sound_obj_dying_enemy2:
