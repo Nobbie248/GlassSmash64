@@ -200,6 +200,26 @@ void bhv_breakable_pot_loop(void) {
     breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLESB, 2.0f);
 }
 
+void bhv_breakable_ball_saver_loop(void) {
+    breakable_object_behavior_loop(SOUND_GENERAL_RACE_GUN_SHOT, MODEL_BALL_SAVER_PARTICLE, 2.0f);
+}
+
+void bhv_breakable_barrel_chest_loop(void) {
+    breakable_object_behavior_loop(SOUND_OBJ_CANNON_BARREL_PITCH, MODEL_CHEST_BARREL_PARTICLE, 2.0f);
+}
+
+void bhv_breakable_diamond_loop(void) {
+    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_DIAMOND_PARTICLE, 2.0f);
+}
+
+void bhv_breakable_oogaboogas_loop(void) {
+    breakable_object_behavior_loop(SOUND_OBJ_CANNON_BARREL_PITCH, MODEL_CHEST_BARREL_PARTICLE, 1.0f);
+}
+
+void bhv_breakable_bottle_loop(void) {
+    breakable_object_behavior_loop(SOUND_GENERAL_BREAK_BOX, MODEL_BOTTLE_PARTICLE, 2.0f);
+}
+
 void convert_slide_time(s32 slideTime, char *buffer) {
     s32 totalSeconds = slideTime / 30;
     

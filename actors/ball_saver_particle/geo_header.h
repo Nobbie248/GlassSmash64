@@ -1,0 +1,8 @@
+extern const GeoLayout ball_saver_particle_geo[];
+extern u8 ball_saver_particle_sky_plain_i8[];
+extern Vtx ball_saver_particle_ball_saver_particle_mesh_layer_1_vtx_cull[8];
+extern Vtx ball_saver_particle_ball_saver_particle_mesh_layer_1_vtx_0[8];
+extern Gfx ball_saver_particle_ball_saver_particle_mesh_layer_1_tri_0[];
+extern Gfx mat_ball_saver_particle_f3dlite_material_001[];
+extern Gfx mat_revert_ball_saver_particle_f3dlite_material_001[];
+extern Gfx ball_saver_particle_ball_saver_particle_mesh_layer_1[];

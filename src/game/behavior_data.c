@@ -6389,7 +6389,6 @@ const BehaviorScript bhvPileLeaves[] = {
     END_LOOP(),
 };
 
-
 const BehaviorScript bhvLeafParticle[] = {
     BEGIN(OBJ_LIST_GENACTOR),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
@@ -6412,5 +6411,73 @@ const BehaviorScript bhvAztecPots[] = {
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_pot_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBallsaver[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_breakable_ball_saver_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBottle[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_breakable_bottle_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvChestbarrel[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(PotFloral_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_barrel_chest_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvOogaboogas[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_breakable_oogaboogas_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvDiamond[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_breakable_diamond_loop),
     END_LOOP(),
 };

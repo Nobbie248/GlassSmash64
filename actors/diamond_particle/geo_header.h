@@ -1,0 +1,10 @@
+extern const GeoLayout diamond_particle_geo[];
+extern Lights1 diamond_particle_f3dlite_material_011_lights;
+extern u8 diamond_particle_skyfc_ci4[];
+extern u8 diamond_particle_skyfc_pal_rgba16[];
+extern Vtx diamond_particle_diamond_particle_mesh_layer_5_vtx_cull[8];
+extern Vtx diamond_particle_diamond_particle_mesh_layer_5_vtx_0[12];
+extern Gfx diamond_particle_diamond_particle_mesh_layer_5_tri_0[];
+extern Gfx mat_diamond_particle_f3dlite_material_011[];
+extern Gfx mat_revert_diamond_particle_f3dlite_material_011[];
+extern Gfx diamond_particle_diamond_particle_mesh_layer_5[];

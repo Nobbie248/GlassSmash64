@@ -398,7 +398,7 @@ enum SoundBank {
 #define SOUND_OBJ_THWOMP                         /* 0x500CA081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x0C, 0xA0, SOUND_DISCRETE)
 #define SOUND_OBJ_CANNON_RISE                    /* 0x500DF081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x0D, 0xF0, SOUND_DISCRETE) // unverified
 #define SOUND_OBJ_CANNON_TURN                    /* 0x500EF081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x0E, 0xF0, SOUND_DISCRETE) // unverified
-#define SOUND_OBJ_CANNON_BARREL_PITCH            /* 0x500FF081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x0F, 0xF0, SOUND_DISCRETE) // unverified
+#define SOUND_OBJ_CANNON_BARREL_PITCH            /* 0x500FF081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x0F, 0x80, SOUND_DISCRETE) // unverified
 #define SOUND_OBJ_JUMP_WALK_WATER                /* 0x50120001 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x12, 0x00, 0) // unverified, unused
 #define SOUND_OBJ_BOMP_SLIDE                     /* 0x50130081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x13, 0x00, SOUND_DISCRETE) // unverified
 #define SOUND_OBJ_MRI_DEATH                      /* 0x50140081 */ SOUND_ARG_LOAD(SOUND_BANK_OBJ,      0x14, 0x00, SOUND_DISCRETE)

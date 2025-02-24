@@ -1,0 +1,9 @@
+extern const GeoLayout chest_barrel_particle_geo[];
+extern u8 chest_barrel_particle__19E763D603106FE29AD4BD3A423C1B00_ci8[];
+extern u8 chest_barrel_particle__19E763D603106FE29AD4BD3A423C1B00_pal_rgba16[];
+extern Vtx chest_barrel_particle_chest_barrel_particle_mesh_layer_1_vtx_cull[8];
+extern Vtx chest_barrel_particle_chest_barrel_particle_mesh_layer_1_vtx_0[8];
+extern Gfx chest_barrel_particle_chest_barrel_particle_mesh_layer_1_tri_0[];
+extern Gfx mat_chest_barrel_particle_f3dlite_material_004[];
+extern Gfx mat_revert_chest_barrel_particle_f3dlite_material_004[];
+extern Gfx chest_barrel_particle_chest_barrel_particle_mesh_layer_1[];

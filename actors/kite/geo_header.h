@@ -1,0 +1,15 @@
+extern const GeoLayout kite_geo[];
+extern u8 kite__5736BA6B_c_ci4[];
+extern u8 kite__5736BA6B_c_pal_rgba16[];
+extern u8 kite_balls2_ci8[];
+extern u8 kite_balls2_pal_rgba16[];
+extern Vtx kite_kite_mesh_layer_1_vtx_cull[8];
+extern Vtx kite_kite_mesh_layer_1_vtx_0[10];
+extern Gfx kite_kite_mesh_layer_1_tri_0[];
+extern Vtx kite_kite_mesh_layer_1_vtx_1[4];
+extern Gfx kite_kite_mesh_layer_1_tri_1[];
+extern Gfx mat_kite_f3dlite_material_002[];
+extern Gfx mat_revert_kite_f3dlite_material_002[];
+extern Gfx mat_kite_f3dlite_material_003[];
+extern Gfx mat_revert_kite_f3dlite_material_003[];
+extern Gfx kite_kite_mesh_layer_1[];
