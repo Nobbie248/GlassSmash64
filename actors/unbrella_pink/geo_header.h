@@ -1,0 +1,16 @@
+extern const GeoLayout unbrella_pink_geo[];
+extern Lights1 unbrella_pink_f3dlite_material_019_lights;
+extern u8 unbrella_pink__n_ci4[];
+extern u8 unbrella_pink__n_pal_rgba16[];
+extern u8 unbrella_pink_ddd_ci8[];
+extern u8 unbrella_pink_ddd_pal_rgba16[];
+extern Vtx unbrella_pink_unbrella_pink_mesh_layer_1_vtx_cull[8];
+extern Vtx unbrella_pink_unbrella_pink_mesh_layer_1_vtx_0[20];
+extern Gfx unbrella_pink_unbrella_pink_mesh_layer_1_tri_0[];
+extern Vtx unbrella_pink_unbrella_pink_mesh_layer_1_vtx_1[104];
+extern Gfx unbrella_pink_unbrella_pink_mesh_layer_1_tri_1[];
+extern Gfx mat_unbrella_pink_f3dlite_material_016[];
+extern Gfx mat_revert_unbrella_pink_f3dlite_material_016[];
+extern Gfx mat_unbrella_pink_f3dlite_material_019[];
+extern Gfx mat_revert_unbrella_pink_f3dlite_material_019[];
+extern Gfx unbrella_pink_unbrella_pink_mesh_layer_1[];

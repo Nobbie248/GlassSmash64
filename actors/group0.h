@@ -390,4 +390,6 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "mask_hitbox/collision_header.h"
 
+#include "light_beam/geo_header.h"
+
 #endif

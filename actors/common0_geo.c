@@ -61,3 +61,5 @@
 #include "chest_barrel_particle/geo.inc.c"
 #include "diamond_particle/geo.inc.c"
 #include "kite/geo.inc.c"
+#include "unbrella_pink/geo.inc.c"
+#include "unbrella_blue/geo.inc.c"

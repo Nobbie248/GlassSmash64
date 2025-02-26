@@ -33,3 +33,4 @@
 #include "PotFlowerOrnate/geo.inc.c"
 #include "PotFloral/geo.inc.c"
 #include "mask/geo.inc.c"
+#include "light_beam/geo.inc.c"
