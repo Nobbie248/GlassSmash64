@@ -1,0 +1,15 @@
+extern const GeoLayout unbrella_blue_geo[];
+extern u8 unbrella_blue__n_ci4[];
+extern u8 unbrella_blue__n_pal_rgba16[];
+extern u8 unbrella_blue_aads_ci8[];
+extern u8 unbrella_blue_aads_pal_rgba16[];
+extern Vtx unbrella_blue_unbrella_blue_mesh_layer_1_vtx_cull[8];
+extern Vtx unbrella_blue_unbrella_blue_mesh_layer_1_vtx_0[20];
+extern Gfx unbrella_blue_unbrella_blue_mesh_layer_1_tri_0[];
+extern Vtx unbrella_blue_unbrella_blue_mesh_layer_1_vtx_1[104];
+extern Gfx unbrella_blue_unbrella_blue_mesh_layer_1_tri_1[];
+extern Gfx mat_unbrella_blue_f3dlite_material_016[];
+extern Gfx mat_revert_unbrella_blue_f3dlite_material_016[];
+extern Gfx mat_unbrella_blue_f3dlite_material_020[];
+extern Gfx mat_revert_unbrella_blue_f3dlite_material_020[];
+extern Gfx unbrella_blue_unbrella_blue_mesh_layer_1[];

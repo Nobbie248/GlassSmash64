@@ -121,3 +121,6 @@ UNUSED static const u64 binid_18 = 18;
 #include "chest_barrel_particle/model.inc.c"
 #include "diamond_particle/model.inc.c"
 #include "kite/model.inc.c"
+#include "unbrella_pink/model.inc.c"
+#include "unbrella_blue/model.inc.c"
+#include "unbrella_blue/collision.inc.c"

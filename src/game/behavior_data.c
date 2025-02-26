@@ -6481,3 +6481,16 @@ const BehaviorScript bhvDiamond[] = {
         CALL_NATIVE(bhv_breakable_diamond_loop),
     END_LOOP(),
 };
+
+const BehaviorScript bhvBounce2[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 3000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(unbrella_blue_collision),
+    CALL_NATIVE(bhv_bounce_object_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_bounce_object_loop),
+    END_LOOP(),
+};

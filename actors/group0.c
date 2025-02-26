@@ -61,3 +61,4 @@
 #include "flamedl/model.inc.c"
 #include "mask/model.inc.c"
 #include "mask_hitbox/collision.inc.c"
+#include "light_beam/model.inc.c"

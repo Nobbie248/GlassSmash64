@@ -569,6 +569,7 @@ extern const BehaviorScript bhvStatue[];
 extern const BehaviorScript bhvVase[];
 extern const BehaviorScript bhvTarget[];
 extern const BehaviorScript bhvBounce[];
+extern const BehaviorScript bhvBounce2[];
 extern const BehaviorScript bhvPileLeaves[];
 extern const BehaviorScript bhvLeafParticle[];
 extern const BehaviorScript bhvAztecPots[];

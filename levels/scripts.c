@@ -122,6 +122,7 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_ORNATE_POT,              PotOrnate_geo),
     LOAD_MODEL_FROM_GEO(MODEL_FLOWER_ORNATE_POT,       PotFlowerOrnate_geo),
     LOAD_MODEL_FROM_GEO(MODEL_FLORAL_POT,              PotFloral_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_LIGHT_BEAM,              light_beam_geo),
 #ifdef IA8_30FPS_COINS
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN,             silver_coin_geo),
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN_NO_SHADOW,   silver_coin_no_shadow_geo),
@@ -239,6 +240,8 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_CHEST_BARREL_PARTICLE,   chest_barrel_particle_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BOTTLE_PARTICLE,         bottle_particle_geo),
     LOAD_MODEL_FROM_GEO(MODEL_DIAMOND_PARTICLE,        diamond_particle_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_PINK,           unbrella_pink_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_BLUE,           unbrella_blue_geo),
     RETURN(),
 };
 

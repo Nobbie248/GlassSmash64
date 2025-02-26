@@ -10,7 +10,6 @@ const GeoLayout ccm_area_1_geo[] = {
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ccm_dl_a_Non_Solid_Shit_001_mesh_layer_5),
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ccm_dl_a_water_sheet_mesh_layer_5),
 		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ccm_dl_b_water_mesh_layer_5),
-		GEO_DISPLAY_LIST(LAYER_OPAQUE, ccm_dl_Bounceables_mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, ccm_dl_k_Actual_level_geo_solid__mesh_layer_1),
 		GEO_DISPLAY_LIST(LAYER_ALPHA, ccm_dl_k_Actual_level_geo_solid__mesh_layer_4),
 		GEO_DISPLAY_LIST(LAYER_OPAQUE, ccm_dl_koopa_girls_mesh_layer_1),

@@ -273,4 +273,10 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "kite/geo_header.h"
 
+#include "unbrella_pink/geo_header.h"
+
+#include "unbrella_blue/geo_header.h"
+
+#include "unbrella_blue/collision_header.h"
+
 #endif
