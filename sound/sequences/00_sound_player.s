@@ -6134,11 +6134,11 @@ layer_note1 32, 0x18, 96
 layer_end
 
 .layer_2655:
-layer_note1 46, 0x32, 127
+layer_note1 46, 0x32, 80
 layer_end
 
 .layer_2659:
-layer_note1 39, 0x32, 127
+layer_note1 39, 0x32, 80
 layer_end
 
 .sound_obj_large_bully_attacked:

@@ -279,4 +279,8 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "unbrella_blue/collision_header.h"
 
+#include "barrel/collision_header.h"
+
+#include "chest/collision_header.h"
+
 #endif
