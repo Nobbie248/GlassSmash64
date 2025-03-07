@@ -6,7 +6,7 @@
 
 #define HUD_POWER_METER_X            40
 #define HUD_POWER_METER_EMPHASIZED_Y 166
-#define HUD_POWER_METER_Y            200
+#define HUD_POWER_METER_Y            180
 #define HUD_POWER_METER_HIDDEN_Y     300
 
 #define HUD_TOP_Y 209

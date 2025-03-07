@@ -1846,23 +1846,23 @@ void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
 
 
 void render_pause_castle_menu_box(s16 x, s16 y) {
-    create_dl_translation_matrix(MENU_MTX_PUSH, x - 78, y - 32, 0);
-    create_dl_scale_matrix(MENU_MTX_NOPUSH, 1.2f, 0.8f, 1.0f);
-    gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 105);
-    gSPDisplayList(gDisplayListHead++, dl_draw_text_bg_box);
-    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    // create_dl_translation_matrix(MENU_MTX_PUSH, x - 78, y - 32, 0);
+    // create_dl_scale_matrix(MENU_MTX_NOPUSH, 1.2f, 0.8f, 1.0f);
+    // gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 105);
+    // gSPDisplayList(gDisplayListHead++, dl_draw_text_bg_box);
+    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 
-    create_dl_translation_matrix(MENU_MTX_PUSH, x + 6, y - 28, 0);
-    create_dl_rotation_matrix(MENU_MTX_NOPUSH, DEFAULT_DIALOG_BOX_ANGLE, 0, 0, 1.0f);
-    gDPPipeSync(gDisplayListHead++);
-    gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
-    gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
-    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    // create_dl_translation_matrix(MENU_MTX_PUSH, x + 6, y - 28, 0);
+    // create_dl_rotation_matrix(MENU_MTX_NOPUSH, DEFAULT_DIALOG_BOX_ANGLE, 0, 0, 1.0f);
+    // gDPPipeSync(gDisplayListHead++);
+    // gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
+    // gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 
-    create_dl_translation_matrix(MENU_MTX_PUSH, x - 9, y - 101, 0);
-    create_dl_rotation_matrix(MENU_MTX_NOPUSH, 270.0f, 0, 0, 1.0f);
-    gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
-    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    // create_dl_translation_matrix(MENU_MTX_PUSH, x - 9, y - 101, 0);
+    // create_dl_rotation_matrix(MENU_MTX_NOPUSH, 270.0f, 0, 0, 1.0f);
+    // gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 }
 
 void highlight_last_course_complete_stars(void) {

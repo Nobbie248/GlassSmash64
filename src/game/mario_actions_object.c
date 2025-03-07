@@ -212,6 +212,8 @@ s32 mario_update_punch_sequence(struct MarioState *m) {
 
 
 s32 act_punching(struct MarioState *m) {
+    m->pos[1] += 50.0f;
+    
     if (m->input & INPUT_STOMPED) {
         return drop_and_set_mario_action(m, ACT_SHOCKWAVE_BOUNCE, 0);
     }
