@@ -5,6 +5,7 @@
 #include "src/game/level_update.h"
 #include "src/game/ingame_menu.h"
 #include "src/game/mario.h"
+#include "src/game/save_file.h"
 
 static int delayTimer = 0;
 char gIsCs = 0;
@@ -40,6 +41,43 @@ static void warpIfButtonPressed(int buttonPressed) {
 
 extern struct CreditsEntry *gCurrCreditsEntry;
 
+extern Gfx outrunisles_flamedl_mesh[];
+// extern Gfx dl_level_1[]; 
+// extern Gfx dl_level_2[];
+// extern Gfx dl_level_3[];
+// extern Gfx dl_level_4[];
+
+void display_level_name(s16 x, s16 y) {
+    Gfx *displayList = NULL;
+    Mtx *matrix = (Mtx *) alloc_display_list(sizeof(Mtx));
+
+    switch(gCurrCourseNum) {
+        case COURSE_BOB:
+            displayList = outrunisles_flamedl_mesh;
+            break;
+        case COURSE_WF:
+            displayList = outrunisles_flamedl_mesh;
+            break;
+        case COURSE_JRB:
+            displayList = outrunisles_flamedl_mesh;
+            break;
+        case COURSE_CCM:
+            displayList = outrunisles_flamedl_mesh;
+            break;
+        default:
+            return;
+    }
+
+    if (displayList == NULL) {
+        return;
+    }
+
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(matrix), G_MTX_MODELVIEW | G_MTX_LOAD | G_MTX_NOPUSH);
+    gDPPipeSync(gDisplayListHead++);
+    gSPDisplayList(gDisplayListHead++, displayList); // don't change this
+}
+
 void bhv_cs_init(void) {
     gHudDisplay.coins = 0;
     gTotalBrokenObjects = 0;
@@ -61,10 +99,10 @@ void bhv_cs_loop(void) {
     if (gCurrCourseNum == COURSE_NONE) { resetFlags(); o->activeFlags = 0; return; }
 
     switch (gCurrCourseNum) {
-        case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; print_text(30, 40, "Chinese Village"); break;
-        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; print_text(30, 40, "Jungle Cavern"); break;
-        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; print_text(30, 40, "Aztec Ruins"); break;
-        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; print_text(30, 40, "Synthwave Waters"); break;
+        case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; display_level_name(160, 200); break;
+        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; display_level_name(160, 200); break;
+        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; display_level_name(160, 200); break;
+        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; display_level_name(0, 0); break;
     }
 
     if (gBorderHeight < 33) gBorderHeight++;
