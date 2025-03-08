@@ -1846,23 +1846,23 @@ void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
 
 
 void render_pause_castle_menu_box(s16 x, s16 y) {
-    // create_dl_translation_matrix(MENU_MTX_PUSH, x - 78, y - 32, 0);
-    // create_dl_scale_matrix(MENU_MTX_NOPUSH, 1.2f, 0.8f, 1.0f);
-    // gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 105);
-    // gSPDisplayList(gDisplayListHead++, dl_draw_text_bg_box);
-    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    create_dl_translation_matrix(MENU_MTX_PUSH, x - 78, y - 32, 0);
+    create_dl_scale_matrix(MENU_MTX_NOPUSH, 1.2f, 0.8f, 1.0f);
+    gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 105);
+    gSPDisplayList(gDisplayListHead++, dl_draw_text_bg_box);
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 
-    // create_dl_translation_matrix(MENU_MTX_PUSH, x + 6, y - 28, 0);
-    // create_dl_rotation_matrix(MENU_MTX_NOPUSH, DEFAULT_DIALOG_BOX_ANGLE, 0, 0, 1.0f);
-    // gDPPipeSync(gDisplayListHead++);
-    // gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
-    // gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
-    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    create_dl_translation_matrix(MENU_MTX_PUSH, x + 6, y - 28, 0);
+    create_dl_rotation_matrix(MENU_MTX_NOPUSH, DEFAULT_DIALOG_BOX_ANGLE, 0, 0, 1.0f);
+    gDPPipeSync(gDisplayListHead++);
+    gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
+    gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 
-    // create_dl_translation_matrix(MENU_MTX_PUSH, x - 9, y - 101, 0);
-    // create_dl_rotation_matrix(MENU_MTX_NOPUSH, 270.0f, 0, 0, 1.0f);
-    // gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
-    // gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    create_dl_translation_matrix(MENU_MTX_PUSH, x - 9, y - 101, 0);
+    create_dl_rotation_matrix(MENU_MTX_NOPUSH, 270.0f, 0, 0, 1.0f);
+    gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
 }
 
 void highlight_last_course_complete_stars(void) {
@@ -1959,37 +1959,38 @@ void convert_time(s32 timeFrames, char *buffer) {
 void render_pause_castle_main_strings(s16 x, s16 y) {
     void **courseNameTbl = segmented_to_virtual(gLanguageTables[gInGameLanguage].course_name_table);
     void *courseName;
-
     char str[16];
     char timeString[16];
     s16 prevCourseIndex = gDialogLineNum;
+    s16 bestTime;
 
     handle_menu_scrolling(
         MENU_SCROLL_VERTICAL, &gDialogLineNum,
-        COURSE_NUM_TO_INDEX(COURSE_MIN) - 1, COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES) + 1
+        COURSE_NUM_TO_INDEX(COURSE_MIN), COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)
     );
 
-    if (gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES) + 1) {
+    if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
         gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
     }
 
-    if (gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_MIN) - 1) {
-        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES);
+    if (gDialogLineNum < COURSE_NUM_TO_INDEX(COURSE_MIN)) {
+        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX);
     }
 
-    if (gDialogLineNum != COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES)) {
-        while (save_file_get_course_star_count(gCurrSaveFileNum - 1, gDialogLineNum) == 0) {
-            if (gDialogLineNum >= prevCourseIndex) {
-                gDialogLineNum++;
-            } else {
-                gDialogLineNum--;
-            }
+    while (save_file_get_course_star_count(gCurrSaveFileNum - 1, gDialogLineNum) == 0 ||
+           save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum) <= 0) {
+        if (gDialogLineNum >= prevCourseIndex) {
+            gDialogLineNum++;
+        } else {
+            gDialogLineNum--;
+        }
 
-            if (gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX) + 1
-             || gDialogLineNum == COURSE_NUM_TO_INDEX(COURSE_MIN) - 1) {
-                gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_BONUS_STAGES);
-                break;
-            }
+        if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
+            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
+        }
+
+        if (gDialogLineNum < COURSE_NUM_TO_INDEX(COURSE_MIN)) {
+            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX);
         }
     }
 
@@ -2000,28 +2001,23 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
         Hacktice_onPause();
     }
 
-    if (gDialogLineNum <= COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
-        courseName = segmented_to_virtual(courseNameTbl[gDialogLineNum]);
-        print_generic_string(x - 50, y + 35, courseName);
+    courseName = segmented_to_virtual(courseNameTbl[gDialogLineNum]);
+    print_generic_string(x - 50, y + 35, courseName);
+    render_pause_castle_course_stars(x - 65, y, gCurrSaveFileNum - 1, gDialogLineNum);
 
-        render_pause_castle_course_stars(x - 65, y, gCurrSaveFileNum - 1, gDialogLineNum);
-
-        s32 bestTime = save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum);
+    bestTime = save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum);
+    if (bestTime > 0) {
         convert_time(bestTime, timeString);
-
         sprintf(str, LANG_ARRAY(textCoinX), timeString);
         print_generic_string(x - 22, y, str);
-
-        sprintf(str, "%d", gDialogLineNum + 1);
-        print_generic_string_aligned(x - 55, y + 35, str, TEXT_ALIGN_RIGHT);
     }
 
-    render_hacktice_setting(x - 20, y + 120);
+    sprintf(str, "%d", gDialogLineNum + 1);
+    print_generic_string_aligned(x - 55, y + 35, str, TEXT_ALIGN_RIGHT);
 
+    render_hacktice_setting(x - 20, y + 120);
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
-
-
 
 s8 gCourseCompleteCoinsEqual = FALSE;
 s32 gCourseDoneMenuTimer = 0;
