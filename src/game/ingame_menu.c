@@ -1962,21 +1962,24 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     char timeString[16];
     s16 prevCourseIndex = gDialogLineNum;
     s16 bestTime;
+    s16 visibleCourses = 4;
 
     handle_menu_scrolling(
         MENU_SCROLL_VERTICAL, &gDialogLineNum,
-        COURSE_NUM_TO_INDEX(COURSE_MIN), COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)
+        COURSE_NUM_TO_INDEX(COURSE_MIN), COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1)
     );
 
-    if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
+    if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1)) {
         gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
     }
 
     if (gDialogLineNum < COURSE_NUM_TO_INDEX(COURSE_MIN)) {
-        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX);
+        gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1);
     }
 
-    while (save_file_get_course_star_count(gCurrSaveFileNum - 1, gDialogLineNum) == 0 ||
+    s16 startIndex = gDialogLineNum;
+    s16 loopCount = 0;
+    while (save_file_get_course_star_count(gCurrSaveFileNum - 1, gDialogLineNum) == 0 &&
            save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum) <= 0) {
         if (gDialogLineNum >= prevCourseIndex) {
             gDialogLineNum++;
@@ -1984,12 +1987,18 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
             gDialogLineNum--;
         }
 
-        if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX)) {
+        if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1)) {
             gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
         }
 
         if (gDialogLineNum < COURSE_NUM_TO_INDEX(COURSE_MIN)) {
-            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_STAGES_MAX);
+            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1);
+        }
+
+        loopCount++;
+        if (loopCount > visibleCourses) {
+            gDialogLineNum = startIndex;
+            break;
         }
     }
 
@@ -2017,8 +2026,6 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     render_hacktice_setting(x - 20, y + 120);
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
-
-
 
 
 s8 gCourseCompleteCoinsEqual = FALSE;
