@@ -89,3 +89,5 @@ UNUSED static const u64 binid_21 = 21;
 UNUSED static const u64 binid_22 = 22;
 
 #include "redcoinradar/model.inc.c"
+
+#include "outrunisles/model.inc.c"

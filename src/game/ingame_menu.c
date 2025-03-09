@@ -1824,7 +1824,6 @@ LangArray textRestartLevel = DEFINE_LANGUAGE_ARRAY(
     "レベルをやりなおす",
     "REINICIAR NIVEL");
 
-
 void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
     handle_menu_scrolling(MENU_SCROLL_VERTICAL, index, 1, 3);
 
@@ -2018,6 +2017,9 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     render_hacktice_setting(x - 20, y + 120);
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
+
+
+
 
 s8 gCourseCompleteCoinsEqual = FALSE;
 s32 gCourseDoneMenuTimer = 0;
@@ -2438,7 +2440,6 @@ s32 render_menus_and_dialogs(void) {
     s32 mode = MENU_OPT_NONE;
 
     create_dl_ortho_matrix();
-
     if (__builtin_expect(gCheatingTranslucency, 0))
     {
         gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
