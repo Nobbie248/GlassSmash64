@@ -650,8 +650,20 @@ void render_titles(void) {
 
     gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtx),
               G_MTX_PROJECTION | G_MTX_LOAD | G_MTX_NOPUSH);
-
+if (gIstitle == 1) {
+    gSPDisplayList(gDisplayListHead++, &chinesevillage_title_002_mesh);
+}
+if (gIstitle == 2) {
     gSPDisplayList(gDisplayListHead++, &outrunisles_title_mesh);
-
+}
+if (gIstitle == 3) {
+    gSPDisplayList(gDisplayListHead++, &aztecruins_title_001_mesh);
+}
+if (gIstitle == 4) {
+    gSPDisplayList(gDisplayListHead++, &outrunisles_title_mesh);
+}
+if (gIstitle == 0) {
+    return;
+}
     gSPPopMatrix(gDisplayListHead++, G_MTX_PROJECTION);
 }

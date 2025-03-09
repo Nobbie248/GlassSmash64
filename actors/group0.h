@@ -394,4 +394,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "outrunisles/header.h"
 
+#include "aztecruins/header.h"
+
+#include "chinesevillage/header.h"
+
 #endif

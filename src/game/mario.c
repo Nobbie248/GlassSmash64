@@ -32,6 +32,7 @@
 #include "save_file.h"
 #include "sound_init.h"
 #include "rumble_init.h"
+#include "src/game/hud.h"
 
 int countdownStage = 0;
 int frameCount = 0;
