@@ -63,3 +63,5 @@
 #include "mask_hitbox/collision.inc.c"
 #include "light_beam/model.inc.c"
 #include "outrunisles/model.inc.c"
+#include "aztecruins/model.inc.c"
+#include "chinesevillage/model.inc.c"

@@ -10,7 +10,7 @@
 
 static int delayTimer = 0;
 char gIsCs = 0;
-
+int gIstitle;
 static void resetFlags(void) {
     gBorderHeight = 0;
     gHudDisplay.flags = HUD_DISPLAY_DEFAULT;
@@ -63,10 +63,10 @@ void bhv_cs_loop(void) {
     if (gCurrCourseNum == COURSE_NONE) { resetFlags(); o->activeFlags = 0; return; }
 
     switch (gCurrCourseNum) {
-        case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; print_text(30, 40, "Chinese Village"); break;
-        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; print_text(30, 40, "Jungle Cavern"); break;
-        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; print_text(30, 40, "Aztec Ruins"); break;
-        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; print_text(30, 40, "Outrun Isles"); break;
+        case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; gIstitle = 1; break;
+        case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; gIstitle = 2; break;
+        case COURSE_JRB: gCamera->cutscene = CUTSCENE_C3; gIstitle = 3; break;
+        case COURSE_CCM: gCamera->cutscene = CUTSCENE_C4; gIstitle = 4; break;
     }
 
     if (gBorderHeight < 33) gBorderHeight++;
@@ -76,6 +76,7 @@ void bhv_cs_loop(void) {
         countdownStage = 1;
         frameCount = 0;
         isCountdown = 1;
+        gIstitle = 0;
     }
 
     if (o->oTimer > 290 || (o->oSubAction > 2)) {
@@ -83,5 +84,6 @@ void bhv_cs_loop(void) {
         countdownStage = 1;
         frameCount = 0;
         isCountdown = 1;
+        gIstitle = 0;
     }
 }
