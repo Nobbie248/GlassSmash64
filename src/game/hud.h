@@ -11,7 +11,7 @@
 
 #define HUD_TOP_Y 209
 #define HUD_BOTTOM_Y 19 // Same height as the Lakitu icon
-
+#define HUD_TITLE 19 
 #define HUD_COINS_X 168
 #define HUD_STARS_X 78 // This starts counting from the right edge
 #define HUD_CAMERA_X 54 // This starts counting from the right edge
@@ -44,5 +44,6 @@ enum CameraHUDLUT {
 
 void set_hud_camera_status(s16 status);
 void render_hud(void);
+void render_titles(void);
 
 #endif // HUD_H

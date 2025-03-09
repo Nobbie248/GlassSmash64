@@ -169,7 +169,6 @@ void render_power_meter_health_segment(s16 numHealthWedges) {
 
     gDisplayListHead = tempGfxHead;
 }
-
 /**
  * Renders power meter display lists.
  * That includes the "POWER" base and the colored health segment textures.
@@ -593,7 +592,10 @@ void render_hud(void) {
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
             render_hud_keys();
         }
-
+        
+        if (hudDisplayFlags & HUD_TITLE) {
+            render_titles();  
+        }
 #ifdef BREATH_METER
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_BREATH_METER) render_hud_breath_meter();
 #endif
@@ -630,6 +632,24 @@ void dont_render_hud_sometimes(void) {
         gMarioState->numCoins = 0;
         gHudDisplay.coins = 0;
         gTotalBrokenObjects = 0;
-        
 }
+}
+
+extern Gfx outrunisles_title_mesh[];
+
+void render_titles(void) {
+
+    Mtx *mtxTranslate = alloc_display_list(sizeof(Mtx));
+
+    if (mtxTranslate == NULL) {
+        return;
+    }
+
+    guTranslate(mtxTranslate, 1, 1, 1);
+    gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtxTranslate),
+              G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
+    
+    gSPDisplayList(gDisplayListHead++, outrunisles_title_mesh);
+    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+    print_text(50, 50, "work damnit");
 }
