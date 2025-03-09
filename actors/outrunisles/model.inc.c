@@ -2679,24 +2679,26 @@ Gfx outrunisles_title_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_outrunisles_f3dlite_material[] = {
+Gfx mat_outrunisles_f3dlite_material_layer1[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, ENVIRONMENT, 0, 0, 0, TEXEL0, 0, 0, 0, ENVIRONMENT),
 	gsDPSetAlphaDither(G_AD_NOISE),
+	gsDPSetRenderMode(GBL_c1(G_BL_CLR_IN, G_BL_A_IN, G_BL_CLR_MEM, G_BL_A_MEM) | GBL_c2(G_BL_CLR_IN, G_BL_A_IN, G_BL_CLR_MEM, G_BL_A_MEM), CVG_DST_CLAMP | ZMODE_OPA | ALPHA_CVG_SEL),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_outrunisles_f3dlite_material[] = {
+Gfx mat_revert_outrunisles_f3dlite_material_layer1[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2),
 	gsSPEndDisplayList(),
 };
 
 Gfx outrunisles_title_mesh[] = {
-	gsSPDisplayList(mat_outrunisles_f3dlite_material),
+	gsSPDisplayList(mat_outrunisles_f3dlite_material_layer1),
 	gsSPDisplayList(outrunisles_title_mesh_tri_0),
-	gsSPDisplayList(mat_revert_outrunisles_f3dlite_material),
+	gsSPDisplayList(mat_revert_outrunisles_f3dlite_material_layer1),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),

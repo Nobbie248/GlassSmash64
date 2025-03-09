@@ -62,3 +62,4 @@
 #include "mask/model.inc.c"
 #include "mask_hitbox/collision.inc.c"
 #include "light_beam/model.inc.c"
+#include "outrunisles/model.inc.c"
