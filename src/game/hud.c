@@ -17,6 +17,7 @@
 #include "engine/math_util.h"
 #include "puppycam2.h"
 #include "puppyprint.h"
+#include "actors/group0.h"
 
 #include "config.h"
 
@@ -635,21 +636,17 @@ void dont_render_hud_sometimes(void) {
 }
 }
 
-extern Gfx outrunisles_title_mesh[];
-
 void render_titles(void) {
+    
+    Mtx *mtx = alloc_display_list(sizeof(*mtx));
 
-    Mtx *mtxTranslate = alloc_display_list(sizeof(Mtx));
-
-    if (mtxTranslate == NULL) {
+    if (mtx == NULL) {
         return;
     }
-
-    guTranslate(mtxTranslate, 1, 1, 1);
-    gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtxTranslate),
-              G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
+    gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtx),
+    G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
     
-    gSPDisplayList(gDisplayListHead++, outrunisles_title_mesh);
+    gSPDisplayList(gDisplayListHead++, &outrunisles_title_mesh);
     gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
     print_text(50, 50, "work damnit");
 }
