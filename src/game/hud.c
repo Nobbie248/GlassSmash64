@@ -533,6 +533,8 @@ void render_hud_camera_status(void) {
     gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
 }
 
+#define HUD_TITLE 19
+
 /**
  * Render HUD strings using hudDisplayFlags with it's render functions,
  * excluding the cannon reticle which detects a camera preset for it.
@@ -593,10 +595,11 @@ void render_hud(void) {
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
             render_hud_keys();
         }
-        
+
         if (hudDisplayFlags & HUD_TITLE) {
-            render_titles();  
+            render_titles();
         }
+
 #ifdef BREATH_METER
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_BREATH_METER) render_hud_breath_meter();
 #endif
@@ -633,20 +636,22 @@ void dont_render_hud_sometimes(void) {
         gMarioState->numCoins = 0;
         gHudDisplay.coins = 0;
         gTotalBrokenObjects = 0;
-}
+    }
 }
 
 void render_titles(void) {
-    
     Mtx *mtx = alloc_display_list(sizeof(*mtx));
 
     if (mtx == NULL) {
         return;
     }
+
+    guOrtho(mtx, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, -10, 10, 1.0f);
+
     gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtx),
-    G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
-    
+              G_MTX_PROJECTION | G_MTX_LOAD | G_MTX_NOPUSH);
+
     gSPDisplayList(gDisplayListHead++, &outrunisles_title_mesh);
-    gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
-    print_text(50, 50, "work damnit");
+
+    gSPPopMatrix(gDisplayListHead++, G_MTX_PROJECTION);
 }

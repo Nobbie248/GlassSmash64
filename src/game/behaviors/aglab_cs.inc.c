@@ -6,6 +6,7 @@
 #include "src/game/ingame_menu.h"
 #include "src/game/mario.h"
 #include "src/game/hud.h"
+#include "actors/group0.h"
 
 static int delayTimer = 0;
 char gIsCs = 0;
