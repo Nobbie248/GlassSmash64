@@ -77,6 +77,7 @@ const LevelScript level_jrb_entry[] = {
 		OBJECT(MODEL_NONE, 184, -2, 665, 0, 0, 0, 0x00000000, bhvAztecPots),
 		OBJECT(MODEL_NONE, 6, 84, 156, 0, 0, 0, 0x00000000, bhvAztecPots),
 		OBJECT(MODEL_NONE, -739, 1793, 5656, 0, -19, 0, 0x00000000, bhvCS),
+		OBJECT(MODEL_RED_COIN_ARROW, 0, 3337, 0, 0, 0, 0, 0x00000000, bhvRedCoinRadar),
 		OBJECT(0, -444, 0, 4654, 0, 0, 0, 0x0, bhvWaterfallSoundLoop),
 		TERRAIN(jrb_area_1_collision),
 		MACRO_OBJECTS(jrb_area_1_macro_objs),

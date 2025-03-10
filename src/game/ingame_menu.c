@@ -1609,15 +1609,22 @@ void render_pause_red_coins(void) {
     }
 }
 
+LangArray textOptions = DEFINE_LANGUAGE_ARRAY(
+    "                          PRESS RIGHT DPAD TO USE RADAR\n                          PRESS LEFT DPAD TO SWAP L & R",
+    " ",
+    " ",
+    " ",
+    " ");
+
 LangArray textCurrRatio43 = DEFINE_LANGUAGE_ARRAY(
-    "ASPECT RATIO: 4:3\nPRESS L TO SWITCH       PRESS LEFT DPAD TO SWAP L & R",
+    "ASPECT RATIO: 4:3\nPRESS L TO SWITCH",
     "RATIO D'ASPECT: 4:3\nAPPUYEZ SUR L POUR CHANGER",
     "SEITENVERHÄLTNIS: 4:3\nDRÜCKE L ZUM WECHSELN",
     "アスペクトひ: ４:３\nＬボタンできりかえ",
     "RELACIÓN DE ASPECTO: 4:3\nPULSA L PARA CAMBIAR");
 
 LangArray textCurrRatio169 = DEFINE_LANGUAGE_ARRAY(
-    "ASPECT RATIO: 16:9\nPRESS L TO SWITCH       PRESS LEFT DPAD TO SWAP L & R",
+    "ASPECT RATIO: 16:9\nPRESS L TO SWITCH",
     "RATIO D'ASPECT: 16:9\nAPPUYEZ SUR L POUR CHANGER",
     "SEITENVERHÄLTNIS: 16:9\nDRÜCKE L ZUM WECHSELN",
     "アスペクトひ: １６:９\nＬボタンできりかえ",
@@ -1629,7 +1636,7 @@ static const char* pressBToHacktice = "PRESS B TO ENABLE HACKTICE";
 #if defined(WIDE) && !defined(PUPPYCAM)
 void render_widescreen_setting(void) {
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-    set_text_color(255, 255, 255);
+    set_text_color(180, 130, 255);
     if (!gConfig.widescreen) {
         print_generic_string(10, 24, LANG_ARRAY(textCurrRatio43));
     } else {
@@ -1643,8 +1650,11 @@ void render_widescreen_setting(void) {
     }
     if (gPlayer1Controller->buttonPressed & L_JPAD) { 
         buttonswap ^= TRUE;
+        play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);   
+    }
+    if (gPlayer1Controller->buttonPressed & R_JPAD) {
+        gIsArrow ^= TRUE;
         play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);
-        
     }
 
     
@@ -1652,6 +1662,11 @@ void render_widescreen_setting(void) {
 }
 #endif
 
+void render_option_text(void) {
+    gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+    set_text_color(0, 200, 255);
+    print_generic_string(10, 24, LANG_ARRAY(textOptions));
+}
         
 void render_hacktice_setting(int x, int y)
 {
@@ -1960,7 +1975,6 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     void *courseName;
     char str[16];
     char timeString[16];
-    s16 prevCourseIndex = gDialogLineNum;
     s16 bestTime;
     s16 visibleCourses = 4;
 
@@ -1977,31 +1991,6 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
         gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1);
     }
 
-    s16 startIndex = gDialogLineNum;
-    s16 loopCount = 0;
-    while (save_file_get_course_star_count(gCurrSaveFileNum - 1, gDialogLineNum) == 0 &&
-           save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum) <= 0) {
-        if (gDialogLineNum >= prevCourseIndex) {
-            gDialogLineNum++;
-        } else {
-            gDialogLineNum--;
-        }
-
-        if (gDialogLineNum > COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1)) {
-            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN);
-        }
-
-        if (gDialogLineNum < COURSE_NUM_TO_INDEX(COURSE_MIN)) {
-            gDialogLineNum = COURSE_NUM_TO_INDEX(COURSE_MIN + visibleCourses - 1);
-        }
-
-        loopCount++;
-        if (loopCount > visibleCourses) {
-            gDialogLineNum = startIndex;
-            break;
-        }
-    }
-
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
     set_text_color(255, 255, 255);
 
@@ -2014,7 +2003,7 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     render_pause_castle_course_stars(x - 65, y, gCurrSaveFileNum - 1, gDialogLineNum);
 
     bestTime = save_file_get_best_slide_time(gCurrSaveFileNum - 1, gDialogLineNum);
-    if (bestTime > 0) {
+    if (bestTime >= 0) {
         convert_time(bestTime, timeString);
         sprintf(str, LANG_ARRAY(textCoinX), timeString);
         print_generic_string(x - 22, y, str);
@@ -2026,6 +2015,7 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     render_hacktice_setting(x - 20, y + 120);
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 }
+
 
 
 s8 gCourseCompleteCoinsEqual = FALSE;
@@ -2137,7 +2127,7 @@ render_pause_course_options(109, 91, &gDialogLineNum, 15);
     }
 
 gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-    set_text_color(255, 255, 255);
+    set_text_color(245, 255, 100);
     char sheeeit[16];
     s32 totalStars = save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1);
 
@@ -2148,6 +2138,7 @@ gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
 #if defined(WIDE) && !defined(PUPPYCAM)
         if (!Hacktice_gEnabled)
             render_widescreen_setting();
+            render_option_text();
 #endif
     gDialogTextAlpha += 25;
     if (gDialogTextAlpha > 250) {

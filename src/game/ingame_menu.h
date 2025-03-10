@@ -301,4 +301,5 @@ void reset_red_coins_collected(void);
 s32 render_menus_and_dialogs(void);
 extern int gTotalBrokenObjects;
 extern char gIsPer;
+extern int gIsArrow;
 #endif // INGAME_MENU_H

@@ -1,11 +1,8 @@
 extern const GeoLayout redcoinradar_geo[];
-extern Lights1 redcoinradar_f3d_material_lights;
-extern u8 redcoinradar_omm_texture_hud_arrow_ci8[];
-extern u8 redcoinradar_omm_texture_hud_arrow_ci8_pal_rgba16[];
-extern Vtx redcoinradar_Plane_mesh_layer_4_vtx_cull[8];
-extern Vtx redcoinradar_Plane_mesh_layer_4_vtx_0[4];
-extern Gfx redcoinradar_Plane_mesh_layer_4_tri_0[];
-extern Gfx mat_redcoinradar_f3d_material[];
-extern Gfx mat_revert_redcoinradar_f3d_material[];
-extern Gfx redcoinradar_Plane_mesh_layer_4[];
-extern Gfx redcoinradar_material_revert_render_settings[];
+extern u8 redcoinradar_arrow_ci8[];
+extern u8 redcoinradar_arrow_pal_rgba16[];
+extern Vtx redcoinradar_redcoinradar_mesh_layer_1_vtx_0[14];
+extern Gfx redcoinradar_redcoinradar_mesh_layer_1_tri_0[];
+extern Gfx mat_redcoinradar_f3dlite_material_012[];
+extern Gfx mat_revert_redcoinradar_f3dlite_material_012[];
+extern Gfx redcoinradar_redcoinradar_mesh_layer_1[];
