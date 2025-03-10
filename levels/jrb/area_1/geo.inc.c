@@ -9,6 +9,7 @@ const GeoLayout jrb_area_1_geo[] = {
 			GEO_DISPLAY_LIST(LAYER_TRANSPARENT, jrb_dl_Map_mesh_layer_5),
 			GEO_DISPLAY_LIST(LAYER_FORCE, jrb_dl_Map_mesh_layer_0),
 		GEO_CLOSE_NODE(),
+		GEO_TRANSLATE_NODE_WITH_DL(LAYER_TRANSPARENT, -4537, 0, -5870, jrb_dl_Map_001_mesh_layer_5),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_TRANSPARENT, -4537, 0, -5870, jrb_dl_railing_mesh_layer_5),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -4537, 0, -5870, jrb_dl_tree_legs_mesh_layer_1),
 		GEO_TRANSLATE_NODE(LAYER_OPAQUE, -4537, 0, -5870),

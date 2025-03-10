@@ -126,3 +126,4 @@ UNUSED static const u64 binid_18 = 18;
 #include "unbrella_blue/collision.inc.c"
 #include "barrel/collision.inc.c"
 #include "chest/collision.inc.c"
+#include "bottle/collision.inc.c"

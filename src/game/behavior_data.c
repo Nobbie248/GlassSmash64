@@ -6399,7 +6399,7 @@ const BehaviorScript bhvLeafParticle[] = {
 
 const BehaviorScript bhvAztecPots[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oCollisionDistance, 4000),
     SET_FLOAT(oDrawingDistance, 30000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
@@ -6416,34 +6416,40 @@ const BehaviorScript bhvAztecPots[] = {
 
 const BehaviorScript bhvBallsaver[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 7000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(bottle_collision),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
     SET_HOME(),
     BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_ball_saver_loop),
     END_LOOP(),
 };
 
 const BehaviorScript bhvBottle[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 7000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(bottle_collision),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
     SET_HOME(),
     BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_bottle_loop),
     END_LOOP(),
 };
 
 const BehaviorScript bhvChest[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oCollisionDistance, 2000),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 7000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
@@ -6458,19 +6464,23 @@ const BehaviorScript bhvChest[] = {
 
 const BehaviorScript bhvOogaboogas[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 7000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(bottle_collision),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 120, /*Height*/ 320, /*Downwards offset*/ 120),
     SET_HOME(),
     BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_oogaboogas_loop),
     END_LOOP(),
 };
 
 const BehaviorScript bhvDiamond[] = {
     BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 4000),
     SET_FLOAT(oDrawingDistance, 30000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
@@ -6485,7 +6495,7 @@ const BehaviorScript bhvDiamond[] = {
 const BehaviorScript bhvBounce2[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 3000),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oDrawingDistance, 7000),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(unbrella_blue_collision),
     CALL_NATIVE(bhv_bounce_object_init),
@@ -6497,6 +6507,7 @@ const BehaviorScript bhvBounce2[] = {
 
 const BehaviorScript bhvKite[] = {
     BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 4000),
     SET_FLOAT(oDrawingDistance, 30000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
@@ -6510,8 +6521,8 @@ const BehaviorScript bhvKite[] = {
 
 const BehaviorScript bhvBarrel[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    SET_FLOAT(oCollisionDistance, 2000),
-    SET_FLOAT(oDrawingDistance, 30000),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 7000),
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
