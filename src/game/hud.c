@@ -18,8 +18,11 @@
 #include "puppycam2.h"
 #include "puppyprint.h"
 #include "actors/group0.h"
-
+#include "behavior_data.h"
+#include "object_helpers.h"
+#include "PR/gbi.h"
 #include "config.h"
+#include "engine/graph_node.h"
 
 #include "hacktice/main.h"
 
@@ -629,6 +632,18 @@ void render_hud(void) {
         }
 #endif
     }
+    struct Object *obj = cur_obj_nearest_object_with_behavior(bhvWarpPipe);
+    struct Object *marioObj = gMarioStates[0].marioObj;
+    create_dl_ortho_matrix();
+    if (obj != NULL && dist_between_objects(obj, marioObj) < 1000.0f) {
+        set_text_color(255, 255, 255);
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+        print_generic_string(110, 40, "1'30 for 1 Star");
+        print_generic_string(110, 25, "1'10 for 2 Stars");
+        print_generic_string(110, 10, "1'00 for 3 Stars");
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+    }
+    
 }
 
 void dont_render_hud_sometimes(void) {

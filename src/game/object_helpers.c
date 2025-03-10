@@ -640,6 +640,45 @@ f32 cur_obj_dist_to_nearest_object_with_behavior(const BehaviorScript *behavior)
     return dist;
 }
 
+
+f32 obj_dist_to_mario(const BehaviorScript *behavior) {
+        struct Object *nearestObj = NULL;
+        f32 minDist = 1.0f; // Default to a large distance
+        struct ObjectNode *listHead;
+        struct Object *obj;
+    
+        if (gMarioObject == NULL) {
+            return -1.0f; // Return error if Mario does not exist
+        }
+    
+        // Get the object list from behavior
+        listHead = &gObjectLists[get_object_list_from_behavior(behavior)];
+        obj = (struct Object *) listHead->next;
+    
+        // Iterate through all objects in the list
+        while (obj != (struct Object *) listHead) {
+            if (obj->behavior == segmented_to_virtual(behavior) &&
+                obj->activeFlags != ACTIVE_FLAG_DEACTIVATED) {
+                
+                // Calculate 3D distance
+                f32 dx = obj->oPosX - gMarioObject->oPosX;
+                f32 dy = obj->oPosY - gMarioObject->oPosY;
+                f32 dz = obj->oPosZ - gMarioObject->oPosZ;
+                f32 dist = sqrtf(dx * dx + dy * dy + dz * dz);
+    
+                // Update nearest object
+                if (dist < minDist) {
+                    minDist = dist;
+                    nearestObj = obj;
+                }
+            }
+            obj = (struct Object *) obj->header.next;
+        }
+    
+        return minDist;
+    }
+    
+
 struct Object *cur_obj_find_nearest_object_with_behavior(const BehaviorScript *behavior, f32 *dist) {
     uintptr_t *behaviorAddr = segmented_to_virtual(behavior);
     struct ObjectNode *listHead = &gObjectLists[get_object_list_from_behavior(behaviorAddr)];
