@@ -59,6 +59,8 @@
         "sa_texscroll.inc.h": "c",
         "bbh_texscroll.inc.h": "c",
         "wmotr_texscroll.inc.h": "c",
-        "segment_symbols.h": "c"
+        "segment_symbols.h": "c",
+        "hud.h": "c",
+        "config.h": "c"
     }
 }
