@@ -6294,9 +6294,9 @@ const BehaviorScript bhvClosehit[] = {
 };
 
 const BehaviorScript bhvVine[] = {
-    BEGIN(OBJ_LIST_GENACTOR),
-    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    SET_FLOAT(oGraphYOffset, 1000),
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oInteractType, INTERACT_GRABBABLE),
+    SET_INT(oIntangibleTimer, 0),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_vine_loop),
     END_LOOP(),

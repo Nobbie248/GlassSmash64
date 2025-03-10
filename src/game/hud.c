@@ -542,6 +542,8 @@ void render_hud_camera_status(void) {
  * Render HUD strings using hudDisplayFlags with it's render functions,
  * excluding the cannon reticle which detects a camera preset for it.
  */
+
+static s32 fTimer = 0;
 void render_hud(void) {
     s16 hudDisplayFlags = gHudDisplay.flags;
 
@@ -635,15 +637,33 @@ void render_hud(void) {
     struct Object *obj = cur_obj_nearest_object_with_behavior(bhvWarpPipe);
     struct Object *marioObj = gMarioStates[0].marioObj;
     create_dl_ortho_matrix();
+
     if (obj != NULL && dist_between_objects(obj, marioObj) < 1000.0f) {
-        set_text_color(255, 255, 255);
+        if (fTimer < 25) {
+            fTimer++;
+        }
+        s32 alpha = (fTimer * 200) / 45;
+
+        // box moment
+        s32 x = 110;
+        s32 y = 80;
+
+        create_dl_translation_matrix(MENU_MTX_PUSH, 95, 100, 0);
+        create_dl_scale_matrix(MENU_MTX_NOPUSH, 0.9f, 1.05f, 1.0f);
+        gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, alpha);
+        gSPDisplayList(gDisplayListHead++, dl_draw_text_bg_box);
+        gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+
+        // text
+        gDPSetPrimColor(gDisplayListHead++, 0, 0, 255, 255, 255, alpha);
         gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-        print_generic_string(110, 40, "1'30 for 1 Star");
-        print_generic_string(110, 25, "1'10 for 2 Stars");
-        print_generic_string(110, 10, "1'00 for 3 Stars");
+        print_generic_string(x, y, "1'30 for 1 Star");
+        print_generic_string(x, y - 30, "1'10 for 2 Stars");
+        print_generic_string(x, y - 60, "1'00 for 3 Stars");
         gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+    } else {
+        fTimer = 0;
     }
-    
 }
 
 void dont_render_hud_sometimes(void) {
