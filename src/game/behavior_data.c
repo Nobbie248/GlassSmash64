@@ -6534,3 +6534,27 @@ const BehaviorScript bhvBarrel[] = {
         CALL_NATIVE(bhv_breakable_barrel_chest_loop),
     END_LOOP(),
 };
+
+const BehaviorScript bhvHubtext1[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHubtext2[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHubtext3[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHubtext4[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};

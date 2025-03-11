@@ -580,6 +580,10 @@ extern const BehaviorScript bhvBarrel[];
 extern const BehaviorScript bhvOogaboogas[];
 extern const BehaviorScript bhvDiamond[];
 extern const BehaviorScript bhvKite[];
+extern const BehaviorScript bhvHubtext1[];
+extern const BehaviorScript bhvHubtext2[];
+extern const BehaviorScript bhvHubtext3[];
+extern const BehaviorScript bhvHubtext4[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H

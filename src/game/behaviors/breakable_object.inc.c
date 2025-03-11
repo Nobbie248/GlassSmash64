@@ -50,18 +50,18 @@ void check_and_spawn_star(void) {
 
     if (gCurrLevelNum == LEVEL_JRB) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2130) { award_star(0); award_star(1); }
-            else if (slideTime < 2730) { award_star(0); }
+            if (slideTime < 1680) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 1930) { award_star(0); award_star(1); }
+            else if (slideTime < 2580) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_CCM) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2130) { award_star(0); award_star(1); }
-            else if (slideTime < 2730) { award_star(0); }
+            if (slideTime < 2280) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2580) { award_star(0); award_star(1); }
+            else if (slideTime < 3180) { award_star(0); }
             shouldWin = 1;
         }
     }
@@ -275,7 +275,7 @@ void pauseinputscore(void) {
 
     convert_slide_time(slideTime, timeString);
     
-    print_text(125, 180, "score");
+    print_text(130, 180, "score");
     print_text(50, 150, "your time");
     print_text(200, 150, timeString);
     
