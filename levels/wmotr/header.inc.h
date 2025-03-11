@@ -48,7 +48,7 @@ extern u8 wmotr_dl_gfhdfghdgfhd2_i8[];
 extern u8 wmotr_dl_tube_crt_ci4[];
 extern u8 wmotr_dl_tube_crt_pal_rgba16[];
 extern Vtx wmotr_dl_aposter_mesh_layer_1_vtx_cull[8];
-extern Vtx wmotr_dl_aposter_mesh_layer_1_vtx_0[296];
+extern Vtx wmotr_dl_aposter_mesh_layer_1_vtx_0[158];
 extern Vtx wmotr_dl_aposter_mesh_layer_5_vtx_cull[8];
 extern Vtx wmotr_dl_aposter_mesh_layer_5_vtx_0[16];
 extern Vtx wmotr_dl_Cube_mesh_layer_1_vtx_cull[8];
