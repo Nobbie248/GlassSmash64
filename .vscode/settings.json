@@ -61,6 +61,7 @@
         "wmotr_texscroll.inc.h": "c",
         "segment_symbols.h": "c",
         "hud.h": "c",
-        "config.h": "c"
+        "config.h": "c",
+        "cstdlib": "c"
     }
 }
