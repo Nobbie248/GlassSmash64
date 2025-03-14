@@ -45,3 +45,19 @@ void bhv_gemmies_rotating_loop(void) {
     o->oMoveAngleYaw += o->oAngleVelYaw;
     o->oPosY = o->oHomeY + sins(o->oTimer * 0x123) * 50.0f;
 }
+
+void bhv_back_and_forth_loop(void) {
+    s8 speed = GET_BPARAM1(o->oBehParams);
+    s16 range = GET_BPARAM2(o->oBehParams) * 10;
+
+    if (o->oTimer == 0) {
+        o->oHomeX = o->oPosX;
+        o->oForwardVel = speed;
+    }
+
+    if (absf(o->oPosX - o->oHomeX) >= range) {
+        o->oForwardVel = -o->oForwardVel;
+    }
+
+    o->oPosX += o->oForwardVel;
+}

@@ -1874,6 +1874,18 @@ if (isCountdown == 1) {
         }
     }
 }
+
+if (gCurrLevelNum == LEVEL_BBH) {
+    struct Controller *c = gMarioState->controller;
+    c->buttonPressed &= ~(U_CBUTTONS | D_CBUTTONS | L_CBUTTONS | R_CBUTTONS | R_TRIG);    
+    gMarioState->vel[2] = 0;
+    gMarioState->pos[2] = 0;
+    gMarioState->vel[0] = 0;
+    gMarioState->health = 0x400;
+}
+if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS) {
+    gMarioState->health = 0x800;
+}
     // Updates once per frame:
     vec3f_get_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);
     vec3f_get_lateral_dist(gMarioState->prevPos, gMarioState->pos, &gMarioState->lateralSpeed);
