@@ -398,4 +398,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "chinesevillage/header.h"
 
+#include "target2/collision_header.h"
+
+#include "target2/geo_header.h"
+
 #endif

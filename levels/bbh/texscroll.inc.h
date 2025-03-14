@@ -1,5 +1,0 @@
-extern void scroll_bbh_dl_DL_bbh_2_0xe01eb90_Obj_mesh_layer_1_vtx_16();
-extern void scroll_bbh_dl_DL_bbh_2_0xe01eb90_Obj_mesh_layer_5_vtx_0();
-extern void scroll_bbh_dl_DL_bbh_6_0xe044ab0_Obj_mesh_layer_1_vtx_110();
-extern void scroll_bbh_dl_DL_bbh_6_0xe044ab0_Obj_mesh_layer_5_vtx_0();
-extern void scroll_bbh();

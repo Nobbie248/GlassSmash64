@@ -123,6 +123,7 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_FLOWER_ORNATE_POT,       PotFlowerOrnate_geo),
     LOAD_MODEL_FROM_GEO(MODEL_FLORAL_POT,              PotFloral_geo),
     LOAD_MODEL_FROM_GEO(MODEL_LIGHT_BEAM,              light_beam_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_TARGET2,                 target2_geo),
 #ifdef IA8_30FPS_COINS
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN,             silver_coin_geo),
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN_NO_SHADOW,   silver_coin_no_shadow_geo),

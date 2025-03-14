@@ -6558,3 +6558,19 @@ const BehaviorScript bhvHubtext4[] = {
     BEGIN_LOOP(),
     END_LOOP(),
 };
+
+const BehaviorScript bhvTarget2[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(target2_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 210, /*Height*/ 160, /*Downwards offset*/ 90),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_target_loop),
+    END_LOOP(),
+};

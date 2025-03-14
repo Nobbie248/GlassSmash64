@@ -65,3 +65,5 @@
 #include "outrunisles/model.inc.c"
 #include "aztecruins/model.inc.c"
 #include "chinesevillage/model.inc.c"
+#include "target2/collision.inc.c"
+#include "target2/model.inc.c"

@@ -431,9 +431,15 @@ void render_debug_mode(void) {
  */
 void render_hud_coins(void) {
     char str[10];
+    if (gCurrLevelNum != LEVEL_BBH) {
     sprintf(str, "%d of 30", gHudDisplay.coins);
     print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(290), 210, "✪", TEXT_ALIGN_RIGHT);
     print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(203), 210, str, TEXT_ALIGN_RIGHT);
+    } else {
+        sprintf(str, "%d of 8", gHudDisplay.coins);
+        print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(290), 210, "★", TEXT_ALIGN_RIGHT);
+        print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(220), 210, str, TEXT_ALIGN_RIGHT);
+    }
 }
 
 
