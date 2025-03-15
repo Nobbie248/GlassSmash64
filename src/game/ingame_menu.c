@@ -1736,11 +1736,11 @@ void render_pause_my_score_coins(void) {
 
             char *actName = segmented_to_virtual(actNameTbl[COURSE_NUM_TO_INDEX(gCurrCourseNum) * 6 + gDialogCourseActNum - 1]);
 
-            if (starFlags & (1 << (gDialogCourseActNum - 1))) {
-                print_generic_string_aligned(PAUSE_MENU_LEFT_X, PAUSE_MENU_ACT_Y, "★", TEXT_ALIGN_RIGHT);
-            } else {
-                print_generic_string_aligned(PAUSE_MENU_LEFT_X, PAUSE_MENU_ACT_Y, "☆", TEXT_ALIGN_RIGHT);
-            }
+            // if (starFlags & (1 << (gDialogCourseActNum - 1))) {
+            //     print_generic_string_aligned(PAUSE_MENU_LEFT_X, PAUSE_MENU_ACT_Y, "★", TEXT_ALIGN_RIGHT);
+            // } else {
+            //     print_generic_string_aligned(PAUSE_MENU_LEFT_X, PAUSE_MENU_ACT_Y, "☆", TEXT_ALIGN_RIGHT);
+            // }
 
             print_generic_string(PAUSE_MENU_RIGHT_X, PAUSE_MENU_ACT_Y,    actName);
             print_generic_string(PAUSE_MENU_RIGHT_X, PAUSE_MENU_COURSE_Y, courseName);
@@ -1918,30 +1918,37 @@ void render_pause_castle_course_stars(s16 x, s16 y, s16 fileIndex, s16 courseInd
     u8 starFlags = save_file_get_star_flags(fileIndex, courseIndex);
     u16 starCount = save_file_get_course_star_count(fileIndex, courseIndex);
     u16 nextStar = 0;
+    s16 maxStars = (courseIndex >= COURSE_NUM_TO_INDEX(COURSE_MIN + 4)) ? 1 : 3;
 
     if (starFlags & STAR_FLAG_ACT_100_COINS) {
         starCount--;
         print_generic_string(x + 50, y, "★");
     }
 
-    while (hasStar != starCount && hasStar < 3) {
+    while (hasStar != starCount && hasStar < maxStars) {
         if (starFlags & (1 << nextStar)) {
             entries[hasStar] = "★";
             hasStar++;
-        } else if (hasStar < 3) {
+        } else if (hasStar < maxStars) {
             entries[hasStar] = "☆";
         }
         nextStar++;
     }
 
-    while (hasStar < 3) {
+    while (hasStar < maxStars) {
         entries[hasStar] = "☆";
         hasStar++;
     }
 
-    sprintf(str, "%s %s %s", entries[0], entries[1], entries[2]);
+    if (maxStars == 1) {
+        sprintf(str, "%s", entries[0]);
+    } else {
+        sprintf(str, "%s %s %s", entries[0], entries[1], entries[2]);
+    }
+
     print_generic_string(x + 23, y + 18, str);
 }
+
 
 
 LangArray textCoinX = DEFINE_LANGUAGE_ARRAY(
@@ -1976,7 +1983,7 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
     char str[16];
     char timeString[16];
     s16 bestTime;
-    s16 visibleCourses = 4;
+    s16 visibleCourses = 7;
 
     handle_menu_scrolling(
         MENU_SCROLL_VERTICAL, &gDialogLineNum,
@@ -2070,12 +2077,12 @@ render_pause_course_options(109, 91, &gDialogLineNum, 15);
     gDialogBoxState = DIALOG_STATE_OPENING;
     gMenuMode = MENU_MODE_NONE;
 
-    if (gDialogLineNum == MENU_OPT_EXIT_COURSE) {  // Option 2: Exit Course
+    if (gDialogLineNum == MENU_OPT_EXIT_COURSE) {
         gMarioState->numCoins = 0;
         gHudDisplay.coins = 0;
         gTotalBrokenObjects = 0;
         return MENU_OPT_EXIT_COURSE;
-    } else if (gDialogLineNum == MENU_OPT_RESTART_LEVEL) {  // Option 3: Restart Level
+    } else if (gDialogLineNum == MENU_OPT_RESTART_LEVEL) {
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
         if (gCurrLevelNum == LEVEL_BOB) {
         gMarioState->numCoins = 0;
@@ -2095,12 +2102,30 @@ render_pause_course_options(109, 91, &gDialogLineNum, 15);
         gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_JRB, 0);
     }
-     if (gCurrLevelNum == LEVEL_CCM) {
+    if (gCurrLevelNum == LEVEL_CCM) {
         gMarioState->numCoins = 0;
         gHudDisplay.coins = 0;
         gTotalBrokenObjects = 0;
     fade_into_special_warp(LEVEL_CCM, 0);
-    }  // Restart the level
+    }
+    if (gCurrLevelNum == LEVEL_BBH) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_BBH, 0);
+    }
+    if (gCurrLevelNum == LEVEL_HMC) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_HMC, 0);
+    }
+    if (gCurrLevelNum == LEVEL_LLL) {
+        gMarioState->numCoins = 0;
+        gHudDisplay.coins = 0;
+        gTotalBrokenObjects = 0;
+    fade_into_special_warp(LEVEL_LLL, 0);
+    }  
         return;
     }
 

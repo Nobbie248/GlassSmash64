@@ -66,6 +66,27 @@ void check_and_spawn_star(void) {
         }
     }
 
+    if (gCurrLevelNum == LEVEL_BBH) {
+        if (gTotalBrokenObjects >= 8) {
+            if (slideTime < 780) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (gCurrLevelNum == LEVEL_HMC) {
+        if (gTotalBrokenObjects >= 8) {
+            if (slideTime < 780) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
+    if (gCurrLevelNum == LEVEL_LLL) {
+        if (gTotalBrokenObjects >= 8) {
+            if (slideTime < 780) { award_star(0); }
+            shouldWin = 1;
+        }
+    }
+
     if (shouldWin) {
         gIsPer = 1;
         seq_player_lower_volume(SEQ_PLAYER_LEVEL, 0, 40);
@@ -269,19 +290,27 @@ void pauseinputscore(void) {
     struct Controller *c = gMarioStates->controller;
     gMarioStates->input = 0;
     c->rawStickX = c->rawStickY = c->stickX = c->stickY = c->stickMag = c->buttonDown = c->buttonPressed = 0;
-    
+
     char timeString[16];  
     char starString[16];
 
     convert_slide_time(slideTime, timeString);
-    
+
     print_text(130, 180, "score");
     print_text(50, 150, "your time");
     print_text(200, 150, timeString);
-    
-    sprintf(starString, "Stars: %d out of 3", collectedStars);
-
     print_text(50, 100, "best time"); 
+
+    if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
+        gCurrLevelNum != LEVEL_BBH &&
+        gCurrLevelNum != LEVEL_HMC &&
+        gCurrLevelNum != LEVEL_LLL) {
+        sprintf(starString, "Stars: %d out of 3", collectedStars);
+    } else {
+        sprintf(starString, "Stars: %d out of 1", collectedStars);
+    }
+
     print_text(70, 50, starString);
+
     save_file_do_save(gCurrSaveFileNum - 1);
 }
