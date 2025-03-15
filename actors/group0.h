@@ -402,4 +402,8 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "target2/geo_header.h"
 
+#include "platform2d/collision_header.h"
+
+#include "platform2d/geo_header.h"
+
 #endif

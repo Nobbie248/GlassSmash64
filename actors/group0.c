@@ -67,3 +67,5 @@
 #include "chinesevillage/model.inc.c"
 #include "target2/collision.inc.c"
 #include "target2/model.inc.c"
+#include "platform2d/collision.inc.c"
+#include "platform2d/model.inc.c"

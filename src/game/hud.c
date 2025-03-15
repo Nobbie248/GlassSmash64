@@ -437,7 +437,7 @@ void render_hud_coins(void) {
     print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(203), 210, str, TEXT_ALIGN_RIGHT);
     } else {
         sprintf(str, "%d of 8", gHudDisplay.coins);
-        print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(290), 210, "★", TEXT_ALIGN_RIGHT);
+        print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(290), 210, "☺", TEXT_ALIGN_RIGHT);
         print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(220), 210, str, TEXT_ALIGN_RIGHT);
     }
 }
@@ -622,9 +622,14 @@ void render_hud(void) {
 #ifdef PUPPYCAM
             if (!gPuppyCam.enabled) {
 #endif
-        if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS && gIsPer == 0) {
-            render_hud_camera_status();
-            }
+if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
+    gCurrLevelNum != LEVEL_BBH &&
+    gCurrLevelNum != LEVEL_HMC &&
+    gCurrLevelNum != LEVEL_LLL &&
+    gIsPer == 0) {
+    render_hud_camera_status();
+}
+
 #ifdef PUPPYCAM
             }
 #endif

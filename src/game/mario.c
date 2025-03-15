@@ -1875,7 +1875,7 @@ if (isCountdown == 1) {
     }
 }
 
-if (gCurrLevelNum == LEVEL_BBH) {
+if (gCurrLevelNum == LEVEL_BBH && LEVEL_HMC && LEVEL_LLL) {
     struct Controller *c = gMarioState->controller;
     c->buttonPressed &= ~(U_CBUTTONS | D_CBUTTONS | L_CBUTTONS | R_CBUTTONS | R_TRIG);    
     gMarioState->vel[2] = 0;
@@ -1884,7 +1884,9 @@ if (gCurrLevelNum == LEVEL_BBH) {
     gMarioState->health = 0x400;
 }
 if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS) {
+    if (gMarioState->health < 0x800) {
     gMarioState->health = 0x800;
+    }
 }
     // Updates once per frame:
     vec3f_get_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);

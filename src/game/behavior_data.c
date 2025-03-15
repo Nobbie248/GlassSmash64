@@ -6567,10 +6567,39 @@ const BehaviorScript bhvTarget2[] = {
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(target2_collision),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 210, /*Height*/ 160, /*Downwards offset*/ 90),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 80, /*Downwards offset*/ 20),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_target_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvTarget2side[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(target2_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 100, /*Height*/ 400, /*Downwards offset*/ 130),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_target_loop),
+    END_LOOP(),
+};
+
+extern void bhv_back_and_forth_loop();
+const BehaviorScript bhvPlatform2d[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW)),
+    SET_FLOAT(oDrawingDistance, 30000),
+    LOAD_COLLISION_DATA(platform2d_collision),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_back_and_forth_loop),
+        CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };

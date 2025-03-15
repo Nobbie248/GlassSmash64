@@ -585,6 +585,8 @@ extern const BehaviorScript bhvHubtext2[];
 extern const BehaviorScript bhvHubtext3[];
 extern const BehaviorScript bhvHubtext4[];
 extern const BehaviorScript bhvTarget2[];
+extern const BehaviorScript bhvPlatform2d[];
+extern const BehaviorScript bhvTarget2side[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H
