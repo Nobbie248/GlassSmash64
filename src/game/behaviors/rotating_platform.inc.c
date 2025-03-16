@@ -82,3 +82,10 @@ void bhv_back_and_forth_loop(void) {
             break;
     }
 }
+
+void bhv_car_loop(void) {
+    o->oAngleVelYaw = 0x60;
+    o->oFaceAngleYaw += o->oAngleVelYaw;
+    o->oMoveAngleYaw += o->oAngleVelYaw;
+    o->oPosY = o->oHomeY;
+}

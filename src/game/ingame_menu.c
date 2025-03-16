@@ -30,6 +30,7 @@
 #include "interaction.h"
 #include "rumble_init.h"
 #define TOAD_STAR_1_DIALOG DIALOG_082
+#define TOAD_STAR_2_DIALOG DIALOG_076
 
 #include "hacktice/main.h"
 
@@ -1347,6 +1348,17 @@ void render_dialog_entries(void) {
     gDialogBoxState = DIALOG_STATE_CLOSING;
 }
 
+if (gDialogID == TOAD_STAR_2_DIALOG && (gPlayer1Controller->buttonPressed & D_JPAD)) {
+    play_sound(SOUND_MARIO_WAAAOOOW, gGlobalSoundSource);
+    gHudDisplay.stars = 0;
+    save_file_erase(0);
+    save_file_erase(1);
+    save_file_erase(2);
+    save_file_erase(3);
+    fade_into_special_warp(LEVEL_WMOTR, 0);
+    gDialogBoxState = DIALOG_STATE_CLOSING;
+}
+
             break;
         case DIALOG_STATE_HORIZONTAL: // scrolling
             gDialogScrollOffsetY += (dialog->linesPerBox * 2);
@@ -2461,12 +2473,19 @@ static void fancy_print(int y, const char* line, int tr)
 
 s32 render_menus_and_dialogs(void) {
     s32 mode = MENU_OPT_NONE;
+    // if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS)
+    //     {
+    //         if (gCheatingTranslucency < 255)
+    //             gCheatingTranslucency += 5;
+
+            
+    //     }
 
     create_dl_ortho_matrix();
     if (__builtin_expect(gCheatingTranslucency, 0))
     {
         gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-        fancy_print(20, "Did you really expect this to work?", gCheatingTranslucency);
+        fancy_print(20, "I thought it looked better from memory, hmmm", gCheatingTranslucency);
         gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
     }
 

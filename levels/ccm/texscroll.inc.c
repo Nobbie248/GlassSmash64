@@ -59,10 +59,10 @@ void scroll_gfx_mat_ccm_dl_Water_layer5() {
 
 };
 
-void scroll_gfx_mat_ccm_dl_f3dlite_material_044() {
-	Gfx *mat = segmented_to_virtual(mat_ccm_dl_f3dlite_material_044);
+void scroll_gfx_mat_ccm_dl_f3dlite_material_044_layer5() {
+	Gfx *mat = segmented_to_virtual(mat_ccm_dl_f3dlite_material_044_layer5);
 
-	shift_s(mat, 10, PACK_TILESIZE(0, 1));
+	shift_s(mat, 11, PACK_TILESIZE(0, 1));
 
 };
 
@@ -70,5 +70,5 @@ void scroll_ccm() {
 	scroll_ccm_dl_z_flames_mesh_layer_5_vtx_0();
 	scroll_ccm_dl_z_flames_001_mesh_layer_5_vtx_0();
 	scroll_gfx_mat_ccm_dl_Water_layer5();
-	scroll_gfx_mat_ccm_dl_f3dlite_material_044();
+	scroll_gfx_mat_ccm_dl_f3dlite_material_044_layer5();
 };

@@ -244,6 +244,7 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_DIAMOND_PARTICLE,        diamond_particle_geo),
     LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_PINK,           unbrella_pink_geo),
     LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_BLUE,           unbrella_blue_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_CAR,                     car_geo),
     RETURN(),
 };
 

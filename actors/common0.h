@@ -285,4 +285,8 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "bottle/collision_header.h"
 
+#include "car/collision_header.h"
+
+#include "car/geo_header.h"
+
 #endif

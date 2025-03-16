@@ -1888,6 +1888,13 @@ if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS) {
     gMarioState->health = 0x800;
     }
 }
+if (gMarioState->floor != NULL) {
+    s16 floorType = gMarioState->floor->type;
+    if (floorType == 0x007D || floorType == 0x007E || floorType == 0x007F) {
+        fade_into_special_warp(LEVEL_BBH, 0);
+    }
+}
+
     // Updates once per frame:
     vec3f_get_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);
     vec3f_get_lateral_dist(gMarioState->prevPos, gMarioState->pos, &gMarioState->lateralSpeed);
