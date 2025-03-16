@@ -87,29 +87,6 @@ static void adjust_crystal(struct Object* crystal)
     // crystal->oPosY = o->oPosY + amt;
 }
 
-static void checkWarp()
-{
-    int floorType = 0;
-    if (gMarioStates->floor)
-        floorType = gMarioStates->floor->type;
-    
-    if (floorType == SURFACE_VANISH_CAP_WALLS)
-    {
-        if ((save_file_get_flags() & SAVE_FILE_RL_GEMS) != SAVE_FILE_RL_GEMS)
-        {
-            if (gCheatingTranslucency < 255)
-                gCheatingTranslucency += 5;
-
-            return;
-        }
-        else
-        {
-            gMarioStates->usedObj = o;
-            level_trigger_warp(gMarioState, WARP_OP_TELEPORT);
-        }
-    }
-}
-
 void bhv_epic_door_loop()
 {
     if (0 == o->oBehParams2ndByte)

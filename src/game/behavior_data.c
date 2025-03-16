@@ -6603,3 +6603,16 @@ const BehaviorScript bhvPlatform2d[] = {
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
+
+extern void bhv_car_loop();
+const BehaviorScript bhvCar[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW)),
+    SET_FLOAT(oDrawingDistance, 30000),
+    LOAD_COLLISION_DATA(car_collision),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_car_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
