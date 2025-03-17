@@ -588,6 +588,8 @@ extern const BehaviorScript bhvTarget2[];
 extern const BehaviorScript bhvPlatform2d[];
 extern const BehaviorScript bhvTarget2side[];
 extern const BehaviorScript bhvCar[];
+extern const BehaviorScript bhvMixer[];
+extern const BehaviorScript bhv4dcube[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H

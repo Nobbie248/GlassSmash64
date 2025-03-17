@@ -245,6 +245,8 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_PINK,           unbrella_pink_geo),
     LOAD_MODEL_FROM_GEO(MODEL_UNBRELLA_BLUE,           unbrella_blue_geo),
     LOAD_MODEL_FROM_GEO(MODEL_CAR,                     car_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_MIXER,                   mixer_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_4DCUBE,                  _4dcube_geo),
     RETURN(),
 };
 

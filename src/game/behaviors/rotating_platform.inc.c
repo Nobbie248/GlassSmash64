@@ -45,6 +45,12 @@ void bhv_gemmies_rotating_loop(void) {
     o->oMoveAngleYaw += o->oAngleVelYaw;
     o->oPosY = o->oHomeY + sins(o->oTimer * 0x123) * 50.0f;
 }
+void bhv_cube_rotate_loop(void) {
+    o->oAngleVelYaw = -0x23;
+    o->oFaceAngleYaw += o->oAngleVelYaw;
+    o->oMoveAngleYaw += o->oAngleVelYaw;
+    o->oPosY = o->oHomeY + sins((o->oTimer * 0x123) + 0x4000) * 50.0f;
+}
 #define PLATFORM_SPEED 8.0f
 #define MOVE_DURATION 140
 #define STOP_DURATION 75
