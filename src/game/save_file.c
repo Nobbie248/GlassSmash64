@@ -739,11 +739,11 @@ void save_file_set_sound_mode(u16 mode) {
 #ifdef WIDE
 u32 save_file_get_widescreen_mode(void) {
     return gSaveBuffer.menuData.wideMode;
+   
 }
 
 void save_file_set_widescreen_mode(u8 mode) {
     gSaveBuffer.menuData.wideMode = mode;
-
     gMainMenuDataModified = TRUE;
     save_main_menu_data();
 }
@@ -867,4 +867,19 @@ u16 save_file_get_best_slide_time(s32 fileIndex, s32 courseIndex) {
 
     struct SaveFile *saveFile = &gSaveBuffer.files[fileIndex][0];
     return saveFile->bestSlideTimes[courseIndex];
+}
+
+void save_file_set_buttonswap(s32 fileIndex, u8 value) {
+    struct SaveFile *saveFile = &gSaveBuffer.files[fileIndex][0];
+
+    if (saveFile->buttonswapFlag != value) {
+        saveFile->buttonswapFlag = value;
+        gSaveFileModified = TRUE;
+        save_file_do_save(fileIndex);
+    }
+}
+
+u8 save_file_get_buttonswap(s32 fileIndex) {
+    struct SaveFile *saveFile = &gSaveBuffer.files[fileIndex][0];
+    return saveFile->buttonswapFlag;
 }

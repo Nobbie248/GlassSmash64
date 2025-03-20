@@ -1134,7 +1134,7 @@ void mode_8_directions_camera(struct Camera *c) {
         play_sound_cbutton_side();
     }
 
-    if (gCurrLevelNum != LEVEL_BBH) {
+    if (gCurrLevelNum != LEVEL_BBH && gCurrLevelNum != LEVEL_HMC && gCurrLevelNum != LEVEL_LLL) {
         
 #ifdef PARALLEL_LAKITU_CAM
     if (gPlayer1Controller->buttonPressed & U_JPAD) {

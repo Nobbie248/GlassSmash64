@@ -1662,7 +1662,8 @@ void render_widescreen_setting(void) {
     }
     if (gPlayer1Controller->buttonPressed & L_JPAD) { 
         buttonswap ^= TRUE;
-        play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);   
+        play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);
+        save_file_set_buttonswap(gCurrSaveFileNum - 1, buttonswap ? 1 : 0);  
     }
     if (gPlayer1Controller->buttonPressed & R_JPAD) {
         gIsArrow ^= TRUE;

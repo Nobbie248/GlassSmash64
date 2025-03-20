@@ -32,57 +32,57 @@ void check_and_spawn_star(void) {
 
     if (gCurrLevelNum == LEVEL_BOB) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2130) { award_star(0); award_star(1); }
-            else if (slideTime < 2730) { award_star(0); }
+            if (slideTime < 1829) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2129) { award_star(0); award_star(1); }
+            else if (slideTime < 2729) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_WF) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1830) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2130) { award_star(0); award_star(1); }
-            else if (slideTime < 2730) { award_star(0); }
+            if (slideTime < 1829) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2129) { award_star(0); award_star(1); }
+            else if (slideTime < 2729) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_JRB) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1680) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 1930) { award_star(0); award_star(1); }
-            else if (slideTime < 2580) { award_star(0); }
+            if (slideTime < 1679) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 1929) { award_star(0); award_star(1); }
+            else if (slideTime < 2579) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_CCM) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 2280) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2580) { award_star(0); award_star(1); }
-            else if (slideTime < 3180) { award_star(0); }
+            if (slideTime < 2279) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2579) { award_star(0); award_star(1); }
+            else if (slideTime < 3179) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_BBH) {
         if (gTotalBrokenObjects >= 8) {
-            if (slideTime < 780) { award_star(0); }
+            if (slideTime < 779) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_HMC) {
         if (gTotalBrokenObjects >= 8) {
-            if (slideTime < 780) { award_star(0); }
+            if (slideTime < 689) { award_star(0); }
             shouldWin = 1;
         }
     }
 
     if (gCurrLevelNum == LEVEL_LLL) {
         if (gTotalBrokenObjects >= 8) {
-            if (slideTime < 780) { award_star(0); }
+            if (slideTime < 869) { award_star(0); }
             shouldWin = 1;
         }
     }
@@ -132,22 +132,24 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
         (brick2 && obj_check_if_collided_with_object(o, brick2)) ||
         (closehit && obj_check_if_collided_with_object(o, closehit)) ||
         cur_obj_was_attacked_or_ground_pounded()) {
-    
-        obj_mark_for_deletion(o);
+
+        if (gMarioState == NULL) {
+            return;
+        }
+
+        gMarioState->numCoins++;
+        gTotalBrokenObjects++;
+        check_and_spawn_star();
         play_sound(sound, gGlobalSoundSource);
 
         if (o->behavior == bhvPileLeaves) {
             for (int i = 0; i < 9; i++) {
                 struct Object *leafParticle = spawn_object(o, MODEL_P_LEAVES, bhvLeafParticle);
-
                 f32 angle = random_float() * 2.0f * M_PI;
                 f32 distance = random_float() * 10.0f;
-                
                 leafParticle->oPosX = o->oPosX + sins(angle) * distance;
                 leafParticle->oPosY = o->oPosY + random_float() * 50.0f;
                 leafParticle->oPosZ = o->oPosZ + coss(angle) * distance;
-                
-
                 leafParticle->oVelX = sins(angle) * (random_float() * 5.0f + 2.0f);
                 leafParticle->oVelZ = coss(angle) * (random_float() * 5.0f + 2.0f);
                 leafParticle->oVelY = random_float() * 10.0f + 5.0f;
@@ -156,10 +158,8 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
             spawn_mist_particles_variable(0, 0, 46.0f);
             spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
         }
-        
-        gMarioState->numCoins++;
-        gTotalBrokenObjects++;
-        check_and_spawn_star();
+
+        obj_mark_for_deletion(o);
     }
 }
 
@@ -301,8 +301,7 @@ void pauseinputscore(void) {
     print_text(200, 150, timeString);
     print_text(50, 100, "best time"); 
 
-    if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
-        gCurrLevelNum != LEVEL_BBH &&
+    if (gCurrLevelNum != LEVEL_BBH &&
         gCurrLevelNum != LEVEL_HMC &&
         gCurrLevelNum != LEVEL_LLL) {
         sprintf(starString, "Stars: %d out of 3", collectedStars);

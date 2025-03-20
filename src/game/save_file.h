@@ -40,7 +40,7 @@ struct SaveFile {
     // The most significant bit of the byte *following* each course is set if the
     // cannon is open.
     u8 courseStars[COURSE_COUNT]; // 200 bits
-
+    u8 buttonswapFlag;
     u8 courseCoinScores[COURSE_STAGES_COUNT]; // 120 bits
     u16 bestSlideTimes[COURSE_STAGES_COUNT];
     struct SaveBlockSignature signature; // 32 bits
@@ -205,6 +205,8 @@ void check_if_should_set_warp_checkpoint(struct WarpNode *warpNode);
 s32 check_warp_checkpoint(struct WarpNode *warpNode);
 void save_file_collect_slide_time(s32 fileIndex, s32 courseIndex, u16 newTime);
 u16 save_file_get_best_slide_time(s32 fileIndex, s32 courseIndex);
+void save_file_set_buttonswap(s32 fileIndex, u8 value);
+u8 save_file_get_buttonswap(s32 fileIndex);
 
 #ifdef MULTILANG
 void multilang_set_language(u32 language);

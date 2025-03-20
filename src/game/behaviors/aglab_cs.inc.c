@@ -63,6 +63,10 @@ void bhv_cs_loop(void) {
     if (gCurrCourseNum == COURSE_NONE) { resetFlags(); o->activeFlags = 0; return; }
     if (gCurrCourseNum == COURSE_BBH) { resetFlags(); o->activeFlags = 0;resetFlags(); reset_camera(gCamera); o->activeFlags = 0;
         countdownStage = 1; frameCount = 0; isCountdown = 1; gIstitle = 0;}
+    if (gCurrCourseNum == COURSE_HMC) { resetFlags(); o->activeFlags = 0;resetFlags(); reset_camera(gCamera); o->activeFlags = 0;
+        countdownStage = 1; frameCount = 0; isCountdown = 1; gIstitle = 0;}
+    if (gCurrCourseNum == COURSE_LLL) { resetFlags(); o->activeFlags = 0;resetFlags(); reset_camera(gCamera); o->activeFlags = 0;
+        countdownStage = 1; frameCount = 0; isCountdown = 1; gIstitle = 0;}
     switch (gCurrCourseNum) {
         case COURSE_BOB: gCamera->cutscene = CUTSCENE_C1; gIstitle = 1; break;
         case COURSE_WF: gCamera->cutscene = CUTSCENE_C2; gIstitle = 2; break;
