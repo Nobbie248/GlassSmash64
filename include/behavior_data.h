@@ -584,12 +584,16 @@ extern const BehaviorScript bhvHubtext1[];
 extern const BehaviorScript bhvHubtext2[];
 extern const BehaviorScript bhvHubtext3[];
 extern const BehaviorScript bhvHubtext4[];
+extern const BehaviorScript bhvHubtext5[];
+extern const BehaviorScript bhvHubtext6[];
+extern const BehaviorScript bhvHubtext7[];
 extern const BehaviorScript bhvTarget2[];
 extern const BehaviorScript bhvPlatform2d[];
 extern const BehaviorScript bhvTarget2side[];
 extern const BehaviorScript bhvCar[];
 extern const BehaviorScript bhvMixer[];
 extern const BehaviorScript bhv4dcube[];
+extern const BehaviorScript bhvPlatform2dupdown[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H

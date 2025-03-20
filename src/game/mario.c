@@ -1875,7 +1875,7 @@ if (isCountdown == 1) {
     }
 }
 
-if (gCurrLevelNum == LEVEL_BBH && LEVEL_HMC && LEVEL_LLL) {
+if (gCurrLevelNum == LEVEL_BBH || gCurrLevelNum == LEVEL_HMC || gCurrLevelNum == LEVEL_LLL) {
     struct Controller *c = gMarioState->controller;
     c->buttonPressed &= ~(U_CBUTTONS | D_CBUTTONS | L_CBUTTONS | R_CBUTTONS | R_TRIG);    
     gMarioState->vel[2] = 0;
@@ -1890,8 +1890,14 @@ if (gCurrLevelNum == LEVEL_CASTLE_GROUNDS) {
 }
 if (gMarioState->floor != NULL) {
     s16 floorType = gMarioState->floor->type;
-    if (floorType == 0x007D || floorType == 0x007E || floorType == 0x007F) {
+    if (floorType == 0x007D) {
         fade_into_special_warp(LEVEL_BBH, 0);
+    }
+    if (floorType == 0x007E) {
+        fade_into_special_warp(LEVEL_HMC, 0);
+    }
+    if (floorType == 0x007F) {
+        fade_into_special_warp(LEVEL_LLL, 0);
     }
 }
 
@@ -2070,6 +2076,8 @@ void init_mario_from_save_file(void) {
     gMarioState->marioBodyState = &gBodyStates[0];
     gMarioState->controller = &gControllers[0];
     gMarioState->animList = &gMarioAnimsBuf;
+    buttonswap = save_file_get_buttonswap(gCurrSaveFileNum - 1) ? TRUE : FALSE;
+
 
     gMarioState->numCoins = 0;
     gMarioState->numStars = save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1);

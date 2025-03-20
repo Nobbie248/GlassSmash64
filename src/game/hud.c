@@ -431,7 +431,7 @@ void render_debug_mode(void) {
  */
 void render_hud_coins(void) {
     char str[10];
-    if (gCurrLevelNum != LEVEL_BBH) {
+    if (gCurrLevelNum != LEVEL_BBH && gCurrLevelNum != LEVEL_HMC && gCurrLevelNum != LEVEL_LLL){
     sprintf(str, "%d of 30", gHudDisplay.coins);
     print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(290), 210, "✪", TEXT_ALIGN_RIGHT);
     print_text_aligned(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(203), 210, str, TEXT_ALIGN_RIGHT);
@@ -651,26 +651,35 @@ if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
         cur_obj_nearest_object_with_behavior(bhvHubtext1),
         cur_obj_nearest_object_with_behavior(bhvHubtext2),
         cur_obj_nearest_object_with_behavior(bhvHubtext3),
-        cur_obj_nearest_object_with_behavior(bhvHubtext4)
+        cur_obj_nearest_object_with_behavior(bhvHubtext4),
+        cur_obj_nearest_object_with_behavior(bhvHubtext5),
+        cur_obj_nearest_object_with_behavior(bhvHubtext6),
+        cur_obj_nearest_object_with_behavior(bhvHubtext7)
     };
     
     const char *texts[][3] = {
         {"1'30 for 1 Star", "1'10 for 2 Stars", "1'00 for 3 Stars"},
         {"1'30 for 1 Star", "1'10 for 2 Stars", "1'00 for 3 Stars"},
         {"1'25 for 1 Star", "1'05 for 2 Stars", "0'55 for 3 Stars"},
-        {"1'45 for 1 Star", "1'25 for 2 Stars", "1'15 for 3 Stars"}
+        {"1'45 for 1 Star", "1'25 for 2 Stars", "1'15 for 3 Stars"},
+        {"BONUS COURSE 1", "0'25 for 1 Star", NULL},
+        {"BONUS COURSE 2", "0'22 for 1 Star", NULL},
+        {"BONUS COURSE 3", "0'28 for 1 Star", NULL}
     };
     
     struct Object *marioObj = gMarioStates[0].marioObj;
     create_dl_ortho_matrix();
     
-    for (s32 i = 0; i < 4; i++) {
-        if (objects[i] != NULL && dist_between_objects(objects[i], marioObj) < 750.0f) {
+    for (s32 i = 0; i < 7; i++) {
+        if (objects[i] == NULL) continue;
+    
+        f32 range = (i == 4) ? 1700.0f : 750.0f;
+    
+        if (dist_between_objects(objects[i], marioObj) < range) {
             if (fTimer < 25) {
                 fTimer++;
             }
             s32 alpha = (fTimer * 200) / 45;
-            // box moment
             s32 x = 110; 
             s32 y = 80;
     
@@ -682,13 +691,16 @@ if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
     
             gDPSetPrimColor(gDisplayListHead++, 0, 0, 255, 255, 255, alpha);
             gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
-            print_generic_string(x, y, texts[i][0]);
-            print_generic_string(x, y - 30, texts[i][1]);
-            print_generic_string(x, y - 60, texts[i][2]);
+    
+            if (texts[i][0]) print_generic_string(x, y, texts[i][0]);
+            if (texts[i][1]) print_generic_string(x, y - 30, texts[i][1]);
+            if (texts[i][2]) print_generic_string(x, y - 60, texts[i][2]);
+    
             gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
             return;
         }
     }
+    
     
     fTimer = 0;
     

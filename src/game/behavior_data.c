@@ -6559,6 +6559,24 @@ const BehaviorScript bhvHubtext4[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvHubtext5[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHubtext6[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHubtext7[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    BEGIN_LOOP(),
+    END_LOOP(),
+};
+
 const BehaviorScript bhvTarget2[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 2000),
@@ -6600,6 +6618,19 @@ const BehaviorScript bhvPlatform2d[] = {
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_back_and_forth_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+extern void bhv_up_and_down_loop();
+const BehaviorScript bhvPlatform2dupdown[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW)),
+    SET_FLOAT(oDrawingDistance, 30000),
+    LOAD_COLLISION_DATA(platform2d_collision),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_up_and_down_loop),
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };

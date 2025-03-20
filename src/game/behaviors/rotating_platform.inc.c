@@ -51,37 +51,70 @@ void bhv_cube_rotate_loop(void) {
     o->oMoveAngleYaw += o->oAngleVelYaw;
     o->oPosY = o->oHomeY + sins((o->oTimer * 0x123) + 0x4000) * 50.0f;
 }
-#define PLATFORM_SPEED 8.0f
-#define MOVE_DURATION 140
-#define STOP_DURATION 75
+
 void bhv_back_and_forth_loop(void) {
     
     switch (o->oAction) {
         case 0:
-            o->oPosX += PLATFORM_SPEED;
-            if (++o->oTimer >= MOVE_DURATION) {
+            o->oPosX += 8.0f;
+            if (++o->oTimer >= 140) {
                 o->oAction = 1;
                 o->oTimer = 0;
             }
             break;
         
         case 1:
-            if (++o->oTimer >= STOP_DURATION) {
+            if (++o->oTimer >= 75) {
                 o->oAction = 2;
                 o->oTimer = 0;
             }
             break;
         
         case 2:
-            o->oPosX -= PLATFORM_SPEED;
-            if (++o->oTimer >= MOVE_DURATION) {
+            o->oPosX -= 8.0f;
+            if (++o->oTimer >= 140) {
                 o->oAction = 3;
                 o->oTimer = 0;
             }
             break;
         
         case 3:
-            if (++o->oTimer >= STOP_DURATION) {
+            if (++o->oTimer >= 75) {
+                o->oAction = 0;
+                o->oTimer = 0;
+            }
+            break;
+    }
+}
+
+void bhv_up_and_down_loop(void) {
+
+    switch (o->oAction) {
+        case 0:
+            o->oPosY += 8.0f;
+            if (++o->oTimer >= 250) {
+                o->oAction = 1;
+                o->oTimer = 0;
+            }
+            break;
+
+        case 1:
+            if (++o->oTimer >= 75) {
+                o->oAction = 2;
+                o->oTimer = 0;
+            }
+            break;
+
+        case 2:
+            o->oPosY -= 8.0f;
+            if (++o->oTimer >= 250) {
+                o->oAction = 3;
+                o->oTimer = 0;
+            }
+            break;
+
+        case 3:
+            if (++o->oTimer >= 75) {
                 o->oAction = 0;
                 o->oTimer = 0;
             }
