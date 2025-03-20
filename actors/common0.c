@@ -129,3 +129,7 @@ UNUSED static const u64 binid_18 = 18;
 #include "bottle/collision.inc.c"
 #include "car/collision.inc.c"
 #include "car/model.inc.c"
+#include "mixer/model.inc.c"
+#include "mixer/collision.inc.c"
+#include "_4dcube/collision.inc.c"
+#include "_4dcube/model.inc.c"

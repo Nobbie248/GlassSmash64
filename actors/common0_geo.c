@@ -64,3 +64,5 @@
 #include "unbrella_pink/geo.inc.c"
 #include "unbrella_blue/geo.inc.c"
 #include "car/geo.inc.c"
+#include "mixer/geo.inc.c"
+#include "_4dcube/geo.inc.c"

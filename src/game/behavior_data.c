@@ -6616,3 +6616,29 @@ const BehaviorScript bhvCar[] = {
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
+
+extern void bhv_gemmies_rotating_loop();
+const BehaviorScript bhvMixer[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW)),
+    SET_FLOAT(oDrawingDistance, 30000),
+    LOAD_COLLISION_DATA(mixer_collision),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_gemmies_rotating_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+extern void bhv_cube_rotate_loop();
+const BehaviorScript bhv4dcube[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW)),
+    SET_FLOAT(oDrawingDistance, 30000),
+    LOAD_COLLISION_DATA(_4dcube_collision),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cube_rotate_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
