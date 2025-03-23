@@ -13,10 +13,6 @@
 
 #include "actors/common0.h"
 #include "actors/common1.h"
-
-/* Fast64 begin persistent block [includes] */
-/* Fast64 end persistent block [includes] */
-
 #include "make_const_nonconst.h"
 #include "levels/wf/header.h"
 
@@ -45,30 +41,32 @@ const LevelScript level_wf_entry[] = {
 	LOAD_MODEL_FROM_GEO(MODEL_CCM_SNOW_TREE, snow_tree_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_C2_STAIRS, c2_ladders_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_GEM_STAR, gem_star_blue_geo), 
-
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
 
 	AREA(1, wf_area_1),
-		WARP_NODE(0x0A, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
-		WARP_NODE(0x02, LEVEL_WF, 0x02, 0x03, WARP_NO_CHECKPOINT),
-		WARP_NODE(0x03, LEVEL_WF, 0x01, 0x02, WARP_NO_CHECKPOINT),
-		OBJECT(MODEL_LEAVES_PILE, 2534, 1872, -4260, 0, 0, 0, 0x00000000, bhvPileLeaves),
-		OBJECT(MODEL_LEAVES_PILE, 2662, 1983, -5646, 9, 0, 0, 0x00000000, bhvPileLeaves),
-		OBJECT(MODEL_LEAVES_PILE, 3515, 2066, -5932, 10, 0, 0, 0x00000000, bhvPileLeaves),
+		WARP_NODE(241, LEVEL_CASTLE_GROUNDS, 1, 6, WARP_NO_CHECKPOINT),
+		WARP_NODE(240, LEVEL_CASTLE_GROUNDS, 1, 5, WARP_NO_CHECKPOINT),
+		WARP_NODE(0, LEVEL_WF, 1, 0, WARP_NO_CHECKPOINT),
+		WARP_NODE(10, LEVEL_WF, 1, 0, WARP_NO_CHECKPOINT),
+		OBJECT(MODEL_LEAVES_PILE, 2534, 1867, -4260, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 2662, 1978, -5646, 9, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, 3515, 2060, -5932, 10, 0, 0, 0x00000000, bhvPileLeaves),
 		OBJECT(MODEL_LEAVES_PILE, -2919, 1053, 724, 0, 0, 0, 0x00000000, bhvPileLeaves),
 		OBJECT(MODEL_LEAVES_PILE, -2619, 1053, 973, 0, 0, 0, 0x00000000, bhvPileLeaves),
-		MARIO_POS(0x01, 0, -3258, 491, 3582),
-		OBJECT(MODEL_RED_MUSHROOM, -869, 0, -13001, 0, 0, 0, 0x00000000, bhvBounce),
-		OBJECT(MODEL_BLUE_MUSHROOM, 2509, 0, 843, 0, 0, 0, 0x00000000, bhvBounce),
-		OBJECT(MODEL_RED_MUSHROOM, 398, 0, 1540, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_LEAVES_PILE, 419, 1755, 1360, 0, 0, 0, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, -130, 2477, 2305, -12, 1, -4, 0x00000000, bhvPileLeaves),
+		OBJECT(MODEL_LEAVES_PILE, -615, 2444, 1986, -5, 1, -4, 0x00000000, bhvPileLeaves),
+		MARIO_POS(0x01, -180, -3260, 496, 3582),
+		OBJECT(MODEL_BLUE_MUSHROOM, 2028, 0, 2131, 0, 0, 0, 0x00000000, bhvBounce),
 		OBJECT(MODEL_BLUE_MUSHROOM, 5044, 0, -562, 0, 0, 0, 0x00000000, bhvBounce),
-		OBJECT(MODEL_RED_MUSHROOM, -1464, 0, 496, 0, 0, 0, 0x00000000, bhvBounce),
-		OBJECT(MODEL_RED_MUSHROOM, 223, 0, -14522, 0, 0, 0, 0x00000000, bhvBounce),
-		OBJECT(MODEL_NONE, 580, 1701, -15786, 0, 0, 0, (0x02 << 16), bhvWarp),
-		OBJECT(MODEL_NONE, 1216, 1701, -15724, 0, 0, 0, (0x02 << 16), bhvWarp),
-		OBJECT(MODEL_NONE, 1904, 1701, -15550, 0, 0, 0, (0x02 << 16), bhvWarp),
-		OBJECT(MODEL_NONE, -739, 1793, 5656, 0, -19, 0, 0x00000000, bhvCS),
+		OBJECT(MODEL_RED_MUSHROOM, -1580, 0, 319, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_RED_MUSHROOM, 8736, 0, 2417, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_BLUE_MUSHROOM, -3165, 0, -6565, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_BLUE_MUSHROOM, 1357, 0, -1161, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(MODEL_RED_MUSHROOM, 999, 0, -5438, 0, 0, 0, 0x00000000, bhvBounce),
+		OBJECT(0, -3258, 496, 3582, 0, -180, 0, 0xa0000, bhvSpinAirborneWarp),
+		OBJECT(MODEL_NONE, 0, 0, 0, 0, -90, 0, 0x00000000, bhvCS),
 		TERRAIN(wf_area_1_collision),
 		MACRO_OBJECTS(wf_area_1_macro_objs),
 		STOP_MUSIC(0),
@@ -76,19 +74,8 @@ const LevelScript level_wf_entry[] = {
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
-
-	AREA(2, wf_area_2),
-		OBJECT(MODEL_NONE, 101, 1232, 0, 0, 0, 0, (0x03 << 16), bhvSpinAirborneWarp),
-		TERRAIN(wf_area_2_collision),
-		MACRO_OBJECTS(wf_area_2_macro_objs),
-		STOP_MUSIC(0),
-		TERRAIN_TYPE(TERRAIN_GRASS),
-		/* Fast64 begin persistent block [area commands] */
-		/* Fast64 end persistent block [area commands] */
-	END_AREA(),
-
 	FREE_LEVEL_POOL(),
-	MARIO_POS(0x01, 0, -3258, 491, 3582),
+	MARIO_POS(0x01, -180, -3260, 496, 3582),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),

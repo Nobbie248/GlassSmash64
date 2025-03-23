@@ -133,12 +133,21 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
         (closehit && obj_check_if_collided_with_object(o, closehit)) ||
         cur_obj_was_attacked_or_ground_pounded()) {
 
-        if (gMarioState == NULL) {
-            return;
-        }
-
-        gMarioState->numCoins++;
-        gTotalBrokenObjects++;
+            if (gMarioState == NULL) {
+                return;
+            }
+            
+            u32 oldCoins = gMarioState->numCoins;
+            u32 oldBroken = gTotalBrokenObjects;
+            
+            gMarioState->numCoins++;
+            gTotalBrokenObjects++;
+            
+            if (gMarioState->numCoins == oldCoins || gTotalBrokenObjects == oldBroken) {
+                return;
+            }
+            
+        
         check_and_spawn_star();
         play_sound(sound, gGlobalSoundSource);
 
