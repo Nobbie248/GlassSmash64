@@ -1938,16 +1938,15 @@ I'm out training now,\n\
 so come back later.\n\
 \t--Koopa the Quick")
 
-DEFINE_DIALOG(DIALOG_167,1,4,30,200, "Princess Toadstool's\n\
-castle is just ahead.\n\
-\n\
-\n\
-Press Ⓐ  to jump, Ⓩ to\n\
-crouch, and Ⓑ to punch,\n\
-read a sign, or grab\n\
-something.\n\
-Press Ⓑ again to throw\n\
-something you're holding.")
+DEFINE_DIALOG(DIALOG_167,1,4,30,200,
+"Music Credits:\n\
+Anders Enger Jensen - Portal love\n\
+Graeme Norgate - Chinese\n\
+Demoscene Time Machine - Runway\n\
+Graeme Norgate - Aztec Exterior\n\
+JackTheGothGuy - Outrun Isles\n\
+StarPunk - Bonus Stage Remix\n\
+TVGC - Swampy Hollow") 
 
 DEFINE_DIALOG(DIALOG_168,1,5,30,200, "Hey! Knock it off! That's\n\
 the second time you've\n\

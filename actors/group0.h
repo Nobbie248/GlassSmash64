@@ -406,4 +406,6 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "platform2d/geo_header.h"
 
+#include "swampyhollow/header.h"
+
 #endif
