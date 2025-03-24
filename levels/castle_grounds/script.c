@@ -103,6 +103,7 @@ const LevelScript level_castle_grounds_entry[] = {
 		OBJECT(MODEL_NONE, -990, 0, 3981, 0, 0, 0, 0x00000000, bhvHubtext6),
 		OBJECT(MODEL_NONE, 1582, 0, 5886, 0, 0, 0, 0x00000000, bhvHubtext7),
 		OBJECT(MODEL_MIXER, -987, 139, 3978, 0, 90, 0, 0x00000000, bhvMixer),
+		OBJECT(MODEL_NONE, -441, 0, 7673, 0, 90, 0, (167 << 16), bhvMessagePanel),
 		OBJECT(MODEL_TARGETS, 1201, 325, -594, 0, 0, 90, 0, bhvTarget),
 		OBJECT(MODEL_TARGETS, 1201, 325, 239, 0, 0, 90, 0, bhvTarget),
 		OBJECT(MODEL_TARGETS, -1211, 645, 239, 0, 0, 0, 0, bhvTarget),

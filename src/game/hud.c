@@ -729,7 +729,7 @@ if (gIstitle == 1) {
     gSPDisplayList(gDisplayListHead++, &chinesevillage_title_002_mesh);
 }
 if (gIstitle == 2) {
-    gSPDisplayList(gDisplayListHead++, &outrunisles_title_mesh);
+    gSPDisplayList(gDisplayListHead++, &swampyhollow_title_003_mesh);
 }
 if (gIstitle == 3) {
     gSPDisplayList(gDisplayListHead++, &aztecruins_title_001_mesh);

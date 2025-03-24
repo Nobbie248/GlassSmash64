@@ -69,3 +69,4 @@
 #include "target2/model.inc.c"
 #include "platform2d/collision.inc.c"
 #include "platform2d/model.inc.c"
+#include "swampyhollow/model.inc.c"
