@@ -646,4 +646,11 @@
 #define MODEL_CAR 0X124
 #define MODEL_MIXER 0X125
 #define MODEL_4DCUBE 0X126
+
+// c2 statues
+#define MODEL_YOSHY 0x127
+#define MODEL_TOADY 0x128
+#define MODEL_KOOPY 0x129
+#define MODEL_BNET  0x130
+
 #endif // MODEL_IDS_H

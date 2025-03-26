@@ -408,4 +408,16 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "swampyhollow/header.h"
 
+#include "toady/geo_header.h"
+
+#include "yoshy/geo_header.h"
+
+#include "koopy/geo_header.h"
+
+#include "koopy/collision_header.h"
+
+#include "bnet/collision_header.h"
+
+#include "bnet/geo_header.h"
+
 #endif

@@ -123,6 +123,31 @@ void bhv_pots_init(void) {
     }
 }
 
+#define MODEL_A MODEL_YOSHY
+#define MODEL_B MODEL_TOADY
+#define MODEL_C MODEL_KOOPY
+
+void bhv_jstatues_init(void) {
+    struct Object *obj = gCurrentObject;
+    if (gCurrLevelNum == LEVEL_WF && obj->behavior == bhvJStatues) {
+        u16 randVal = random_u16() % 3;
+        
+        switch (randVal) {
+            case 0:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_A];
+                break;
+            case 1:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_B];
+                break;
+            case 2:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_C];
+                break;
+        }
+        obj->oFaceAngleYaw = random_u16();
+    }
+}
+
+
 void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSize1) {
     struct Object* brick = cur_obj_nearest_object_with_behavior(bhvBrick);
     struct Object* brick2 = cur_obj_nearest_object_with_behavior(bhvBrick2);

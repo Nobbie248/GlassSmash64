@@ -36,3 +36,7 @@
 #include "light_beam/geo.inc.c"
 #include "target2/geo.inc.c"
 #include "platform2d/geo.inc.c"
+#include "toady/geo.inc.c"
+#include "yoshy/geo.inc.c"
+#include "koopy/geo.inc.c"
+#include "bnet/geo.inc.c"

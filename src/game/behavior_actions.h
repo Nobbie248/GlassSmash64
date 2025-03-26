@@ -576,6 +576,7 @@ void bhv_breakable_diamond_loop(void);
 void bhv_breakable_oogaboogas_loop(void);
 void bhv_breakable_bottle_loop(void);
 void bhv_breakable_kite_loop(void);
+void bhv_jstatues_init(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 

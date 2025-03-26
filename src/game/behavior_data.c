@@ -6414,6 +6414,23 @@ const BehaviorScript bhvAztecPots[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvJStatues[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 4000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(koopy_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 135, /*Height*/ 450, /*Downwards offset*/ 50),
+    CALL_NATIVE(bhv_jstatues_init),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_pot_loop),
+    END_LOOP(),
+};
+
 const BehaviorScript bhvBallsaver[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_FLOAT(oCollisionDistance, 4000),
@@ -6671,5 +6688,21 @@ const BehaviorScript bhv4dcube[] = {
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_cube_rotate_loop),
         CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBnet[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(bnet_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 80, /*Downwards offset*/ 20),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_oogaboogas_loop),
     END_LOOP(),
 };

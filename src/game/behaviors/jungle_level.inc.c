@@ -24,7 +24,11 @@ void bhv_bounce_object_loop(void) {
         play_sound(SOUND_GENERAL_CRAZY_BOX_BOING_SLOW, gMarioObject->header.gfx.cameraToObject);
         spawn_object(gMarioState->marioObj, MODEL_SMOKE, bhvWhitePuffSmoke2);
 
-        gMarioState->vel[1] = 120.0f;
+        if (gPlayer1Controller->buttonDown & A_BUTTON) {
+            gMarioState->vel[1] = 145.0f;
+        } else {
+            gMarioState->vel[1] = 120.0f;
+        }
 
         o->oTimer = 0;
     }

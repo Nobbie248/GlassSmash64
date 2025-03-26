@@ -1,0 +1,14 @@
+extern const GeoLayout yoshy_geo[];
+extern Lights1 yoshy_f3dlite_material_lights;
+extern Lights1 yoshy_f3dlite_material_001_lights;
+extern u8 yoshy_deepslate0_ci4[];
+extern u8 yoshy_deepslate0_pal_rgba16[];
+extern Vtx yoshy_yoshy_mesh_layer_1_vtx_0[16];
+extern Gfx yoshy_yoshy_mesh_layer_1_tri_0[];
+extern Vtx yoshy_yoshy_mesh_layer_1_vtx_1[263];
+extern Gfx yoshy_yoshy_mesh_layer_1_tri_1[];
+extern Gfx mat_yoshy_f3dlite_material[];
+extern Gfx mat_revert_yoshy_f3dlite_material[];
+extern Gfx mat_yoshy_f3dlite_material_001[];
+extern Gfx mat_revert_yoshy_f3dlite_material_001[];
+extern Gfx yoshy_yoshy_mesh_layer_1[];

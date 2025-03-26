@@ -4,7 +4,6 @@
 #include "src/audio/external.h"
 #define o (gCurrentObject)
 void bhv_delete_save_file_a_and_warp_loop(void) {
-    
     if (o->oAction == 0 && o->oDistanceToMario < 200.0f && gPlayer1Controller->buttonPressed & A_BUTTON) {
         play_sound(SOUND_MENU_MESSAGE_APPEAR, gGlobalSoundSource);
         o->oAction = 1;
