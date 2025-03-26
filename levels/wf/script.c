@@ -13,6 +13,7 @@
 
 #include "actors/common0.h"
 #include "actors/common1.h"
+#include "actors/group0.h"
 #include "make_const_nonconst.h"
 #include "levels/wf/header.h"
 
@@ -41,6 +42,10 @@ const LevelScript level_wf_entry[] = {
 	LOAD_MODEL_FROM_GEO(MODEL_CCM_SNOW_TREE, snow_tree_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_C2_STAIRS, c2_ladders_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_GEM_STAR, gem_star_blue_geo), 
+	LOAD_MODEL_FROM_GEO(MODEL_KOOPY, koopy_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_YOSHY, yoshy_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_TOADY, toady_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BNET,  bnet_geo),
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
 

@@ -125,10 +125,6 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_LIGHT_BEAM,              light_beam_geo),
     LOAD_MODEL_FROM_GEO(MODEL_TARGET2,                 target2_geo),
     LOAD_MODEL_FROM_GEO(MODEL_PLATFORM2D,              platform2d_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_YOSHY,                   yoshy_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_TOADY,                   toady_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_KOOPY,                   koopy_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_BNET,                    bnet_geo),
 #ifdef IA8_30FPS_COINS
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN,             silver_coin_geo),
     LOAD_MODEL_FROM_GEO(MODEL_SILVER_COIN_NO_SHADOW,   silver_coin_no_shadow_geo),
@@ -251,10 +247,6 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_CAR,                     car_geo),
     LOAD_MODEL_FROM_GEO(MODEL_MIXER,                   mixer_geo),
     LOAD_MODEL_FROM_GEO(MODEL_4DCUBE,                  _4dcube_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_KOOPY,                   koopy_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_YOSHY,                   yoshy_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_TOADY,                   toady_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_BNET,                    bnet_geo),
     RETURN(),
 };
 
