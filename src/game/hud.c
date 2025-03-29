@@ -659,7 +659,7 @@ if (gCurrLevelNum != LEVEL_CASTLE_GROUNDS &&
     
     const char *texts[][3] = {
         {"1'30 for 1 Star", "1'10 for 2 Stars", "1'00 for 3 Stars"},
-        {"1'30 for 1 Star", "1'10 for 2 Stars", "1'00 for 3 Stars"},
+        {"1'35 for 1 Star", "1'15 for 2 Stars", "1'05 for 3 Stars"},
         {"1'25 for 1 Star", "1'05 for 2 Stars", "0'55 for 3 Stars"},
         {"1'45 for 1 Star", "1'25 for 2 Stars", "1'15 for 3 Stars"},
         {"BONUS COURSE 1", "0'25 for 1 Star", NULL},

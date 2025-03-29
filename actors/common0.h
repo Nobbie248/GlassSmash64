@@ -297,4 +297,6 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 #include "_4dcube/geo_header.h"
 
+#include "crumbles2/geo_header.h"
+
 #endif

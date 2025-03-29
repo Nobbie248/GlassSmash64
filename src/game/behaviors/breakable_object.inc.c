@@ -41,9 +41,9 @@ void check_and_spawn_star(void) {
 
     if (gCurrLevelNum == LEVEL_WF) {
         if (gTotalBrokenObjects >= 30) {
-            if (slideTime < 1829) { award_star(0); award_star(1); award_star(2); }
-            else if (slideTime < 2129) { award_star(0); award_star(1); }
-            else if (slideTime < 2729) { award_star(0); }
+            if (slideTime < 1979) { award_star(0); award_star(1); award_star(2); }
+            else if (slideTime < 2279) { award_star(0); award_star(1); }
+            else if (slideTime < 2879) { award_star(0); }
             shouldWin = 1;
         }
     }
@@ -126,11 +126,12 @@ void bhv_pots_init(void) {
 #define MODEL_A MODEL_YOSHY
 #define MODEL_B MODEL_TOADY
 #define MODEL_C MODEL_KOOPY
+#define MODEL_D MODEL_POTTY
 
 void bhv_jstatues_init(void) {
     struct Object *obj = gCurrentObject;
     if (gCurrLevelNum == LEVEL_WF && obj->behavior == bhvJStatues) {
-        u16 randVal = random_u16() % 3;
+        u16 randVal = random_u16() % 4;
         
         switch (randVal) {
             case 0:
@@ -141,6 +142,9 @@ void bhv_jstatues_init(void) {
                 break;
             case 2:
                 obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_C];
+                break;
+            case 3:
+                obj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_D];
                 break;
         }
         obj->oFaceAngleYaw = random_u16();
@@ -156,24 +160,8 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
     if ((brick && obj_check_if_collided_with_object(o, brick)) ||
         (brick2 && obj_check_if_collided_with_object(o, brick2)) ||
         (closehit && obj_check_if_collided_with_object(o, closehit)) ||
-        cur_obj_was_attacked_or_ground_pounded()) {
-
-            if (gMarioState == NULL) {
-                return;
-            }
+        cur_obj_was_attacked_or_ground_pounded()) {     
             
-            u32 oldCoins = gMarioState->numCoins;
-            u32 oldBroken = gTotalBrokenObjects;
-            
-            gMarioState->numCoins++;
-            gTotalBrokenObjects++;
-            
-            if (gMarioState->numCoins == oldCoins || gTotalBrokenObjects == oldBroken) {
-                return;
-            }
-            
-        
-        check_and_spawn_star();
         play_sound(sound, gGlobalSoundSource);
 
         if (o->behavior == bhvPileLeaves) {
@@ -188,12 +176,32 @@ void breakable_object_behavior_loop(u32 sound, u32 particleModel, f32 particleSi
                 leafParticle->oVelZ = coss(angle) * (random_float() * 5.0f + 2.0f);
                 leafParticle->oVelY = random_float() * 10.0f + 5.0f;
             }
+        
+            spawn_mist_particles_variable(0, 0, 46.0f);
+            spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
+            obj_mark_for_deletion(o);
+            return;
         } else {
             spawn_mist_particles_variable(0, 0, 46.0f);
             spawn_triangle_break_particles(15, particleModel, particleSize1, 4);
         }
 
+        if (gMarioState == NULL) {
+            return;
+        }
+        
+        u32 oldCoins = gMarioState->numCoins;
+        u32 oldBroken = gTotalBrokenObjects;
+        
+        gMarioState->numCoins++;
+        gTotalBrokenObjects++;
+        
+        if (gMarioState->numCoins == oldCoins || gTotalBrokenObjects == oldBroken) {
+            return;
+        }
+
         obj_mark_for_deletion(o);
+        check_and_spawn_star();
     }
 }
 
@@ -227,6 +235,14 @@ void bhv_falling_leaf_particle(void) {
     }
 }
 
+void bhv_breakable_bubbly_loop(void) {
+    breakable_object_behavior_loop(SOUND_ACTION_HIT_2, MODEL_BUBBLY_POP, 0.8f);
+}
+
+void bhv_breakable_mushy_loop(void) {
+    breakable_object_behavior_loop(SOUND_AIR_BOWSER_SPIT_FIRE, MODEL_MUSHY_PARTICLE, 0.3f);
+}
+
 void bhv_breakable_leaves_loop(void) {
     breakable_object_behavior_loop(SOUND_GENERAL_YOSHI_TALK, MODEL_P_LEAVES, 1.0f);
 }
@@ -241,6 +257,10 @@ void bhv_breakable_lantern_loop(void) {
 
 void bhv_breakable_statue_loop(void) {
     breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES, 2.0f);
+}
+
+void bhv_breakable_statue2_loop(void) {
+    breakable_object_behavior_loop(SOUND_OBJ_SNUFIT_SHOOT, MODEL_CRUMBLES2, 3.0f);
 }
 
 void bhv_breakable_vase_loop(void) {

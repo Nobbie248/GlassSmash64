@@ -1940,13 +1940,20 @@ so come back later.\n\
 
 DEFINE_DIALOG(DIALOG_167,1,4,30,200,
 "Music Credits:\n\
-Anders Enger Jensen - Portal love\n\
-Graeme Norgate - Chinese\n\
-Demoscene Time Machine - Runway\n\
-Graeme Norgate - Aztec Exterior\n\
-JackTheGothGuy - Outrun Isles\n\
-StarPunk - Bonus Stage Remix\n\
-TVGC - Swampy Hollow") 
+Anders Enger Jensen -\n\
+Portal love\n\
+Graeme Norgate -\n\
+Chinese\n\
+Demoscene Time Machine -\n\
+Runway\n\
+Graeme Norgate -\n\
+Aztec Exterior\n\
+JackTheGothGuy -\n\
+Outrun Isles\n\
+StarPunk -\n\
+Bonus Stage Remix\n\
+TVGC -\n\
+Swampy Hollow") 
 
 DEFINE_DIALOG(DIALOG_168,1,5,30,200, "Hey! Knock it off! That's\n\
 the second time you've\n\

@@ -1875,6 +1875,48 @@ if (isCountdown == 1) {
     }
 }
 
+static u32 l = 0;
+static struct Object *kickHitbox = NULL;
+
+if (gMarioState->action != l) {
+    if (gMarioState->action == ACT_WALL_KICK_AIR ||
+        gMarioState->action == ACT_JUMP_KICK ||
+        gMarioState->action == ACT_SLIDE_KICK ||
+        gMarioState->action == ACT_HOLD_FLUTTER_KICK ||
+        gMarioState->action == ACT_FLUTTER_KICK) {
+
+        kickHitbox = spawn_object_relative(0, 0, 50, 100, gMarioState->marioObj, MODEL_CLOSE_HIT, bhvClosehit);
+    }
+}
+
+l = gMarioState->action;
+
+if (kickHitbox != NULL) {
+    float distanceInFront = 100.0f;
+    float marioYaw = gMarioState->marioObj->oFaceAngleYaw * (M_PI / 0x8000);
+    float offsetX = distanceInFront * sinf(marioYaw);
+    float offsetZ = distanceInFront * cosf(marioYaw);
+
+    kickHitbox->oPosX = gMarioState->marioObj->oPosX + offsetX;
+    kickHitbox->oPosY = gMarioState->marioObj->oPosY + 10;
+    kickHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
+
+    if (!(gMarioState->action & ACT_FLAG_AIR) ||
+        (gMarioState->action != ACT_WALL_KICK_AIR &&
+         gMarioState->action != ACT_JUMP_KICK &&
+         gMarioState->action != ACT_SLIDE_KICK &&
+         gMarioState->action != ACT_HOLD_FLUTTER_KICK &&
+         gMarioState->action != ACT_FLUTTER_KICK)) {
+        
+        obj_mark_for_deletion(kickHitbox);
+        kickHitbox = NULL;
+    }
+}
+
+if (gMarioState->action == ACT_DEBUG_FREE_MOVE) {
+    obj_set_model(gMarioState->marioObj, MODEL_NONE);
+}
+
 if (gCurrLevelNum == LEVEL_BBH || gCurrLevelNum == LEVEL_HMC || gCurrLevelNum == LEVEL_LLL) {
     struct Controller *c = gMarioState->controller;
     c->buttonPressed &= ~(U_CBUTTONS | D_CBUTTONS | L_CBUTTONS | R_CBUTTONS | R_TRIG);    
