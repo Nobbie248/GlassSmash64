@@ -64,6 +64,7 @@ extern Texture *main_hud_camera_lut[6] __attribute__((section(".data")));
 extern Gfx dl_shade_screen_begin[];
 extern Gfx dl_shade_screen_end[];
 extern Gfx dl_draw_text_bg_box[];
+extern Gfx dl_draw_text_bg_box2[];
 extern Gfx dl_draw_triangle[];
 extern void *seg2_dialog_table[];
 extern Gfx dl_billboard_num_0[];

@@ -647,10 +647,16 @@
 #define MODEL_MIXER 0X125
 #define MODEL_4DCUBE 0X126
 
-// c2 statues
+// c2
 #define MODEL_YOSHY 0x127
 #define MODEL_TOADY 0x128
 #define MODEL_KOOPY 0x129
-#define MODEL_BNET  0x130
+#define MODEL_BNET 0x130
+#define MODEL_CRUMBLES2 0xf6
+#define MODEL_POTTY 0xf7
+#define MODEL_MUSHY 0xf8
+#define MODEL_MUSHY_PARTICLE 0xf9
+#define MODEL_BUBBLY 0xfa
+#define MODEL_BUBBLY_POP 0xfb
 
 #endif // MODEL_IDS_H

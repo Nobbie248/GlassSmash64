@@ -259,7 +259,7 @@ u8 bnet_Material19_ia16[] = {
 	
 };
 
-Vtx bnet_Circle_001_mesh_layer_5_vtx_0[70] = {
+Vtx bnet_Circle_001_mesh_layer_4_vtx_0[70] = {
 	{{ {1, 65, 143}, 0, {231, -124}, {255, 153, 79, 255} }},
 	{{ {125, 65, 72}, 0, {231, 900}, {255, 153, 79, 255} }},
 	{{ {1, 48, 0}, 0, {663, 900}, {155, 93, 48, 255} }},
@@ -332,8 +332,8 @@ Vtx bnet_Circle_001_mesh_layer_5_vtx_0[70] = {
 	{{ {-103, 16, -60}, 0, {0, 1024}, {155, 93, 48, 255} }},
 };
 
-Gfx bnet_Circle_001_mesh_layer_5_tri_0[] = {
-	gsSPVertex(bnet_Circle_001_mesh_layer_5_vtx_0 + 0, 16, 0),
+Gfx bnet_Circle_001_mesh_layer_4_tri_0[] = {
+	gsSPVertex(bnet_Circle_001_mesh_layer_4_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 2, 0),
 	gsSP1Triangle(5, 6, 2, 0),
@@ -341,7 +341,7 @@ Gfx bnet_Circle_001_mesh_layer_5_tri_0[] = {
 	gsSP1Triangle(9, 10, 2, 0),
 	gsSP1Triangle(11, 12, 2, 0),
 	gsSP1Triangle(13, 14, 15, 0),
-	gsSPVertex(bnet_Circle_001_mesh_layer_5_vtx_0 + 16, 15, 0),
+	gsSPVertex(bnet_Circle_001_mesh_layer_4_vtx_0 + 16, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
 	gsSP1Triangle(3, 5, 6, 0),
@@ -349,7 +349,7 @@ Gfx bnet_Circle_001_mesh_layer_5_tri_0[] = {
 	gsSP1Triangle(7, 9, 10, 0),
 	gsSP1Triangle(11, 12, 13, 0),
 	gsSP1Triangle(11, 13, 14, 0),
-	gsSPVertex(bnet_Circle_001_mesh_layer_5_vtx_0 + 31, 16, 0),
+	gsSPVertex(bnet_Circle_001_mesh_layer_4_vtx_0 + 31, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
 	gsSP1Triangle(4, 5, 6, 0),
@@ -358,7 +358,7 @@ Gfx bnet_Circle_001_mesh_layer_5_tri_0[] = {
 	gsSP1Triangle(8, 10, 11, 0),
 	gsSP1Triangle(12, 13, 14, 0),
 	gsSP1Triangle(12, 14, 15, 0),
-	gsSPVertex(bnet_Circle_001_mesh_layer_5_vtx_0 + 47, 16, 0),
+	gsSPVertex(bnet_Circle_001_mesh_layer_4_vtx_0 + 47, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
 	gsSP1Triangle(4, 5, 6, 0),
@@ -367,7 +367,7 @@ Gfx bnet_Circle_001_mesh_layer_5_tri_0[] = {
 	gsSP1Triangle(8, 10, 11, 0),
 	gsSP1Triangle(12, 13, 14, 0),
 	gsSP1Triangle(12, 14, 15, 0),
-	gsSPVertex(bnet_Circle_001_mesh_layer_5_vtx_0 + 63, 7, 0),
+	gsSPVertex(bnet_Circle_001_mesh_layer_4_vtx_0 + 63, 7, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 3, 2, 0),
 	gsSP1Triangle(3, 4, 2, 0),
@@ -402,9 +402,9 @@ Gfx mat_revert_bnet_f3dlite_material_026[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx bnet_Circle_001_mesh_layer_5[] = {
+Gfx bnet_Circle_001_mesh_layer_4[] = {
 	gsSPDisplayList(mat_bnet_f3dlite_material_026),
-	gsSPDisplayList(bnet_Circle_001_mesh_layer_5_tri_0),
+	gsSPDisplayList(bnet_Circle_001_mesh_layer_4_tri_0),
 	gsSPDisplayList(mat_revert_bnet_f3dlite_material_026),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),

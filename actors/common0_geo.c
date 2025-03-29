@@ -66,3 +66,4 @@
 #include "car/geo.inc.c"
 #include "mixer/geo.inc.c"
 #include "_4dcube/geo.inc.c"
+#include "crumbles2/geo.inc.c"

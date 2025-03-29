@@ -53,8 +53,8 @@ void bhv_red_coin_radar_loop() {
 
     const BehaviorScript *red_coin_targets[] = {
         bhvAztecPots, bhvBarrel, bhvKite, bhvDiamond, bhvOogaboogas,
-        bhvChest, bhvBottle, bhvBallsaver, bhvPileLeaves, bhvVase,
-        bhvStatue, bhvLantern, bhvGlass
+        bhvChest, bhvBottle, bhvBallsaver, bhvVase,bhvStatue, bhvLantern,
+        bhvGlass, bhvBubbly, bhvMushy, bhvBnet,bhvJStatues
     };
 
     struct Object *red = cur_obj_find_nearest_object_with_behaviors_y_biased(red_coin_targets, sizeof(red_coin_targets) / sizeof(red_coin_targets[0]));

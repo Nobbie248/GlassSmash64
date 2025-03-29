@@ -1,0 +1,14 @@
+extern const GeoLayout potty_geo[];
+extern Lights1 potty_f3dlite_material_lights;
+extern Lights1 potty_f3dlite_material_001_lights;
+extern u8 potty__4EC94777400FC5C7B36464C27E84F77A_ci4[];
+extern u8 potty__4EC94777400FC5C7B36464C27E84F77A_pal_rgba16[];
+extern Vtx potty_potty_mesh_layer_1_vtx_0[9];
+extern Gfx potty_potty_mesh_layer_1_tri_0[];
+extern Vtx potty_potty_mesh_layer_1_vtx_1[111];
+extern Gfx potty_potty_mesh_layer_1_tri_1[];
+extern Gfx mat_potty_f3dlite_material[];
+extern Gfx mat_revert_potty_f3dlite_material[];
+extern Gfx mat_potty_f3dlite_material_001[];
+extern Gfx mat_revert_potty_f3dlite_material_001[];
+extern Gfx potty_potty_mesh_layer_1[];

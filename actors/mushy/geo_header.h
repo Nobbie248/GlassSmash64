@@ -1,0 +1,13 @@
+extern const GeoLayout mushy_geo[];
+extern u8 mushy_purp2_ci4[];
+extern u8 mushy_purp2_pal_rgba16[];
+extern u8 mushy_gfhdfghdgfhd2_i8[];
+extern Vtx mushy_mushy_mesh_layer_1_vtx_0[41];
+extern Gfx mushy_mushy_mesh_layer_1_tri_0[];
+extern Vtx mushy_mushy_mesh_layer_1_vtx_1[48];
+extern Gfx mushy_mushy_mesh_layer_1_tri_1[];
+extern Gfx mat_mushy_f3dlite_material_003[];
+extern Gfx mat_revert_mushy_f3dlite_material_003[];
+extern Gfx mat_mushy_f3dlite_material_004[];
+extern Gfx mat_revert_mushy_f3dlite_material_004[];
+extern Gfx mushy_mushy_mesh_layer_1[];

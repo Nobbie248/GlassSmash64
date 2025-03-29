@@ -1,0 +1,13 @@
+extern const GeoLayout mushy_particle_geo[];
+extern u8 mushy_particle_purp2_ci4[];
+extern u8 mushy_particle_purp2_pal_rgba16[];
+extern u8 mushy_particle_gfhdfghdgfhd2_i8[];
+extern Vtx mushy_particle_mushy_particle_mesh_layer_1_vtx_0[7];
+extern Gfx mushy_particle_mushy_particle_mesh_layer_1_tri_0[];
+extern Vtx mushy_particle_mushy_particle_mesh_layer_1_vtx_1[12];
+extern Gfx mushy_particle_mushy_particle_mesh_layer_1_tri_1[];
+extern Gfx mat_mushy_particle_f3dlite_material_005[];
+extern Gfx mat_revert_mushy_particle_f3dlite_material_005[];
+extern Gfx mat_mushy_particle_f3dlite_material_006[];
+extern Gfx mat_revert_mushy_particle_f3dlite_material_006[];
+extern Gfx mushy_particle_mushy_particle_mesh_layer_1[];

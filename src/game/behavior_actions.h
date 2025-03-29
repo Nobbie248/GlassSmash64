@@ -560,6 +560,7 @@ void bhv_brick_spawner_update(void);
 void bhv_breakable_glass_loop(void);
 void bhv_breakable_lantern_loop(void);
 void bhv_breakable_statue_loop(void);
+void bhv_breakable_statue2_loop(void);
 void bhv_breakable_vase_loop(void);
 void bhv_breakable_target_loop(void);
 void bhv_close_hit_loop(void);
@@ -577,6 +578,8 @@ void bhv_breakable_oogaboogas_loop(void);
 void bhv_breakable_bottle_loop(void);
 void bhv_breakable_kite_loop(void);
 void bhv_jstatues_init(void);
+void bhv_breakable_mushy_loop(void);
+void bhv_breakable_bubbly_loop(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 

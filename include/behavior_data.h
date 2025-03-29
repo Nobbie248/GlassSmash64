@@ -596,6 +596,8 @@ extern const BehaviorScript bhv4dcube[];
 extern const BehaviorScript bhvPlatform2dupdown[];
 extern const BehaviorScript bhvJStatues[];
 extern const BehaviorScript bhvBnet[];
+extern const BehaviorScript bhvMushy[];
+extern const BehaviorScript bhvBubbly[];
 // extern const BehaviorScript bhvPalmLeaf[];
 
 #endif // BEHAVIOR_DATA_H

@@ -6421,13 +6421,13 @@ const BehaviorScript bhvJStatues[] = {
     SET_INT(oIntangibleTimer, 0),
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-    LOAD_COLLISION_DATA(koopy_collision),
+    LOAD_COLLISION_DATA(jstatues_collision),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 135, /*Height*/ 450, /*Downwards offset*/ 50),
     CALL_NATIVE(bhv_jstatues_init),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
-        CALL_NATIVE(bhv_breakable_pot_loop),
+        CALL_NATIVE(bhv_breakable_statue2_loop),
     END_LOOP(),
 };
 
@@ -6699,10 +6699,42 @@ const BehaviorScript bhvBnet[] = {
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(bnet_collision),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 80, /*Downwards offset*/ 20),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 100, /*Downwards offset*/ -20),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
         CALL_NATIVE(bhv_breakable_oogaboogas_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvMushy[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(mushy_collision),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 150, /*Downwards offset*/ -20),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+        CALL_NATIVE(bhv_breakable_mushy_loop),
+    END_LOOP(),
+};
+
+extern void bhv_bubbly_loop();
+const BehaviorScript bhvBubbly[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_FLOAT(oCollisionDistance, 2000),
+    SET_FLOAT(oDrawingDistance, 30000),
+    SET_INT(oIntangibleTimer, 0),
+    SET_INT(oInteractType, INTERACT_COIN),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 250, /*Downwards offset*/ 90),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_bubbly_loop),
+        CALL_NATIVE(bhv_breakable_bubbly_loop),
     END_LOOP(),
 };

@@ -128,3 +128,14 @@ void bhv_car_loop(void) {
     o->oMoveAngleYaw += o->oAngleVelYaw;
     o->oPosY = o->oHomeY;
 }
+
+void bhv_bubbly_loop(void) {
+    f32 scaleY;
+    s16 t = o->oTimer % 64;
+    f32 angle = t * 1024;
+    scaleY = 1.0f + 0.3f * sins(angle);
+
+    o->header.gfx.scale[0] = 1.0f;
+    o->header.gfx.scale[1] = scaleY;
+    o->header.gfx.scale[2] = 1.0f;
+}

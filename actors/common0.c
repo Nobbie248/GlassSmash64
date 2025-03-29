@@ -133,3 +133,4 @@ UNUSED static const u64 binid_18 = 18;
 #include "mixer/collision.inc.c"
 #include "_4dcube/collision.inc.c"
 #include "_4dcube/model.inc.c"
+#include "crumbles2/model.inc.c"

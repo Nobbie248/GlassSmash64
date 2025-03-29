@@ -420,4 +420,22 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "bnet/geo_header.h"
 
+#include "jstatues/collision_header.h"
+
+#include "potty/geo_header.h"
+
+#include "jstatues/geo_header.h"
+
+#include "mushy/geo_header.h"
+
+#include "mushy/collision_header.h"
+
+#include "mushy_particle/geo_header.h"
+
+#include "bubbly/geo_header.h"
+
+#include "bubblypop/geo_header.h"
+
+#include "bubbly_billboard/geo_header.h"
+
 #endif
