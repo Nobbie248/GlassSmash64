@@ -6699,7 +6699,7 @@ const BehaviorScript bhvBnet[] = {
     SET_INT(oInteractType, INTERACT_COIN),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     LOAD_COLLISION_DATA(bnet_collision),
-    SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 100, /*Downwards offset*/ -20),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 170, /*Height*/ 120, /*Downwards offset*/ -20),
     SET_HOME(),
     BEGIN_LOOP(),
         CALL_NATIVE(load_object_collision_model),
