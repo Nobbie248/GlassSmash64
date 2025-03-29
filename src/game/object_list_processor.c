@@ -466,8 +466,7 @@ void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
         script = segmented_to_virtual(spawnInfo->behaviorScript);
 
         // If the object was previously killed/collected, don't respawn it
-        if ((spawnInfo->behaviorArg & (RESPAWN_INFO_DONT_RESPAWN << 8))
-            != (RESPAWN_INFO_DONT_RESPAWN << 8)) {
+        
             object = create_object(script);
 
             // Behavior parameters are often treated as four separate bytes, but
@@ -500,7 +499,7 @@ void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
             vec3s_to_vec3i(&object->oMoveAngleVec, spawnInfo->startAngle);
 
             object->oFloorHeight = find_floor(object->oPosX, object->oPosY, object->oPosZ, &object->oFloor);
-        }
+        
 
         spawnInfo = spawnInfo->next;
     }
