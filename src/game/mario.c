@@ -1879,8 +1879,7 @@ static u32 l = 0;
 static struct Object *kickHitbox = NULL;
 
 if (gMarioState->action != l) {
-    if (gMarioState->action == ACT_WALL_KICK_AIR ||
-        gMarioState->action == ACT_JUMP_KICK ||
+    if (gMarioState->action == ACT_JUMP_KICK ||
         gMarioState->action == ACT_SLIDE_KICK ||
         gMarioState->action == ACT_HOLD_FLUTTER_KICK ||
         gMarioState->action == ACT_FLUTTER_KICK) {
@@ -1902,8 +1901,7 @@ if (kickHitbox != NULL) {
     kickHitbox->oPosZ = gMarioState->marioObj->oPosZ + offsetZ;
 
     if (!(gMarioState->action & ACT_FLAG_AIR) ||
-        (gMarioState->action != ACT_WALL_KICK_AIR &&
-         gMarioState->action != ACT_JUMP_KICK &&
+        (gMarioState->action != ACT_JUMP_KICK &&
          gMarioState->action != ACT_SLIDE_KICK &&
          gMarioState->action != ACT_HOLD_FLUTTER_KICK &&
          gMarioState->action != ACT_FLUTTER_KICK)) {
