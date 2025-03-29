@@ -24,6 +24,7 @@
 
 #include "hacktice/level_reset.h"
 #include "hacktice/main.h"
+static u8 dummyRespawnInfo = 0;
 
 
 /**
@@ -396,9 +397,9 @@ s32 unload_deactivated_objects_in_list(struct ObjectNode *objList) {
         if ((gCurrentObject->activeFlags & ACTIVE_FLAG_ACTIVE) != ACTIVE_FLAG_ACTIVE) {
             // Prevent object from respawning after exiting and re-entering the
             // area
-            if (!(gCurrentObject->oFlags & OBJ_FLAG_PERSISTENT_RESPAWN)) {
-                set_object_respawn_info_bits(gCurrentObject, RESPAWN_INFO_DONT_RESPAWN);
-            }
+            // if (!(gCurrentObject->oFlags & OBJ_FLAG_PERSISTENT_RESPAWN)) {
+            //     set_object_respawn_info_bits(gCurrentObject, RESPAWN_INFO_DONT_RESPAWN);
+            // }
 
             unload_object(gCurrentObject);
         }
@@ -502,6 +503,8 @@ void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
         
 
         spawnInfo = spawnInfo->next;
+        object->respawnInfo = dummyRespawnInfo;
+        object->respawnInfoPointer = &dummyRespawnInfo;
     }
 }
 
