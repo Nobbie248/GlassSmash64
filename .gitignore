@@ -51,3 +51,4 @@ build/*
 *.dump
 *.mio0
 *.z64
+blends/ 
