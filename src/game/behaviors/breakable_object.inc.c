@@ -367,3 +367,5 @@ void pauseinputscore(void) {
 
     save_file_do_save(gCurrSaveFileNum - 1);
 }
+
+//test push
